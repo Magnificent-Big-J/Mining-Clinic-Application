@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Administrator;
+use App\Http\Middleware\Doctor;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -43,6 +45,14 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+        'admin' => [
+            'web',
+            Administrator::class
+        ],
+        'doctor' => [
+            'web',
+            Doctor::class,
+        ]
     ];
 
     /**

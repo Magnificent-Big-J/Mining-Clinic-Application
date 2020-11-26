@@ -20,125 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf369e2a-ba3c-4bca-8973-20744a534654" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/css/bootstrap-datetimepicker.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/fonts/MaterialIcons-Regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/fonts/MaterialIcons-Regular.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/fonts/MaterialIcons-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/fonts/MaterialIcons-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-05.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-06.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-07.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-08.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-09.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-thumb-01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-thumb-02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-thumb-03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-thumb-04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-thumb-05.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-thumb-06.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-thumb-07.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-thumb-08.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-thumb-09.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/doctors/doctor-thumb-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/features/feature-01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/features/feature-02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/features/feature-03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/features/feature-04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/features/feature-05.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/features/feature-06.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/features/feature.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/footer-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/icon-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/icon-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/icon-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/img-01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/img-02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/img-03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/img-04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/location.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/login-banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/patients/patient9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/search-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/specialities/specialities-01.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/specialities/specialities-02.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/specialities/specialities-03.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/specialities/specialities-04.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/specialities/specialities-05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/img/video-call.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/js/bootstrap-datetimepicker.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/js/circle-progress.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/js/moment.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/js/profile-settings.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/js/slick.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/dropzone/dropzone.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/dropzone/dropzone.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fancybox/jquery.fancybox.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fancybox/jquery.fancybox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/css/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/css/fontawesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-brands-400.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-brands-400d41d.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-regular-400.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-regular-400d41d.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-solid-900.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fontawesome/webfonts/fa-solid-900d41d.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fullcalendar/fullcalendar.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fullcalendar/fullcalendar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/fullcalendar/jquery.fullcalendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/jquery-ui/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/select2/css/select2.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/select2/js/select2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/theia-sticky-sidebar/ResizeSensor.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/doctor/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/doctor/appointments/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/doctor/modals/appointment.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/doctor.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/doctorNavbar.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/doctorSidebar.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/doctor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +165,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/doctors" />
+    <property name="last_opened_file_path" value="/var/www/maid4u" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -307,7 +193,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606406644162</updated>
       <workItem from="1606406645265" duration="2774000" />
-      <workItem from="1606416002216" duration="2817000" />
+      <workItem from="1606416002216" duration="3283000" />
     </task>
     <servers />
   </component>
@@ -330,13 +216,13 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1013" y="477" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606406804862" />
-    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606415979800">
+    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606418911537">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606415979800" />
-    <state x="1098" y="645" width="354" height="141" key="NewPhpFileDialog" timestamp="1606418018195">
+    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606418911537" />
+    <state x="1098" y="645" width="354" height="141" key="NewPhpFileDialog" timestamp="1606418947724">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1098" y="645" width="354" height="141" key="NewPhpFileDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606418018195" />
+    <state x="1098" y="645" width="354" height="141" key="NewPhpFileDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606418947724" />
   </component>
 </project>
