@@ -20,6 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('test', function (){
+Route::get('hello', function (){
     return view('admin.patients.index');
+});
+Route::get('test', function (){
+    return view('doctor.appointments.index');
 });

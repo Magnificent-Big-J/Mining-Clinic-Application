@@ -69,7 +69,7 @@
 
 <!-- Custom JS -->
 <script  src="{{asset('admin/assets/js/script.js')}}"></script>
-
+@yield('scripts')
 </body>
 
 <!-- Mirrored from dreamguys.co.in/demo/doccure/admin/appointment-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:49 GMT -->
