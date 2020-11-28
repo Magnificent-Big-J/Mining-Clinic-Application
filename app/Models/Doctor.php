@@ -31,7 +31,7 @@ class Doctor extends Model
 {
     protected $fillable = ['entity_name', 'entity_status', 'reg_number',
         'email', 'practice_number', 'vat_number', 'tele_number', 'fax_number',
-        '$address', 'user_id', 'specialist_id', 'stock_scheme'];
+        '$address', 'user_id', 'stock_scheme'];
 
     public function appointments()
     {
@@ -48,5 +48,9 @@ class Doctor extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function specialists()
+    {
+        return $this->belongsToMany(Specialist::class);
     }
 }

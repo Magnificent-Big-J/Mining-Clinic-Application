@@ -25,7 +25,6 @@ class CreateDoctorsTable extends Migration
             $table->string('fax_number')->nullable();
             $table->string('address');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('specialist_id');
             $table->string('stock_scheme');
             $table->timestamps();
         });
