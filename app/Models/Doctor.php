@@ -53,4 +53,8 @@ class Doctor extends Model
     {
         return $this->belongsToMany(Specialist::class);
     }
+    public function admins()
+    {
+        return $this->belongsToMany(Admin::class);
+    }
 }
