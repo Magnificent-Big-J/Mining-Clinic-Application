@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
-use PhpParser\Comment\Doc;
+use Illuminate\Support\Collection;
 
 /**
  * Class CaseManagement
@@ -19,6 +19,7 @@ use PhpParser\Comment\Doc;
  * @property Doctor $doctor
  * @property User $user
  * @property Patient $patient
+ * @property CaseSession[]| Collection $caseSessions
  */
 
 class CaseManagement extends Model
@@ -46,5 +47,9 @@ class CaseManagement extends Model
     public function patient()
     {
         return $this->belongsTo(Patient::class);
+    }
+    public function caseSessions()
+    {
+        return $this->hasMany(CaseSession::class);
     }
 }

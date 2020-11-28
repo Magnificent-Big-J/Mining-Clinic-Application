@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -13,6 +14,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property date $case_session_date
  * @property int $status
  * @property int $user_id
+ * @property CaseManagement $caseManagement
+ * @property User $user
  */
 class CaseSession extends Model
 {
@@ -27,4 +30,13 @@ class CaseSession extends Model
         self::NEW_STATUS => 'New',
         self::FOLLOW_UP => 'Follow up'
     ];
+
+    public function caseManagement()
+    {
+        return $this->belongsTo(CaseManagement::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
