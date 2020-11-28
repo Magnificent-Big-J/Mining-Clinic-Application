@@ -13,10 +13,24 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $address_type_id
  * @property int $patient_id
  * @property int $province_id
+ * @property AddressType $addressType
  */
 class Address extends Model
 {
     protected $fillable = [
         'address_1', 'address_2', 'postal_code', 'address_type_id', 'patient_id', 'province_id'
     ];
+
+    public function addressType()
+    {
+        return $this->belongsTo(AddressType::class);
+    }
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
 }
