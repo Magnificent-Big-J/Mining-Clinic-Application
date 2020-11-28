@@ -26,4 +26,8 @@ class Patient extends Model
         'date_of_birth', 'identify_number', 'is_south_african', 'work_number',
         'landline', 'cell_number', 'has_medical_aid'
         ];
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
 }
