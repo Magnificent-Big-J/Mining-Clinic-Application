@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Collection;
 
 /**
  * Class Doctor
@@ -20,10 +21,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $user_id
  * @property int $specialist_id
  * @property string $stock_scheme
+ * @property Appointment[]|Collection $appointments
  */
 class Doctor extends Model
 {
     protected $fillable = ['entity_name', 'entity_status', 'reg_number',
         'email', 'practice_number', 'vat_number', 'tele_number', 'fax_number',
         '$address', 'user_id', 'specialist_id', 'stock_scheme'];
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }

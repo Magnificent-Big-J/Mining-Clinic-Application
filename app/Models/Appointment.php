@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property date $appointment_date
  * @property time $appointment_time
  * @property int $status
+ * @property Doctor $doctor
+ * @property Patient $patient
  */
 class Appointment extends Model
 {
@@ -28,4 +30,13 @@ class Appointment extends Model
     protected $fillable = [
         'patient_id', 'doctor_id', 'appointment_date', 'appointment_time', 'status'
     ];
+
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
 }

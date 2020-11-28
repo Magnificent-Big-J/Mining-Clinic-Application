@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Collection;
 
 /**
  * Class Patient
@@ -20,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $cell_number
  * @property bool $has_medical_aid
  * @property Address $addresses
+ * @property Appointment[]|Collection $appointments
  */
 class Patient extends Model
 {
@@ -27,8 +29,13 @@ class Patient extends Model
         'date_of_birth', 'identify_number', 'is_south_african', 'work_number',
         'landline', 'cell_number', 'has_medical_aid'
         ];
+
     public function addresses()
     {
         return $this->hasMany(Address::class);
+    }
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
     }
 }
