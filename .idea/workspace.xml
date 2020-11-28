@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf369e2a-ba3c-4bca-8973-20744a534654" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Models/Prescription.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,17 +165,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="/var/www/maid4u" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/layouts" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/doctors" />
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Models" />
+      <recent name="$PROJECT_DIR$/resources/views/layouts" />
     </key>
   </component>
   <component name="RunManager">
@@ -195,7 +195,8 @@
       <updated>1606406644162</updated>
       <workItem from="1606406645265" duration="2774000" />
       <workItem from="1606416002216" duration="3408000" />
-      <workItem from="1606419447240" duration="1053000" />
+      <workItem from="1606419447240" duration="1509000" />
+      <workItem from="1606545151970" duration="11532000" />
     </task>
     <servers />
   </component>
@@ -219,13 +220,21 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1013" y="477" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606406804862" />
-    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606419408995">
+    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606548562581">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606419408995" />
+    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606548562581" />
     <state x="1098" y="645" width="354" height="141" key="NewPhpFileDialog" timestamp="1606418947724">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1098" y="645" width="354" height="141" key="NewPhpFileDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606418947724" />
+    <state x="624" y="238" key="run.anything.popup" timestamp="1606569755545">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="624" y="238" key="run.anything.popup/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606569755545" />
+    <state x="199" y="233" width="672" height="678" key="search.everywhere.popup" timestamp="1606571715017">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="199" y="233" width="672" height="678" key="search.everywhere.popup/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606571715017" />
   </component>
 </project>
