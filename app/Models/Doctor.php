@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use phpDocumentor\Reflection\Types\Collection;
 
@@ -24,6 +25,7 @@ use phpDocumentor\Reflection\Types\Collection;
  * @property Appointment[]|Collection $appointments
  * @property BankingDetail $banking
  * @property CaseManagement[]| Collection $caseManagements
+ * @property User $user
  */
 class Doctor extends Model
 {
@@ -42,5 +44,9 @@ class Doctor extends Model
     public function caseManagements()
     {
         return $this->hasMany(CaseManagement::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

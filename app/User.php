@@ -5,6 +5,7 @@ namespace App;
 use App\Models\Admin;
 use App\Models\CaseManagement;
 use App\Models\CaseSession;
+use App\Models\Doctor;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -50,5 +51,9 @@ class User extends Authenticatable
     public function caseSessions()
     {
         return $this->hasMany(CaseSession::class);
+    }
+    public function doctors()
+    {
+        return $this->hasMany(Doctor::class);
     }
 }
