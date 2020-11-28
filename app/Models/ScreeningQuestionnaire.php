@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 /**
  * Class ScreeningQuestionnaire
@@ -10,8 +11,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $name
  * @property int  $screening_type_id
+ * @property Screening[]|Collection $screening
  */
 class ScreeningQuestionnaire extends Model
 {
     protected $fillable = ['name', 'screening_type_id'];
+
+    public function screening()
+    {
+        return $this->hasMany(Screening::class);
+    }
 }

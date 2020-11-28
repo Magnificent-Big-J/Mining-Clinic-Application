@@ -17,6 +17,7 @@ use Illuminate\Support\Collection;
  * @property Doctor $doctor
  * @property Patient $patient
  * @property AppointmentAssessment[]|Collection $appointmentAssessment
+ * @property Screening[]|Collection $screening
  */
 class Appointment extends Model
 {
@@ -44,5 +45,9 @@ class Appointment extends Model
     public function appointmentAssessment()
     {
         return $this->hasMany(AppointmentAssessment::class);
+    }
+    public function screening()
+    {
+        return $this->hasMany(Screening::class);
     }
 }
