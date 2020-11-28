@@ -14,6 +14,7 @@ use Illuminate\Support\Collection;
  * @property date $payment_date
  * @property int $status
  * @property AppointmentAssessment[]|Collection $appointmentAssessment
+ * @property Claim[]|Collection $claims
  */
 class Payment extends Model
 {
@@ -43,5 +44,9 @@ class Payment extends Model
     public function appointmentAssessment()
     {
         return $this->hasMany(AppointmentAssessment::class);
+    }
+    public function claims()
+    {
+        return $this->hasMany(Claim::class);
     }
 }

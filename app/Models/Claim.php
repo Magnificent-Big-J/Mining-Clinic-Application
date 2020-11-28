@@ -36,4 +36,9 @@ class Claim extends Model
         self::NO_FUND_STATUS => 'No funds'
     ];
 
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
+
 }
