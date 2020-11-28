@@ -19,4 +19,9 @@ class BankingDetail extends Model
     protected $fillable = [
         'bank_name', 'acc_number', 'branch_code', 'acc_holder', 'doctor_id'
     ];
+
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
 }

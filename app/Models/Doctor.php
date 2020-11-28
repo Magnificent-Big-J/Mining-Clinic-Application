@@ -22,14 +22,20 @@ use phpDocumentor\Reflection\Types\Collection;
  * @property int $specialist_id
  * @property string $stock_scheme
  * @property Appointment[]|Collection $appointments
+ * @property BankingDetail $banking
  */
 class Doctor extends Model
 {
     protected $fillable = ['entity_name', 'entity_status', 'reg_number',
         'email', 'practice_number', 'vat_number', 'tele_number', 'fax_number',
         '$address', 'user_id', 'specialist_id', 'stock_scheme'];
+
     public function appointments()
     {
         return $this->hasMany(Appointment::class);
+    }
+    public function banking()
+    {
+        return $this->hasOne(BankingDetail::class);
     }
 }
