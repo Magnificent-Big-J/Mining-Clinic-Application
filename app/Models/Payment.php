@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 /**
  * Class Payment
@@ -12,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property float $amount
  * @property date $payment_date
  * @property int $status
+ * @property AppointmentAssessment[]|Collection $appointmentAssessment
  */
 class Payment extends Model
 {
@@ -38,4 +40,8 @@ class Payment extends Model
       self::FAILED_STATUS => 'Failed',
       self::DECLINED_STATUS => 'Declined'
     ];
+    public function appointmentAssessment()
+    {
+        return $this->hasMany(AppointmentAssessment::class);
+    }
 }

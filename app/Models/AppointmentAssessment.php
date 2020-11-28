@@ -29,4 +29,8 @@ class AppointmentAssessment extends Model
     {
         return $this->belongsTo(Appointment::class);
     }
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
 }
