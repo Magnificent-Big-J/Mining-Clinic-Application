@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $user_id
  * @property CaseManagement $caseManagement
  * @property User $user
+ * @property Prescription $prescription
  */
 class CaseSession extends Model
 {
@@ -38,5 +39,9 @@ class CaseSession extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function prescription()
+    {
+        return $this->hasMany(Prescription::class);
     }
 }

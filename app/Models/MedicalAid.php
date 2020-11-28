@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $plan
  * @property int $medical_aid_status
  * @property int $patient_id
+ * @property Patient $patient
  */
 class MedicalAid extends Model
 {
@@ -24,4 +25,9 @@ class MedicalAid extends Model
       self::ACTIVE_STATUS => 'Active',
       self::SUSPENDED => 'Suspended'
     ];
+
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
 }

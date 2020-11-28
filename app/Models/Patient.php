@@ -23,6 +23,7 @@ use phpDocumentor\Reflection\Types\Collection;
  * @property Address $addresses
  * @property Appointment[]|Collection $appointments
  * @property CaseManagement[]| Collection $caseManagements
+ * @property MedicalAid[]|Collection $medicalAid
  */
 class Patient extends Model
 {
@@ -42,5 +43,9 @@ class Patient extends Model
     public function caseManagements()
     {
         return $this->hasMany(CaseManagement::class);
+    }
+    public function medicalAid()
+    {
+        return $this->hasMany(MedicalAid::class);
     }
 }
