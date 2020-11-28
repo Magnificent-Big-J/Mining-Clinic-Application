@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Province
  * @package App
  * @property string $name
+ * @property Address $addresses
  */
 class Province extends Model
 {

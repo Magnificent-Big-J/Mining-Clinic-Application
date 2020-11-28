@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $landline
  * @property string $cell_number
  * @property bool $has_medical_aid
+ * @property Address $addresses
  */
 class Patient extends Model
 {

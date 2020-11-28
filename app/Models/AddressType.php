@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
  * Class AddressType
  * @package App\Models
  * @property int $id
- * @property $name
+ * @property string $name
+ * @property Address $addresses
  */
 class AddressType extends Model
 {
