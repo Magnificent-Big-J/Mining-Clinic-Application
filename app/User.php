@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Admin;
+use App\Models\CaseManagement;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -40,5 +41,9 @@ class User extends Authenticatable
     public function admins()
     {
         return $this->hasMany(Admin::class);
+    }
+    public function caseManagements()
+    {
+        return $this->hasMany(CaseManagement::class);
     }
 }

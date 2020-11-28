@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Comment\Doc;
 
 /**
  * Class CaseManagement
@@ -14,6 +16,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property date $case_date
  * @property int $user_id
  * @property int $status
+ * @property Doctor $doctor
+ * @property User $user
+ * @property Patient $patient
  */
 
 class CaseManagement extends Model
@@ -29,4 +34,17 @@ class CaseManagement extends Model
       self::OPEN_STATUS => 'Open',
       self::CLOSE_STATUS => 'Close'
     ];
+
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function patient()
+    {
+        return $this->belongsTo(Patient::class);
+    }
 }
