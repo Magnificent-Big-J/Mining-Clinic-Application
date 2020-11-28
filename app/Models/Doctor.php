@@ -4,6 +4,10 @@ namespace App\Models;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use phpDocumentor\Reflection\Types\Collection;
 
 /**
@@ -33,27 +37,27 @@ class Doctor extends Model
         'email', 'practice_number', 'vat_number', 'tele_number', 'fax_number',
         '$address', 'user_id', 'stock_scheme'];
 
-    public function appointments()
+    public function appointments() : HasMany
     {
         return $this->hasMany(Appointment::class);
     }
-    public function banking()
+    public function banking(): HasOne
     {
         return $this->hasOne(BankingDetail::class);
     }
-    public function caseManagements()
+    public function caseManagements(): HasMany
     {
         return $this->hasMany(CaseManagement::class);
     }
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function specialists()
+    public function specialists(): BelongsToMany
     {
         return $this->belongsToMany(Specialist::class);
     }
-    public function admins()
+    public function admins(): BelongsToMany
     {
         return $this->belongsToMany(Admin::class);
     }

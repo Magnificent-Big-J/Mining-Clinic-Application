@@ -7,6 +7,7 @@ use App\Models\CaseManagement;
 use App\Models\CaseSession;
 use App\Models\Doctor;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -40,19 +41,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function admins()
+    public function admins(): HasMany
     {
         return $this->hasMany(Admin::class);
     }
-    public function caseManagements()
+    public function caseManagements(): HasMany
     {
         return $this->hasMany(CaseManagement::class);
     }
-    public function caseSessions()
+    public function caseSessions(): HasMany
     {
         return $this->hasMany(CaseSession::class);
     }
-    public function doctors()
+    public function doctors(): HasMany
     {
         return $this->hasMany(Doctor::class);
     }

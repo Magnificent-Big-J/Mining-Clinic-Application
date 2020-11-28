@@ -3,7 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Ramsey\Collection\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
 
 /**
  * Class Specialist
@@ -18,7 +19,7 @@ class Specialist extends Model
 {
     protected $fillable = ['name', 'image_path'];
 
-    public function doctors()
+    public function doctors(): BelongsToMany
     {
         return $this->belongsToMany(Doctor::class);
     }

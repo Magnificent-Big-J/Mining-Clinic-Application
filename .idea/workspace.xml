@@ -23,6 +23,17 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Doctor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Doctor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/MedicalAid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MedicalAid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Patient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Prescription.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Prescription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Province.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Province.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Schedule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Schedule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Screening.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Screening.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ScreeningQuestionnaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ScreeningQuestionnaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ScreeningType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ScreeningType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Specialist.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Specialist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +207,7 @@
       <workItem from="1606406645265" duration="2774000" />
       <workItem from="1606416002216" duration="3408000" />
       <workItem from="1606419447240" duration="1509000" />
-      <workItem from="1606545151970" duration="17399000" />
+      <workItem from="1606545151970" duration="17744000" />
     </task>
     <servers />
   </component>
@@ -221,10 +232,10 @@
     </state>
     <state x="760" y="477" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606574070892" />
     <state x="1013" y="477" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606582370269" />
-    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606584746555">
+    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606585068893">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606584746555" />
+    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606585068893" />
     <state x="1098" y="645" width="354" height="141" key="NewPhpFileDialog" timestamp="1606418947724">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

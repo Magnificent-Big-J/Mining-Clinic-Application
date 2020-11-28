@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 
 /**
@@ -41,11 +42,11 @@ class Payment extends Model
       self::FAILED_STATUS => 'Failed',
       self::DECLINED_STATUS => 'Declined'
     ];
-    public function appointmentAssessment()
+    public function appointmentAssessment(): HasMany
     {
         return $this->hasMany(AppointmentAssessment::class);
     }
-    public function claims()
+    public function claims(): HasMany
     {
         return $this->hasMany(Claim::class);
     }

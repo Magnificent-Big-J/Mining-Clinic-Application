@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 
 /**
@@ -18,11 +20,11 @@ class ScreeningQuestionnaire extends Model
 {
     protected $fillable = ['name', 'screening_type_id'];
 
-    public function screening()
+    public function screening(): HasMany
     {
         return $this->hasMany(Screening::class);
     }
-    public function screeningType()
+    public function screeningType(): BelongsTo
     {
         return $this->belongsTo(ScreeningType::class);
     }

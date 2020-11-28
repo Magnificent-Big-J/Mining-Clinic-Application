@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Province
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class Province extends Model
 {
     protected $fillable = ['name'];
-    public function addresses()
+    public function addresses(): HasMany
     {
         return $this->hasMany(Address::class);
     }

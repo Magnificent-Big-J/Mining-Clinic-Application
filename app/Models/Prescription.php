@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Prescription
@@ -17,7 +18,7 @@ class Prescription extends Model
 {
     protected $fillable = ['note', 'case_session_id'];
 
-    public function caseSession()
+    public function caseSession(): BelongsTo
     {
         return $this->belongsTo(CaseSession::class);
     }

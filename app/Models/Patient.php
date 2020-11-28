@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use phpDocumentor\Reflection\Types\Collection;
 
 /**
@@ -32,19 +33,19 @@ class Patient extends Model
         'landline', 'cell_number', 'has_medical_aid'
         ];
 
-    public function addresses()
+    public function addresses(): HasMany
     {
         return $this->hasMany(Address::class);
     }
-    public function appointments()
+    public function appointments(): HasMany
     {
         return $this->hasMany(Appointment::class);
     }
-    public function caseManagements()
+    public function caseManagements(): HasMany
     {
         return $this->hasMany(CaseManagement::class);
     }
-    public function medicalAid()
+    public function medicalAid(): HasMany
     {
         return $this->hasMany(MedicalAid::class);
     }
