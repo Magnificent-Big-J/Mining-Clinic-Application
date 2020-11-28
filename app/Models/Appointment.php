@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 /**
  * Class Appointment
@@ -15,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $status
  * @property Doctor $doctor
  * @property Patient $patient
+ * @property AppointmentAssessment[]|Collection $appointmentAssessment
  */
 class Appointment extends Model
 {
@@ -38,5 +40,9 @@ class Appointment extends Model
     public function patient()
     {
         return $this->belongsTo(Patient::class);
+    }
+    public function appointmentAssessment()
+    {
+        return $this->hasMany(AppointmentAssessment::class);
     }
 }
