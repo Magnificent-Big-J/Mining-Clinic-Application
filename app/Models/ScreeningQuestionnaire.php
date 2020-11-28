@@ -12,6 +12,7 @@ use Illuminate\Support\Collection;
  * @property string $name
  * @property int  $screening_type_id
  * @property Screening[]|Collection $screening
+ * @property ScreeningType $screeningType
  */
 class ScreeningQuestionnaire extends Model
 {
@@ -20,5 +21,9 @@ class ScreeningQuestionnaire extends Model
     public function screening()
     {
         return $this->hasMany(Screening::class);
+    }
+    public function screeningType()
+    {
+        return $this->belongsTo(ScreeningType::class);
     }
 }
