@@ -15,6 +15,10 @@ class Administrator
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if ($request->user()->isSuperAdmin())
+        {
+            return $next($request);
+        }
+        return redirect(route('home'));
     }
 }

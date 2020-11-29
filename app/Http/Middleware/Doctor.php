@@ -15,6 +15,10 @@ class Doctor
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if ($request->user()->isDoctor() || $request->user()->isAdminDoctor() )
+        {
+            return $next($request);
+        }
+        return redirect(route('home'));
     }
 }

@@ -16,6 +16,9 @@ class User extends Authenticatable
 {
     use Notifiable, HasRoles;
 
+    const SUPER_ADMIN_USER = 'Super Admin';
+    const DOCTOR_USER = 'Doctor';
+    const ADMIN_DOCTOR_USER = 'Admin Doctor';
     /**
      * The attributes that are mass assignable.
      *
@@ -57,5 +60,17 @@ class User extends Authenticatable
     public function doctors(): HasMany
     {
         return $this->hasMany(Doctor::class);
+    }
+    public function isSuperAdmin()
+    {
+        return $this->hasRole(self::SUPER_ADMIN_USER);
+    }
+    public function isDoctor()
+    {
+        return $this->hasRole(self::DOCTOR_USER);
+    }
+    public function isAdminDoctor()
+    {
+        return $this->hasRole(self::ADMIN_DOCTOR_USER);
     }
 }
