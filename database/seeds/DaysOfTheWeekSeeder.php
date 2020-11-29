@@ -13,13 +13,13 @@ class DaysOfTheWeekSeeder extends Seeder
     public function run()
     {
         $days = array(
-            array('days'=>'Monday'),
-            array('days'=>'Tuesday'),
-            array('days'=>'Wednesday'),
-            array('days'=>'Thursday'),
-            array('days'=>'Friday'),
-            array('days'=>'Saturday'),
-            array('days'=>'Sunday'),
+            array('name'=>'Monday'),
+            array('name'=>'Tuesday'),
+            array('name'=>'Wednesday'),
+            array('name'=>'Thursday'),
+            array('name'=>'Friday'),
+            array('name'=>'Saturday'),
+            array('name'=>'Sunday'),
         );
         foreach ($days as $day){
             DayOfTheWeek::create($day);

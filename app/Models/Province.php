@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Province extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['province_name'];
     public function addresses(): HasMany
     {
         return $this->hasMany(Address::class);
