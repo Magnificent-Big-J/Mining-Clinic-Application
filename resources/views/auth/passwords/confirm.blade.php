@@ -1,34 +1,29 @@
-@extends('layouts.app')
-
+@extends('layouts.authentication')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Confirm Password') }}</div>
-
-                <div class="card-body">
+    <div class="login-wrapper">
+        <div class="container">
+            <div class="loginbox">
+                <div class="login-left">
+                    <img class="img-fluid" src="{{asset('admin/assets/img/logo-white.png')}}" alt="Logo">
+                </div>
+                <div class="login-right">
+                    <div class="login-right-wrap">
+                        <h1>{{ __('Confirm Password') }}</h1>
                     {{ __('Please confirm your password before continuing.') }}
+                    <!-- Form -->
+                        <form method="POST" action="{{ route('password.confirm') }}">
+                            @csrf
 
-                    <form method="POST" action="{{ route('password.confirm') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
+                            <div class="form-group">
+                                <input class="form-control" type="password" placeholder="Password" name="password" required autocomplete="current-password">
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Confirm Password') }}
                                 </button>
@@ -39,11 +34,11 @@
                                     </a>
                                 @endif
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                        <!-- /Form -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
