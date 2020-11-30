@@ -22,18 +22,12 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-hover table-center mb-0" id="patients">
+                            <table class="table table-hover table-center mb-0" id="provinces">
                                 <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>First Name</th>
-                                    <th>Second Name</th>
-                                    <th>Last Name</th>
-                                    <th>Age</th>
-                                    <th>CellPhone</th>
-                                    <th>Medical Aid</th>
-                                    <th width="100px">Actions</th>
-                                </tr>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Province</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
 
@@ -51,22 +45,17 @@
 @section('scripts')
     <script>
         $(function () {
-            $('#patients').DataTable({
+            $('#provinces').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{ route('patient.index') }}",
+                    url: "{{ route('get.province') }}",
                 },
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'first_name', name: 'first_name'},
-                    {data: 'last_name', name: 'last_name'},
-                    {data: 'age', name: 'age'},
-                    {data: 'cell_number', name: 'cell_number'},
-                    {data: 'medical', name: 'medical'},
-                    {data: 'actions', name: 'actions', orderable: true, searchable: true},
-                ]
+                    {data: 'province_name', name: 'province_name'},
+                    ]
+                });
             });
-        });
-    </script>
+        </script>
 @endsection

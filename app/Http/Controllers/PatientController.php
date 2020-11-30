@@ -14,7 +14,7 @@ class PatientController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.patients.index');
     }
 
     /**

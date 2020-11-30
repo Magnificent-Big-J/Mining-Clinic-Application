@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('getProvince','Api\InternalApiController@province')->name('get.province');
+Route::get('patient','Api\InternalApiController@patients')->name('patient.index');

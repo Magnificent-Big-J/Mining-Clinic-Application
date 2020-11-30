@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use phpDocumentor\Reflection\Types\Collection;
@@ -48,5 +49,13 @@ class Patient extends Model
     public function medicalAid(): HasMany
     {
         return $this->hasMany(MedicalAid::class);
+    }
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->date_of_birth)->age;
+    }
+    public function getHasMedicalAttribute()
+    {
+        return ($this->has_medical_aid) ? $this->medicalAid->medical_aid_number : 'N/A';
     }
 }
