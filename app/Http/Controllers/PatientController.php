@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Patient;
+use App\Http\Requests\PatientCreateRequest;
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller
@@ -24,7 +25,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.patients.create');
     }
 
     /**
@@ -33,9 +34,20 @@ class PatientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PatientCreateRequest $request)
     {
-        //
+
+        $patient = $request->createPatient();
+
+        session()->flash('success','Patient record successfully created.');
+
+        if ($patient->has_medical_aid) {
+
+            return redirect()->route('admin.medical.create')->with('patient', $patient);
+        }
+
+        return redirect()->route('admin.patients.index');
+
     }
 
     /**
@@ -80,6 +92,12 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        //
+        if ($patient->medicalAid()->exists()) {
+            $patient->medicalAid->delete();
+        }
+
+        $patient->delete();
+        session()->flash('success','Patient record successfully deleted.');
+        return redirect()->route('admin.patients.index');
     }
 }

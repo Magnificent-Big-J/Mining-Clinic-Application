@@ -22,8 +22,8 @@ class CreatePatientsTable extends Migration
             $table->date('date_of_birth');
             $table->string('identity_number');
             $table->boolean('is_south_african');
-            $table->string('work_number');
-            $table->string('landline');
+            $table->string('work_number')->nullable();
+            $table->string('landline')->nullable();
             $table->string('cell_number');
             $table->boolean('has_medical_aid');
             $table->timestamps();

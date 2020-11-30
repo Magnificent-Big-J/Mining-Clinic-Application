@@ -30,7 +30,7 @@ use phpDocumentor\Reflection\Types\Collection;
 class Patient extends Model
 {
     protected $fillable = ['first_name', 'last_name', 'second_name', 'gender',
-        'date_of_birth', 'identify_number', 'is_south_african', 'work_number',
+        'date_of_birth', 'identity_number', 'is_south_african', 'work_number',
         'landline', 'cell_number', 'has_medical_aid'
         ];
 
@@ -56,6 +56,6 @@ class Patient extends Model
     }
     public function getHasMedicalAttribute()
     {
-        return ($this->has_medical_aid) ? $this->medicalAid->medical_aid_number : 'N/A';
+        return ($this->medicalAid()->exists()) ? $this->medicalAid->medical_aid_number : 'N/A';
     }
 }

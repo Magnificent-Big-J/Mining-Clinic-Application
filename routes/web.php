@@ -23,3 +23,7 @@ Route::get('hello', function (){
 Route::get('test', function (){
     return view('doctor.appointments.index');
 });
+
+
+    Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
+    Route::get('patient','Datatable\DataTableController@patients')->name('patient.index');

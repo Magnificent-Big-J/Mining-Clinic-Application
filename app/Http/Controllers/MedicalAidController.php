@@ -24,7 +24,7 @@ class MedicalAidController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.medical.create');
     }
 
     /**

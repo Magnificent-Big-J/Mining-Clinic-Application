@@ -6,10 +6,10 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="page-title">Provinces</h3>
+                    <h3 class="page-title">Patients Management</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Provinces</li>
+                        <li class="breadcrumb-item active">Patients Information</li>
                     </ul>
                 </div>
             </div>
@@ -22,6 +22,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
+                            <a href="{{route('admin.patients.create')}}" class="mb-2 btn btn-success">Add New Patient</a>
                             <table class="table table-hover table-center mb-0" id="patients">
                                 <thead>
                                 <tr>
@@ -60,6 +61,7 @@
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'first_name', name: 'first_name'},
+                    {data: 'second_name', name: 'second_name'},
                     {data: 'last_name', name: 'last_name'},
                     {data: 'age', name: 'age'},
                     {data: 'cell_number', name: 'cell_number'},
