@@ -20,13 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf369e2a-ba3c-4bca-8973-20744a534654" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/oldconfirm.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/oldemail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/oldreset.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/admindatatables.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mining-clinic-application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mining-clinic-application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/patients/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/patients/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +160,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
+      <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kpnxCNMOFIPvW5eh4fw2FEyicg" />
@@ -169,7 +171,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="/var/www/maid4u" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -203,7 +205,8 @@
       <workItem from="1606419447240" duration="1509000" />
       <workItem from="1606545151970" duration="19091000" />
       <workItem from="1606670955308" duration="6072000" />
-      <workItem from="1606715238661" duration="3697000" />
+      <workItem from="1606715238661" duration="4026000" />
+      <workItem from="1606746456652" duration="4223000" />
     </task>
     <servers />
   </component>
@@ -228,15 +231,15 @@
     </state>
     <state x="760" y="477" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606574070892" />
     <state x="1013" y="477" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606582370269" />
-    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606716498448">
+    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606721052946">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="797" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606678762324" />
-    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606716498448" />
-    <state x="1098" y="645" width="354" height="147" key="NewPhpFileDialog" timestamp="1606717149128">
+    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606721052946" />
+    <state x="1098" y="645" width="354" height="147" key="NewPhpFileDialog" timestamp="1606750700078">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1098" y="645" width="354" height="147" key="NewPhpFileDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606717149128" />
+    <state x="1098" y="645" width="354" height="147" key="NewPhpFileDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606750700078" />
     <state x="624" y="238" key="run.anything.popup" timestamp="1606569755545">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

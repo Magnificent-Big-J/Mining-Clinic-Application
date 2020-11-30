@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.admindatatables')
 @section('content')
     <div class="content container-fluid">
 
