@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Address;
 use App\Models\Patient;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -35,13 +36,16 @@ class PatientCreateRequest extends FormRequest
             'second_name' => 'required|string',
             'date_of_birth' => 'required',
             'have_medical' => 'required',
+            'address_1' => 'required|string',
+            'postal_code' => 'required|numeric',
+            'province' => 'required',
 
         ];
     }
 
     public function createPatient()
     {
-       return Patient::create([
+       $patient = Patient::create([
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'gender' => $this->gender,
@@ -54,5 +58,25 @@ class PatientCreateRequest extends FormRequest
             'has_medical_aid' => (int)$this->have_medical,
             'landline' => $this->landline,
         ]);
+
+       $this->createAddress($patient->id);
+
+       return $patient;
+    }
+    private function createAddress(int $id)
+    {
+
+        Address::create([
+            'address_1' => $this->address_1,
+            'address_2' => $this->address_2,
+            'postal_code' => $this->postal_code,
+            'address_type_id' => 1,
+            'patient_id' => $id,
+            'province_id' => $this->province
+        ]);
+
+        if (!empty($this->address_3) && !empty($this->address_4 && !empty($this->postal_code2) ) ) {
+
+        }
     }
 }

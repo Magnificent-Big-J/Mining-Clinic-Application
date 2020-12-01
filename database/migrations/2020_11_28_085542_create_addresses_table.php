@@ -17,6 +17,7 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->string('address_1');
             $table->string('address_2')->nullable();
+            $table->integer('postal_code');
             $table->unsignedBigInteger('address_type_id');
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('province_id');

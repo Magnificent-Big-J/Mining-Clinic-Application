@@ -147,7 +147,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label">Address 1:</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="last_name" value="{{ old('address_1') }}" class="form-control">
+                                                    <input type="text" name="address_1" value="{{ old('address_1') }}" class="form-control">
                                                     @error('address_1')
                                                     <span class="text-danger" role="alert">
                                                          <strong>{{ $message }}</strong>
@@ -158,8 +158,8 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label">Address 2:</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="last_name" value="{{ old('address_2') }}" class="form-control">
-                                                    @error('address_1')
+                                                    <input type="text" name="address_2" value="{{ old('address_2') }}" class="form-control">
+                                                    @error('address_2')
                                                     <span class="text-danger" role="alert">
                                                          <strong>{{ $message }}</strong>
                                                         </span>
@@ -171,7 +171,7 @@
                                                 <div class="col-lg-9">
                                                     <select name="province" id="province" class="form-control">
                                                         @foreach($provinces as $province)
-                                                            <option value="{{$province->id}}">{{$province->province_name}}</option>
+                                                            <option @if (old('province') == $province->id) selected @endif value="{{$province->id}}">{{$province->province_name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -179,7 +179,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label">Postal Code:</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="last_name" value="{{ old('postal_code') }}" class="form-control">
+                                                    <input type="text" name="postal_code" value="{{ old('postal_code') }}" class="form-control">
                                                     @error('postal_code')
                                                     <span class="text-danger" role="alert">
                                                          <strong>{{ $message }}</strong>
@@ -193,18 +193,13 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label">Address 1:</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="last_name" value="{{ old('address_3') }}" class="form-control">
+                                                    <input type="text" name="address_3" value="{{ old('address_3') }}" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label">Address 2:</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="last_name" value="{{ old('address_3') }}" class="form-control">
-                                                    @error('address_1')
-                                                    <span class="text-danger" role="alert">
-                                                         <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
+                                                    <input type="text" name="address_4" value="{{ old('address_4') }}" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -212,7 +207,7 @@
                                                 <div class="col-lg-9">
                                                     <select name="province2" id="province2" class="form-control">
                                                         @foreach($provinces as $province)
-                                                            <option value="{{$province->id}}">{{$province->province_name}}</option>
+                                                            <option  @if (old('province2') == $province->id) selected @endif value="{{$province->id}}">{{$province->province_name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -220,7 +215,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label">Postal Code:</label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="last_name" value="{{ old('postal_code2') }}" class="form-control">
+                                                    <input type="text" name="postal_code2" value="{{ old('postal_code2') }}" class="form-control">
                                                 </div>
                                             </div>
                                         </div>

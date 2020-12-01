@@ -21,10 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cf369e2a-ba3c-4bca-8973-20744a534654" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/PatientCreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/PatientCreateRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_085542_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_085542_create_addresses_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/patients/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/patients/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/doctorNavbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/doctorNavbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +206,7 @@
       <workItem from="1606670955308" duration="6072000" />
       <workItem from="1606715238661" duration="4026000" />
       <workItem from="1606746456652" duration="18760000" />
-      <workItem from="1606795976636" duration="6945000" />
+      <workItem from="1606795976636" duration="8735000" />
     </task>
     <servers />
   </component>
@@ -248,10 +247,10 @@
     </state>
     <state x="824" y="645" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606800751700" />
     <state x="1098" y="645" width="354" height="147" key="NewPhpFileDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606767577188" />
-    <state x="797" y="542" width="434" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1606802719311">
+    <state x="797" y="542" width="434" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1606805704793">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="797" y="542" width="434" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606802719311" />
+    <state x="797" y="542" width="434" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606805704793" />
     <state x="1063" y="542" width="424" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606770059763" />
     <state x="832" y="238" key="run.anything.popup" timestamp="1606764265167">
       <screen x="0" y="0" width="2560" height="1040" />
