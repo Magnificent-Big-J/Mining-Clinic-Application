@@ -38,7 +38,7 @@ class BookingService
                 ->where('appointment_date', '=', Carbon::parse($appointment))
                 ->first();
 
-            if ($appointment->count()) {
+            if ($appointment) {
                 return true;
             }
             return false;

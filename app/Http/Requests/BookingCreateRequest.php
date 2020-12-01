@@ -2,10 +2,14 @@
 
 namespace App\Http\Requests;
 
+
+use App\Mail\DoctorBooking;
 use App\Models\Appointment;
+use App\Models\Doctor;
 use App\Service\BookingService;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Mail;
 
 class BookingCreateRequest extends FormRequest
 {
@@ -36,13 +40,17 @@ class BookingCreateRequest extends FormRequest
         if (BookingService::alreadyBooked($this->appointment_date, $this->timeSlot, $this->doctor)) {
             return false;
         } else {
-            Appointment::create([
+           $appointment = Appointment::create([
                 'patient_id'=> $this->patient,
                 'doctor_id' => $this->doctor,
                 'appointment_date' => Carbon::parse($this->appointment_date),
                 'appointment_time'=> $this->timeSlot,
                 'status' => Appointment::PENDING_STATUS
             ]);
+            $doctor = Doctor::find($this->patient);
+
+            Mail::to($doctor->email)->send(new DoctorBooking($appointment));
+            Mail::to($doctor->email)->send(new DoctorBooking($appointment));
 
             return true;
         }
