@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Datatable;
 use App\Http\Controllers\Controller;
 use App\Models\Patient;
 use App\Models\Province;
+use App\Models\Specialist;
 use DataTables;
 
 class DataTableController extends Controller
@@ -33,6 +34,21 @@ class DataTableController extends Controller
                 return view('admin.patients.partials.actions', compact('patient'));
             })
             ->rawColumns(['age','medical', 'actions'])
+            ->make(true);
+    }
+    public function specialist()
+    {
+        $specialist = Specialist::all();
+
+        return DataTables::of($specialist)
+            ->addIndexColumn()
+            ->addColumn('specialist', function ($row){
+                return view('admin.specialist.partials.actions', compact('row'));
+            })
+            ->addColumn('actions', function ($row){
+                return view('admin.patients.partials.specialist', compact('row'));
+            })
+            ->rawColumns(['specialist', 'actions'])
             ->make(true);
     }
 }

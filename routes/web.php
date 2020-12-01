@@ -26,5 +26,6 @@ Route::get('test', function (){
 });
 
 
-    Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
-    Route::get('patient','Datatable\DataTableController@patients')->name('patient.index');
+Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
+Route::get('patient','Datatable\DataTableController@patients')->name('patient.index');
+Route::get('specialist-data','Datatable\DataTableController@specialist')->name('specialist.index');

@@ -20,8 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf369e2a-ba3c-4bca-8973-20744a534654" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/specialist/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/specialist/partials/actions.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/specialist/partials/specialist.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Datatable/DataTableController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Datatable/DataTableController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SpecialistController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SpecialistController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,21 +173,22 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="/var/www/maid4u" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/specialits" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/doctors" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/public" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Datatables" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Api" />
       <recent name="$PROJECT_DIR$/resources/views/auth" />
       <recent name="$PROJECT_DIR$/app/Models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/specialits" />
+      <recent name="$PROJECT_DIR$/public/doctors" />
+      <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager">
@@ -204,7 +212,7 @@
       <workItem from="1606670955308" duration="6072000" />
       <workItem from="1606715238661" duration="4026000" />
       <workItem from="1606746456652" duration="18760000" />
-      <workItem from="1606795976636" duration="10026000" />
+      <workItem from="1606795976636" duration="11516000" />
     </task>
     <servers />
   </component>
@@ -240,10 +248,10 @@
     <state x="797" y="477" width="424" height="478" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606801347433" />
     <state x="797" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606678762324" />
     <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606768841532" />
-    <state x="824" y="645" width="354" height="147" key="NewPhpFileDialog" timestamp="1606800751700">
+    <state x="824" y="645" width="354" height="147" key="NewPhpFileDialog" timestamp="1606808465882">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="824" y="645" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606800751700" />
+    <state x="824" y="645" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606808465882" />
     <state x="1098" y="645" width="354" height="147" key="NewPhpFileDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606767577188" />
     <state x="797" y="542" width="434" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1606806565752">
       <screen x="0" y="0" width="1920" height="1040" />
