@@ -114,7 +114,15 @@
                     </div>
                     <a class="dropdown-item" href="doctor-dashboard.html">Dashboard</a>
                     <a class="dropdown-item" href="doctor-profile-settings.html">Profile Settings</a>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="material-icons">exit_to_app</i>
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </li>
             <!-- /User Menu -->

@@ -140,6 +140,92 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h4 class="card-title">Physical Address</h4>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Address 1:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="last_name" value="{{ old('address_1') }}" class="form-control">
+                                                    @error('address_1')
+                                                    <span class="text-danger" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Address 2:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="last_name" value="{{ old('address_2') }}" class="form-control">
+                                                    @error('address_1')
+                                                    <span class="text-danger" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Province:</label>
+                                                <div class="col-lg-9">
+                                                    <select name="province" id="province" class="form-control">
+                                                        @foreach($provinces as $province)
+                                                            <option value="{{$province->id}}">{{$province->province_name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Postal Code:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="last_name" value="{{ old('postal_code') }}" class="form-control">
+                                                    @error('postal_code')
+                                                    <span class="text-danger" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h4 class="card-title">Postal  Address</h4>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Address 1:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="last_name" value="{{ old('address_3') }}" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Address 2:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="last_name" value="{{ old('address_3') }}" class="form-control">
+                                                    @error('address_1')
+                                                    <span class="text-danger" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Province:</label>
+                                                <div class="col-lg-9">
+                                                    <select name="province2" id="province2" class="form-control">
+                                                        @foreach($provinces as $province)
+                                                            <option value="{{$province->id}}">{{$province->province_name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Postal Code:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="last_name" value="{{ old('postal_code2') }}" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <input type="submit" value="Submit" class="btn btn-primary ">
                                 </form>
                             </div>
