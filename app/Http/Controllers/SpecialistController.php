@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SpecialistCreateRequest;
-use App\Specialist;
+use App\Models\Specialist;
 use Illuminate\Http\Request;
 
 class SpecialistController extends Controller
@@ -84,6 +84,7 @@ class SpecialistController extends Controller
      */
     public function destroy(Specialist $specialist)
     {
-        //
+        session()->flash('success','Specialists successfully deleted.');
+        return redirect()->route('admin.specialists.index');
     }
 }

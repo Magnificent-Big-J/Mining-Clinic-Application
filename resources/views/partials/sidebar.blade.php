@@ -8,7 +8,7 @@
                 <li>
                     <a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="appointment-list.html"><i class="fe fe-layout"></i> <span>Appointments</span></a>
                 </li>
                 <li>
