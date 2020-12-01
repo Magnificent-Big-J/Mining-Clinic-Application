@@ -56,6 +56,7 @@
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'specialist', name: 'specialist'},
+                    {data: 'actions', name: 'actions'},
                     ]
                 });
             });

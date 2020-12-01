@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SpecialistCreateRequest;
 use App\Specialist;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class SpecialistController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.specialist.create');
     }
 
     /**
@@ -33,9 +34,12 @@ class SpecialistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SpecialistCreateRequest $request)
     {
-        //
+        $request->createSpecialist();
+
+        session()->flash('success','Specialists successfully updated.');
+        return redirect()->route('admin.specialists.index');
     }
 
     /**

@@ -43,10 +43,10 @@ class DataTableController extends Controller
         return DataTables::of($specialist)
             ->addIndexColumn()
             ->addColumn('specialist', function ($row){
-                return view('admin.specialist.partials.actions', compact('row'));
+                return view('admin.specialist.partials.specialist', compact('row'));
             })
             ->addColumn('actions', function ($row){
-                return view('admin.patients.partials.specialist', compact('row'));
+                return view('admin.specialist.partials.actions', compact('row'));
             })
             ->rawColumns(['specialist', 'actions'])
             ->make(true);
