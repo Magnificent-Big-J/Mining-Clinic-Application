@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PatientCreateRequest;
+use App\Http\Requests\PatientUpdateRequest;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 
@@ -60,7 +61,7 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //
+        return view('admin.patients.show', compact('patient'));
     }
 
     /**
@@ -71,7 +72,7 @@ class PatientController extends Controller
      */
     public function edit(Patient $patient)
     {
-        //
+        return view('admin.patients.edit', compact('patient'));
     }
 
     /**
@@ -81,9 +82,11 @@ class PatientController extends Controller
      * @param  \App\Patient  $patient
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Patient $patient)
+    public function update(PatientUpdateRequest $request, Patient $patient)
     {
-        //
+        $request->updateRecord($patient);
+        session()->flash('success','Patient record successfully updated.');
+        return redirect()->route('admin.patients.index');
     }
 
     /**
