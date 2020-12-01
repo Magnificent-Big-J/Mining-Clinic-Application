@@ -43,7 +43,9 @@ class PatientController extends Controller
 
         if ($patient->has_medical_aid) {
 
-            return redirect()->route('admin.medical.create')->with('patient', $patient);
+            session()->put('patient', $patient);
+
+            return redirect()->route('admin.medical.create');
         }
 
         return redirect()->route('admin.patients.index');

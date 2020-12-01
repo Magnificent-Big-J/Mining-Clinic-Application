@@ -56,6 +56,6 @@ class Patient extends Model
     }
     public function getHasMedicalAttribute()
     {
-        return ($this->medicalAid()->exists()) ? $this->medicalAid->medical_aid_number : 'N/A';
+        return ($this->medicalAid()->exists()) ? $this->medicalAid[0]->medical_aid_number : 'N/A';
     }
 }

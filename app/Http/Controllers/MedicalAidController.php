@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\MedicalAid;
+use App\Http\Requests\MedicalAidCreateRequest;
+use App\Models\MedicalAid;
 use Illuminate\Http\Request;
 
 class MedicalAidController extends Controller
@@ -24,7 +25,8 @@ class MedicalAidController extends Controller
      */
     public function create()
     {
-        return view('admin.medical.create');
+        $status = MedicalAid::$texts;
+        return view('admin.medical.create', compact('status'));
     }
 
     /**
@@ -33,9 +35,12 @@ class MedicalAidController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MedicalAidCreateRequest $request)
     {
-        //
+        $request->createMedicalAidRecord();
+        session()->flash('success','Patient medical aid information successfully created.');
+        session()->forget('patient');
+        return redirect()->route('admin.patients.index');
     }
 
     /**

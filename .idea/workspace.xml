@@ -20,21 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf369e2a-ba3c-4bca-8973-20744a534654" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/medical/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/InternalApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/InternalApiController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MedicalAidController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/MedicalAidController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PatientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PatientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/MedicalAid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MedicalAid.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Patient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_085856_create_patients_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_085856_create_patients_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/patients/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/patients/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/patients/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/patients/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/patients/partials/actions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/patients/partials/actions.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admindatatables.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admindatatables.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/medical/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/medical/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +171,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="/var/www/maid4u" />
+    <property name="last_opened_file_path" value="/var/www/collivery_net" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -218,6 +209,7 @@
       <workItem from="1606670955308" duration="6072000" />
       <workItem from="1606715238661" duration="4026000" />
       <workItem from="1606746456652" duration="18760000" />
+      <workItem from="1606795976636" duration="3194000" />
     </task>
     <servers />
   </component>
@@ -246,9 +238,10 @@
     </state>
     <state x="760" y="477" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606574070892" />
     <state x="1013" y="477" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606769260387" />
-    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606768841532">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state x="797" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606796527567">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="797" y="477" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606796527567" />
     <state x="797" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606678762324" />
     <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606768841532" />
     <state x="1098" y="645" width="354" height="147" key="NewPhpFileDialog" timestamp="1606767577188">

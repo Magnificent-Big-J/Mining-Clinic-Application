@@ -25,14 +25,14 @@
                             <div class="card-header">
                                 <h4 class="card-title"> Medical Information of
                                    @if (Session::has('patient'))
-                                        {{Session::get('patient')->first_name}} Hello
-                                   @endif
+                                        {{Session::get('patient')->first_name}}   {{Session::get('patient')->last_name}}
+                                    @endif
                                 </h4>
                             </div>
                             <div class="card-body">
                                 <form action="{{route('admin.medical.store')}}" method="post">
                                     @csrf
-
+                                    <input type="hidden" name="patient" value="{{Session::get('patient')->id}}">
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label">Medical Aid Name:</label>
                                                 <div class="col-lg-9">
@@ -47,7 +47,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-3 col-form-label">Medical Aid Number:</label>
                                             <div class="col-lg-9">
-                                                <input type="text" name="medical_name" value="{{ old('medical_aid_number') }}" class="form-control">
+                                                <input type="text" name="medical_aid_number" value="{{ old('medical_aid_number') }}" class="form-control">
                                                 @error('medical_aid_number')
                                                 <span class="text-danger" role="alert">
                                                              <strong>{{ $message }}</strong>
@@ -59,8 +59,20 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Medical Aid Plan:</label>
                                         <div class="col-lg-9">
-                                            <input type="text" name="medical_name" value="{{ old('plan') }}" class="form-control">
+                                            <input type="text" name="plan" value="{{ old('plan') }}" class="form-control">
 
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Medical Aid Plan:</label>
+                                        <div class="col-lg-9">
+                                            <select name="status" id="status" class="form-control">
+                                                @foreach($status as $key=> $stat)
+                                                    <option value="{{$key}}">
+                                                        {{$stat}}
+                                                    </option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <input type="submit" value="Submit" class="btn btn-primary ">
