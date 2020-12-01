@@ -29,3 +29,4 @@ Route::get('test', function (){
 Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
 Route::get('patient','Datatable\DataTableController@patients')->name('patient.index');
 Route::get('specialist-data','Datatable\DataTableController@specialist')->name('specialist.index');
+Route::get('doctors-data','Datatable\DataTableController@doctors')->name('doctor.index');

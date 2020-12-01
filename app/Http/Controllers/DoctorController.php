@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Doctor;
+use App\Models\Doctor;
+use App\Http\Requests\DoctorCreateRequest;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -14,7 +15,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.doctors.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.doctors.create');
     }
 
     /**
@@ -33,9 +34,11 @@ class DoctorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DoctorCreateRequest $request)
     {
-        //
+        $request->createUser();
+        session()->flash('success','Patient record successfully updated.');
+        return redirect()->route('admin.doctors.index');
     }
 
     /**
@@ -46,7 +49,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        //
+        return view('admin.doctors.show', compact('doctor'));
     }
 
     /**

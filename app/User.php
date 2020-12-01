@@ -73,4 +73,12 @@ class User extends Authenticatable
     {
         return $this->hasRole(self::ADMIN_DOCTOR_USER);
     }
+    public function getProfileAttribute()
+    {
+        return (!empty($this->avat)) ? asset($this->avatar) : asset('avatar/default.jpeg');
+    }
+    public function getFullNamesAttribute()
+    {
+        return $this->title . ' ' .  $this->first_name . ' ' . $this->last_name;
+    }
 }
