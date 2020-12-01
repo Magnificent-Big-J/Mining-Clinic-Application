@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Datatable;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Province;
 use App\Models\Specialist;
+use Carbon\Carbon;
 use DataTables;
 
 class DataTableController extends Controller
@@ -73,6 +75,29 @@ class DataTableController extends Controller
                 return view('admin.doctors.partials.actions', compact('row'));
             })
             ->rawColumns(['title','first_name', 'last_name','specialist', 'actions'])
+            ->make(true);
+    }
+    public function appointments()
+    {
+        $appointments = Appointment::where('appointment_date', '>=', Carbon::now())->get();
+
+        return DataTables::of($appointments)
+            ->addIndexColumn()
+            ->addColumn('doctor', function ($row){
+                return $row->doctor->user->full_names;
+            })
+            ->addColumn('patient', function ($row){
+                return $row->patient->full_name;
+            })
+            ->addColumn('specialist', function ($row){
+                $row = $row->doctor;
+                return view('admin.doctors.partials.specialist', compact('row'));
+            })
+            ->addColumn('appointment_status', function ($row){
+                return $row->status_text;
+
+            })
+            ->rawColumns(['title','patient','specialist', 'appointment_status'])
             ->make(true);
     }
 }

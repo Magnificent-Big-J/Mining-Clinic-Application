@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 
+use App\Models\Doctor;
 use App\Models\Province;
 use App\Models\Specialist;
 use Illuminate\Support\Facades\View;
@@ -24,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer('admin.doctors.partials.entity',function($view){
             $specialists = Specialist::all();
             $view->with(['specialists'=>$specialists]);
+        });
+        View::composer('admin.booking.booking',function($view){
+            $doctors = Doctor::all();
+            $view->with(['doctors'=>$doctors]);
         });
     }
 

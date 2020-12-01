@@ -14,7 +14,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.appointments.index');
     }
 
     /**

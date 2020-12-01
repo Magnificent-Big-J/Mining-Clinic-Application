@@ -20,21 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf369e2a-ba3c-4bca-8973-20744a534654" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/avatar/default.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/doctors/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/doctors/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/doctors/partials/actions.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/doctors/partials/entity.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/doctors/partials/personal.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/doctors/partials/specialist.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/doctors/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Service/AppointmentService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Service/BookingService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/appointments/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/booking/booking.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/dashboard/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppointmentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Datatable/DataTableController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Datatable/DataTableController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DoctorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Doctor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Doctor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Appointment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Patient.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Patient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_28_085606_create_doctors_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_28_085606_create_doctors_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/doctors/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/doctors/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/patients/partials/actions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/patients/partials/actions.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admindatatables.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admindatatables.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -182,7 +183,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/avatar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/appointments" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -194,11 +195,11 @@
       <recent name="$PROJECT_DIR$/app/Models" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin/appointments" />
+      <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/public/avatar" />
       <recent name="$PROJECT_DIR$/resources/views/admin/specialits" />
       <recent name="$PROJECT_DIR$/public/doctors" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager">
@@ -223,6 +224,7 @@
       <workItem from="1606715238661" duration="4026000" />
       <workItem from="1606746456652" duration="18760000" />
       <workItem from="1606795976636" duration="26858000" />
+      <workItem from="1606846976695" duration="11577000" />
     </task>
     <servers />
   </component>
@@ -246,36 +248,45 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="875" y="363" width="800" height="671" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606753543886" />
+    <state x="1114" y="494" width="311" height="437" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1606849028001">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1114" y="494" width="311" height="437" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606849028001" />
     <state x="760" y="477" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606803851352">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="760" y="477" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606803851352" />
     <state x="760" y="477" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606574070892" />
     <state x="1013" y="477" width="524" height="478" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606769260387" />
-    <state x="797" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606801347433">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl" timestamp="1606852700511">
+      <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="797" y="477" width="424" height="478" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606801347433" />
     <state x="797" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606678762324" />
-    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606768841532" />
-    <state x="824" y="645" width="354" height="147" key="NewPhpFileDialog" timestamp="1606828935433">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1063" y="477" width="424" height="478" key="FileChooserDialogImpl/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606852700511" />
+    <state x="997" y="448" width="555" height="536" key="NewPhpClassDialog" timestamp="1606855828383">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="997" y="448" width="555" height="536" key="NewPhpClassDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606855828383" />
+    <state x="1098" y="645" width="354" height="147" key="NewPhpFileDialog" timestamp="1606855801438">
+      <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="824" y="645" width="354" height="147" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606828935433" />
-    <state x="1098" y="645" width="354" height="147" key="NewPhpFileDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606767577188" />
-    <state x="797" y="542" width="434" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1606825060963">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1098" y="645" width="354" height="147" key="NewPhpFileDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606855801438" />
+    <state x="1063" y="542" width="434" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1606857554662">
+      <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="797" y="542" width="434" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606825060963" />
-    <state x="1063" y="542" width="424" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606770059763" />
-    <state x="832" y="238" key="run.anything.popup" timestamp="1606764265167">
+    <state x="1063" y="542" width="424" height="345" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606857554662" />
+    <state x="832" y="238" key="run.anything.popup" timestamp="1606853633679">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="624" y="238" key="run.anything.popup/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606569755545" />
-    <state x="832" y="238" key="run.anything.popup/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606764265167" />
-    <state x="199" y="233" width="672" height="678" key="search.everywhere.popup" timestamp="1606571715017">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="832" y="238" key="run.anything.popup/2560.0.1920.1080/0.0.2560.1040@0.0.2560.1040" timestamp="1606853633679" />
+    <state x="464" y="233" width="1568" height="678" key="search.everywhere.popup" timestamp="1606845836078">
+      <screen x="0" y="0" width="4480" height="1040" />
     </state>
+    <state x="464" y="233" width="1568" height="678" key="search.everywhere.popup/0.0.4480.1040@0.0.4480.1040" timestamp="1606845836078" />
     <state x="199" y="233" width="672" height="678" key="search.everywhere.popup/2560.0.1920.1080/0.0.1920.1040@0.0.1920.1040" timestamp="1606571715017" />
   </component>
 </project>

@@ -30,3 +30,4 @@ Route::get('getProvince','Datatable\DataTableController@province')->name('get.pr
 Route::get('patient','Datatable\DataTableController@patients')->name('patient.index');
 Route::get('specialist-data','Datatable\DataTableController@specialist')->name('specialist.index');
 Route::get('doctors-data','Datatable\DataTableController@doctors')->name('doctor.index');
+Route::get('appointments-data','Datatable\DataTableController@appointments')->name('appointments.index');

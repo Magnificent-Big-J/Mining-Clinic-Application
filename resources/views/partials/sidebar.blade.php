@@ -6,10 +6,10 @@
                     <span>Main</span>
                 </li>
                 <li>
-                    <a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
+                    <a href="{{route('home')}}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="appointment-list.html"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                    <a href="{{route('admin.appointments.index')}}"><i class="fe fe-layout"></i> <span>Appointments</span></a>
                 </li>
                 <li>
                     <a href="{{route('admin.specialists.index')}}"><i class="fe fe-users"></i> <span>Specialities</span></a>

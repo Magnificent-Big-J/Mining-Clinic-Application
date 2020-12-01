@@ -58,4 +58,9 @@ class Patient extends Model
     {
         return ($this->medicalAid()->exists()) ? $this->medicalAid[0]->medical_aid_number : 'N/A';
     }
+    public function getFullNameAttribute()
+    {
+        return $this->first_name . ' ' . $this->second_name . ' ' . $this->last_name;
+    }
+
 }

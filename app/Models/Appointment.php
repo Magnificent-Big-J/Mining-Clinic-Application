@@ -24,11 +24,13 @@ class Appointment extends Model
     const PENDING_STATUS = 1;
     const DECLINED_STATUS = 2;
     const ACCEPTED_STATUS = 3;
+    const DONE_STATUS = 4;
 
     public static $texts = [
         self::PENDING_STATUS => 'Pending',
         self::DECLINED_STATUS => 'Declined',
-        self::ACCEPTED_STATUS => 'Accepted'
+        self::ACCEPTED_STATUS => 'Accepted',
+        self::DONE_STATUS => 'Done'
     ];
     protected $fillable = [
         'patient_id', 'doctor_id', 'appointment_date', 'appointment_time', 'status'
@@ -50,4 +52,18 @@ class Appointment extends Model
     {
         return $this->hasMany(Screening::class);
     }
+    public function getStatusTextAttribute()
+    {
+        switch ($this->status) {
+            case 1:
+                return 'Pending';
+            case  2:
+                return 'Declined';
+            case 3:
+                return 'Accepted';
+            case 4:
+                return  'Done';
+        }
+    }
+
 }

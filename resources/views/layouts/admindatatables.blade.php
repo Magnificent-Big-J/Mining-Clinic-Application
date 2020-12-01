@@ -25,10 +25,11 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
-
+    @yield('styles')
     <!--[if lt IE 9]>
     <script src="{{asset('admin/assets/js/html5shiv.min.js')}}"></script>
     <script src="{{asset('admin/assets/js/respond.min.js')}}"></script>
+
     <![endif]-->
 </head>
 <body>

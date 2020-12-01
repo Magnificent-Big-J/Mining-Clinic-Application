@@ -6,10 +6,10 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="page-title">Doctors Management</h3>
+                    <h3 class="page-title">Appointments Management</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Doctors Information</li>
+                        <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Appointments</li>
                     </ul>
                 </div>
             </div>
@@ -22,18 +22,17 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <a href="{{route('admin.doctors.create')}}" class="mb-2 btn btn-success">Add New Doctor</a>
-                            <table class="table table-hover table-center mb-0" id="doctors">
+
+                            <table class="table table-hover table-center mb-0" id="appointments">
                                 <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Title</th>
-                                    <th>Name</th>
-                                    <th>Last Name</th>
+                                    <th>Doctor</th>
                                     <th>Specialist</th>
-                                    <th>Vat Number</th>
-                                    <th>Practice Number</th>
-                                    <th width="100px">Actions</th>
+                                    <th>Patient Name</th>
+                                    <th>Appointment Date</th>
+                                    <th>Appointment Time</th>
+                                    <th>Appointment Status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -52,22 +51,23 @@
 @section('scripts')
     <script>
         $(function () {
-            $('#doctors').DataTable({
+            $('#appointments').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{ route('doctor.index') }}",
+                    url: "{{ route('appointments.index') }}",
                 },
 
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'title', name: 'title'},
-                    {data: 'first_name', name: 'first_name'},
-                    {data: 'last_name', name: 'last_name'},
+                    {data: 'doctor', name: 'doctor'},
                     {data: 'specialist', name: 'specialist'},
-                    {data: 'vat_number', name: 'vat_number'},
-                    {data: 'practice_number', name: 'practice_number'},
-                    {data: 'actions', name: 'actions', orderable: true, searchable: true},
+                    {data: 'patient', name: 'patient'},
+                    {data: 'appointment_date', name: 'appointment_date'},
+                    {data: 'appointment_time', name: 'appointment_time'},
+                    {data: 'appointment_status', name: 'appointment_status', orderable: true, searchable: true},
+
+
                 ]
             });
         });
