@@ -25,7 +25,7 @@ class PatientsTableSeeder extends Seeder
                 'work_number' => '',
                 'landline' => '',
                 'cell_number' => '0711420108',
-                'has_medical_aid' => false
+                'has_medical_aid' => true
             ],
             [
                 'first_name' => 'Koketso',
@@ -64,7 +64,7 @@ class PatientsTableSeeder extends Seeder
                 'work_number' => '',
                 'landline' => '',
                 'cell_number' => '0833031042',
-                'has_medical_aid' => false
+                'has_medical_aid' => true
             ]
         ];
 
