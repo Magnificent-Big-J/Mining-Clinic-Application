@@ -1,5 +1,5 @@
 @if($appointment->status === \App\Models\Appointment::PENDING_STATUS)
-    <form action="{{route('doctor.appointments.update', $appointment->id)}}" method="post">
+    <form action="{{route('doctor.appointment.update', $appointment->id)}}" method="post">
         <input type="hidden" name="status" value="{{\App\Models\Appointment::ACCEPTED_STATUS}}">
         @csrf
         @method('PUT')
@@ -7,7 +7,7 @@
             <i class="fa fa-check"></i> Accept
         </button>
     </form>
-    <form action="{{route('doctor.appointments.update', $appointment->id)}}" method="post">
+    <form action="{{route('doctor.appointment.update', $appointment->id)}}" method="post">
         <input type="hidden" name="status" value="{{\App\Models\Appointment::DECLINED_STATUS}}">
         @csrf
         @method('PUT')

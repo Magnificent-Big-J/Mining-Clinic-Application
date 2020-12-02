@@ -72,6 +72,12 @@ class AppointmentController extends Controller
         $appointment->status = $request->status;
         $appointment->save();
 
+        if (intval($appointment->status) === Appointment::ACCEPTED_STATUS) {
+            session()->flash('success','Appointment has been accepted');
+        } else if ($appointment->status === Appointment::DECLINED_STATUS) {
+            session()->flash('success','Appointment has been declined');
+        }
+
         return redirect()->back();
     }
 

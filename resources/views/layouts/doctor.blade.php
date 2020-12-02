@@ -108,6 +108,25 @@
 <script src="{{asset('doctor/assets/js/script.js')}}"></script>
 
 @yield('scripts')
+@if (Session::has('error'))
+    <script>
+        $(function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{Session::get("error")}}'
+            })
+        });
+
+    </script>
+@endif
+@if (Session::has('success'))
+    <script>
+        $(function () {
+            Swal.fire('{{Session::get("success")}}')
+        });
+    </script>
+@endif
 </body>
 
 <!-- doccure/appointments.html  30 Nov 2019 04:12:09 GMT -->
