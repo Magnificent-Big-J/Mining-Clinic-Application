@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Appointment;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -69,7 +69,16 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment)
     {
-        //
+        $appointment->status = $request->status;
+        $appointment->save();
+
+        if (intval($appointment->status) === Appointment::ACCEPTED_STATUS) {
+            session()->flash('success','Appointment has been accepted');
+        } else if (intval($appointment->status) === Appointment::DECLINED_STATUS) {
+            session()->flash('success','Appointment has been declined');
+        }
+
+        return redirect()->back();
     }
 
     /**
