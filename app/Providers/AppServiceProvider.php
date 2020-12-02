@@ -30,6 +30,10 @@ class AppServiceProvider extends ServiceProvider
             $doctors = Doctor::all();
             $view->with(['doctors'=>$doctors]);
         });
+
+        View::composer('*', function ($view) {
+            $view->with(['user' => \auth()->user()]);
+        });
     }
 
     /**
