@@ -25,7 +25,7 @@
         <div class="appointment-list">
             <div class="profile-info-widget">
                 <a href="patient-profile.html" class="booking-doc-img">
-                    <img src="{{asset('doctor/assets/img/patients/patient11.jpg')}}" alt="User Image">
+                    <img src="{{asset('/avatar/generic-avatar.png')}}" alt="User Image">
                 </a>
                 <div class="profile-det-info">
                     <h3><a href="#">{{ $appointment->patient->first_name }} {{ $appointment->patient->first_name }}</a></h3>

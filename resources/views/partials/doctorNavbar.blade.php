@@ -9,7 +9,7 @@
 							</span>
             </a>
             <a href="index-2.html" class="navbar-brand logo">
-                <img src="{{asset('doctor/assets/img/logo.png')}}" class="img-fluid" alt="Logo">
+                <img src="{{asset('/invoke.png')}}" class="img-fluid" alt="Logo">
             </a>
         </div>
         <div class="main-menu-wrapper">
@@ -28,16 +28,16 @@
             <li class="nav-item dropdown has-arrow logged-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 								<span class="user-img">
-									<img class="rounded-circle" src="{{asset('doctor/assets/img/doctors/doctor-thumb-02.jpg')}}" width="31" alt="Darren Elder">
+									<img class="rounded-circle" src="{{asset('/avatar/doctor-avatar.png')}}" width="31" alt="Darren Elder">
 								</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="user-header">
                         <div class="avatar avatar-sm">
-                            <img src="{{asset('doctor/assets/img/doctors/doctor-thumb-02.jpg')}}" alt="User Image" class="avatar-img rounded-circle">
+                            <img src="{{asset('/avatar/doctor-avatar.png')}}" alt="User Image" class="avatar-img rounded-circle">
                         </div>
                         <div class="user-text">
-                            <h6>Darren Elder</h6>
+                            <h6>{{ $user->first_name  }} {{ $user->last_name  }}</h6>
                             <p class="text-muted mb-0">Doctor</p>
                         </div>
                     </div>
