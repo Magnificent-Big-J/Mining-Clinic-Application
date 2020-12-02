@@ -69,7 +69,7 @@
                                                    <div class="col-md-3">
                                                        <label>
                                                            <input type="radio" name="timeSlot" id="time-slot" value="{{$slot}}" required>
-                                                           <img src="http://placehold.it/150x150/0bf/fff&text={{$slot}}">
+                                                           <img src="&text={{$slot}}">
                                                        </label>
                                                    </div>
                                                @endforeach
