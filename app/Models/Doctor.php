@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\Types\Collection;
 
 /**
@@ -60,5 +61,14 @@ class Doctor extends Model
     public function admins(): BelongsToMany
     {
         return $this->belongsToMany(Admin::class);
+    }
+
+    public function getSpecialization(): ?string {
+        $result = DB::table('doctor_specialist')
+            ->join('specialists', 'doctor_specialist.specialist_id', '=', 'specialists.id')
+            ->where('doctor_id', $this->id)
+            ->get()->first();
+
+        return $result ? $result->name : null;
     }
 }

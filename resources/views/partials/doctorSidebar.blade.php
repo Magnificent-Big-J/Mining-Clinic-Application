@@ -8,7 +8,7 @@
                 <h3>{{ $user->title  }}. {{ $user->first_name  }} {{ $user->last_name  }}</h3>
 
                 <div class="patient-details">
-                    <h5 class="mb-0">BDS, MDS - Oral & Maxillofacial Surgery</h5>
+                    <h5 class="mb-0">{{ $user->doctor->getSpecialization() }}</h5>
                 </div>
             </div>
         </div>
