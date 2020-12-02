@@ -3,7 +3,7 @@
     <!-- Logo -->
     <div class="header-left">
         <a href="/" class="logo">
-            <img src="/invoke.png" alt="Logo">
+            <img src="/globalmedsol.png" alt="Logo">
         </a>
         <a href="index.html" class="logo logo-small">
             <img src="/invoke.png" alt="Logo" width="30" height="30">

@@ -8,8 +8,8 @@
 								<span></span>
 							</span>
             </a>
-            <a href="index-2.html" class="navbar-brand logo">
-                <img src="{{asset('/invoke.png')}}" class="img-fluid" alt="Logo">
+            <a href="" class="navbar-brand logo">
+                <img src="{{asset('/globalmedsol.png')}}" class="img-fluid" alt="Logo">
             </a>
         </div>
         <div class="main-menu-wrapper">
@@ -41,8 +41,8 @@
                             <p class="text-muted mb-0">Doctor</p>
                         </div>
                     </div>
-{{--                    <a class="dropdown-item" href="doctor-dashboard.html">Dashboard</a>--}}
-{{--                    <a class="dropdown-item" href="doctor-profile-settings.html">Profile Settings</a>--}}
+{{--                    <a class="dropdown-item" href="">Dashboard</a>--}}
+{{--                    <a class="dropdown-item" href="">Profile Settings</a>--}}
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();"><i class="material-icons">exit_to_app</i> {{ __('Logout') }}
