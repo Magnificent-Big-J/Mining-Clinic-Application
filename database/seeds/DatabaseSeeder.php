@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,5 +17,9 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvnceSeeder::class);
         $this->call(RoleAndPermissionsSeeder::class);
         $this->call(UserSeeder::class);
+
+        if (app()->environment('local')) {
+            $this->call(DoctorDatabaseSeeder::class);
+        }
     }
 }
