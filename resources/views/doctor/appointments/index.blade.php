@@ -1,4 +1,5 @@
 @extends('layouts.doctor')
+@section('title')Mining Clinic - Doctor Appointments @endsection
 @section('breadcrumb')
     <div class="breadcrumb-bar">
         <div class="container-fluid">
@@ -6,7 +7,7 @@
                 <div class="col-md-12 col-12">
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Appointments</li>
                         </ol>
                     </nav>
