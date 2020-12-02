@@ -35,11 +35,14 @@ class HomeController extends Controller
             $stats = AppointmentService::stats();
             $doctors = Doctor::limit(5)->get();
             $patients = Patient::limit(5)->get();
-            $appointments = Appointment::where('appointment_date', '>=', Carbon::now())->limit(5)->get();
+            $appointments = Appointment::whereDate('appointment_date', '>=', Carbon::now())->get();
 
             return  view('admin.dashboard.dashboard', compact('stats', 'doctors', 'patients', 'appointments'));
         } else if (auth()->user()->isDoctor()){
-            $appointments = Appointment::whereDate('appointment_date', '>=', Carbon::now())->where('status', '<>', Appointment::DECLINED_STATUS)->get();
+            $appointments = Appointment::whereDate(
+                'appointment_date', '>=', Carbon::now())
+                ->where('status', '<>', Appointment::DECLINED_STATUS)
+                ->where('doctor_id', '=', auth()->user()->doctor->id)->get();
             return view('doctor.appointments.index', compact('appointments'));
         }
         return view('home');
