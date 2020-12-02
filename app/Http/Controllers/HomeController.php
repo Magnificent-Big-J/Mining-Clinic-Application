@@ -39,7 +39,8 @@ class HomeController extends Controller
 
             return  view('admin.dashboard.dashboard', compact('stats', 'doctors', 'patients', 'appointments'));
         } else if (auth()->user()->isDoctor()){
-            return view('doctor.appointments.index');
+            $appointments = Appointment::whereDate('appointment_date', '>=', Carbon::now())->where('status', '<>', Appointment::DECLINED_STATUS)->get();
+            return view('doctor.appointments.index', compact('appointments'));
         }
         return view('home');
     }

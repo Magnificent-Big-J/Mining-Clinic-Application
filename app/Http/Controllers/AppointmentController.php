@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Appointment;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -69,7 +69,10 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, Appointment $appointment)
     {
-        //
+        $appointment->status = $request->status;
+        $appointment->save();
+
+        return redirect()->back();
     }
 
     /**
