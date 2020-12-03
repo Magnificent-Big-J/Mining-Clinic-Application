@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
             $specialists = Specialist::all();
             $view->with(['specialists'=>$specialists]);
         });
-        View::composer('admin.booking.booking',function($view){
+        View::composer(['admin.booking.booking', 'admin.booking.reschedule'],function($view){
             $doctors = Doctor::all();
             $view->with(['doctors'=>$doctors]);
         });
