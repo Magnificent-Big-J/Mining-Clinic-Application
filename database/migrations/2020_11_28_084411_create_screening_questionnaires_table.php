@@ -16,6 +16,7 @@ class CreateScreeningQuestionnairesTable extends Migration
         Schema::create('screening_questionnaires', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('image_path');
             $table->unsignedBigInteger('screening_type_id');
             $table->timestamps();
         });
