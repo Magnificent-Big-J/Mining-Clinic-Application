@@ -28,7 +28,6 @@
                                 <tr>
                                     <th scope="col">No</th>
                                     <th scope="col">First Name</th>
-                                    <th scope="col">Second Name</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Age</th>
                                     <th scope="col">CellPhone</th>
@@ -61,7 +60,6 @@
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'first_name', name: 'first_name'},
-                    {data: 'second_name', name: 'second_name'},
                     {data: 'last_name', name: 'last_name'},
                     {data: 'age', name: 'age'},
                     {data: 'cell_number', name: 'cell_number'},

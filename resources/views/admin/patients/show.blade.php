@@ -65,7 +65,7 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <h4 class="card-title">Physical Address</h4>
-                                        @if ($patient->addresses[0]->address_type_id == 1)
+                                        @if ($patient->addresses->count() >= 1)
                                             <p>{{$patient->addresses[0]->address_1}}</p>
                                             <p>{{$patient->addresses[0]->address_2}}</p>
                                             <p>{{$patient->addresses[0]->postal_code}}</p>
