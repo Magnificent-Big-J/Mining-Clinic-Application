@@ -20,8 +20,8 @@ class BookingController extends Controller
     {
        $isCreated = $request->createBooking();
 
-        $message = ($isCreated) ? 'Patient record successfully updated.' : 'Please select another timeslot, Doctor already been booked';
+        $message = ($isCreated) ? 'Appointment booking is successfully created.' : 'Please select another timeslot, Doctor already been booked';
         session()->flash('success', $message);
-        return redirect()->route('admin.patients.index');
+        return redirect()->route('admin.appointments.index');
     }
 }

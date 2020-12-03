@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AppointmentCancelled;
+use App\Mail\DoctorBooking;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AppointmentController extends Controller
 {
@@ -89,6 +92,11 @@ class AppointmentController extends Controller
      */
     public function destroy(Appointment $appointment)
     {
-        //
+        Mail::to($appointment->doctor->email)->send(new AppointmentCancelled($appointment));
+        session()->flash('success','Appointment has been deleted');
+
+        $appointment->delete();
+
+        return redirect()->back();
     }
 }

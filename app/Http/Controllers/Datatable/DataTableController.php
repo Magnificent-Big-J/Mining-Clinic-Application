@@ -79,7 +79,9 @@ class DataTableController extends Controller
     }
     public function appointments()
     {
-        $appointments = Appointment::where('appointment_date', '>=', Carbon::now())->get();
+        $appointments = Appointment::where('appointment_date', '>=', Carbon::now())
+            ->where('status', '<>', Appointment::DONE_STATUS)
+                ->get();
 
         return DataTables::of($appointments)
             ->addIndexColumn()
@@ -95,9 +97,11 @@ class DataTableController extends Controller
             })
             ->addColumn('appointment_status', function ($row){
                 return $row->status_text;
-
             })
-            ->rawColumns(['title','patient','specialist', 'appointment_status'])
+            ->addColumn('actions', function ($row){
+                return view('admin.appointments.partials.actions', compact('row'));
+            })
+            ->rawColumns(['title','patient','specialist', 'appointment_status', 'actions'])
             ->make(true);
     }
 }

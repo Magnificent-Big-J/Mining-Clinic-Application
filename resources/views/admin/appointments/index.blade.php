@@ -26,13 +26,14 @@
                             <table class="table table-hover table-center mb-0" id="appointments">
                                 <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Doctor</th>
-                                    <th>Specialist</th>
-                                    <th>Patient Name</th>
-                                    <th>Appointment Date</th>
-                                    <th>Appointment Time</th>
-                                    <th>Appointment Status</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Doctor</th>
+                                    <th scope="col">Specialist</th>
+                                    <th scope="col">Patient Name</th>
+                                    <th scope="col">Appointment Date</th>
+                                    <th scope="col">Appointment Time</th>
+                                    <th scope="col">Appointment Status</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -65,7 +66,9 @@
                     {data: 'patient', name: 'patient'},
                     {data: 'appointment_date', name: 'appointment_date'},
                     {data: 'appointment_time', name: 'appointment_time'},
-                    {data: 'appointment_status', name: 'appointment_status', orderable: true, searchable: true},
+                    {data: 'appointment_status', name: 'appointment_status'},
+                    {data: 'actions', name: 'actions', orderable: true, searchable: true},
+
 
 
                 ]

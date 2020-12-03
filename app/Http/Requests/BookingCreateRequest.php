@@ -50,7 +50,6 @@ class BookingCreateRequest extends FormRequest
             $doctor = Doctor::find($this->doctor);
 
             Mail::to($doctor->email)->send(new DoctorBooking($appointment));
-            Mail::to($doctor->email)->send(new DoctorBooking($appointment));
 
             return true;
         }
