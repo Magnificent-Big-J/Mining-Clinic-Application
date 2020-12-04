@@ -83,17 +83,17 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <script>
         $(function (){
+
             $('.js-example-basic-single').select2();
 
             $('.booking').click(function (){
                 notifySlotNotClicked();
             });
-
-
             function notifySlotNotClicked()
             {
-                let timeSlot = $('#time-slot').val();
-                if (timeSlot == '') {
+                let timeSlot = $("input[type='radio'].time-slot:checked").val();
+
+                if (timeSlot == '' || timeSlot == undefined) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',

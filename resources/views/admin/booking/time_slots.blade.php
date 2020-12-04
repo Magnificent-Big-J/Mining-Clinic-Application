@@ -4,7 +4,7 @@
         @foreach($timeSlots as $slot)
             <div class="col-md-3">
                 <label>
-                    <input type="radio" name="timeSlot" id="time-slot" value="{{$slot}}" required>
+                    <input type="radio" name="timeSlot" class="time-slot" value="{{$slot}}" required>
                     <img src="http://placehold.it/150x150/b0f/fff&text={{$slot}}">
                 </label>
             </div>

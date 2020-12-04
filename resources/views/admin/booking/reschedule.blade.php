@@ -38,7 +38,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Appointment Date:</label>
                                         <div class="col-lg-9">
-                                            <input type="date" name="appointment_date" value="{{ $appointment->appointment_date }}" class="form-control" required>
+                                            <input type="date" name="appointment_date" id="appointment_date" value="{{ $appointment->appointment_date }}" class="form-control" required>
                                             @error('appointment_date')
                                             <span class="text-danger" role="alert">
                                                          <strong>{{ $message }}</strong>
@@ -50,23 +50,11 @@
                                         <label class="col-lg-3 col-form-label">Doctor :</label>
                                         <div class="col-lg-9">
                                           <p>{{$appointment->doctor->entity_name}}</p>
-
+                                            <input type="hidden" name="doctor" id="doctor" value="{{$appointment->doctor->id}}">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Slots :</label>
-                                        <div class="col-lg-9">
-                                            <div class="row">
-                                                @foreach($timeSlots as $slot)
-                                                    <div class="col-md-3">
-                                                        <label>
-                                                            <input type="radio" name="timeSlot" id="time-slot" value="{{$slot}}" required>
-                                                            <img src="&text={{$slot}}">
-                                                        </label>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
+                                    <div class="form-group row" id="time-slot">
+
                                     </div>
 
 
@@ -91,18 +79,37 @@
             $('.booking').click(function (){
                 notifySlotNotClicked();
             });
-
-
             function notifySlotNotClicked()
             {
-                let timeSlot = $('#time-slot').val();
-                if (timeSlot == '') {
+                let timeSlot = $("input[type='radio'].time-slot:checked").val();
+
+                if (timeSlot == '' || timeSlot == undefined) {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Please Select A Time Slot'
                     })
                 }
+            }
+
+            getSlots();
+            $('#appointment_date').change(function (){
+
+                getSlots();
+            });
+            function getSlots()
+            {
+
+                    $("#time-slot").html('<img src="{{ asset('Images/805.gif') }}" alt=""/>')
+                    axios.get("{{route('admin.doctor.unbooked.slots')}}", {params : {doctor:$('#doctor').val(), appointment_date:$('#appointment_date').val()}})
+                        .then((response)=>{
+                            $('#time-slot').html(response.data);
+                        })
+                        .catch((error)=>{
+
+                            $("#time-slot").html('');
+                        })
+
             }
         });
     </script>
