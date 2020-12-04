@@ -44,4 +44,10 @@ class BookingController extends Controller
             return  redirect()->back();
         }
     }
+    public function doctorUnbookedSlots(Request $request)
+    {
+        $timeSlots = BookingService::unbookedSlots($request->doctor, $request->appointment_date);
+
+        return view('admin.booking.time_slots', compact('timeSlots'));
+    }
 }

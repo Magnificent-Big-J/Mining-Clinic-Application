@@ -37,7 +37,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Appointment Date:</label>
                                         <div class="col-lg-9">
-                                            <input type="date" name="appointment_date" value="{{ old('appointment_date') }}" class="form-control" required>
+                                            <input type="date" name="appointment_date" id="appointment_date" value="{{ old('appointment_date') }}" class="form-control" required>
                                             @error('appointment_date')
                                             <span class="text-danger" role="alert">
                                                          <strong>{{ $message }}</strong>
@@ -49,7 +49,8 @@
                                         <label class="col-lg-3 col-form-label">Doctor :</label>
                                         <div class="col-lg-9">
 
-                                            <select class="js-example-basic-single form-control" name="doctor" required>
+                                            <select class="js-example-basic-single form-control" name="doctor" id="doctor" required>
+                                                <option value="">Select A Doctor</option>
                                                 @foreach($doctors as $doctor)
                                                     <option value="{{$doctor->id}}">{{$doctor->entity_name}}</option>
                                                 @endforeach
@@ -61,20 +62,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Slots :</label>
-                                        <div class="col-lg-9">
-                                           <div class="row">
-                                               @foreach($timeSlots as $slot)
-                                                   <div class="col-md-3">
-                                                       <label>
-                                                           <input type="radio" name="timeSlot" id="time-slot" value="{{$slot}}" required>
-                                                           <img src="&text={{$slot}}">
-                                                       </label>
-                                                   </div>
-                                               @endforeach
-                                           </div>
-                                        </div>
+                                    <div class="form-group row" id="time-slot">
+
                                     </div>
 
 
@@ -109,6 +98,33 @@
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Please Select A Time Slot'
+                    })
+                }
+            }
+            $('#doctor').change(function (){
+
+                let doctor = $(this).val()
+                let appointment_date = $('#appointment_date').val()
+                getSlots(doctor, appointment_date)
+            });
+            $('#appointment_date').change(function (){
+
+                let doctor = $('#doctor').val()
+                let appointment_date = $(this).val()
+                getSlots(doctor, appointment_date)
+            });
+            function getSlots(doctor, appointment_date)
+            {
+                if (doctor.length > 0 && appointment_date.length > 0) {
+                $("#time-slot").html('<img src="{{ asset('Images/805.gif') }}" alt=""/>')
+                axios.get("{{route('admin.doctor.unbooked.slots')}}", {params : {doctor, appointment_date}})
+                    .then((response)=>{
+
+                        $('#time-slot').html(response.data);
+                    })
+                    .catch((error)=>{
+                        console.log(error);
+                        $("#time-slot").html('');
                     })
                 }
             }

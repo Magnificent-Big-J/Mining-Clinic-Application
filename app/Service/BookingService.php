@@ -43,4 +43,21 @@ class BookingService
             }
             return false;
         }
+        public static function unbookedSlots(int $doctor, string $appointment)
+        {
+            $appointments = collect(Appointment::where('doctor_id', '=', $doctor)
+                ->where('appointment_date', '=', Carbon::parse($appointment))
+                ->pluck('appointment_time')->toArray());
+
+            if ($appointments->count()) {
+
+                $times = $appointments->map(function ($time){
+                    return date('G:i', strtotime($time));
+                })->toArray();
+
+               return  array_diff(self::timeSlots(), $times);
+            }
+
+            return self::timeSlots();
+        }
 }
