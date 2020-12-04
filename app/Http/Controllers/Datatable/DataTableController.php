@@ -7,6 +7,7 @@ use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Patient;
 use App\Models\Province;
+use App\Models\ScreeningQuestionnaire;
 use App\Models\Specialist;
 use Carbon\Carbon;
 use DataTables;
@@ -104,4 +105,28 @@ class DataTableController extends Controller
             ->rawColumns(['title','patient','specialist', 'appointment_status', 'actions'])
             ->make(true);
     }
+    public function questionnaires()
+    {
+        $specialist = ScreeningQuestionnaire::all();
+
+        return DataTables::of($specialist)
+            ->addIndexColumn()
+            ->addColumn('question', function ($row){
+                return view('admin.questionnaires.partials.question', compact('row'));
+            })
+            ->addColumn('question_type', function ($row){
+                switch ($row->screening_type_id){
+                    case 1:
+                        return 'Covid-19';
+                    case 2:
+                        return 'Medical Examination';
+
+
+                }
+                return ;
+            })
+            ->rawColumns(['question_type'])
+            ->make(true);
+    }
+
 }

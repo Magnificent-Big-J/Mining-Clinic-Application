@@ -18,7 +18,7 @@ use Illuminate\Support\Collection;
  */
 class ScreeningQuestionnaire extends Model
 {
-    protected $fillable = ['name', 'screening_type_id'];
+    protected $fillable = ['name', 'screening_type_id', 'image_path'];
 
     public function screening(): HasMany
     {

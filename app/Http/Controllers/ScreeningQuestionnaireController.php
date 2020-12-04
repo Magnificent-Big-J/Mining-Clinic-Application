@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QuestionnaireCreateRequest;
 use App\ScreeningQuestionnaire;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class ScreeningQuestionnaireController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.questionnaires.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class ScreeningQuestionnaireController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.questionnaires.covid_form');
     }
 
     /**
@@ -33,9 +34,11 @@ class ScreeningQuestionnaireController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionnaireCreateRequest $request)
     {
-        //
+        $request->createQuestionnaires();
+        session()->flash('success', 'Questionnaire Successfully created');
+        return redirect()->route('admin.question.index');
     }
 
     /**
@@ -81,5 +84,9 @@ class ScreeningQuestionnaireController extends Controller
     public function destroy(ScreeningQuestionnaire $screeningQuestionnaire)
     {
         //
+    }
+    public function medical()
+    {
+        return view('admin.questionnaires.medical_form');
     }
 }

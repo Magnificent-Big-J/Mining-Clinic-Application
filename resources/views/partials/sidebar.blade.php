@@ -20,6 +20,9 @@
                 <li>
                     <a href="{{route('admin.patients.index')}}"><i class="fe fe-user"></i> <span>Patients</span></a>
                 </li>
+                <li>
+                    <a href="{{route('admin.question.index')}}"><i class="fe fe-user"></i> <span>Questionnaires</span></a>
+                </li>
 
             </ul>
         </div>

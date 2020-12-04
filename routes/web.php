@@ -31,3 +31,4 @@ Route::get('patient','Datatable\DataTableController@patients')->name('patient.in
 Route::get('specialist-data','Datatable\DataTableController@specialist')->name('specialist.index');
 Route::get('doctors-data','Datatable\DataTableController@doctors')->name('doctor.index');
 Route::get('appointments-data','Datatable\DataTableController@appointments')->name('appointments.index');
+Route::get('questionnaires-data','Datatable\DataTableController@questionnaires')->name('questionnaires.index');
