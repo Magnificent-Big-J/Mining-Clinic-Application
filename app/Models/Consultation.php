@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\ConsultationCategory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -11,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $consultation_category_id
  * @property string $name
- * @property ConsultationCategory $category
+ * @property ConsultationCategory $consultationCategory
  */
 
 class Consultation extends Model
@@ -20,7 +19,7 @@ class Consultation extends Model
         'name', 'consultation_category_id'
     ];
 
-    public function category()
+    public function consultationCategory()
     {
         return $this->belongsTo(ConsultationCategory::class);
     }

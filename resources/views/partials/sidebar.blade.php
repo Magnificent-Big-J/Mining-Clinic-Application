@@ -23,6 +23,12 @@
                 <li>
                     <a href="{{route('admin.question.index')}}"><i class="fe fe-user"></i> <span>Questionnaires</span></a>
                 </li>
+                <li class="submenu">
+                    <a href="#" class="active"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="{{route('admin.historic-appointment.index')}}">Appointments</a></li>
+                    </ul>
+                </li>
 
             </ul>
         </div>

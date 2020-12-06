@@ -23,7 +23,7 @@ class AppointmentAssessment extends Model
 
     public function consultationFee()
     {
-        return $this->belongsTo(Consultation::class);
+        return $this->belongsTo(ConsultationFee::class);
     }
     public function appointment()
     {

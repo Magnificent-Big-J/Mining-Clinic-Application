@@ -22,4 +22,8 @@ class ConsultationFee extends Model
     {
         return $this->hasMany(AppointmentAssessment::class);
     }
+    public function consultation()
+    {
+        return $this->belongsTo(Consultation::class);
+    }
 }
