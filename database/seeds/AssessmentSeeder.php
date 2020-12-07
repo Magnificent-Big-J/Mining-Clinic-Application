@@ -29,14 +29,14 @@ class AssessmentSeeder extends Seeder
         $assessments = array(
             array('consultation_fee_id' => 1, 'appointment_id'=>1, 'assessment_date' => Carbon::now()->subMonths(4)),
             array('consultation_fee_id' => 2, 'appointment_id'=>1, 'assessment_date' => Carbon::now()->subMonths(4)),
-            array('consultation_fee_id' => 3, 'appointment_id'=>2, 'assessment_date' => Carbon::now()->subMonths(2)),
-            array('consultation_fee_id' => 1, 'appointment_id'=>2, 'assessment_date' => Carbon::now()->subMonths(2)),
-            array('consultation_fee_id' => 3, 'appointment_id'=>3, 'assessment_date' => Carbon::now()->subDays(6)),
-            array('consultation_fee_id' => 4, 'appointment_id'=>3, 'assessment_date' => Carbon::now()->subDays(6)),
-            array('consultation_fee_id' => 1, 'appointment_id'=>4, 'assessment_date' => Carbon::now()->subDays(2)),
-            array('consultation_fee_id' => 2, 'appointment_id'=>4, 'assessment_date' => Carbon::now()->subDays(2)),
-            array('consultation_fee_id' => 6, 'appointment_id'=>4, 'assessment_date' => Carbon::now()->subDays(2)),
-            array('consultation_fee_id' => 7, 'appointment_id'=>4, 'assessment_date' => Carbon::now()->subDays(2)),
+            array('consultation_fee_id' => 3, 'appointment_id'=>5, 'assessment_date' => Carbon::now()->subMonths(2)),
+            array('consultation_fee_id' => 1, 'appointment_id'=>5, 'assessment_date' => Carbon::now()->subMonths(2)),
+            array('consultation_fee_id' => 3, 'appointment_id'=>6, 'assessment_date' => Carbon::now()->subDays(6)),
+            array('consultation_fee_id' => 4, 'appointment_id'=>6, 'assessment_date' => Carbon::now()->subDays(6)),
+            array('consultation_fee_id' => 1, 'appointment_id'=>7, 'assessment_date' => Carbon::now()->subDays(2)),
+            array('consultation_fee_id' => 2, 'appointment_id'=>7, 'assessment_date' => Carbon::now()->subDays(2)),
+            array('consultation_fee_id' => 6, 'appointment_id'=>8, 'assessment_date' => Carbon::now()->subDays(2)),
+            array('consultation_fee_id' => 7, 'appointment_id'=>8, 'assessment_date' => Carbon::now()->subDays(2)),
         );
 
         foreach ($assessments as $assessment) {

@@ -101,33 +101,36 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
+                            @foreach($patient->appointments as $appointment)
 
+
+                            <h4>Appointment: {{$appointment->appointment_date}} {{$appointment->appointment_time}}</h4>
+                            <small class="text-primary">assessments:</small>
                             <table class="table mb-0">
                                 <thead>
                                 <tr>
                                     <th>Doctor</th>
-                                    <th>Appointment Date</th>
-                                    <th>Appointment Time</th>
                                     <th>Consultation Fee</th>
                                     <th>Consultation</th>
                                     <th>Consultation Category</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($patient->appointments as $appointment)
+
+
                                     @foreach($appointment->appointmentAssessment as $assessment)
                                         <tr>
                                             <td>{{$assessment->appointment->doctor->user->full_names}}</td>
-                                            <td>{{$assessment->appointment->appointment_date}}</td>
-                                            <td>{{$assessment->appointment->appointment_time}}</td>
                                             <td>R {{$assessment->consultationFee->consultation_fee}}</td>
                                             <td>{{$assessment->consultationFee->consultation->name}}</td>
                                             <td>{{$assessment->consultationFee->consultation->consultationCategory->name}}</td>
                                         </tr>
                                     @endforeach
-                                @endforeach
+
                                 </tbody>
                             </table>
+                                <hr>
+                            @endforeach
                         </div>
                     </div>
                 </div>
