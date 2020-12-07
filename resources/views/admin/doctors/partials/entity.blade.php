@@ -111,18 +111,25 @@
             <label class="col-lg-3 col-form-label">FAX Number:</label>
             <div class="col-lg-9">
                 <input type="text" name="fax_number" value="{{ old('fax_number') }}" class="form-control">
+
             </div>
         </div>
-        <!--div class="form-group row">
+        <div class="form-group row">
             <label class="col-lg-3 col-form-label">Stock Scheme:</label>
             <div class="col-lg-9">
                 <input type="text" name="stock_scheme" value="{{ old('stock_scheme') }}" class="form-control">
+                @error('stock_scheme')
+                <span class="text-danger" role="alert">
+                   <strong>{{ $message }}</strong>
+                 </span>
+                @enderror
             </div>
-        </div-->
-        <div class="form-group row hidden">
+        </div>
+        <div class="form-group row">
             <label class="col-lg-3 col-form-label">Avatar:</label>
             <div class="col-lg-9">
                 <input type="file" accept="image/gif, image/jpeg, image/png" name="avatar"  class="form-control">
+
             </div>
         </div>
     </div>
