@@ -38,7 +38,11 @@ class BookingCreateRequest extends FormRequest
     public function createBooking()
     {
         if (BookingService::alreadyBooked($this->appointment_date, $this->timeSlot, $this->doctor)) {
-            return false;
+            return [
+                'appointment' => [],
+                'created' => false,
+                'patient' => $this->patient,
+            ];
         } else {
            $appointment = Appointment::create([
                 'patient_id'=> $this->patient,
@@ -51,7 +55,11 @@ class BookingCreateRequest extends FormRequest
 
             Mail::to($doctor->email)->send(new DoctorBooking($appointment));
 
-            return true;
+            return [
+                'appointment' => $appointment,
+                'created' => true,
+                'patient' => $this->patient,
+            ];
         }
 
     }

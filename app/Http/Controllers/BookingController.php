@@ -20,11 +20,21 @@ class BookingController extends Controller
     }
     public function store(BookingCreateRequest $request)
     {
-       $isCreated = $request->createBooking();
+       $results = $request->createBooking();
+       $isCreated = $results['created'];
+       $appointment = $results['appointment'];
+       $patient = $results['patient'];
 
-        $message = ($isCreated) ? 'Appointment booking is successfully created.' : 'Please select another timeslot, Doctor already been booked';
-        session()->flash('success', $message);
-        return redirect()->route('admin.appointments.index');
+
+        if ($isCreated) {
+
+            session()->flash('success', 'Appointment booking is successfully created.');
+            return redirect()->route('admin.covid.screening',['appointment'=> $appointment->id, 'patient'=> $patient]);
+        }
+
+        session()->flash('success', 'Please select another timeslot, Doctor already been booked.');
+
+        return redirect()->back();
     }
     public function reschedule(Appointment $appointment)
     {

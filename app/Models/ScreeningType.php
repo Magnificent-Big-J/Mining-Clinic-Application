@@ -18,6 +18,8 @@ class ScreeningType extends Model
 {
     protected $fillable = ['name'];
 
+    const COVID_TYPE = 1;
+    const MEDICAL_TYPE = 2;
     public function screeningQuestionnaire(): HasMany
     {
         return $this->hasMany(ScreeningQuestionnaire::class);

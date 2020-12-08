@@ -34,4 +34,3 @@ Route::get('doctors-data','Datatable\DataTableController@doctors')->name('doctor
 Route::get('appointments-data','Datatable\DataTableController@appointments')->name('appointments.index');
 Route::get('questionnaires-data','Datatable\DataTableController@questionnaires')->name('questionnaires.index');
 Route::get('historic-appointment-data','Datatable\ReportDatatables@historicAppointment')->name('historic.appointment.index');
-

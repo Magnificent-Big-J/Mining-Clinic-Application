@@ -14,4 +14,6 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::put('reschedule-update/{appointment}', 'BookingController@update')->name('reschedule.update');
     Route::get('doctor-unbooked-slots', 'BookingController@doctorUnbookedSlots')->name('doctor.unbooked.slots');
     Route::post('store-booking', 'BookingController@store')->name('store.booking');
+    Route::get('covid/{appointment}/screening/{patient}', 'AppointmentScreening@covidScreening')->name('covid.screening');
+    Route::post('covid-screening}', 'AppointmentScreening@store')->name('covid.screening.store');
 });
