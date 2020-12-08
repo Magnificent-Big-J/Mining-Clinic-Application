@@ -16,8 +16,6 @@ use Illuminate\Support\Collection;
  * @property int $status
  * @property Doctor $doctor
  * @property Patient $patient
- * @property AppointmentAssessment[]|Collection $appointmentAssessment
- * @property Screening[]|Collection $screening
  */
 class Appointment extends Model
 {

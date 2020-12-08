@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(DaysOfTheWeekSeeder::class);
         $this->call(ScreeningTypeSeeder::class);
+        $this->call(CovidSeeder::class);
         $this->call(AddressTypeSeeder::class);
         $this->call(ProvnceSeeder::class);
         $this->call(RoleAndPermissionsSeeder::class);
