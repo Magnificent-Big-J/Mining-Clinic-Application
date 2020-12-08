@@ -127,6 +127,37 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="card-title">Appointment Screening Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                <tr>
+                                    <th>Screening Type</th>
+                                    <th>Screening Question</th>
+                                    <th>Screening Answer</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($appointment->screening as $screening)
+                                    <tr>
+                                        <td>{{$screening->screeningQuestionnaire->screeningType->name}}</td>
+                                        <td>{{$screening->screeningQuestionnaire->name}}</td>
+                                        <td>{{$screening->screening_answer}}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 

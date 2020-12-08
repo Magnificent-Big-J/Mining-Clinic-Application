@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\ScreeningQuestionnaire;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -16,14 +15,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $screening_answer
  * @property ScreeningQuestionnaire $question
  * @property Appointment $appointment
+ * @property ScreeningQuestionnaire $screeningQuestionnaire
  */
-
 
 class Screening extends Model
 {
     protected $fillable = ['appointment_id', 'screening_questionnaire_id', 'screening_date', 'screening_answer'];
 
-    public function question(): BelongsTo
+    public function screeningQuestionnaire(): BelongsTo
     {
         return $this->belongsTo(ScreeningQuestionnaire::class);
     }
