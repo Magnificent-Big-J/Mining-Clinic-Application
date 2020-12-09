@@ -21,8 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('hello', function (){
     return view('admin.patients.index');
 });
-Route::get('test', function (){
 
+Route::get('test', function (){
     return view('doctor.appointments.index');
 });
 
@@ -34,3 +34,5 @@ Route::get('doctors-data','Datatable\DataTableController@doctors')->name('doctor
 Route::get('appointments-data','Datatable\DataTableController@appointments')->name('appointments.index');
 Route::get('questionnaires-data','Datatable\DataTableController@questionnaires')->name('questionnaires.index');
 Route::get('historic-appointment-data','Datatable\ReportDatatables@historicAppointment')->name('historic.appointment.index');
+Route::get('medical-examination-questions','Api\InternalApiController@getMedicalQuestions')->name('medical.examination.questions');
+Route::post('medical-examination','Api\InternalApiController@save')->name('medical.examination.save');

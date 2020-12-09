@@ -33,6 +33,12 @@ class AppointmentScreening extends Controller
         }
 
         session()->flash('success', 'Thank you, covid-19 screening is successfully created.');
-        return redirect()->route('admin.appointments.index');
+        return redirect()->route('admin.medical.screening', ['appointment'=> $request->appointment, 'patient'=> $request->patient]);
     }
+    public function medicalScreening(Appointment $appointment, Patient $patient)
+    {
+        $host = request()->getHttpHost();
+        return view('admin.screening.medical_examination', compact('appointment', 'patient', 'host'));
+    }
+
 }

@@ -28,4 +28,8 @@ class ScreeningQuestionnaire extends Model
     {
         return $this->belongsTo(ScreeningType::class);
     }
+    public function getPhotoAttribute()
+    {
+        return ($this->image_path) ? asset($this->image_path) : asset('questions/default.jpeg');
+    }
 }
