@@ -52,6 +52,7 @@
             <button v-else @click="next" class="btn btn-success">
                 Next
             </button>
+            <div v-show="loading" id="loader"></div>
         </div>
     </div>
 </template>
@@ -67,7 +68,8 @@ name: "MedicalExamination",
             questionIndex: 0,
             userQuestions: [],
             questionLength: 0,
-            questionText: []
+            questionText: [],
+            loading: false,
         }
     },
     methods: {
@@ -105,6 +107,7 @@ name: "MedicalExamination",
         },
         submitAnswers()
         {
+            this.loading = true;
             let form = new FormData();
             form.append('questions', this.userQuestions);
             form.append('answers', this.userResponses);
@@ -122,6 +125,7 @@ name: "MedicalExamination",
                 window.location = response.data.url
             })
             .catch((error)=>{
+                this.loading = false
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',

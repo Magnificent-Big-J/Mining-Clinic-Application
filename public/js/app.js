@@ -1999,6 +1999,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MedicalExamination",
   props: ['patient', 'appointment'],
@@ -2009,7 +2010,8 @@ __webpack_require__.r(__webpack_exports__);
       questionIndex: 0,
       userQuestions: [],
       questionLength: 0,
-      questionText: []
+      questionText: [],
+      loading: false
     };
   },
   methods: {
@@ -2044,6 +2046,9 @@ __webpack_require__.r(__webpack_exports__);
       this.questionText[index] = text;
     },
     submitAnswers: function submitAnswers() {
+      var _this2 = this;
+
+      this.loading = true;
       var form = new FormData();
       form.append('questions', this.userQuestions);
       form.append('answers', this.userResponses);
@@ -2058,6 +2063,7 @@ __webpack_require__.r(__webpack_exports__);
         });
         window.location = response.data.url;
       })["catch"](function (error) {
+        _this2.loading = false;
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
@@ -41288,7 +41294,19 @@ var render = function() {
               "button",
               { staticClass: "btn btn-success", on: { click: _vm.next } },
               [_vm._v("\n            Next\n        ")]
-            )
+            ),
+        _vm._v(" "),
+        _c("div", {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.loading,
+              expression: "loading"
+            }
+          ],
+          attrs: { id: "loader" }
+        })
       ],
       2
     )
