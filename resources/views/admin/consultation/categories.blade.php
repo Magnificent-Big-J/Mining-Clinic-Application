@@ -28,7 +28,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Consultation Category</th>
-                                    <th>Actions</th>
+                                    <!--th>Actions</th-->
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -57,7 +57,7 @@
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'name', name: 'name'},
-                    {data: 'actions', name: 'actions'},
+                   // {data: 'actions', name: 'actions'},
                 ]
             });
 
