@@ -7,6 +7,7 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::resource('specialists','SpecialistController');
     Route::resource('doctors','DoctorController');
     Route::resource('appointments','AppointmentController');
+    Route::resource('consultation-category','ConsultationCategoryController');
     Route::resource('question','ScreeningQuestionnaireController');
     Route::get('medical-questions','ScreeningQuestionnaireController@medical')->name('medical.question');
     Route::post('booking', 'BookingController@booking')->name('booking');

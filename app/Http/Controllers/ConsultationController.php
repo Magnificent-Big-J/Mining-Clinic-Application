@@ -14,7 +14,7 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
