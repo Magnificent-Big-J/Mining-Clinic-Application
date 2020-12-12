@@ -23,11 +23,16 @@
                 <li>
                     <a href="{{route('admin.question.index')}}"><i class="fe fe-user"></i> <span>Questionnaires</span></a>
                 </li>
-                <li>
-                    <a href="{{route('admin.consultation-category.index')}}"><i class="fe fe-user"></i> <span>Consultation Categories</span></a>
-                </li>
                 <li class="submenu">
-                    <a href="#" class="active"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
+                    <a href="#" ><i class="fe fe-bookmark"></i> <span> Consultations</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="{{route('admin.consultation.index')}}">Consultation</a></li>
+                        <li><a href="{{route('admin.consultation-category.index')}}">Consultation Categories</a></li>
+                    </ul>
+                </li>
+
+                <li class="submenu">
+                    <a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="{{route('admin.historic-appointment.index')}}">Appointments</a></li>
                     </ul>

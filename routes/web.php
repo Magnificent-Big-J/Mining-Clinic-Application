@@ -28,7 +28,8 @@ Route::get('test', function (){
 
 
 Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
-Route::get('consultation-category-data','Datatable\DataTableController@consultationCategories')->name('consultation.category.index');
+Route::get('consultation-data','Datatable\ConsultationDatatableController@consultation')->name('consultation.consultation.index');
+Route::get('consultation-category-data','Datatable\ConsultationDatatableController@consultationCategories')->name('consultation.category.index');
 Route::get('patient','Datatable\DataTableController@patients')->name('patient.index');
 Route::get('specialist-data','Datatable\DataTableController@specialist')->name('specialist.index');
 Route::get('doctors-data','Datatable\DataTableController@doctors')->name('doctor.index');

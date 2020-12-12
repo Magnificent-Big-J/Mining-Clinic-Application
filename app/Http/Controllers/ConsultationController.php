@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Consultation;
+use App\Http\Requests\ConsultationCategoryRequest;
+use App\Http\Requests\ConsultationCreateRequest;
 use Illuminate\Http\Request;
 
 class ConsultationController extends Controller
@@ -14,7 +16,7 @@ class ConsultationController extends Controller
      */
     public function index()
     {
-
+        return view('admin.consultation.consultation');
     }
 
     /**
@@ -33,9 +35,11 @@ class ConsultationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ConsultationCreateRequest $request)
     {
-        //
+        $request->createConsultation();
+        session()->flash('success', 'Consultation successfully created.');
+        return redirect()->route('admin.consultation.index');
     }
 
     /**
