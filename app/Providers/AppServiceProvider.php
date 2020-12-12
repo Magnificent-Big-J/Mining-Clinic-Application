@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
             $consultationCategories = ConsultationCategory::all();
             $view->with(['consultationCategories'=>$consultationCategories]);
         });
-        View::composer(['admin.doctors.modals.consultation_fee'],function($view){
+        View::composer(['admin.doctors.modals.consultation_fee','admin.doctors.edit_consultation_fee'],function($view){
             $consultations = Consultation::all();
             $view->with(['consultations'=>$consultations]);
         });

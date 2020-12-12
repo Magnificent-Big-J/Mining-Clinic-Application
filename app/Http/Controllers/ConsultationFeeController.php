@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ConsultationCreateRequest;
 use App\Http\Requests\ConsultationFeeCreateRequest;
+use App\Http\Requests\ConsultationFeeUpdateRequest;
 use App\Models\ConsultationFee;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
@@ -62,7 +63,7 @@ class ConsultationFeeController extends Controller
      */
     public function edit(ConsultationFee $consultationFee)
     {
-        //
+        return view('admin.doctors.edit_consultation_fee', compact('consultationFee'));
     }
 
     /**
@@ -72,9 +73,10 @@ class ConsultationFeeController extends Controller
      * @param  \App\ConsultationFee  $consultationFee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ConsultationFee $consultationFee)
+    public function update(ConsultationFeeUpdateRequest $request, ConsultationFee $consultationFee)
     {
-        //
+        $request->updateConsultationFee($consultationFee);
+        return redirect()->route('admin.consultation.fee.index', $consultationFee->doctor_id);
     }
 
     /**

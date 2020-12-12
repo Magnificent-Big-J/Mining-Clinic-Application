@@ -52,7 +52,10 @@ class ConsultationDatatableController extends Controller
             ->addColumn('consultation_fee_price', function ($row){
                 return 'R' . NumberFormatService::format_number($row->consultation_fee);
             })
-            ->rawColumns(['category_name','consultation_name', 'consultation_fee_price'])
+            ->addColumn('actions', function ($row){
+                return view('admin.doctors.partials.consultation_actions', compact('row'));
+            })
+            ->rawColumns(['category_name','consultation_name', 'consultation_fee_price','actions'])
             ->make(true);
     }
 }

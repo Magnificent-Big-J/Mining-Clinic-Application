@@ -37,7 +37,7 @@
                                     <th>Consultation</th>
                                     <th>Consultation Category</th>
                                     <th>Consultation Fee</th>
-                                    <!--th>Actions</th-->
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -73,7 +73,7 @@
                     {data: 'consultation_name', name: 'consultation_name'},
                     {data: 'category_name', name: 'category_name'},
                     {data: 'consultation_fee_price', name: 'consultation_fee_price'},
-                    // {data: 'actions', name: 'actions'},
+                    {data: 'actions', name: 'actions'},
                 ]
             });
 
