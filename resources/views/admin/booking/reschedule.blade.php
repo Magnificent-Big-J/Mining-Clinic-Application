@@ -36,7 +36,7 @@
                                     @csrf
 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Appointment Date:</label>
+                                        <label class="col-lg-3 col-form-label">Appointment Date:<strong class="text-danger">*</strong></label>
                                         <div class="col-lg-9">
                                             <input type="date" name="appointment_date" id="appointment_date" value="{{ $appointment->appointment_date }}" class="form-control" required>
                                             @error('appointment_date')

@@ -34,7 +34,7 @@
                                     @csrf
                                     <input type="hidden" name="patient" value="{{Session::get('patient')->id}}">
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Medical Aid Name:</label>
+                                                <label class="col-lg-3 col-form-label">Medical Aid Name:<strong class="text-danger">*</strong></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="medical_name" value="{{ old('medical_name') }}" class="form-control">
                                                     @error('medical_name')
@@ -45,7 +45,7 @@
                                                  </div>
                                             </div>
                                         <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Medical Aid Number:</label>
+                                            <label class="col-lg-3 col-form-label">Medical Aid Number:<strong class="text-danger">*</strong></label>
                                             <div class="col-lg-9">
                                                 <input type="text" name="medical_aid_number" value="{{ old('medical_aid_number') }}" class="form-control">
                                                 @error('medical_aid_number')

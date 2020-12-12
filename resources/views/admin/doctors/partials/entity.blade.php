@@ -1,18 +1,18 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Entity Name:</label>
+            <label class="col-lg-3 col-form-label">Entity Name:<strong class="text-danger">*</strong></label>
             <div class="col-lg-9">
                 <input type="text" name="entity_name" value="{{ old('entity_name') }}" class="form-control">
                 @error('entity_name')
-                <span class="text-danger" role="alert">
-                                                         <strong>{{ $message }}</strong>
-                                                        </span>
+                    <span class="text-danger" role="alert">
+                       <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Specialist:</label>
+            <label class="col-lg-3 col-form-label">Specialist:<strong class="text-danger">*</strong></label>
             <div class="col-lg-9">
                 <select name="specialist_name" id="specialist_name" class="form-control">
                     @foreach($specialists as $specialist)
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Entity Status:</label>
+            <label class="col-lg-3 col-form-label">Entity Status:<strong class="text-danger">*</strong></label>
             <div class="col-lg-9">
                 <select name="entity_status" id="entity_status" class="form-control">
                     <option @if(old('entity_status') == 'active') selected @endif value="active">Active</option>
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Practice Number:</label>
+            <label class="col-lg-3 col-form-label">Practice Number:<strong class="text-danger">*</strong></label>
             <div class="col-lg-9">
                 <input type="text" name="practice_number" value="{{ old('practice_number') }}" class="form-control">
                 @error('practice_number')
@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Address :</label>
+            <label class="col-lg-3 col-form-label">Address :<strong class="text-danger">*</strong></label>
             <div class="col-lg-9">
                 <input type="text" name="address" value="{{ old('address') }}" class="form-control">
                 @error('address')
@@ -75,18 +75,18 @@
     <div class="col-lg-6">
 
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Registration Number:</label>
+            <label class="col-lg-3 col-form-label">Registration Number:<strong class="text-danger">*</strong></label>
             <div class="col-lg-9">
                 <input type="text" name="reg_number" value="{{ old('reg_number') }}" class="form-control">
                 @error('reg_number')
-                <span class="text-danger" role="alert">
-                                                         <strong>{{ $message }}</strong>
-                                                        </span>
+                    <span class="text-danger" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
                 @enderror
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Email Address:</label>
+            <label class="col-lg-3 col-form-label">Email Address:<strong class="text-danger">*</strong></label>
             <div class="col-lg-9">
                 <input type="text" name="entity_email" value="{{ old('entity_email') }}" class="form-control">
                 @error('entity_email')
@@ -97,7 +97,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">VAT Number:</label>
+            <label class="col-lg-3 col-form-label">VAT Number:<strong class="text-danger">*</strong></label>
             <div class="col-lg-9">
                 <input type="text" name="vat_number" value="{{ old('vat_number') }}" class="form-control">
                 @error('vat_number')
@@ -118,11 +118,6 @@
             <label class="col-lg-3 col-form-label">Stock Scheme:</label>
             <div class="col-lg-9">
                 <input type="text" name="stock_scheme" value="{{ old('stock_scheme') }}" class="form-control">
-                @error('stock_scheme')
-                <span class="text-danger" role="alert">
-                   <strong>{{ $message }}</strong>
-                 </span>
-                @enderror
             </div>
         </div>
         <div class="form-group row">

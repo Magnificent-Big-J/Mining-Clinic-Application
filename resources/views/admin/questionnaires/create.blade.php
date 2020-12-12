@@ -1,5 +1,5 @@
 <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Question name:</label>
+    <label class="col-lg-3 col-form-label">Question name: <strong class="text-danger">*</strong></label>
     <div class="col-lg-9">
         <input type="text" name="question_name" value="{{ old('question_name') }}" class="form-control">
         @error('question_name')

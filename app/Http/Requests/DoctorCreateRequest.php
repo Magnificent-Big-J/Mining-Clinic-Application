@@ -37,7 +37,6 @@ class DoctorCreateRequest extends FormRequest
             'practice_number' => 'required|string',
             'vat_number' => 'required',
             'address' => 'required|string',
-            'stock_scheme' => 'required|string',
             'reg_number' => 'required|string',
             'specialist_name' => 'required',
         ];

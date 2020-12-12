@@ -35,7 +35,7 @@
                                     @csrf
                                     <input type="hidden" name="patient" value="{{$patient->id}}">
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Appointment Date:</label>
+                                        <label class="col-lg-3 col-form-label">Appointment Date:<strong class="text-danger">*</strong></label>
                                         <div class="col-lg-9">
                                             <input type="date" name="appointment_date" id="appointment_date" value="{{ old('appointment_date') }}" class="form-control" required>
                                             @error('appointment_date')
@@ -46,7 +46,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Doctor :</label>
+                                        <label class="col-lg-3 col-form-label">Doctor :<strong class="text-danger">*</strong></label>
                                         <div class="col-lg-9">
 
                                             <select class="js-example-basic-single form-control" name="doctor" id="doctor" required>

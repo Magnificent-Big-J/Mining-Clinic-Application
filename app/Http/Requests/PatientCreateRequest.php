@@ -33,7 +33,6 @@ class PatientCreateRequest extends FormRequest
             'identity_number' => 'required|string|unique:patients',
             'is_local' => 'required',
             'cellphone' => 'required',
-            'second_name' => 'required|string',
             'date_of_birth' => 'required',
             'have_medical' => 'required',
             'address_1' => 'required|string',

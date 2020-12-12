@@ -31,7 +31,7 @@
                                 <form action="{{route('admin.specialists.store')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Specialist Name:</label>
+                                        <label class="col-lg-3 col-form-label">Specialist Name: <strong class="text-danger">*</strong></label>
                                         <div class="col-lg-9">
                                             <input type="text" name="specialist_name" value="{{ old('specialist_name') }}" class="form-control">
                                             @error('specialist_name')
@@ -42,7 +42,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Specialist Image:</label>
+                                        <label class="col-lg-3 col-form-label">Specialist Image: <strong class="text-danger">*</strong></label>
                                         <div class="col-lg-9">
                                             <input type="file" accept="image/gif, image/jpeg, image/png" name="specialist_image"  class="form-control">
                                             @error('specialist_image')
