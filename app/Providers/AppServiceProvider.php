@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
             $doctors = Doctor::all();
             $view->with(['doctors'=>$doctors]);
         });
-        View::composer(['admin.consultation.modals.consultation'],function($view){
+        View::composer(['admin.consultation.modals.consultation','admin.consultation.modals.edit_consultation'],function($view){
             $consultationCategories = ConsultationCategory::all();
             $view->with(['consultationCategories'=>$consultationCategories]);
         });

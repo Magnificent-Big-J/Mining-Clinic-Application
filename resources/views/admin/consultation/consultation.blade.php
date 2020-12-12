@@ -33,7 +33,7 @@
                                     <th>No</th>
                                     <th>Consultation</th>
                                     <th>Consultation Category</th>
-                                    <!--th>Actions</th-->
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -49,6 +49,7 @@
         </div>
     </div>
     @include('admin.consultation.modals.consultation')
+    @include('admin.consultation.modals.edit_consultation')
 @endsection
 @section('scripts')
     <script src="{{asset('js/select2.min.js')}}"></script>
@@ -68,7 +69,7 @@
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'name', name: 'name'},
                     {data: 'category_name', name: 'category_name'},
-                    // {data: 'actions', name: 'actions'},
+                    {data: 'actions', name: 'actions'},
                 ]
             });
 

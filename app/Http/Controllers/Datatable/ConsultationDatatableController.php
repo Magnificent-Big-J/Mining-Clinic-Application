@@ -8,7 +8,6 @@ use App\Models\ConsultationCategory;
 use App\Models\ConsultationFee;
 use App\Models\Doctor;
 use App\Service\NumberFormatService;
-use Illuminate\Http\Request;
 use DataTables;
 
 class ConsultationDatatableController extends Controller
@@ -34,7 +33,10 @@ class ConsultationDatatableController extends Controller
             ->addColumn('category_name', function ($row){
                 return $row->consultationCategory->name;
             })
-            ->rawColumns(['category_name'])
+            ->addColumn('actions', function ($row){
+                return view('admin.consultation.partials.consultation_actions', compact('row'));
+            })
+            ->rawColumns(['category_name', 'actions'])
             ->make(true);
     }
     public function consultationFee(Doctor $doctor)
