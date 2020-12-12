@@ -19,10 +19,10 @@ class ConsultationDatatableController extends Controller
 
         return DataTables::of($categories)
             ->addIndexColumn()
-            /*->addColumn('actions', function ($row){
+            ->addColumn('actions', function ($row){
                 return view('admin.consultation.partials.actions', compact('row'));
             })
-            ->rawColumns(['actions'])*/
+            ->rawColumns(['actions'])
             ->make(true);
     }
     public function consultation()

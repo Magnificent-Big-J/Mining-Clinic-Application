@@ -31,3 +31,4 @@ Route::get('questionnaires-data','Datatable\DataTableController@questionnaires')
 Route::get('historic-appointment-data','Datatable\ReportDatatables@historicAppointment')->name('historic.appointment.index');
 Route::get('medical-examination-questions','Api\InternalApiController@getMedicalQuestions')->name('medical.examination.questions');
 Route::post('medical-examination','Api\InternalApiController@save')->name('medical.examination.save');
+

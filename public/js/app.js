@@ -2055,7 +2055,6 @@ __webpack_require__.r(__webpack_exports__);
       form.append('patient', this.patient);
       form.append('appointment', this.appointment);
       axios.post("http://127.0.0.1:8000/medical-examination", form).then(function (response) {
-        console.log(response.data);
         Swal.fire({
           icon: 'success',
           title: 'OK',

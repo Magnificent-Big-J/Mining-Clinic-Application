@@ -116,7 +116,6 @@ name: "MedicalExamination",
 
             axios.post(`http://127.0.0.1:8000/medical-examination`, form)
             .then((response)=>{
-                console.log(response.data)
                 Swal.fire({
                     icon: 'success',
                     title: 'OK',

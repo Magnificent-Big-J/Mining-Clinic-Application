@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ConsultationCategory;
+use App\Models\ConsultationCategory;
 use App\Http\Requests\ConsultationCategoryRequest;
 use Illuminate\Http\Request;
 
@@ -49,7 +49,7 @@ class ConsultationCategoryController extends Controller
      */
     public function show(ConsultationCategory $consultationCategory)
     {
-        //
+        return view('', compact($consultationCategory));
     }
 
     /**
