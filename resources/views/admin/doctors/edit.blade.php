@@ -9,7 +9,7 @@
                     <h3 class="page-title">Doctors Management</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Add New Doctor</li>
+                        <li class="breadcrumb-item active">Update Doctor Information</li>
                     </ul>
                 </div>
             </div>
@@ -26,13 +26,12 @@
                                 <h4 class="card-title">Doctor Personal Information</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{route('admin.doctors.store')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('admin.doctors.update', $doctor->id)}}" method="post" >
                                     @csrf
-                                    @include('admin.doctors.partials.personal')
-                                    <hr>
+                                    @method('PUT')
                                     <h4 class="card-title">Entity Information</h4>
-                                    @include('admin.doctors.partials.entity')
-                                    <input type="submit" value="Submit" class="btn btn-primary ">
+                                    @include('admin.doctors.partials.edit')
+                                    <input type="submit" value="Update" class="btn btn-primary ">
                                 </form>
                             </div>
                         </div>

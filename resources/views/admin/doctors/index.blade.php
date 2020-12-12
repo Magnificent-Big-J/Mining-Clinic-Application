@@ -26,14 +26,14 @@
                             <table class="table table-hover table-center mb-0" id="doctors">
                                 <thead>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Title</th>
-                                    <th>Name</th>
-                                    <th>Last Name</th>
-                                    <th>Specialist</th>
-                                    <th>Vat Number</th>
-                                    <th>Practice Number</th>
-                                    <th width="100px">Actions</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Specialist</th>
+                                    <th scope="col">Vat Number</th>
+                                    <th scope="col">Practice Number</th>
+                                    <th scope="col">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>

@@ -15,10 +15,7 @@
             <label class="col-lg-3 col-form-label">Title:</label>
             <div class="col-lg-9">
                 <select name="title" id="title" class="form-control">
-                    <option value="Mr">Mr</option>
-                    <option value="Ms">Ms</option>
-                    <option value="Miss">Miss</option>
-                    <option value="Dr">Dr</option>
+                      <option value="Dr">Dr</option>
                 </select>
             </div>
         </div>
