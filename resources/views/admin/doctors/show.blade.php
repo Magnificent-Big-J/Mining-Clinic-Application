@@ -194,10 +194,6 @@
                                     <div class="col-md-10 col-lg-6">
                                         <form>
                                             <div class="form-group">
-                                                <label>Old Password</label>
-                                                <input type="password" class="form-control">
-                                            </div>
-                                            <div class="form-group">
                                                 <label>New Password</label>
                                                 <input type="password" class="form-control">
                                             </div>
