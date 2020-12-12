@@ -50,7 +50,7 @@ class ConsultationDatatableController extends Controller
                 return $row->consultation->name;
             })
             ->addColumn('consultation_fee_price', function ($row){
-                return NumberFormatService::format_number($row->consultation_fee);
+                return 'R' . NumberFormatService::format_number($row->consultation_fee);
             })
             ->rawColumns(['category_name','consultation_name', 'consultation_fee_price'])
             ->make(true);

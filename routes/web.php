@@ -18,14 +18,6 @@ Route::redirect('/', '/home');
 Auth::routes();
 Auth::routes(['register' => false]);
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('hello', function (){
-    return view('admin.patients.index');
-});
-
-Route::get('test', function (){
-    return view('doctor.appointments.index');
-});
-
 
 Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
 Route::get('consultation-data','Datatable\ConsultationDatatableController@consultation')->name('consultation.consultation.index');

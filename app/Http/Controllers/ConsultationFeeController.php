@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ConsultationCreateRequest;
+use App\Http\Requests\ConsultationFeeCreateRequest;
 use App\Models\ConsultationFee;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
@@ -34,9 +36,11 @@ class ConsultationFeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ConsultationFeeCreateRequest $request)
     {
-        //
+        $request->createConsultationFee();
+
+        return redirect()->route('admin.consultation.fee.index', $request->doctor);
     }
 
     /**

@@ -58,7 +58,7 @@
     <script src="{{asset('js/select2.min.js')}}"></script>
     <script>
         $(function () {
-            $('#consultation-type').select2({
+            $('#consultation-fee').select2({
                 theme: "classic",
                 width: "resolve"
             });
