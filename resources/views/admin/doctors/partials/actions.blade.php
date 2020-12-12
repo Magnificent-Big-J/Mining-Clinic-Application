@@ -5,14 +5,14 @@
     <div class="col-sm-2">
         <a class="btn btn-secondary btn-sm" href="{{route('admin.doctors.edit', $row->id)}}"> <i class="fe fe-pencil"></i> </a>
     </div>
-    <div class="col-sm-2">
+    {{--<div class="col-sm-2">
         <form action="{{route('admin.doctors.destroy', $row->id)}}" method="post">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger btn-sm"><i class="fe fe-trash"></i></button>
         </form>
 
-    </div>
+    </div>--}}
 </div>
 
 
