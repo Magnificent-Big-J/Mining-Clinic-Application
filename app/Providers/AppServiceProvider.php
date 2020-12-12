@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 
+use App\Models\Consultation;
 use App\Models\ConsultationCategory;
 use App\Models\Doctor;
 use App\Models\Province;
@@ -34,6 +35,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['admin.consultation.modals.consultation'],function($view){
             $consultationCategories = ConsultationCategory::all();
             $view->with(['consultationCategories'=>$consultationCategories]);
+        });
+        View::composer(['admin.doctors.modals.consultation_fee'],function($view){
+            $consultations = Consultation::all();
+            $view->with(['consultations'=>$consultations]);
         });
 
         View::composer('*', function ($view) {

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\ConsultationFee;
+use App\Models\ConsultationFee;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class ConsultationFeeController extends Controller
@@ -12,9 +13,9 @@ class ConsultationFeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Doctor $doctor)
     {
-        //
+        return view('admin.doctors.consultation_fee', compact('doctor'));
     }
 
     /**
