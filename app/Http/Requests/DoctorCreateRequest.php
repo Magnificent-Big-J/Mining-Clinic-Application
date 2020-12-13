@@ -48,8 +48,8 @@ class DoctorCreateRequest extends FormRequest
         if ($this->has('avatar')) {
             $img = $this->file('avatar');
             $img_file =  $img->getClientOriginalName();
-            $img->move("specialist/",$img_file);
-            $path = 'specialist/' . $img_file;
+            $img->move("avatar/",$img_file);
+            $path = 'avatar/' . $img_file;
         }
 
         $user = User::create([

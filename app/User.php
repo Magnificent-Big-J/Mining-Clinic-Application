@@ -82,7 +82,7 @@ class User extends Authenticatable
     }
     public function getProfileAttribute()
     {
-        return (!empty($this->avat)) ? asset($this->avatar) : asset('avatar/default.jpeg');
+        return (!empty($this->avatar)) ? asset($this->avatar) : asset('avatar/default.jpeg');
     }
     public function getFullNamesAttribute()
     {

@@ -35,7 +35,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/">
+                    <a href="{{route('doctor.profile.settings')}}">
                         <i class="fas fa-user-cog"></i>
                         <span>Profile Settings</span>
                     </a>

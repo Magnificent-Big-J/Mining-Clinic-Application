@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
             $provinces = Province::all();
             $view->with(['provinces'=>$provinces]);
         });
-        View::composer(['admin.doctors.partials.entity','admin.doctors.partials.edit'],function($view){
+        View::composer(['admin.doctors.partials.entity','admin.doctors.partials.edit','doctor.profile.show'],function($view){
             $specialists = Specialist::all();
             $view->with(['specialists'=>$specialists]);
         });

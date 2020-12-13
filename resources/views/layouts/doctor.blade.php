@@ -26,12 +26,12 @@
     <script src="{{asset('doctor/assets/js/html5shiv.min.js')}}"></script>
     <script src="{{asset('doctor/assets/js/respond.min.js')}}"></script>
     <![endif]-->
-
+    @yield('styles')
 </head>
 <body>
 
 <!-- Main Wrapper -->
-<div class="main-wrapper">
+<div class="main-wrapper" id="app">
 
     <!-- Header -->
     @include('partials.doctorNavbar')
@@ -106,7 +106,6 @@
 
 <!-- Custom JS -->
 <script src="{{asset('doctor/assets/js/script.js')}}"></script>
-
 @yield('scripts')
 @if (Session::has('error'))
     <script>
