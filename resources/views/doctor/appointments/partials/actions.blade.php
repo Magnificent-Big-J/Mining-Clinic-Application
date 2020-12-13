@@ -1,5 +1,5 @@
 
-<a href="javascript:void(0);" class="btn btn-sm bg-info-light">
+<a href="{{route('doctor.appointment.details', $appointment->id)}}" class="btn btn-sm bg-info-light">
     <i class="far fa-eye"></i> View
 </a>
 @if($appointment->status === \App\Models\Appointment::PENDING_STATUS)
