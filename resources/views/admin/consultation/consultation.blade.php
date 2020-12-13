@@ -49,7 +49,7 @@
         </div>
     </div>
     @include('admin.consultation.modals.consultation')
-    @include('admin.consultation.modals.edit_consultation')
+
 @endsection
 @section('scripts')
     <script src="{{asset('js/select2.min.js')}}"></script>

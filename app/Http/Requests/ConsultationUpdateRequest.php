@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Consultation;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ConsultationCreateRequest extends FormRequest
+class ConsultationUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,16 +24,15 @@ class ConsultationCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=> 'required|string|unique:consultations',
+            'name'=> 'required|string|unique:consultations,name,' .$this->consultation->id,
             'consultation_type' => 'required'
         ];
     }
-    public function createConsultation()
+    public function updateConsultation($consultation)
     {
-        Consultation::create([
-            'name' => $this->name,
-            'consultation_category_id' => $this-> consultation_type,
-        ]);
-        session()->flash('success', 'Consultation successfully created.');
+        $consultation->name = $this->name;
+        $consultation->consultation_category_id = $this-> consultation_type;
+        $consultation->save();
+        session()->flash('success', 'Consultation successfully updated.');
     }
 }

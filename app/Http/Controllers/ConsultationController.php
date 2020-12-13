@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Consultation;
-use App\Http\Requests\ConsultationCategoryRequest;
+use App\Http\Requests\ConsultationUpdateRequest;
+use App\Models\Consultation;
 use App\Http\Requests\ConsultationCreateRequest;
 use Illuminate\Http\Request;
 
@@ -61,7 +61,7 @@ class ConsultationController extends Controller
      */
     public function edit(Consultation $consultation)
     {
-        //
+        return view('admin.consultation.edit',compact('consultation'));
     }
 
     /**
@@ -71,9 +71,10 @@ class ConsultationController extends Controller
      * @param  \App\Consultation  $consultation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Consultation $consultation)
+    public function update(ConsultationUpdateRequest $request, Consultation $consultation)
     {
-        //
+        $request->updateConsultation($consultation);
+        return redirect()->route('admin.consultation.index');
     }
 
     /**

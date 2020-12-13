@@ -1,1 +1,1 @@
-<a data-toggle="modal" href="#consultation_update_modal" id="{{$row->id}}" class="btn btn-sm btn-info edit-consultation"><i class="fe fe-eye"></i></a>
+<a href="{{route('admin.consultation.edit',$row->id)}}"  class="btn btn-sm btn-info edit-consultation"><i class="fe fe-eye"></i></a>
