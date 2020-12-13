@@ -80,8 +80,8 @@
                         <p class="text-muted mb-0">Administrator</p>
                     </div>
                 </div>
-                <a class="dropdown-item" href="profile.html">My Profile</a>
-                <a class="dropdown-item" href="settings.html">Settings</a>
+                <a class="dropdown-item" href="{{route('admin.user.profile')}}">My Profile</a>
+
                 <a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="material-icons">exit_to_app</i>

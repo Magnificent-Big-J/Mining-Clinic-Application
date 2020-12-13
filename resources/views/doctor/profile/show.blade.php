@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <label>First Name <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="first_name" value="{{$user->first_name}}">
-                            @error('vat_number')
+                            @error('first_name')
                                 <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <label>Last Name <span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="last_name" value="{{$user->last_name}}">
-                            @error('vat_number')
+                            @error('last_name')
                             <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

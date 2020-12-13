@@ -21,4 +21,6 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::get('covid/{appointment}/screening/{patient}', 'AppointmentScreening@covidScreening')->name('covid.screening');
     Route::get('medical/{appointment}/screening/{patient}', 'AppointmentScreening@medicalScreening')->name('medical.screening');
     Route::post('covid-screening}', 'AppointmentScreening@store')->name('covid.screening.store');
+    Route::get('user-profile','UserController@show')->name('user.profile');
+    Route::put('user-profile/{user}','UserController@update')->name('user.profile.update');
 });
