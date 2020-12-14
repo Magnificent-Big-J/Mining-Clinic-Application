@@ -17,7 +17,7 @@ class CreateProductStocksTable extends Migration
             $table->id();
             $table->integer('quantity');
             $table->dateTime('stock_date');
-            $table->unsignedBigInteger('doctor_product');
+            $table->unsignedBigInteger('doctor_product_id');
             $table->timestamps();
         });
     }

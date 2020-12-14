@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 /**
  * Class DoctorProduct
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $product_id
  * @property Product $product
  * @property Doctor $doctor
+ * @property ProductStock[]|Collection $productStocks
  */
 class DoctorProduct extends Model
 {
@@ -26,5 +28,9 @@ class DoctorProduct extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+    public function productStocks()
+    {
+        return $this->hasMany(ProductStock::class);
     }
 }
