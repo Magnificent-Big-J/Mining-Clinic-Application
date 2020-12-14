@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('product_code')->unique()->index();
             $table->string('product_name')->unique()->index();
-            $table->string('product_description');
+            $table->string('product_description')->nullable();
             $table->string('product_size')->nullable();
             $table->string('product_unit')->nullable();
             $table->unsignedBigInteger('product_category_id');

@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             $this->call(ConsultationCategorySeeder::class);
             $this->call(DoctorConsultationFeesSeeder::class);
             $this->call(AssessmentSeeder::class);
+            $this->call(ProductCategorySeeder::class);
+            $this->call(ProductSeeder::class);
         }
     }
 }
