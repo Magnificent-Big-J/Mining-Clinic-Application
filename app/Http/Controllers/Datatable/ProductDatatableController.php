@@ -16,7 +16,7 @@ class ProductDatatableController extends Controller
         return DataTables::of($categories)
             ->addIndexColumn()
             ->addColumn('actions', function ($row){
-                return view('admin.category.partials.actions', compact('row'));
+                return view('admin.products.category.partials.actions', compact('row'));
             })
             ->rawColumns(['actions'])
             ->make(true);

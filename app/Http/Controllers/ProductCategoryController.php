@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductCategoryCreateRequest;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,11 @@ class ProductCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductCategoryCreateRequest $request)
     {
-        //
+        $request->createProductCategory();
+
+        return  redirect()->route('admin.product-category.index');
     }
 
     /**
