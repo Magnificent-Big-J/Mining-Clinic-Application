@@ -20,6 +20,7 @@ Auth::routes(['register' => false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
+Route::get('product-categories','Datatable\ProductDatatableController@productCategories')->name('product.categories.index');
 Route::get('consultation-data','Datatable\ConsultationDatatableController@consultation')->name('consultation.consultation.index');
 Route::get('consultation-fee-data/{doctor}','Datatable\ConsultationDatatableController@consultationFee')->name('consultation.fee.index');
 Route::get('consultation-category-data','Datatable\ConsultationDatatableController@consultationCategories')->name('consultation.category.index');
