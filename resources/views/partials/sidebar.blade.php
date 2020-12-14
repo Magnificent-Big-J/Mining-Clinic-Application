@@ -24,6 +24,13 @@
                     <a href="{{route('admin.question.index')}}"><i class="fe fe-user"></i> <span>Questionnaires</span></a>
                 </li>
                 <li class="submenu">
+                    <a href="#" ><i class="fe fe-feed"></i> <span> Product Management</span> <span class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="{{route('admin.product-category.index')}}">Product Categories</a></li>
+                        <li><a href="{{route('admin.product.index')}}">Products</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
                     <a href="#" ><i class="fe fe-bookmark"></i> <span> Consultations</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="{{route('admin.consultation.index')}}">Consultation</a></li>

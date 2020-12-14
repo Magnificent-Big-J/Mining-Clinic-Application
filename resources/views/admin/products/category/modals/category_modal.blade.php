@@ -1,14 +1,14 @@
-<div class="modal fade custom-modal" id="consultation_category_modal">
+<div class="modal fade custom-modal" id="product_category_modal">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add Consultation Category</h5>
+                <h5 class="modal-title">Add Product Category</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" action="{{route('admin.consultation-category.store')}}">
+                <form method="post" action="{{route('admin.product-category.store')}}">
                     @csrf
 
                     <div class="form-group">

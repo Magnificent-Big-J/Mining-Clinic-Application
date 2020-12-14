@@ -30,7 +30,7 @@
                                 <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Consultation Category</th>
+                                    <th>Product Category</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
