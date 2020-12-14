@@ -16,6 +16,7 @@ use Illuminate\Support\Collection;
  * @property Product $product
  * @property Doctor $doctor
  * @property ProductStock[]|Collection $productStocks
+ * @property Sales[]|Collection $sales
  */
 class DoctorProduct extends Model
 {
@@ -32,5 +33,9 @@ class DoctorProduct extends Model
     public function productStocks()
     {
         return $this->hasMany(ProductStock::class);
+    }
+    public function sales()
+    {
+        return $this->hasMany(Sales::class);
     }
 }

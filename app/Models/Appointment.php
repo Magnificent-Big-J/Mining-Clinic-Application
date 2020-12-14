@@ -16,6 +16,7 @@ use Illuminate\Support\Collection;
  * @property int $status
  * @property Doctor $doctor
  * @property Patient $patient
+ * @property Sales[]|Collection $sales
  */
 class Appointment extends Model
 {
@@ -62,6 +63,10 @@ class Appointment extends Model
             case 4:
                 return  'Done';
         }
+    }
+    public function sales()
+    {
+        return $this->hasMany(Sales::class);
     }
 
 }
