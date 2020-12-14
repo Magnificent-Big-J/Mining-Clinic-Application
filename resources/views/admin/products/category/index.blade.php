@@ -48,6 +48,7 @@
     </div>
 
     @include('admin.products.category.modals.category_modal')
+    @include('admin.products.category.modals.edit_category')
 
 @endsection
 @section('scripts')
@@ -66,8 +67,53 @@
                     {data: 'actions', name: 'actions'},
                 ]
             });
+            $(document).on('click', '.product-edit-category',function (){
+                let cat_id = $(this).attr('id');
+                $('#loader').show();
+                axios.get(`api/product-category/${cat_id}`)
+                    .then((response)=>{
+                        $('#loader').hide();
+                        $("#name").val(response.data.name)
+                        $("#category_id").val(response.data.id)
+                    })
+                    .catch((error)=>{
+                        $('#loader').hide();
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong. Please contact support'
+                        })
+                    });
+            });
+            $(document).on('click', '.update-btn', function (e){
+                e.preventDefault();
 
+                $('#loader').show();
+                if ($("#name").val() == '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Name cannot be empty'
+                    })
 
+                    return  false;
+                }
+                let cat_id = $("#category_id").val();
+                axios.put(`api/product-category/${cat_id}/update`, {name: $("#name").val()})
+                    .then((response)=>{
+                        $('#loader').hide();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'OK',
+                            text: response.data.message
+                        })
+                        location.reload();
+                    })
+                    .catch((error)=>{
+                        $('#loader').hide();
+                    })
+
+            });
         });
     </script>
 @endsection
