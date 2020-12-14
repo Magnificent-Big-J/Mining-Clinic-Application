@@ -21,4 +21,19 @@ class ProductDatatableController extends Controller
             ->rawColumns(['actions'])
             ->make(true);
     }
+    public function product()
+    {
+        $products = Product::all();
+
+        return DataTables::of($products)
+            ->addIndexColumn()
+            ->addColumn('category', function ($row){
+                return $row->productCategory->name;
+            })
+            ->addColumn('actions', function ($row){
+                return view('admin.products.product.partials.actions', compact('row'));
+            })
+            ->rawColumns(['actions'])
+            ->make(true);
+    }
 }
