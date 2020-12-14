@@ -11,6 +11,7 @@ use Illuminate\Support\Collection;
  * @property int $id
  * @property float $price
  * @property int $threshold
+ * @property int $quantity
  * @property int $doctor_id
  * @property int $product_id
  * @property Product $product
@@ -20,7 +21,7 @@ use Illuminate\Support\Collection;
  */
 class DoctorProduct extends Model
 {
-    protected $fillable = ['price', 'doctor_id', 'threshold', 'product_id'];
+    protected $fillable = ['price', 'doctor_id', 'threshold', 'product_id','quantity'];
 
     public function doctor()
     {
