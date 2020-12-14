@@ -17,7 +17,6 @@ class CreateDoctorProductsTable extends Migration
             $table->id();
             $table->decimal('price', 10, 2);
             $table->integer('threshold');
-            $table->integer('threshold');
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
