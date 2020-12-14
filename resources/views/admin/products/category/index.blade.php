@@ -94,8 +94,7 @@
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Name cannot be empty'
-                    })
-
+                    });
                     return  false;
                 }
                 let cat_id = $("#category_id").val();
