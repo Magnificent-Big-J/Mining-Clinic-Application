@@ -1,5 +1,7 @@
 @extends('layouts.admindatatables')
 @section('styles')
+    <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
 @endsection
 @section('content')
@@ -55,14 +57,19 @@
 
 @endsection
 @section('scripts')
+    <script src="{{asset('js/select2.min.js')}}"></script>
     <script>
         $(function () {
+            $('#product-categories').select2({
+                theme: "classic",
+                width: "resolve"
+            });
             $('#loader').hide();
             $('#product').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: "{{ route('product.categories.index') }}",
+                    url: "{{ route('product.index') }}",
                 },
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
@@ -74,7 +81,37 @@
                     {data: 'actions', name: 'actions'},
                 ]
             });
+            $(document).on('click', '.submit-btn', function (e){
+                e.preventDefault();
 
+                $('#loader').show();
+                if ($("#product_code").val() == '' && $("#product_name").val() == '' && $("#product_code").val() == '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Product name, Product code and product category cannot be empty'
+                    })
+
+                    return  false;
+                }
+
+                axios.post('api/product-category', {product_code: $("#product_code").val(), product_name: $("#product_name").val(),
+                    product_category: $("#product-categories").val(), product_size: $("#product_size").val(),
+                    product_unit: $("#product_size").val(),
+                })
+                    .then((response)=>{
+                        $('#loader').hide();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'OK',
+                            text: response.data.message
+                        })
+                        location.reload();
+                    })
+                    .catch((error)=>{
+                        $('#loader').hide();
+                    })
+            });
 
         });
     </script>

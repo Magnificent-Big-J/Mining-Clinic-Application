@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Datatable;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use DataTables;
@@ -33,7 +34,7 @@ class ProductDatatableController extends Controller
             ->addColumn('actions', function ($row){
                 return view('admin.products.product.partials.actions', compact('row'));
             })
-            ->rawColumns(['actions'])
+            ->rawColumns(['category', 'actions'])
             ->make(true);
     }
 }

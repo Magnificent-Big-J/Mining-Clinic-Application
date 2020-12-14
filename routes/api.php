@@ -24,4 +24,5 @@ Route::get('consultation-category/{consultationCategory}', 'Api\ConsultationCate
 Route::put('consultation-category/{consultationCategory}/update', 'Api\ConsultationCategoryController@update');
 Route::put('product-category/{productCategory}/update', 'Api\ProductController@updateCategory');
 Route::get('product-category/{productCategory}', 'Api\ProductController@editCategory');
+Route::post('product-category', 'Api\ProductController@productStore');
 

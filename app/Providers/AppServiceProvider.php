@@ -6,6 +6,7 @@ namespace App\Providers;
 use App\Models\Consultation;
 use App\Models\ConsultationCategory;
 use App\Models\Doctor;
+use App\Models\ProductCategory;
 use App\Models\Province;
 use App\Models\Specialist;
 use Illuminate\Support\Facades\View;
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer('admin.patients.create',function($view){
             $provinces = Province::all();
             $view->with(['provinces'=>$provinces]);
+        });
+        View::composer('admin.products.product.modals.product_modal',function($view){
+            $productCategories = ProductCategory::all();
+            $view->with(['productCategories'=>$productCategories]);
         });
         View::composer(['admin.doctors.partials.entity','admin.doctors.partials.edit','doctor.profile.show'],function($view){
             $specialists = Specialist::all();
