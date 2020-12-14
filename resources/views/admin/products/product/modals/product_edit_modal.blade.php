@@ -1,8 +1,8 @@
-<div class="modal fade custom-modal" id="product_modal">
+    <div class="modal fade custom-modal" id="1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add Product </h5>
+                <h5 class="modal-title">Edit Product </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Product Category:<strong class="text-danger">*</strong></label>
-                        <select name="product_category" id="product-categories" id="product_category" style="width: 100%" class="form-control select2-width" required>
+                        <select name="product_category" id="product-category" id="product_category" style="width: 100%" class="form-control select2-width" required>
                             @foreach($productCategories as $productCategory)
                                 <option  value="{{$productCategory->id}}">{{$productCategory->name}}</option>
                             @endforeach

@@ -54,6 +54,7 @@
     </div>
 
     @include('admin.products.product.modals.product_modal')
+    @include('admin.products.product.modals.product_edit_modal')
 
 @endsection
 @section('scripts')
@@ -64,6 +65,11 @@
                 theme: "classic",
                 width: "resolve"
             });
+            $('#product-category').select2({
+                theme: "classic",
+                width: "resolve"
+            });
+
             $('#loader').hide();
             $('#product').DataTable({
                 processing: true,
@@ -79,7 +85,10 @@
                     {data: 'product_size', name: 'product_size'},
                     {data: 'product_unit', name: 'product_unit'},
                     {data: 'actions', name: 'actions'},
-                ]
+                ],
+                "drawCallback": function() {
+
+                }
             });
             $(document).on('click', '.submit-btn', function (e){
                 e.preventDefault();
@@ -112,6 +121,11 @@
                         $('#loader').hide();
                     })
             });
+
+            function initializeSelect2()
+            {
+
+            }
 
         });
     </script>

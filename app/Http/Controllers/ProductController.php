@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Http\Requests\ProductCategoryUpdateRequest;
+use App\Http\Requests\ProductUpdateRequest;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -57,7 +59,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.products.product.edit', compact('product'));
     }
 
     /**
@@ -67,9 +69,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductUpdateRequest $request, Product $product)
     {
-        //
+        $request->updateProduct($product);
+
+        return redirect()->route('admin.product.index');
     }
 
     /**

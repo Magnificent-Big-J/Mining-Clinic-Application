@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
             $provinces = Province::all();
             $view->with(['provinces'=>$provinces]);
         });
-        View::composer('admin.products.product.modals.product_modal',function($view){
+        View::composer(['admin.products.product.modals.product_modal','admin.products.product.modals.product_edit_modal','admin.products.product.edit'],function($view){
             $productCategories = ProductCategory::all();
             $view->with(['productCategories'=>$productCategories]);
         });

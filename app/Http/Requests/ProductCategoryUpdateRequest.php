@@ -30,6 +30,7 @@ class ProductCategoryUpdateRequest extends FormRequest
     }
     public function updateProductCategory($productCategory)
     {
-
+        $productCategory->name = $this->name;
+        $productCategory->save();
     }
 }
