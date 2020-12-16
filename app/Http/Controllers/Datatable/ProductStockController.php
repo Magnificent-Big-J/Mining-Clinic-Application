@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Datatable;
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
 use App\Models\ProductStock;
+use App\Service\DoctorProductService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DataTables;
@@ -23,11 +24,7 @@ class ProductStockController extends Controller
             ];
         }
 
-        $productStocks = ProductStock::whereHas('doctorProduct', function ($query) use($doctor){
-                        $query->where('doctor_id', '=', $doctor->id);
-          })
-        ->whereBetween('stock_date', $range)
-        ->get();
+        $productStocks = DoctorProductService::getData($range, $doctor->id);
 
         return DataTables::of($productStocks)
             ->addIndexColumn()

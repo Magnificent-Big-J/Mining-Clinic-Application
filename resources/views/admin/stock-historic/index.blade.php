@@ -31,8 +31,9 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="mb-4">
-                                <form name="search_form">
+                                <form name="search_form" action="{{route('export.doctor.download')}}" method="get">
                                     <div class="row">
+                                        <input type="hidden" name="doctor" value="{{$doctor->id}}">
                                         <div class="col-lg-3">
 
                                             <input type="date" name="from_date" id="from_date" class="form-control">
@@ -45,7 +46,7 @@
                                             <button type="button" class="btn btn-primary" id="search">Search</button>
                                         </div>
                                         <div class="col-lg-3">
-                                            <button class="btn btn-primary" id="export">Export</button>
+                                            <button type="submit" class="btn btn-primary" id="export">Export</button>
                                         </div>
                                     </div>
 

@@ -33,4 +33,12 @@ class DoctorProductService
 
         return  false;
     }
+    public static function getData(array $range, int $doctor)
+    {
+       return  ProductStock::whereHas('doctorProduct', function ($query) use($doctor){
+            $query->where('doctor_id', '=', $doctor);
+        })
+            ->whereBetween('stock_date', $range)
+            ->get();
+    }
 }
