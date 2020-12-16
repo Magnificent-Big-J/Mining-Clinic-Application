@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\ProductStock;
+use App\Models\Doctor;
+use App\Models\ProductStock;
 use Illuminate\Http\Request;
 
 class ProductStockController extends Controller
@@ -12,9 +13,9 @@ class ProductStockController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Doctor $doctor)
     {
-        //
+        return view('admin.stock-historic.index', compact('doctor'));
     }
 
     /**

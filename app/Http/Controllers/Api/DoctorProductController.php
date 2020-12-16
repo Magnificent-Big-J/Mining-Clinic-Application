@@ -3,16 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Middleware\Doctor;
 use App\Http\Requests\DoctorProductUpdateRequest;
 use App\Http\Requests\ProductStockCreateRequest;
-use App\Http\Resources\DoctorProductResource;
 use App\Models\DoctorProduct;
 use App\Models\ProductStock;
 use App\Service\DoctorProductService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use PhpParser\Comment\Doc;
 
 class DoctorProductController extends Controller
 {
@@ -39,7 +36,7 @@ class DoctorProductController extends Controller
         $doctor = $request->get('doctor');
         foreach ($options as $option) {
 
-            if (! DoctorProductService::recordExists($doctor, $option)) {
+            if (!DoctorProductService::recordExists($doctor, $option)) {
 
              $doctorProduct = DoctorProduct::create([
                     'product_id' => $option,

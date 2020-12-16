@@ -30,7 +30,10 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <a class="btn btn-secondary mb-4" data-toggle="modal" href="#doctor-product-modal"><i class="fa fa-plus-circle"></i> Add Doctor Product</a>
+                            <div class="mb-4">
+                                <a class="btn btn-secondary " data-toggle="modal" href="#doctor-product-modal"><i class="fa fa-plus-circle"></i> Add Doctor Product</a>
+                                <a href="{{route('admin.historic.doctor.product.index', $doctor->id)}}" class="btn btn-info">View Stock History</a>
+                            </div>
                             <table class="table table-hover table-center mb-0" id="product">
                                 <thead>
                                 <tr>

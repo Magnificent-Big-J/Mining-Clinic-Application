@@ -1,6 +1,8 @@
 <?php
 Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::resource('historic-appointment', 'HistoricAppointment');
+    Route::resource('historic-doctor-stock', 'ProductStockController')->except('index');
+    Route::get('historic-doctor/{doctor}/stock', 'ProductStockController@index')->name('historic.doctor.product.index');
     Route::resource('product-category', 'ProductCategoryController');
     Route::resource('product', 'ProductController');
     Route::resource('province', 'ProvinceController');

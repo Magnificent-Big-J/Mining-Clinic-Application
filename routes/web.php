@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
 Route::get('product-categories','Datatable\ProductDatatableController@productCategories')->name('product.categories.index');
 Route::get('doctor-products/{doctor}','Datatable\DoctorProductController@doctorProduct')->name('doctor.products.index');
+Route::post('doctor-stock/{doctor}/data','Datatable\ProductStockController@doctorProduct')->name('doctor.stock.data.index');
 Route::get('product-data','Datatable\ProductDatatableController@Product')->name('product.index');
 Route::get('consultation-data','Datatable\ConsultationDatatableController@consultation')->name('consultation.consultation.index');
 Route::get('consultation-fee-data/{doctor}','Datatable\ConsultationDatatableController@consultationFee')->name('consultation.fee.index');
