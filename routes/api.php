@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('consultation-category/{consultationCategory}', 'Api\ConsultationCategoryController@edit');
+Route::get('doctor-product/{doctorProduct}/show', 'Api\DoctorProductController@show');
 Route::put('consultation-category/{consultationCategory}/update', 'Api\ConsultationCategoryController@update');
 Route::put('product-category/{productCategory}/update', 'Api\ProductController@updateCategory');
 Route::get('product-category/{productCategory}', 'Api\ProductController@editCategory');

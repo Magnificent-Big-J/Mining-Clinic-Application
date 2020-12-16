@@ -8,6 +8,9 @@
     <div class="col-sm-2">
         <a class="btn btn-primary btn-sm" href="{{route('admin.consultation.fee.index', $row->id)}}"> Consultations </a>
     </div>
+    <div class="col-sm-2">
+        <a class="btn btn-primary btn-sm" href="{{route('admin.doctor.product.index', $row->id)}}"> Product Stock </a>
+    </div>
     {{--<div class="col-sm-2">
         <form action="{{route('admin.doctors.destroy', $row->id)}}" method="post">
             @csrf

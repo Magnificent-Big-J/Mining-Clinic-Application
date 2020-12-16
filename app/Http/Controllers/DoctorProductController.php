@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\DoctorProduct;
+use App\Models\DoctorProduct;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class DoctorProductController extends Controller
@@ -12,9 +13,9 @@ class DoctorProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Doctor $doctor)
     {
-        //
+        return view('admin.doctors.doctor_product', compact('doctor'));
     }
 
     /**
