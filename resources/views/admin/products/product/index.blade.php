@@ -86,9 +86,6 @@
                     {data: 'product_unit', name: 'product_unit'},
                     {data: 'actions', name: 'actions'},
                 ],
-                "drawCallback": function() {
-
-                }
             });
             $(document).on('click', '.submit-btn', function (e){
                 e.preventDefault();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DoctorProduct;
 use App\Models\Doctor;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class DoctorProductController extends Controller
@@ -15,7 +16,11 @@ class DoctorProductController extends Controller
      */
     public function index(Doctor $doctor)
     {
-        return view('admin.doctors.doctor_product', compact('doctor'));
+        $productIds = DoctorProduct::where('doctor_id', '=', $doctor->id)->pluck('product_id')->toArray();
+
+        $products = Product::whereNotIn('id', $productIds)->get();
+
+        return view('admin.doctors.doctor_product', compact('doctor', 'products'));
     }
 
     /**

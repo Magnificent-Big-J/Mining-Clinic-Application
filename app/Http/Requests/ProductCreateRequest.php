@@ -32,6 +32,7 @@ class ProductCreateRequest extends FormRequest
     }
     public function createProduct()
     {
+
         Product::create([
             'product_code' => $this->product_code,
             'product_category_id' => $this->product_category,

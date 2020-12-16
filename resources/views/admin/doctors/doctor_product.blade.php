@@ -25,9 +25,12 @@
 
                 <!-- Recent Orders -->
                 <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">{{$doctor->entity_name}}</h4>
+                    </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            {{--<a class="btn btn-secondary mb-4" data-toggle="modal" href="#product_modal"><i class="fa fa-plus-circle"></i> Add Product</a>--}}
+                            <a class="btn btn-secondary mb-4" data-toggle="modal" href="#doctor-product-modal"><i class="fa fa-plus-circle"></i> Add Doctor Product</a>
                             <table class="table table-hover table-center mb-0" id="product">
                                 <thead>
                                 <tr>
@@ -54,12 +57,19 @@
         </div>
     </div>
     @include('admin.doctors.modals.doctor_product_show')
+    @include('admin.doctors.modals.add_doctor_product')
+    @include('admin.doctors.modals.edit_threshold')
+    @include('admin.doctors.modals.add_stock')
 @endsection
 @section('scripts')
-
+    <script src="{{asset('js/select2.min.js')}}"></script>
     <script>
         $(function () {
             $('#loader').hide();
+            $('#doctor-product').select2({
+                theme: "classic",
+                width: "resolve"
+            });
             $('#product').DataTable({
                 processing: true,
                 serverSide: true,
@@ -92,6 +102,102 @@
                         $('#loader').hide();
                     })
             });
+            $(document).on('click', '.submit-btn', function (e){
+                e.preventDefault();
+                $('#loader').show();
+                if ($('#doctor-product').val() == '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Please select products to add.'
+                    });
+                    return false;
+                }
+
+                let options = $('#doctor-product option');
+
+                let doctorProducts = $.map(options ,function(option) {
+                    return option.value;
+                });
+
+                axios.post(`../../api/doctor-product-store`, {doctorProducts, doctor: $('#doctor').val()})
+                .then((response)=>{
+                    $('#loader').hide();
+                    responseAlert(response.data.message)
+                    location.reload();
+                })
+                .catch((error)=> {
+                    $('#loader').hide();
+                })
+
+            });
+
+            $(document).on('click', '.update-threshold', function (e) {
+                e.preventDefault();
+                $('#loader').show();
+                let doctor_product = $(this).attr('id');
+
+                axios.get(`../../api/doctor-product/${doctor_product}/product`)
+                    .then((response)=>{
+                        $('#loader').hide();
+                        $('.modal-title').html('Now updating :' + response.data.product_name)
+                        $('#price').val(response.data.price)
+                        $('#threshold').val(response.data.threshold)
+                        $('#doctor-product-value').val(doctor_product)
+                    })
+                    .catch((error)=>{
+                        $('#loader').hide();
+                    })
+            })
+            $(document).on('click', '.update-btn', function (e){
+                e.preventDefault();
+                $('#loader').show();
+                if ($('#price').val() === '' && ('#threshold').val() === '' ) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Threshold and Price Cannot be empty.'
+                    });
+                    return false;
+                }
+                let doctorProduct = $('#doctor-product-value').val();
+
+
+                axios.put(`../../api/doctor-product/${doctorProduct}/update`, {price: $('#price').val(), threshold: $('#threshold').val()})
+                    .then((response)=>{
+                        $('#loader').hide();
+                        responseAlert(response.data.message)
+                        location.reload();
+                    })
+                    .catch((error)=> {
+                        $('#loader').hide();
+                    })
+
+            });
+            $(document).on('click', '.add-stock', function (){
+                $('#loader').show();
+                let doctor_product = $(this).attr('id');
+
+                axios.get(`../../api/doctor-product/${doctor_product}/product-name`)
+                    .then((response)=>{
+                        $('#loader').hide();
+                        $('.modal-title').html('Add Stock For A Product :' + response.data.product_name)
+
+                    })
+                    .catch((error)=>{
+                        $('#loader').hide();
+                    })
+            });
+
+            function responseAlert(message)
+            {
+                setTimeout(function(){ Swal.fire({
+                    icon: 'success',
+                    title: 'OK',
+                    text: message
+                }); }, 3000);
+
+            }
 
         });
     </script>

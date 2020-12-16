@@ -16,7 +16,7 @@ class DoctorProductController extends Controller
         return DataTables::of($doctorProducts)
             ->addIndexColumn()
             ->addColumn('product_code', function ($row){
-                return $row->product->product_name;
+                return $row->product->product_code;
             })
             ->addColumn('product_category', function ($row){
                 return $row->product->productCategory->name;

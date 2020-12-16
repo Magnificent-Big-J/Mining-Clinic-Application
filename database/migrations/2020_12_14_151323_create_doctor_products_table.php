@@ -15,9 +15,9 @@ class CreateDoctorProductsTable extends Migration
     {
         Schema::create('doctor_products', function (Blueprint $table) {
             $table->id();
-            $table->decimal('price', 10, 2);
-            $table->integer('threshold');
-            $table->integer('quantity');
+            $table->decimal('price', 10, 2)->default(0);
+            $table->integer('threshold')->default(0);
+            $table->integer('quantity')->default(0);
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('product_id');
             $table->timestamps();
