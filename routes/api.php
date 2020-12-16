@@ -23,6 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('consultation-category/{consultationCategory}', 'Api\ConsultationCategoryController@edit');
 Route::get('doctor-product/{doctorProduct}/show', 'Api\DoctorProductController@show');
 Route::post('doctor-product-store', 'Api\DoctorProductController@storeDoctorProduct');
+Route::post('doctor-product/{doctorProduct}/store', 'Api\DoctorProductController@storeStock');
 Route::get('doctor-product/{doctorProduct}/product', 'Api\DoctorProductController@getDoctorProduct');
 Route::get('doctor-product/{doctorProduct}/product-name', 'Api\DoctorProductController@productName');
 Route::put('doctor-product/{doctorProduct}/update', 'Api\DoctorProductController@updateDoctorProduct');

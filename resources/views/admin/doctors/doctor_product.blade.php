@@ -182,11 +182,36 @@
                     .then((response)=>{
                         $('#loader').hide();
                         $('.modal-title').html('Add Stock For A Product :' + response.data.product_name)
+                        $('#stock').val(doctor_product);
 
                     })
                     .catch((error)=>{
                         $('#loader').hide();
                     })
+            });
+            $(document).on('click', '.add-stock-btn', function (e){
+                e.preventDefault();
+                $('#loader').show();
+                if ($('#product_quantity').val() === '' && $('#stock_date').val() === '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Quantity and Date Cannot Be Empty.'
+                    });
+                    return false;
+                }
+                let stock = $('#stock').val()
+
+                axios.post(`../../api/doctor-product/${stock}/store`, {product_quantity: $('#product_quantity').val(), stock_date: $('#stock_date').val()})
+                    .then((response)=>{
+                        $('#loader').hide();
+                        responseAlert(response.data.message)
+                        location.reload();
+                    })
+                    .catch((error)=> {
+                        $('#loader').hide();
+                    })
+
             });
 
             function responseAlert(message)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\Doctor;
 use App\Http\Requests\DoctorProductUpdateRequest;
+use App\Http\Requests\ProductStockCreateRequest;
 use App\Http\Resources\DoctorProductResource;
 use App\Models\DoctorProduct;
 use App\Models\ProductStock;
@@ -77,6 +78,14 @@ class DoctorProductController extends Controller
     {
         return [
             'product_name' => $doctorProduct->product->product_name,
+        ];
+    }
+
+    public function storeStock(ProductStockCreateRequest $request, DoctorProduct $doctorProduct)
+    {
+      $message =  $request->createStock($doctorProduct);
+        return [
+            'message' => $message
         ];
     }
 }
