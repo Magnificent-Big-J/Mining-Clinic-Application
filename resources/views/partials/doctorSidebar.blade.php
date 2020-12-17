@@ -29,15 +29,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/">
-                        <i class="fas fa-user-injured"></i>
-                        <span>My Patients</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{route('doctor.profile.settings')}}">
                         <i class="fas fa-user-cog"></i>
                         <span>Profile Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('doctor.all.appointments')}}">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Appointments History</span>
                     </a>
                 </li>
                 <li>

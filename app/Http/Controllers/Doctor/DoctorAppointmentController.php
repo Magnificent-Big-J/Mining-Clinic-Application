@@ -22,5 +22,9 @@ class DoctorAppointmentController extends Controller
     {
         return  view('doctor.appointments.show', compact('appointment'));
     }
+    public function doctorAppointments()
+    {
+        return view('doctor.historic-appointment.index');
+    }
 
 }
