@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="active">
-                    <a href="/">
+                    <a href="{{route('doctor.new.appointments')}}">
                         <i class="fas fa-calendar-check"></i>
                         <span>Appointments</span>
                     </a>

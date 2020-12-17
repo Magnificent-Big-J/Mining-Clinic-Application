@@ -9,17 +9,25 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * Class Prescription
  * @package App
  * @property int $id
- * @property string $note
- * @property int $case_session_id
- * @property CaseSession $caseSession
+ * @property string $days
+ * @property int $doctor_product_id
+ * @property int $morning_time
+ * @property int $quantity
+ * @property Appointment $appointment
+ * @property DoctorProduct $doctorProduct
  */
 
 class Prescription extends Model
 {
-    protected $fillable = ['note', 'case_session_id'];
+    protected $fillable = ['days', 'case_session_id', 'quantity', 'doctor_product_id',
+        'morning_time', 'afternoon_time', 'evening_time', 'night_time'];
 
-    public function caseSession(): BelongsTo
+    public function appointment(): BelongsTo
     {
-        return $this->belongsTo(CaseSession::class);
+        return $this->belongsTo(Appointment::class);
+    }
+    public function doctorProduct()
+    {
+        return $this->belongsTo(DoctorProduct::class);
     }
 }

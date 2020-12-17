@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\MedicalScreeningExamination;
+use App\Models\Doctor;
+use App\Models\DoctorProduct;
 use App\Models\Screening;
 use App\Models\ScreeningQuestionnaire;
 use App\Models\ScreeningType;
@@ -37,5 +39,6 @@ class InternalApiController extends Controller
             'url' =>route('admin.appointments.index'),
         ];
     }
+
 
 }

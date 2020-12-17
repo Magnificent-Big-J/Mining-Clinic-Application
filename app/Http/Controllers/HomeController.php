@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Patient;
@@ -39,11 +38,11 @@ class HomeController extends Controller
 
             return  view('admin.dashboard.dashboard', compact('stats', 'doctors', 'patients', 'appointments'));
         } else if (auth()->user()->isDoctor()){
-            $appointments = Appointment::whereDate(
-                'appointment_date', '>=', Carbon::now())
-                ->where('status', '<>', Appointment::DECLINED_STATUS)
-                ->where('doctor_id', '=', auth()->user()->doctor->id)->get();
-            return view('doctor.appointments.index', compact('appointments'));
+
+            $stats = AppointmentService::doctorStats();
+            $todayAppointments = Appointment::where('doctor_id', '=', auth()->user()->doctor->id)->whereDate('appointment_date', '=', Carbon::now())->get();
+            $upcomingAppointments = Appointment::where('doctor_id', '=', auth()->user()->doctor->id)->whereDate('appointment_date', '>', Carbon::now())->get();
+            return  view('doctor.dashboard.dashboard', compact('stats','todayAppointments','upcomingAppointments'));
         }
         return view('home');
     }

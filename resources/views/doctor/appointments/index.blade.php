@@ -28,7 +28,7 @@
                     <img src="{{asset('/avatar/generic-avatar.png')}}" alt="User Image">
                 </a>
                 <div class="profile-det-info">
-                    <h3><a href="#">{{ $appointment->patient->first_name }} {{ $appointment->patient->last_name }}</a></h3>
+                    <h3><a href="#">{{ $appointment->patient->full_name }} </a></h3>
                     <div class="patient-details">
                         <h5><i class="far fa-clock"></i>{{ $appointment->appointment_date }} {{ $appointment->appointment_time }}</h5>
                         <h5><i class="fas fa-{{strtolower($appointment->patient->gender)}}"></i> {{ $appointment->patient->gender }}</h5>

@@ -75,8 +75,9 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-12 col-lg-12 text-center">
-                            <a href="#" class="text-white">&copy; {{ date('Y')  }} - Invoke Solutions
+                            <a href="#" class="text-white">&copy; {{ date('Y')  }} - Invoke Solutions </a>
                         </div>
+
                     </div>
                 </div>
                 <!-- /Copyright -->
@@ -103,7 +104,7 @@
 <!-- Sticky Sidebar JS -->
 <script src="{{asset('doctor/assets/plugins/theia-sticky-sidebar/ResizeSensor.js')}}"></script>
 <script src="{{asset('doctor/assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js')}}"></script>
-
+<script src="{{asset('doctor/assets/js/circle-progress.min.js')}}"></script>
 <!-- Custom JS -->
 <script src="{{asset('doctor/assets/js/script.js')}}"></script>
 @yield('scripts')

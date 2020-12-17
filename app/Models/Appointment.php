@@ -17,6 +17,7 @@ use Illuminate\Support\Collection;
  * @property Doctor $doctor
  * @property Patient $patient
  * @property Sales[]|Collection $sales
+ * @property Prescription[]|Collection $prescriptions
  */
 class Appointment extends Model
 {
@@ -67,6 +68,10 @@ class Appointment extends Model
     public function sales()
     {
         return $this->hasMany(Sales::class);
+    }
+    public function prescriptions()
+    {
+        return $this->hasMany(Prescription::class);
     }
 
 }

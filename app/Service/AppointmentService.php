@@ -20,4 +20,12 @@ class AppointmentService
             'patients_count' => Patient::count(),
         ];
     }
+    public static function doctorStats()
+    {
+        return [
+            'today_appointments' => Appointment::where('doctor_id', '=', auth()->user()->doctor->id)->where('status', '=', Appointment::ACCEPTED_STATUS)->where('appointment_date', '=', Carbon::now())->count(),
+            'upcoming_appointments' => Appointment::where('doctor_id', '=', auth()->user()->doctor->id)->where('status', '=', Appointment::ACCEPTED_STATUS)->where('appointment_date', '>', Carbon::now())->count(),
+            'completed_appointments' => Appointment::where('doctor_id', '=', auth()->user()->doctor->id)->where('status', '=', Appointment::DONE_STATUS)->count(),
+        ];
+    }
 }

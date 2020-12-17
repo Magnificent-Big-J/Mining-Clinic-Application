@@ -1,5 +1,5 @@
 
-    <h1>Dear {{$doctor->user->full_names}}</h1>,<br>
+<h1>Dear {{$doctor->user->full_names}}</h1>,<br>
 
     Stock Level Notification, please see the below table<br>
     <table class="table">

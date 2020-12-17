@@ -15,8 +15,14 @@ class CreatePrescriptionsTable extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id();
-            $table->string('note');
-            $table->unsignedBigInteger('case_session_id');
+            $table->unsignedBigInteger('doctor_product_id');
+            $table->unsignedBigInteger('appointment_id');
+            $table->integer('quantity');
+            $table->string('days');
+            $table->integer('morning_time')->default(0);
+            $table->integer('afternoon_time')->default(0);
+            $table->integer('evening_time')->default(0);
+            $table->integer('night_time')->default(0);
             $table->timestamps();
         });
     }

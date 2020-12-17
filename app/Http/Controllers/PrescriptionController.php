@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Prescription;
 use Illuminate\Http\Request;
 
@@ -10,11 +11,12 @@ class PrescriptionController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @param Appointment $appointment
+     * @return void
      */
-    public function index()
+    public function index(Appointment $appointment)
     {
-        //
+        return view('doctor.prescriptions.index', compact('appointment'));
     }
 
     /**

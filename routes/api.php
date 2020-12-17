@@ -21,6 +21,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('consultation-category/{consultationCategory}', 'Api\ConsultationCategoryController@edit');
+Route::get('add-prescription/{doctor}/{count}', 'Api\PrescriptionController@addPrescription');
+Route::post('store-prescription', 'Api\PrescriptionController@store');
 Route::get('doctor-product/{doctorProduct}/show', 'Api\DoctorProductController@show');
 Route::post('doctor-product-store', 'Api\DoctorProductController@storeDoctorProduct');
 Route::post('doctor-product/{doctorProduct}/store', 'Api\DoctorProductController@storeStock');
