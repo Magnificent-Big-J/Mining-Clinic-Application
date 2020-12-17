@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
 Route::get('doctor-historic-appointments','Datatable\DoctorAppointmentController@appointments')->name('doctor.historic.index');
+Route::get('all-users','Datatable\UserController@users')->name('users.index');
 Route::get('product-categories','Datatable\ProductDatatableController@productCategories')->name('product.categories.index');
 Route::get('doctor-products/{doctor}','Datatable\DoctorProductController@doctorProduct')->name('doctor.products.index');
 Route::post('doctor-stock/{doctor}/data','Datatable\ProductStockController@doctorProduct')->name('doctor.stock.data.index');

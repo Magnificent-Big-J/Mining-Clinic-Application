@@ -23,6 +23,9 @@
                 <li>
                     <a href="{{route('admin.question.index')}}"><i class="fe fe-user"></i> <span>Questionnaires</span></a>
                 </li>
+                <li>
+                    <a href="{{route('admin.users.index')}}"><i class="fe fe-users"></i> <span>Users</span></a>
+                </li>
                 <li class="submenu">
                     <a href="#" ><i class="fe fe-feed"></i> <span> Product Management</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">

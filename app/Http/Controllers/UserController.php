@@ -18,4 +18,8 @@ class UserController extends Controller
 
         return redirect()->route('admin.user.profile');
     }
+    public function index()
+    {
+        return view('admin.users.index');
+    }
 }
