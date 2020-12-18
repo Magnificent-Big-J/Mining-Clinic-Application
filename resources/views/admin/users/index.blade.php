@@ -23,7 +23,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <a class="btn btn-secondary mb-4" data-toggle="modal" href="#product_modal"><i class="fa fa-plus-circle"></i> Add Product</a>
+                            <div>
+                                <a class="btn btn-secondary mb-4"  href="{{route('admin.users.create.admins')}}"><i class="fa fa-plus-circle"></i> Create Admin User</a>
+                                <a class="btn btn-secondary mb-4"  href="{{route('admin.doctor.users.create.admins')}}"><i class="fa fa-plus-circle"></i> Create Doctor Admin User</a>
+                            </div>
                             <table class="table table-hover table-center mb-0" id="users">
                                 <thead>
                                 <tr>

@@ -30,4 +30,7 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::get('user-profile','UserController@show')->name('user.profile');
     Route::put('user-profile/{user}','UserController@update')->name('user.profile.update');
     Route::get('users', 'UserController@index')->name('users.index');
+    Route::get('admin-users', 'UserController@createAdmins')->name('users.create.admins');
+    Route::get('doctor-admin-users', 'UserController@create')->name('doctor.users.create.admins');
+    Route::post('admin-users-save', 'UserController@storeAdmins')->name('users.create.admins.store');
 });
