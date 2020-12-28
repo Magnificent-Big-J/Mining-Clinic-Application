@@ -60,6 +60,7 @@
 @section('scripts')
     <script src="{{asset('js/select2.min.js')}}"></script>
     <script>
+
         $(function () {
             $('#product-categories').select2({
                 theme: "classic",
@@ -92,12 +93,12 @@
 
                 $('#loader').show();
                 if ($("#product_code").val() == '' && $("#product_name").val() == '' && $("#product_code").val() == '') {
+                    $('#loader').hide();
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Product name, Product code and product category cannot be empty'
-                    })
-
+                    });
                     return  false;
                 }
 
@@ -116,13 +117,17 @@
                     })
                     .catch((error)=>{
                         $('#loader').hide();
+                        let errors = error.response.data.errors;
+                        if (errors.product_code) {
+                            $('#product_code_error').html(errors.product_code[0]);
+                        }
+                        if (errors.product_name) {
+                            $('#product_name_error').html(errors.product_name[0]);
+                        }
                     })
             });
 
-            function initializeSelect2()
-            {
 
-            }
 
         });
     </script>
