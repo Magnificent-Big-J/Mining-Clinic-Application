@@ -6,10 +6,10 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="page-title">Patient Appointment</h3>
+                    <h3 class="page-title">Patient Appointment Prescription</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">View Patient Appointment Details </li>
+                        <li class="breadcrumb-item active">View Patient Appointment Prescription Details </li>
                     </ul>
                 </div>
             </div>
@@ -49,69 +49,6 @@
                                     <p class="col-sm-10">{{$appointment->patient->age}}</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card ">
-                    <div class="card-header">
-                        <h4 class="card-title">Appointment Assessment Information</h4>
-                    </div>
-                    <div class="card-body">
-                        <h4> <i class="far fa-clock"></i>{{$appointment->appointment_date}} {{$appointment->appointment_time}}</h4>
-                        <div class="table-responsive">
-                            <table class="table mb-0">
-                                <thead>
-                                <tr>
-                                    <th>Consultation Fee</th>
-                                    <th>Consultation</th>
-                                    <th>Consultation Category</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($appointment->appointmentAssessment as $assessment)
-                                    <tr>
-                                        <td>R {{$assessment->consultationFee->consultation_fee}}</td>
-                                        <td>{{$assessment->consultationFee->consultation->name}}</td>
-                                        <td>{{$assessment->consultationFee->consultation->consultationCategory->name}}</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card ">
-                    <div class="card-header">
-                        <h4 class="card-title">Appointment Screening Information</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table mb-0">
-                                <thead>
-                                <tr>
-                                    <th>Screening Type</th>
-                                    <th>Screening Question</th>
-                                    <th>Screening Answer</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($appointment->screening as $screening)
-                                    <tr>
-                                        <td>{{$screening->screeningQuestionnaire->screeningType->name}}</td>
-                                        <td>{{$screening->screeningQuestionnaire->name}}</td>
-                                        <td>{{$screening->screening_answer}}</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>

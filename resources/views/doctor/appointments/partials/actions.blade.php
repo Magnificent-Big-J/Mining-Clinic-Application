@@ -29,10 +29,13 @@
                 <i class="fa fa-check"></i> Mark as Done
             </button>
         </form>
-    @else
-        <a href="{{route('doctor.prescriptions.appointment.index', $appointment->id)}}" class="btn btn-sm bg-primary-light">
-            <i class="far fa-asterisk"></i> Capture Prescriptions
+        <a href="{{route('doctor.patient.prescription', $appointment->id)}}" class="btn btn-sm bg-primary">
+            <i class="far fa-asterisk"></i> View Prescriptions
         </a>
+    @else
+            <a href="{{route('doctor.prescriptions.appointment.index', $appointment->id)}}" class="btn btn-sm bg-primary-light">
+                <i class="far fa-asterisk"></i> Capture Prescriptions
+            </a>
     @endif
 @endif
 

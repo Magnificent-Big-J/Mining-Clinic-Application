@@ -12,6 +12,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $days
  * @property int $doctor_product_id
  * @property int $morning_time
+ * @property int $afternoon_time
+ * @property int $evening_time
+ * @property int $night_time
  * @property int $quantity
  * @property Appointment $appointment
  * @property DoctorProduct $doctorProduct
@@ -29,5 +32,24 @@ class Prescription extends Model
     public function doctorProduct()
     {
         return $this->belongsTo(DoctorProduct::class);
+    }
+    public function getUsageAttribute()
+    {
+        $usage = array();
+
+        if ($this->morning_time) {
+            $usage[] = 'Morning';
+        }
+        if ($this->afternoon_time) {
+            $usage[] = 'Afternoon';
+        }
+        if ($this->evening_time) {
+            $usage[] = 'Evening';
+        }
+        if ($this->night_time) {
+            $usage[] = 'Night';
+        }
+
+        return (empty($usage)) ? 'No period' : implode(',', $usage);
     }
 }

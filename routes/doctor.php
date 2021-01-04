@@ -2,6 +2,7 @@
 Route::name('doctor.')->middleware(['auth'])->group(function () {
     Route::resource('appointment','AppointmentController');
     Route::resource('prescriptions','PrescriptionController')->except('index');
+    Route::get('patient/{appointment}/prescription', 'Doctor\DoctorAppointmentController@patientPrescription')->name('patient.prescription');
     Route::get('prescriptions/{appointment}/appointment','PrescriptionController@index')->name('prescriptions.appointment.index');
     Route::get('appointment-details/{appointment}','Doctor\DoctorAppointmentController@show')->name('appointment.details');
     Route::get('all-appointments','Doctor\DoctorAppointmentController@doctorAppointments')->name('all.appointments');
