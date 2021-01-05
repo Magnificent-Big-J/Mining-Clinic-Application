@@ -69,17 +69,27 @@
                                     <th>Days</th>
                                     <th>Quantity</th>
                                     <th>Period</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($appointment->prescriptions as $prescription)
-                                    <tr>
-                                        <td>{{$prescription->doctorProduct->product->product_name}}</td>
-                                        <td>{{$prescription->days}}</td>
-                                        <td>{{$prescription->quantity}}</td>
-                                        <td>{{$prescription->usage}}</td>
-                                    </tr>
-                                @endforeach
+                                    @foreach($appointment->prescriptions as $prescription)
+                                        <tr>
+                                            <td>{{$prescription->doctorProduct->product->product_name}}</td>
+                                            <td>{{$prescription->days}}</td>
+                                            <td>{{$prescription->quantity}}</td>
+                                            <td>{{$prescription->usage}}</td>
+                                            <td>
+                                                <form action="{{route('doctor.prescriptions.destroy', $prescription->id)}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm bg-danger mx-1">
+                                                        <i class="fa fa-check"></i> Delete  Prescription
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

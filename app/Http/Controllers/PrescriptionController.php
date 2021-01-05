@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
-use App\Prescription;
+use App\Models\Prescription;
 use Illuminate\Http\Request;
 
 class PrescriptionController extends Controller
@@ -82,6 +82,9 @@ class PrescriptionController extends Controller
      */
     public function destroy(Prescription $prescription)
     {
-        //
+        $prescription->delete();
+        session()->flash('success', 'Prescription successfully deleted');
+
+        return redirect()->back();
     }
 }

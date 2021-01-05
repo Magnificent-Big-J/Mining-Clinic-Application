@@ -32,6 +32,13 @@
         <a href="{{route('doctor.patient.prescription', $appointment->id)}}" class="btn btn-sm bg-primary">
             <i class="far fa-asterisk"></i> View Prescriptions
         </a>
+        <form action="{{route('doctor.patient.prescription.delete', $appointment->id)}}" method="post">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-sm bg-danger mx-1">
+                <i class="fa fa-check"></i> Delete All Prescriptions
+            </button>
+        </form>
     @else
             <a href="{{route('doctor.prescriptions.appointment.index', $appointment->id)}}" class="btn btn-sm bg-primary-light">
                 <i class="far fa-asterisk"></i> Capture Prescriptions

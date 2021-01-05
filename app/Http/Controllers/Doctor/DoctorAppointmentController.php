@@ -30,5 +30,14 @@ class DoctorAppointmentController extends Controller
     {
        return view('doctor.prescriptions.show', compact('appointment'));
     }
+    public function destroy(Appointment $appointment)
+    {
+        foreach ($appointment->prescriptions as $prescription) {
+            $prescription->delete();
+        }
+        session()->flash('success', 'Prescription(s) successfully deleted');
+
+        return redirect()->back();
+    }
 
 }
