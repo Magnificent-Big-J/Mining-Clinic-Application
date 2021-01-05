@@ -50,10 +50,10 @@ class XRayController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Appointment $appointment
+     * @return void
      */
-    public function show($id)
+    public function show()
     {
         //
     }

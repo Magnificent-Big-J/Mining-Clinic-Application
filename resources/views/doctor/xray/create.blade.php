@@ -55,7 +55,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label">Patient X-ray(s) <strong class="text-danger">*</strong>:</label>
                             <div class="col-lg-9">
-                                <input type="file" accept="image/gif, image/jpeg, image/png" name="xray"  class="form-control" required>
+                                <input type="file" accept="image/gif, image/jpeg, image/png, application/pdf" name="xray"  class="form-control" required>
                                 @error('xray')
                                     <span class="text-danger" role="alert">
                                                          <strong>{{ $message }}</strong>
