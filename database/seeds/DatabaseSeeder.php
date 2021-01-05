@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvnceSeeder::class);
         $this->call(RoleAndPermissionsSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(DocumentTypeSeeder::class);
 
         if (app()->environment('local')) {
             $this->call(DoctorDatabaseSeeder::class);

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 
 /**
@@ -18,6 +20,7 @@ use Illuminate\Support\Collection;
  * @property Patient $patient
  * @property Sales[]|Collection $sales
  * @property Prescription[]|Collection $prescriptions
+ * @property Document[]|Collection $documents
  */
 class Appointment extends Model
 {
@@ -36,23 +39,23 @@ class Appointment extends Model
         'patient_id', 'doctor_id', 'appointment_date', 'appointment_time', 'status'
     ];
 
-    public function doctor()
+    public function doctor(): BelongsTo
     {
         return $this->belongsTo(Doctor::class);
     }
-    public function patient()
+    public function patient(): BelongsTo
     {
         return $this->belongsTo(Patient::class);
     }
-    public function appointmentAssessment()
+    public function appointmentAssessment(): HasMany
     {
         return $this->hasMany(AppointmentAssessment::class);
     }
-    public function screening()
+    public function screening(): BelongsTo
     {
         return $this->hasMany(Screening::class);
     }
-    public function getStatusTextAttribute()
+    public function getStatusTextAttribute(): string
     {
         switch ($this->status) {
             case 1:
@@ -65,13 +68,16 @@ class Appointment extends Model
                 return  'Done';
         }
     }
-    public function sales()
+    public function sales(): HasMany
     {
         return $this->hasMany(Sales::class);
     }
-    public function prescriptions()
+    public function prescriptions(): HasMany
     {
         return $this->hasMany(Prescription::class);
     }
-
+    public function documents(): HasMany
+    {
+        return $this->hasMany(Document::class);
+    }
 }

@@ -1,7 +1,9 @@
 <?php
 Route::name('doctor.')->middleware(['auth'])->group(function () {
     Route::resource('appointment','AppointmentController');
+    Route::resource('patient-xray','XRayController')->except('create');
     Route::resource('prescriptions','PrescriptionController')->except('index');
+    Route::get('patient/{appointment}/xray','XRayController@create')->name('patient.xray.create');
     Route::get('patient/{appointment}/prescription', 'Doctor\DoctorAppointmentController@patientPrescription')->name('patient.prescription');
     Route::delete('patient/{appointment}/prescription/delete', 'Doctor\DoctorAppointmentController@destroy')->name('patient.prescription.delete');
     Route::get('prescriptions/{appointment}/appointment','PrescriptionController@index')->name('prescriptions.appointment.index');
