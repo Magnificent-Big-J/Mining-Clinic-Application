@@ -44,5 +44,8 @@
                 <i class="far fa-asterisk"></i> Capture Prescriptions
             </a>
     @endif
+    <a href="{{route('doctor.patient.xray.create', $appointment->id)}}" class="btn btn-sm bg-primary-light">
+        <i class="far fa-asterisk"></i> Upload Xray(s)
+    </a>
 @endif
 
