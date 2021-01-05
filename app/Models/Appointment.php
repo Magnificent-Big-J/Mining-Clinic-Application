@@ -51,7 +51,7 @@ class Appointment extends Model
     {
         return $this->hasMany(AppointmentAssessment::class);
     }
-    public function screening(): BelongsTo
+    public function screening(): HasMany
     {
         return $this->hasMany(Screening::class);
     }
@@ -79,5 +79,13 @@ class Appointment extends Model
     public function documents(): HasMany
     {
         return $this->hasMany(Document::class);
+    }
+    public function isPrescription()
+    {
+        return $this->documents[0]->document_type_id === DocumentType::PRESCRIPTION_TYPE;
+    }
+    public function isXray()
+    {
+        return $this->documents[0]->document_type_id === DocumentType::XRAY_TYPE;
     }
 }

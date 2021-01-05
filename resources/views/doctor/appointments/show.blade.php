@@ -21,7 +21,18 @@
                     <div class="card-body">
                         <div class="card ">
                             <div class="card-header">
-                                <h4 class="card-title">Patient Personal Information</h4>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <h4 class="card-title">Patient Personal Information</h4>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        @if($appointment->documents->count())
+                                            <a href="{{route('doctor.patient.show.document', $appointment->id)}}" class="btn btn-sm bg-info">
+                                                <i class="far fa-eye"></i> View X-Ray
+                                            </a>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="row">

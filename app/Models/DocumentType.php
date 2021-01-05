@@ -17,6 +17,9 @@ class DocumentType extends Model
 {
     protected $fillable = ['name'];
 
+    const PRESCRIPTION_TYPE = 1;
+    const XRAY_TYPE = 2;
+
     public function documents(): HasMany
     {
         return $this->hasMany(Document::class);

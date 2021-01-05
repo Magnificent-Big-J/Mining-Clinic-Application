@@ -2,15 +2,17 @@
 
 
 namespace App\Service;
+
 use App\Models\Document;
-use Collivery\Macros\FileMacros;
+use App\Macros\FileMacros;
+use App\Files\FileService;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Symfony\Component\Finder\Finder;
-
-class AppointmentFileService
+use SplFileInfo;
+class AppointmentFileService extends FileService
 {
     const XRAY_BASE_LOCATION = 'documents/doctors/xrays/';
     const PRESCRIPTION_BASE_LOCATION = 'documents/doctors/prescriptions/';
@@ -33,15 +35,15 @@ class AppointmentFileService
 
         if(!File::isDirectory($path)){
 
-            File::makeDirectory($path, 0755, true, true);
+            File::makeDirectory($location, 0755, true, true);
         }
 
-        $document_name =  $file->getClientOriginalName();
-        $file->move($path ,$document_name);
+        $document_name =  preg_replace('/\s+/', '_', $file->getClientOriginalName());
+        $file->move($location, $document_name);
 
         return [
             'document_name' => $document_name,
-            'document_path' => $document_name,
+            'document_path' => $location,
         ];
     }
     public  function readDocument(int $documentId): array
@@ -52,10 +54,20 @@ class AppointmentFileService
             \Flash::error('Document no longer exists');
         }
 
-        $file = $this->getFile($document->document_name, $document->document_path);
-        $pageCount = \File::pageCount($file->getPathname());
-        $images = \File::getPages($file->getPathname(), FileMacros::QUALITY_HIGH);
-        return compact('document', 'file', 'pageCount', 'images', 'documentTypes');
+        try {
+            $file = $this->getFile($document->document_name, $document->document_path);
+
+        } catch (FileNotFoundException $e) {
+        }
+        try {
+            $pageCount = 1;
+        } catch (\ImagickException $e) {
+        }
+        try {
+            $images = 'Hello';
+        } catch (\ImagickException $e) {
+        }
+        return compact('document', 'file', 'pageCount', 'images');
     }
 
     private function getFile(string $fileName, string $location): SplFileInfo

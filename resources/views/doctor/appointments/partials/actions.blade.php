@@ -44,8 +44,16 @@
                 <i class="far fa-asterisk"></i> Capture Prescriptions
             </a>
     @endif
-    <a href="{{route('doctor.patient.xray.create', $appointment->id)}}" class="btn btn-sm bg-primary-light">
-        <i class="far fa-asterisk"></i> Upload Xray(s)
-    </a>
+    @if ($appointment->documents())
+        @if ($appointment->isXray())
+            <a href="{{route('doctor.patient.show.document', $appointment->id)}}" class="btn btn-sm bg-info-light">
+                <i class="far fa-eye"></i> View X-Ray
+            </a>
+        @endif
+    @else
+        <a href="{{route('doctor.patient.xray.create', $appointment->id)}}" class="btn btn-sm bg-primary-light">
+            <i class="far fa-asterisk"></i> Upload Xray(s)
+        </a>
+    @endif
 @endif
 
