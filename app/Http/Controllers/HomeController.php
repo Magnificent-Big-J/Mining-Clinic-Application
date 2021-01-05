@@ -40,6 +40,7 @@ class HomeController extends Controller
         } else if (auth()->user()->isDoctor()){
 
             $stats = AppointmentService::doctorStats();
+
             $todayAppointments = Appointment::where('doctor_id', '=', auth()->user()->doctor->id)->whereDate('appointment_date', '=', Carbon::now())->get();
             $upcomingAppointments = Appointment::where('doctor_id', '=', auth()->user()->doctor->id)->whereDate('appointment_date', '>', Carbon::now())->get();
             return  view('doctor.dashboard.dashboard', compact('stats','todayAppointments','upcomingAppointments'));

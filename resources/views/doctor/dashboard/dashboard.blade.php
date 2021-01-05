@@ -79,54 +79,17 @@
                 <!-- Appointment Tab -->
                 <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#upcoming-appointments" data-toggle="tab">Upcoming</a>
+                        <a class="nav-link active" href="#today-appointments" data-toggle="tab">Today</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#today-appointments" data-toggle="tab">Today</a>
+                        <a class="nav-link " href="#upcoming-appointments" data-toggle="tab">Upcoming</a>
                     </li>
                 </ul>
                 <!-- /Appointment Tab -->
 
                 <div class="tab-content">
-
-                    <!-- Upcoming Appointment Tab -->
-                    <div class="tab-pane show active" id="upcoming-appointments">
-                        <div class="card card-table mb-0">
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-center mb-0">
-                                        <thead>
-                                        <tr>
-                                            <th>Patient Name</th>
-                                            <th>Appointment Date</th>
-                                            <th>Status</th>
-                                            <th></th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        @foreach($upcomingAppointments as $appointment)
-                                            <tr>
-                                                <td>
-                                                    {{$appointment->patient->full_name}}
-                                                </td>
-                                                <td>{{$appointment->appointment_date}} <span class="d-block text-info">{{$appointment->appointment_time}}</span></td>
-                                                <td>{{$appointment->status_text}}</td>
-
-                                                <td class="text-right">
-                                                    @include('doctor.dashboard.partials.actions')
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Upcoming Appointment Tab -->
-
                     <!-- Today Appointment Tab -->
-                    <div class="tab-pane" id="today-appointments">
+                    <div class="tab-pane show active" id="today-appointments">
                         <div class="card card-table mb-0">
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -160,6 +123,42 @@
                         </div>
                     </div>
                     <!-- /Today Appointment Tab -->
+
+                    <!-- Upcoming Appointment Tab -->
+                    <div class="tab-pane" id="upcoming-appointments">
+                        <div class="card card-table mb-0">
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-center mb-0">
+                                        <thead>
+                                        <tr>
+                                            <th>Patient Name</th>
+                                            <th>Appointment Date</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($upcomingAppointments as $appointment)
+                                            <tr>
+                                                <td>
+                                                    {{$appointment->patient->full_name}}
+                                                </td>
+                                                <td>{{$appointment->appointment_date}} <span class="d-block text-info">{{$appointment->appointment_time}}</span></td>
+                                                <td>{{$appointment->status_text}}</td>
+
+                                                <td class="text-right">
+                                                    @include('doctor.dashboard.partials.actions')
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Upcoming Appointment Tab -->
 
                 </div>
             </div>
