@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\Doctor;
 use App\Models\Document;
+use App\Service\AppointmentFileService;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\File;
 
@@ -34,22 +35,17 @@ class XrayCreateRequest extends FormRequest
     public function uploadXray(): void
     {
         $doctor = auth()->user()->doctor;
-        $path = public_path('documents/doctors/xrays/' . $doctor->practice_number);
-
-        if(!File::isDirectory($path)){
-
-            File::makeDirectory($path, 0755, true, true);
-        }
 
         $xray = $this->file('xray');
-        $xray_file =  $xray->getClientOriginalName();
-        $xray->move($path ,$xray_file);
+        $fileService = new AppointmentFileService();
 
-        Document::create([
-            'document_path' => $path,
-            'document_type_id' => $this->document,
-            'appointment_id' => $this->appointment,
-        ]);
+        $data ['document_type_id'] = $this->document;
+        $data ['appointment_id'] = $this->appointment;
+
+        $result = $fileService->storeFile($xray, AppointmentFileService::XRAY_TYPE, $doctor->practice_number);
+        $data = array_merge($data, $result);
+
+        Document::create($data);
 
     }
 }

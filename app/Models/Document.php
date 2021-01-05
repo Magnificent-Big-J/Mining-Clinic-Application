@@ -11,13 +11,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $id
  * @property int $document_type_id
  * @property string $document_path
+ * @property string $document_name
  * @property int $appointment_id
  * @property DocumentType $documentType
  * @property Appointment $appointment
  */
 class Document extends Model
 {
-    protected $fillable = ['document_type_id', 'document_path', 'appointment_id'];
+    protected $fillable = ['document_type_id', 'document_path', 'appointment_id', 'document_name'];
 
     public function documentType(): BelongsTo
     {
