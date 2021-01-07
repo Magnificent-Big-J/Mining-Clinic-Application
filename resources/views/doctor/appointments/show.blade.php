@@ -135,28 +135,37 @@
                         <h4 class="card-title">Prescriptions</h4>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table mb-0">
-                                <thead>
-                                <tr>
-                                    <th>Medicine</th>
-                                    <th>Days</th>
-                                    <th>Quantity</th>
-                                    <th>Period</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($appointment->prescriptions as $prescription)
+                        @if($appointment->prescriptions->count())
+                            <div class="table-responsive">
+                               <table class="table mb-0">
+                                    <thead>
                                     <tr>
-                                        <td>{{$prescription->doctorProduct->product->product_name}}</td>
-                                        <td>{{$prescription->days}}</td>
-                                        <td>{{$prescription->quantity}}</td>
-                                        <td>{{$prescription->usage}}</td>
+                                        <th>Medicine</th>
+                                        <th>Days</th>
+                                        <th>Quantity</th>
+                                        <th>Period</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($appointment->prescriptions as $prescription)
+                                        <tr>
+                                            <td>{{$prescription->doctorProduct->product->product_name}}</td>
+                                            <td>{{$prescription->days}}</td>
+                                            <td>{{$prescription->quantity}}</td>
+                                            <td>{{$prescription->usage}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @else
+                            @if ($isPdf)
+                                <embed src="{{ asset($document_path)}}" width="100%" height="800" alt="pdf" />
+                            @else
+                                <img src="{{ asset($document_path)}}" class="img-fluid img-thumbnail">
+
+                            @endif
+                        @endif
                     </div>
                 </div>
             </div>
