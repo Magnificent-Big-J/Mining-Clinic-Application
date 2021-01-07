@@ -36,7 +36,7 @@ class XRayController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(XrayCreateRequest $request)
     {
@@ -44,7 +44,7 @@ class XRayController extends Controller
 
         session()->flash('success', 'Patient xrays successfully uploaded');
 
-        return redirect()->back();
+        return redirect()->route('doctor.appointment.details', $request->appointment);
     }
 
     /**

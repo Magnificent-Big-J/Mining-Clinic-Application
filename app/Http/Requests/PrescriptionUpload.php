@@ -2,14 +2,11 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Doctor;
 use App\Models\Document;
 use App\Service\AppointmentFileService;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\File;
 
-
-class XrayCreateRequest extends FormRequest
+class PrescriptionUpload extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,20 +26,20 @@ class XrayCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'xray' => 'required'
+            'prescription' => 'required'
         ];
     }
-    public function uploadXray(): void
+    public function uploadPrescription() : void
     {
         $doctor = auth()->user()->doctor;
 
-        $xray = $this->file('xray');
+        $xray = $this->file('prescription');
         $fileService = new AppointmentFileService();
 
         $data ['document_type_id'] = $this->document;
         $data ['appointment_id'] = $this->appointment;
 
-        $result = $fileService->storeFile($xray, AppointmentFileService::XRAY_TYPE, $doctor->practice_number);
+        $result = $fileService->storeFile($xray, AppointmentFileService::PRESCRIPTION_TYPE, $doctor->practice_number);
         $data = array_merge($data, $result);
 
         Document::create($data);

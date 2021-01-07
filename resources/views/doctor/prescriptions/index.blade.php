@@ -24,7 +24,12 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title mb-0">Add Prescription</h4>
+            <div class="row">
+
+                    <h4 class="card-title mb-0">Add Prescription</h4>
+
+
+            </div>
         </div>
         <div class="card-body">
             <div class="row">

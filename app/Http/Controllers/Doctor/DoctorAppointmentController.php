@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PrescriptionUpload;
 use App\Models\Appointment;
+use App\Models\DocumentType;
 use App\Service\AppointmentFileService;
 use Carbon\Carbon;
-use Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Illuminate\Http\Request;
-use ImagickException;
-use Symfony\Component\Finder\Exception\DirectoryNotFoundException;
 
 class DoctorAppointmentController extends Controller
 {
@@ -31,7 +29,15 @@ class DoctorAppointmentController extends Controller
     }
     public function show(Appointment $appointment)
     {
-        return  view('doctor.appointments.show', compact('appointment'));
+        $document_path = null;
+        $isPdf = null;
+        $document = $appointment->documents()->where('document_type_id', '=', DocumentType::PRESCRIPTION_TYPE)->get();
+        if ($document) {
+            $document_path = $document[0]->document_path . '/' . $document[0]->document_name;
+            $isPdf = strpos($document[0]->document_name, '.pdf');
+        }
+
+        return  view('doctor.appointments.show', compact('appointment', 'document_path', 'isPdf'));
     }
     public function doctorAppointments()
     {
@@ -56,6 +62,18 @@ class DoctorAppointmentController extends Controller
         $isPdf = strpos($appointment->documents[0]->document_name, '.pdf');
 
         return view('doctor.xray.show', compact('document_path', 'appointment', 'isPdf'));
+    }
+    public function uploadPrescription(Appointment $appointment)
+    {
+        $document_type = DocumentType::where('name', '=', 'Prescriptions')->get();
+        return  view('doctor.prescriptions.upload', compact('appointment', 'document_type'));
+    }
+    public function storePrescription(PrescriptionUpload $request)
+    {
+        $request->uploadPrescription();
+        session()->flash('success', 'Patient prescription successfully uploaded');
+
+        return redirect()->route('doctor.appointment.details', $request->appointment);
     }
 
 }

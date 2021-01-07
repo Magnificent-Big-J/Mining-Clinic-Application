@@ -26,7 +26,7 @@ class PrescriptionController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
