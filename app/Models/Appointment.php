@@ -82,10 +82,10 @@ class Appointment extends Model
     }
     public function isPrescription()
     {
-        return $this->documents[0]->document_type_id === DocumentType::PRESCRIPTION_TYPE;
+        return $this->documents()->where('document_type_id', '=' , DocumentType::PRESCRIPTION_TYPE);
     }
     public function isXray()
     {
-        return $this->documents[0]->document_type_id === DocumentType::XRAY_TYPE;
+        return $this->documents()->where('document_type_id', '=' , DocumentType::XRAY_TYPE);
     }
 }

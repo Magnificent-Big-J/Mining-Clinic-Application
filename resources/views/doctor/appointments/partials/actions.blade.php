@@ -20,15 +20,15 @@
         </button>
     </form>
 @elseif ($appointment->status === \App\Models\Appointment::ACCEPTED_STATUS)
+    <form action="{{route('doctor.appointment.update', $appointment->id)}}" method="post">
+        <input type="hidden" name="status" value="{{\App\Models\Appointment::DONE_STATUS}}">
+        @csrf
+        @method('PUT')
+        <button type="submit" class="btn btn-sm bg-success-light mx-1">
+            <i class="fa fa-check"></i> Mark as Done
+        </button>
+    </form>
     @if ($appointment->prescriptions->count())
-        <form action="{{route('doctor.appointment.update', $appointment->id)}}" method="post">
-            <input type="hidden" name="status" value="{{\App\Models\Appointment::DONE_STATUS}}">
-            @csrf
-            @method('PUT')
-            <button type="submit" class="btn btn-sm bg-success-light mx-1">
-                <i class="fa fa-check"></i> Mark as Done
-            </button>
-        </form>
         <a href="{{route('doctor.patient.prescription', $appointment->id)}}" class="btn btn-sm bg-primary">
             <i class="far fa-asterisk"></i> View Prescriptions
         </a>
@@ -40,31 +40,35 @@
             </button>
         </form>
     @else
+        @if (!$appointment->isPrescription())
             <a href="{{route('doctor.prescriptions.appointment.index', $appointment->id)}}" class="btn btn-sm bg-primary-light">
                 <i class="far fa-asterisk"></i> Capture Prescriptions
             </a>
+        @endif
     @endif
-    @if ($appointment->documents->count())
+
         @if ($appointment->isXray())
             <a href="{{route('doctor.patient.show.document', $appointment->id)}}" class="btn btn-sm bg-info-light">
                 <i class="far fa-eye"></i> View X-Ray
             </a>
         @endif
+
         @if (!$appointment->isPrescription())
             <a href="{{route('doctor.patient.prescription.upload', $appointment->id)}}" class="btn btn-sm bg-info-light">
-                <i class="far fa-asterisk"></i> Upload Prescription
+                <i class="far fa-asterisk"></i> Upload Prescription XXX
             </a>
         @endif
-    @else
-        <a href="{{route('doctor.patient.xray.create', $appointment->id)}}" class="btn btn-sm bg-primary-light">
-            <i class="far fa-asterisk"></i> Upload Xray(s)
-        </a>
-
+        @if (!$appointment->isXray())
+            <a href="{{route('doctor.patient.xray.create', $appointment->id)}}" class="btn btn-sm bg-primary-light">
+                <i class="far fa-asterisk"></i> Upload Xray(s)
+            </a>
+        @endif
         @if ($appointment->prescriptions->count() === 0)
-            <a href="{{route('doctor.patient.prescription.upload', $appointment->id)}}" class="btn btn-sm bg-info-light">
-                <i class="far fa-asterisk"></i> Upload Prescription
-            </a>
+            @if (!$appointment->isPrescription())
+                <a href="{{route('doctor.patient.prescription.upload', $appointment->id)}}" class="btn btn-sm bg-info-light">
+                    <i class="far fa-asterisk"></i> Upload Prescription
+                </a>
+            @endif
         @endif
-    @endif
 @endif
 

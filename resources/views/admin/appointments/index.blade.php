@@ -51,7 +51,7 @@
 @endsection
 @section('scripts')
     <script>
-
+        $(function (){
             $('#appointments').DataTable({
                 processing: true,
                 serverSide: true,

@@ -80,8 +80,7 @@ class DataTableController extends Controller
     }
     public function appointments()
     {
-        $appointments = Appointment::where('appointment_date', '=', Carbon::now()->format('Y-m-d'))
-                ->where('status', '<>', Appointment::DONE_STATUS)
+        $appointments = Appointment::whereDate('appointment_date', '=', Carbon::now())
                 ->get();
 
         return DataTables::of($appointments)
