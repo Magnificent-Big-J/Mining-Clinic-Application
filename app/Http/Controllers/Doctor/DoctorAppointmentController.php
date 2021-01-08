@@ -7,6 +7,7 @@ use App\Http\Requests\PrescriptionUpload;
 use App\Models\Appointment;
 use App\Models\DocumentType;
 use App\Service\AppointmentFileService;
+use App\Service\AppointmentService;
 use Carbon\Carbon;
 
 class DoctorAppointmentController extends Controller
@@ -29,13 +30,9 @@ class DoctorAppointmentController extends Controller
     }
     public function show(Appointment $appointment)
     {
-        $document_path = null;
-        $isPdf = null;
-        $document = $appointment->documents()->where('document_type_id', '=', DocumentType::PRESCRIPTION_TYPE)->get();
-        if ($document) {
-            $document_path = $document[0]->document_path . '/' . $document[0]->document_name;
-            $isPdf = strpos($document[0]->document_name, '.pdf');
-        }
+        $result = AppointmentService::getDocument($appointment->id, DocumentType::PRESCRIPTION_TYPE);
+        $document_path = $result['document_path'];
+        $isPdf = $result['isPdf'];
 
         return  view('doctor.appointments.show', compact('appointment', 'document_path', 'isPdf'));
     }
@@ -58,8 +55,9 @@ class DoctorAppointmentController extends Controller
     }
     public function showDocument(Appointment $appointment)
     {
-        $document_path = $appointment->documents[0]->document_path . '/' . $appointment->documents[0]->document_name;
-        $isPdf = strpos($appointment->documents[0]->document_name, '.pdf');
+        $result = AppointmentService::getDocument($appointment->id, DocumentType::XRAY_TYPE);
+        $document_path = $result['document_path'];
+        $isPdf = $result['isPdf'];
 
         return view('doctor.xray.show', compact('document_path', 'appointment', 'isPdf'));
     }

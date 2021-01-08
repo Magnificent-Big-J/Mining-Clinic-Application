@@ -35,6 +35,6 @@
         </div>
     </td>
     <td>
-        <button type="button" class="btn bg-danger-light trash remove"><i class="far fa-trash-alt"></i></button>
+        <button type="button" class="btn bg-danger-light btn trash remove"><i class="far fa-trash-alt">X</i></button>
     </td>
 </tr>

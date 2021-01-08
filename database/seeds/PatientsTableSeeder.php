@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\MedicalAid;
 use App\Models\Patient;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
@@ -70,6 +71,14 @@ class PatientsTableSeeder extends Seeder
 
         foreach ($patients as $patient) {
             Patient::create($patient);
+        }
+        $medicalAids = array(
+            array('medical_name' => 'CompCare ','medical_aid_number' => '1616890', 'medical_aid_status' => MedicalAid::ACTIVE_STATUS, 'patient_id'=> 1, 'medical_email_address' => 'correspondence@universal.co.za'),
+            array('medical_name' => 'Discovery ','medical_aid_number' => '5876890', 'medical_aid_status' => MedicalAid::ACTIVE_STATUS, 'patient_id'=>3, 'medical_email_address' => 'correspondence@discovery.co.za'),
+            array('medical_name' => 'Bonitas ','medical_aid_number' => '3696890', 'medical_aid_status' => MedicalAid::ACTIVE_STATUS, 'patient_id'=> 4, 'medical_email_address' => 'bonitas@universal.co.za'),
+        );
+        foreach ($medicalAids as $medicalAid) {
+            MedicalAid::create($medicalAid);
         }
     }
 }

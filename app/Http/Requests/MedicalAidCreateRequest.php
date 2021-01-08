@@ -26,6 +26,7 @@ class MedicalAidCreateRequest extends FormRequest
     {
         return [
             'medical_name' => 'required|string',
+            'medical_email_address' => 'required|email',
             'medical_aid_number' => 'required|string',
         ];
     }
@@ -36,7 +37,8 @@ class MedicalAidCreateRequest extends FormRequest
             'medical_aid_number'=> $this->medical_aid_number,
             'plan'=> $this->plan,
             'medical_aid_status' => $this->status,
-            'patient_id' => $this->patient
+            'patient_id' => $this->patient,
+            'medical_email_address' => $this->medical_email_address
         ]);
     }
 }

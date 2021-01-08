@@ -80,12 +80,26 @@ class Appointment extends Model
     {
         return $this->hasMany(Document::class);
     }
-    public function isPrescription()
+    public function isPrescription(): bool
     {
-        return $this->documents()->where('document_type_id', '=' , DocumentType::PRESCRIPTION_TYPE);
+        if ($this->documentAvailable(DocumentType::PRESCRIPTION_TYPE)->isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+        return $this->documentAvailable(DocumentType::PRESCRIPTION_TYPE) !== null;
     }
     public function isXray()
     {
-        return $this->documents()->where('document_type_id', '=' , DocumentType::XRAY_TYPE);
+        if ($this->documentAvailable(DocumentType::XRAY_TYPE)->isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+        return $this->documentAvailable(DocumentType::XRAY_TYPE)->isEmpty() ? false : true;
+    }
+    private function documentAvailable(int $type): \Illuminate\Database\Eloquent\Collection
+    {
+        return $this->documents()->where('document_type_id', '=' , $type)->get();
     }
 }

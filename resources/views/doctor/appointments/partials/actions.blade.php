@@ -44,6 +44,8 @@
             <a href="{{route('doctor.prescriptions.appointment.index', $appointment->id)}}" class="btn btn-sm bg-primary-light">
                 <i class="far fa-asterisk"></i> Capture Prescriptions
             </a>
+            @else
+            {{$appointment->isPrescription()}}
         @endif
     @endif
 
@@ -53,9 +55,9 @@
             </a>
         @endif
 
-        @if (!$appointment->isPrescription())
+        @if (!$appointment->isPrescription() && !$appointment->prescriptions->count())
             <a href="{{route('doctor.patient.prescription.upload', $appointment->id)}}" class="btn btn-sm bg-info-light">
-                <i class="far fa-asterisk"></i> Upload Prescription XXX
+                <i class="far fa-asterisk"></i> Upload Prescription
             </a>
         @endif
         @if (!$appointment->isXray())
@@ -63,12 +65,6 @@
                 <i class="far fa-asterisk"></i> Upload Xray(s)
             </a>
         @endif
-        @if ($appointment->prescriptions->count() === 0)
-            @if (!$appointment->isPrescription())
-                <a href="{{route('doctor.patient.prescription.upload', $appointment->id)}}" class="btn btn-sm bg-info-light">
-                    <i class="far fa-asterisk"></i> Upload Prescription
-                </a>
-            @endif
-        @endif
+
 @endif
 
