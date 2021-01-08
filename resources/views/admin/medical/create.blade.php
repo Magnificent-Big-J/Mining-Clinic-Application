@@ -56,6 +56,18 @@
                                             </div>
                                          </div>
 
+
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Medical Email Address:<strong class="text-danger">*</strong></label>
+                                        <div class="col-lg-9">
+                                            <input type="text" name="medical_email_address" value="{{ old('medical_email_address') }}" class="form-control">
+                                            @error('medical_email_address')
+                                            <span class="text-danger" role="alert">
+                                                             <strong>{{ $message }}</strong>
+                                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Medical Aid Plan:</label>
                                         <div class="col-lg-9">

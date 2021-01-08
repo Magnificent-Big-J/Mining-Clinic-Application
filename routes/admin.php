@@ -33,4 +33,7 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::get('admin-users', 'UserController@createAdmins')->name('users.create.admins');
     Route::get('doctor-admin-users', 'UserController@create')->name('doctor.users.create.admins');
     Route::post('admin-users-save', 'UserController@storeAdmins')->name('users.create.admins.store');
+    Route::get('dispense/{appointment}/medicine', 'DispenseMedicineController@create')->name('dispense.medicine');
+    Route::get('medicine/{appointment}/dispensed', 'DispenseMedicineController@medicineDispensed')->name('medicine.dispensed');
+    Route::post('dispense-patient/{appointment}/medicine', 'DispenseMedicineController@dispense')->name('dispense.patient.medicine');
 });

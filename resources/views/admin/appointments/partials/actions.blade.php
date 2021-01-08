@@ -12,7 +12,7 @@
         </div>
     @elseif($row->status === \App\Models\Appointment::DONE_STATUS && $row->sales->count() === 0)
         <div class="col-sm-6">
-            <a class="btn btn-success btn-sm" href="{{route('admin.reschedule.booking', $row->id)}}"> Dispense Medication </a>
+            <a class="btn btn-success btn-sm" href="{{route('admin.dispense.medicine', $row->id)}}"> Dispense Patient Medication </a>
         </div>
     @endif
 

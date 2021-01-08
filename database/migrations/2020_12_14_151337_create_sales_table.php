@@ -17,6 +17,7 @@ class CreateSalesTable extends Migration
             $table->id();
             $table->integer('quantity');
             $table->unsignedBigInteger('appointment_id');
+            $table->unsignedBigInteger('prescription_id');
             $table->date('sale_date');
             $table->timestamps();
         });

@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $quantity
  * @property Appointment $appointment
  * @property DoctorProduct $doctorProduct
+ * @property Sales $sales
  */
 
 class Prescription extends Model
@@ -51,5 +52,9 @@ class Prescription extends Model
         }
 
         return (empty($usage)) ? 'No period' : implode(',', $usage);
+    }
+    public function sales(): BelongsTo
+    {
+        return $this->belongsTo(Sales::class);
     }
 }

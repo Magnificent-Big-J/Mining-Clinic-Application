@@ -17,6 +17,7 @@ class CreateMedicalAidsTable extends Migration
             $table->id();
             $table->string('medical_name');
             $table->string('medical_aid_number');
+            $table->string('medical_email_address');
             $table->string('plan')->nullable();
             $table->integer('medical_aid_status');
             $table->unsignedBigInteger('patient_id');

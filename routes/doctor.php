@@ -15,4 +15,5 @@ Route::name('doctor.')->middleware(['auth'])->group(function () {
     Route::get('doctor-profile-settings','Doctor\DoctorProfileController@show')->name('profile.settings');
     Route::get('doctor-new-appointments','Doctor\DoctorAppointmentController@index')->name('new.appointments');
     Route::put('doctor-profile-settings/{user}','Doctor\DoctorProfileController@update')->name('profile.settings.save');
+
 });

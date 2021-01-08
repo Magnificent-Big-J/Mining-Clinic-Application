@@ -15,10 +15,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $medical_aid_status
  * @property int $patient_id
  * @property Patient $patient
+ * @property string $medical_email_address
  */
 class MedicalAid extends Model
 {
-    protected $fillable = ['medical_name','medical_aid_number', 'plan', 'medical_aid_status', 'patient_id'];
+    protected $fillable = ['medical_name','medical_aid_number', 'plan', 'medical_aid_status', 'patient_id', 'medical_email_address'];
     const ACTIVE_STATUS = 1;
     const SUSPENDED = 2;
 

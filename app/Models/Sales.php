@@ -3,28 +3,30 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * Class Sales
  * @package App\Models
- * @property int $doctor_product_id
+ * @property int $id
  * @property int $quantity
  * @property int $appointment_id
+ * @property int $prescription_id
  * @property date $sale_date
  * @property Appointment $appointment
- * @property DoctorProduct $doctorProduct
+ * @property Prescription $prescription
  */
 
 class Sales extends Model
 {
-    protected $fillable = ['doctor_product_id','appointment_id', 'quantity', 'sale_date'];
+    protected $fillable = ['appointment_id', 'prescription_id', 'quantity', 'sale_date'];
 
     public function appointment()
     {
         return $this->belongsTo(Appointment::class);
     }
-    public function doctorProduct()
+    public function prescription(): HasOne
     {
-        return $this->belongsTo(DoctorProduct::class);
+        return $this->hasOne(Prescription::class);
     }
 }
