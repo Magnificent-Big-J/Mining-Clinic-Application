@@ -44,5 +44,36 @@ class DoctorDatabaseSeeder extends Seeder
         ]);
 
         $doctor->specialists()->attach($specialist);
+
+        $user = User::create([
+            'first_name' => 'Joel',
+            'last_name' => 'Mnisi',
+            'title' => 'Dr',
+            'email' => 'mnisij64@invokesolutions.co.za',
+            'password' => bcrypt('p@ssword'),
+        ]);
+
+        $user->assignRole(2);
+
+        $specialist = Specialist::create([
+            'name' => 'Neurosurgery',
+            'image_path' =>'specialist/neurosurgery.jpeg'
+        ]);
+
+        $doctor = Doctor::create([
+            'entity_name' => $user->title . ' ' . $user->first_name . ' ' . $user->last_name,
+            'entity_status' => 'active',
+            'reg_number' => '36955285',
+            'email' => $user->email,
+            'practice_number' => '5522485',
+            'vat_number' => '885574125',
+            'tele_number' => '0837734919',
+            'fax_number'  => '0123031041',
+            'address' => '6874 Nokukwane Street Olivenhosboch 0187',
+            'user_id' => $user->id,
+            'stock_scheme' => 'stock_scheme'
+        ]);
+
+        $doctor->specialists()->attach($specialist);
     }
 }
