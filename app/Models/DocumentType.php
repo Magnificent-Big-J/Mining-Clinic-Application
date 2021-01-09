@@ -19,6 +19,7 @@ class DocumentType extends Model
 
     const PRESCRIPTION_TYPE = 1;
     const XRAY_TYPE = 2;
+    const REFERRAL_TYPE = 3;
 
     public function documents(): HasMany
     {

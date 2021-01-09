@@ -16,8 +16,10 @@ class AppointmentFileService extends FileService
 {
     const XRAY_BASE_LOCATION = 'documents/doctors/xrays/';
     const PRESCRIPTION_BASE_LOCATION = 'documents/doctors/prescriptions/';
+    const REFERRALS_BASE_LOCATION = 'documents/doctors/referrals/';
     const PRESCRIPTION_TYPE = 1;
     const XRAY_TYPE = 2;
+    const REFERRALS_TYPE = 3;
 
     public  function storeFile(UploadedFile $file, int $type, int $practice_number) : array
     {
@@ -29,6 +31,9 @@ class AppointmentFileService extends FileService
             case self::XRAY_TYPE:
                     $location = self::XRAY_BASE_LOCATION . $practice_number;
                 break;
+            case self::REFERRALS_TYPE:
+                    $location = self::REFERRALS_BASE_LOCATION;
+                break;
         }
 
         $path = public_path($location);
@@ -37,8 +42,8 @@ class AppointmentFileService extends FileService
 
             File::makeDirectory($location, 0755, true, true);
         }
-
         $document_name =  preg_replace('/\s+/', '_', $file->getClientOriginalName());
+        echo $location .'<br>' . $document_name .'<br>';
         $file->move($location, $document_name);
 
         return [

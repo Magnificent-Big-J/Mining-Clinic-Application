@@ -41,6 +41,18 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('doctor.referrals.index')}}">
+                        <i class="fa fa-book-reader"></i>
+                        <span>Referrals</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('doctor.my.referrals')}}">
+                        <i class="fa fa-book-open"></i>
+                        <span>My Referrals</span>
+                    </a>
+                </li>
+                <li>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                        document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}

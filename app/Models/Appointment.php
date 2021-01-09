@@ -21,6 +21,7 @@ use Illuminate\Support\Collection;
  * @property Sales[]|Collection $sales
  * @property Prescription[]|Collection $prescriptions
  * @property Document[]|Collection $documents
+ * @property Referral[]|Collection $referrals
  */
 class Appointment extends Model
 {
@@ -28,12 +29,14 @@ class Appointment extends Model
     const DECLINED_STATUS = 2;
     const ACCEPTED_STATUS = 3;
     const DONE_STATUS = 4;
+    const REFERRED_STATUS = 5;
 
     public static $texts = [
         self::PENDING_STATUS => 'Pending',
         self::DECLINED_STATUS => 'Declined',
         self::ACCEPTED_STATUS => 'Accepted',
-        self::DONE_STATUS => 'Done'
+        self::DONE_STATUS => 'Done',
+        self::REFERRED_STATUS => 'Referred',
     ];
     protected $fillable = [
         'patient_id', 'doctor_id', 'appointment_date', 'appointment_time', 'status'
@@ -57,16 +60,7 @@ class Appointment extends Model
     }
     public function getStatusTextAttribute(): string
     {
-        switch ($this->status) {
-            case 1:
-                return 'Pending';
-            case  2:
-                return 'Declined';
-            case 3:
-                return 'Accepted';
-            case 4:
-                return  'Done';
-        }
+        return self::$texts[$this->status];
     }
     public function sales(): HasMany
     {
@@ -101,5 +95,9 @@ class Appointment extends Model
     private function documentAvailable(int $type): \Illuminate\Database\Eloquent\Collection
     {
         return $this->documents()->where('document_type_id', '=' , $type)->get();
+    }
+    public function referrals(): HasMany
+    {
+        return $this->hasMany(Referral::class);
     }
 }
