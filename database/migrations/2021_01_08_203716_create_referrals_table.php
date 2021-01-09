@@ -18,6 +18,7 @@ class CreateReferralsTable extends Migration
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('appointment_id');
+            $table->unsignedBigInteger('referred_by');
             $table->date('referred_date');
             $table->string('referral_reason');
             $table->timestamps();

@@ -15,6 +15,7 @@ class DocumentTypeSeeder extends Seeder
         $types = array(
             array('name'=> 'Prescriptions'),
             array('name'=> 'X-Rays'),
+            array('name'=> 'Referrals'),
         );
 
         foreach ($types as $type) {

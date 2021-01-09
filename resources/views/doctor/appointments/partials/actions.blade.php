@@ -2,6 +2,9 @@
 <a href="{{route('doctor.appointment.details', $appointment->id)}}" class="btn btn-sm bg-info-light">
     <i class="far fa-eye"></i> View
 </a>
+<a href="{{route('doctor.refer.patient', $appointment->id)}}" class="btn btn-sm bg-warning-light">
+    <i class="far fa-eye"></i> Refer
+</a>
 @if($appointment->status === \App\Models\Appointment::PENDING_STATUS)
     <form action="{{route('doctor.appointment.update', $appointment->id)}}" method="post">
         <input type="hidden" name="status" value="{{\App\Models\Appointment::ACCEPTED_STATUS}}">

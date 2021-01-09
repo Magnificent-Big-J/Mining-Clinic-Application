@@ -5,7 +5,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use phpDocumentor\Reflection\Types\Collection;
+use Illuminate\Support\Collection;
 
 /**
  * Class Patient
@@ -26,6 +26,7 @@ use phpDocumentor\Reflection\Types\Collection;
  * @property Appointment[]|Collection $appointments
  * @property CaseManagement[]| Collection $caseManagements
  * @property MedicalAid[]|Collection $medicalAid
+ * @property Referral[]|Collection $referrals
  */
 class Patient extends Model
 {
@@ -61,6 +62,10 @@ class Patient extends Model
     public function getFullNameAttribute()
     {
         return $this->first_name . ' ' . $this->second_name . ' ' . $this->last_name;
+    }
+    public function referrals(): HasMany
+    {
+        return $this->hasMany(Referral::class);
     }
 
 }

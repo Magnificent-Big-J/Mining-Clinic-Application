@@ -20,6 +20,8 @@ Auth::routes(['register' => false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
+Route::get('doctor-referrals-to-another','Datatable\ReferralController@referrals')->name('doctor.referrals.to.another');
+Route::get('referrals-to-doctor','Datatable\ReferralController@myReferred')->name('doctor.referrals');
 Route::get('doctor-historic-appointments','Datatable\DoctorAppointmentController@appointments')->name('doctor.historic.index');
 Route::get('all-users','Datatable\UserController@users')->name('users.index');
 Route::get('product-categories','Datatable\ProductDatatableController@productCategories')->name('product.categories.index');

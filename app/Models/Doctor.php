@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
-use phpDocumentor\Reflection\Types\Collection;
+
 
 /**
  * Class Doctor
@@ -31,6 +32,7 @@ use phpDocumentor\Reflection\Types\Collection;
  * @property BankingDetail $banking
  * @property CaseManagement[]| Collection $caseManagements
  * @property User $user
+ * @property Referral[]|Collection $referrals
  */
 class Doctor extends Model
 {
@@ -70,5 +72,9 @@ class Doctor extends Model
             ->get()->first();
 
         return $result ? $result->name : null;
+    }
+    public function referrals(): HasMany
+    {
+        return $this->hasMany(Referral::class);
     }
 }
