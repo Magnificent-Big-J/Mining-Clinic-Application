@@ -47,7 +47,7 @@ class DoctorCreateRequest extends FormRequest
         $path = null;
         if ($this->has('avatar')) {
             $img = $this->file('avatar');
-            $img_file =  $img->getClientOriginalName();
+            $img_file =  $img_file = preg_replace('/\s+/', '_', $img->getClientOriginalName());
             $img->move("avatar/",$img_file);
             $path = 'avatar/' . $img_file;
         }
