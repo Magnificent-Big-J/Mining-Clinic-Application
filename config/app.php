@@ -168,7 +168,6 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
-        Goodnesskay\LaravelPdfViewer\LaravelPdfViewerServiceProvider::class,
         /*
          * Application Service Providers...
          */
