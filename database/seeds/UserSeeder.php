@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'first_name' => 'Invoke',
+            'first_name' => 'Invokes',
             'last_name' => 'Solutions',
             'title' => 'Mr',
             'email' => 'info@invokesolutions.co.za',
