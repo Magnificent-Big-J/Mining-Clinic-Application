@@ -11,14 +11,6 @@
     <div class="col-sm-2">
         <a class="btn btn-primary btn-sm" href="{{route('admin.doctor.product.index', $row->id)}}"> Product Stock </a>
     </div>
-    {{--<div class="col-sm-2">
-        <form action="{{route('admin.doctors.destroy', $row->id)}}" method="post">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger btn-sm"><i class="fe fe-trash"></i></button>
-        </form>
-
-    </div>--}}
 </div>
 
 
