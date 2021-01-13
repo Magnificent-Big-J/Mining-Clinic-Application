@@ -1,4 +1,7 @@
 @extends('layouts.admindatatables')
+@section('styles')
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+@endsection
 @section('content')
     <div class="content container-fluid">
 
@@ -43,10 +46,12 @@
             </div>
         </div>
     </div>
+    @include('admin.specialist.modals.add_specialist')
 @endsection
 @section('scripts')
     <script>
         $(function () {
+            $("#loader").hide();
             $('#specialist').DataTable({
                 processing: true,
                 serverSide: true,
@@ -58,7 +63,9 @@
                     {data: 'specialist', name: 'specialist'},
                     {data: 'actions', name: 'actions'},
                     ]
-                });
+            });
+
+
             });
         </script>
 @endsection

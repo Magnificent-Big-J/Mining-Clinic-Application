@@ -33,4 +33,5 @@ Route::put('consultation-category/{consultationCategory}/update', 'Api\Consultat
 Route::put('product-category/{productCategory}/update', 'Api\ProductController@updateCategory');
 Route::get('product-category/{productCategory}', 'Api\ProductController@editCategory');
 Route::post('product-category', 'Api\ProductController@productStore');
+Route::post('specialist', 'Api\SpecialistController@store');
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SpecialistCreateRequest;
+use App\Http\Requests\SpecialistUpdateRequest;
 use App\Models\Specialist;
 use Illuminate\Http\Request;
 
@@ -38,7 +39,7 @@ class SpecialistController extends Controller
     {
         $request->createSpecialist();
 
-        session()->flash('success','Specialists successfully updated.');
+        session()->flash('success','Specialists successfully created.');
         return redirect()->route('admin.specialists.index');
     }
 
@@ -61,7 +62,7 @@ class SpecialistController extends Controller
      */
     public function edit(Specialist $specialist)
     {
-        //
+        return view('admin.specialist.edit', compact('specialist'));
     }
 
     /**
@@ -71,9 +72,11 @@ class SpecialistController extends Controller
      * @param  \App\Specialist  $specialist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Specialist $specialist)
+    public function update(SpecialistUpdateRequest $request, Specialist $specialist)
     {
-        //
+        $request->updateSpecialist($specialist);
+        session()->flash('success','Specialists successfully updated.');
+        return redirect()->route('admin.specialists.index');
     }
 
     /**
@@ -84,7 +87,16 @@ class SpecialistController extends Controller
      */
     public function destroy(Specialist $specialist)
     {
-        session()->flash('success','Specialists successfully deleted.');
+
+        if ($specialist->doctors->count()) {
+            session()->flash('error',"Specialists cannot be deleted.");
+        } else {
+            unlink(public_path() . '/' . $specialist->image_path);
+            $specialist->delete();
+            session()->flash('success',"Specialists successfully deleted.");
+        }
+
+
         return redirect()->route('admin.specialists.index');
     }
 }
