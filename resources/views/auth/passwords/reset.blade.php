@@ -10,12 +10,22 @@
                     <div class="login-right-wrap">
 
                         <h1>{{ __('Reset Password') }}</h1>
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
 
+                            </div>
+                         @endif
                         <!-- Form -->
                         <form method="POST" action="{{ route('password.update') }}">
                             @csrf
+                            <input type="hidden" name="token" value="{{ $token }}">
                             <div class="form-group">
-                                <input class="form-control" type="email" placeholder="Email" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
                                 <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -23,7 +33,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="password" placeholder="Password" name="password" required autocomplete="new-password">
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"  placeholder="Password" name="password" required autocomplete="new-password">
                                 @error('password')
                                 <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -31,7 +41,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <input id="password-confirm" type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+                                <input type="password" class="form-control"  name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">
