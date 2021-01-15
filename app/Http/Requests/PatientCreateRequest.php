@@ -31,6 +31,7 @@ class PatientCreateRequest extends FormRequest
             'gender' => 'required|string',
             'last_name' => 'required|string',
             'identity_number' => 'required|string|unique:patients',
+            'email_address' => 'required|email|unique:patients',
             'is_local' => 'required',
             'cellphone' => 'required',
             'date_of_birth' => 'required',
@@ -56,6 +57,7 @@ class PatientCreateRequest extends FormRequest
             'date_of_birth' => Carbon::parse($this->date_of_birth),
             'has_medical_aid' => (int)$this->have_medical,
             'landline' => $this->landline,
+            'email_address' => $this->email_address,
         ]);
 
        $this->createAddress($patient->id);

@@ -21,6 +21,7 @@ use Illuminate\Support\Collection;
  * @property string $work_number
  * @property string $landline
  * @property string $cell_number
+ * @property string $email_address
  * @property bool $has_medical_aid
  * @property Address $addresses
  * @property Appointment[]|Collection $appointments
@@ -32,7 +33,7 @@ class Patient extends Model
 {
     protected $fillable = ['first_name', 'last_name', 'second_name', 'gender',
         'date_of_birth', 'identity_number', 'is_south_african', 'work_number',
-        'landline', 'cell_number', 'has_medical_aid'
+        'landline', 'cell_number', 'has_medical_aid', 'email_address'
         ];
 
     public function addresses(): HasMany

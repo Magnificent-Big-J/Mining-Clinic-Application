@@ -4,8 +4,10 @@ namespace App\Http\Requests;
 
 
 use App\Mail\DoctorBooking;
+use App\Mail\PatientBooking;
 use App\Models\Appointment;
 use App\Models\Doctor;
+use App\Models\Patient;
 use App\Service\BookingService;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -52,8 +54,9 @@ class BookingCreateRequest extends FormRequest
                 'status' => Appointment::PENDING_STATUS
             ]);
             $doctor = Doctor::find($this->doctor);
-
+            $patient = Patient::find($this->patient);
             Mail::to($doctor->email)->send(new DoctorBooking($appointment));
+            Mail::to($patient->email_address)->send(new PatientBooking($appointment));
 
             return [
                 'appointment' => $appointment,

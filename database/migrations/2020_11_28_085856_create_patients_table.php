@@ -21,6 +21,7 @@ class CreatePatientsTable extends Migration
             $table->string('gender');
             $table->date('date_of_birth');
             $table->string('identity_number');
+            $table->string('email_address');
             $table->boolean('is_south_african');
             $table->string('work_number')->nullable();
             $table->string('landline')->nullable();

@@ -159,11 +159,12 @@
                                 </table>
                             </div>
                         @else
-                            @if ($isPdf)
-                                <embed src="{{ asset($document_path)}}" width="100%" height="800" alt="pdf" />
-                            @else
-                                <img src="{{ asset($document_path)}}" class="img-fluid img-thumbnail">
-
+                            @if ($appointment->isPrescription())
+                                @if ($isPdf)
+                                    <embed src="{{ asset($document_path)}}" width="100%" height="800" alt="pdf" />
+                                @else
+                                    <img src="{{ asset($document_path)}}" class="img-fluid img-thumbnail">
+                                @endif
                             @endif
                         @endif
                     </div>

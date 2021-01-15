@@ -26,7 +26,8 @@ class PatientsTableSeeder extends Seeder
                 'work_number' => '',
                 'landline' => '',
                 'cell_number' => '0711420108',
-                'has_medical_aid' => true
+                'has_medical_aid' => true,
+                'email_address' => 'Godfrey.Mathiba@gmail.com',
             ],
             [
                 'first_name' => 'Koketso',
@@ -39,7 +40,8 @@ class PatientsTableSeeder extends Seeder
                 'work_number' => '',
                 'landline' => '',
                 'cell_number' => '0824553100',
-                'has_medical_aid' => false
+                'has_medical_aid' => false,
+                'email_address' => 'Koketso.Mabuela@gmail.com',
             ],
             [
                 'first_name' => 'Thembi',
@@ -52,7 +54,8 @@ class PatientsTableSeeder extends Seeder
                 'work_number' => '',
                 'landline' => '',
                 'cell_number' => '0734553100',
-                'has_medical_aid' => true
+                'has_medical_aid' => true,
+                'email_address' => 'Thembi.Nkuna@gmail.com',
             ],
             [
                 'first_name' => 'Lambert',
@@ -65,7 +68,8 @@ class PatientsTableSeeder extends Seeder
                 'work_number' => '',
                 'landline' => '',
                 'cell_number' => '0833031042',
-                'has_medical_aid' => true
+                'has_medical_aid' => true,
+                'email_address' => 'Lambert.Nizeyimana@gmail.com',
             ]
         ];
 

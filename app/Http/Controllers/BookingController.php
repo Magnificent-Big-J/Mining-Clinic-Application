@@ -43,7 +43,6 @@ class BookingController extends Controller
     }
     public function update(BookingUpdateRequest $request, Appointment $appointment)
     {
-
         $isUpdated = $request->updateBooking($appointment);
         if ($isUpdated)
         {

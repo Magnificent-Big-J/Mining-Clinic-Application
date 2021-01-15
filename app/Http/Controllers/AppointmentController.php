@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\AppointmentCancelled;
 use App\Mail\DoctorBooking;
 use App\Models\Appointment;
+use App\Service\AppointmentService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -74,7 +75,7 @@ class AppointmentController extends Controller
     {
         $appointment->status = $request->status;
         $appointment->save();
-
+        AppointmentService::sendEmail($appointment);
         if (intval($appointment->status) === Appointment::ACCEPTED_STATUS) {
             session()->flash('success','Appointment has been accepted');
         } else if (intval($appointment->status) === Appointment::DECLINED_STATUS) {

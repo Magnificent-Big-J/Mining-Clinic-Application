@@ -29,6 +29,7 @@ class PatientUpdateRequest extends FormRequest
             'gender' => 'required|string',
             'last_name' => 'required|string',
             'identity_number' => 'required|string|unique:patients,identity_number,' . $this->patient->id,
+            'email_address' => 'required|email|unique:patients,email_address,' . $this->patient->id,
             'is_local' => 'required',
             'cellphone' => 'required',
             'date_of_birth' => 'required',
@@ -48,6 +49,7 @@ class PatientUpdateRequest extends FormRequest
         $patient->date_of_birth = Carbon::parse($this->date_of_birth);
         $patient->has_medical_aid = (int)$this->have_medical;
         $patient->landline = $this->landline;
+        $patient->email_address = $this->email_address;
         $patient->save();
     }
 }

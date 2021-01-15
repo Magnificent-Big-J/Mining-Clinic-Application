@@ -4,12 +4,16 @@
 namespace App\Service;
 
 
+use App\Mail\DoctorAcceptedAppointment;
+use App\Mail\DoctorDeclinedAppointment;
+use App\Mail\PatientBooking;
 use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\DocumentType;
 use App\Models\Patient;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Mail;
 
 class AppointmentService
 {
@@ -46,5 +50,17 @@ class AppointmentService
             'document_path' => $document_path,
             'isPdf' => $isPdf,
         ];
+    }
+
+    public static function sendEmail($appointment): void
+    {
+        switch ($appointment->status) {
+            case Appointment::ACCEPTED_STATUS:
+                Mail::to($appointment->patient->email_address)->send(new DoctorAcceptedAppointment($appointment));
+                break;
+            case Appointment::DECLINED_STATUS:
+                Mail::to($appointment->patient->email_address)->send(new DoctorDeclinedAppointment($appointment));
+
+        }
     }
 }
