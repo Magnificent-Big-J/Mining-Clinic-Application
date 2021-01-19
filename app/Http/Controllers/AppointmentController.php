@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mail\AppointmentCancelled;
 use App\Mail\DoctorBooking;
+use App\Mail\MedicalAidInvoince;
+use App\Mail\PatientInvoice;
 use App\Models\Appointment;
 use App\Service\AppointmentService;
 use Illuminate\Http\Request;
@@ -80,6 +82,12 @@ class AppointmentController extends Controller
             session()->flash('success','Appointment has been accepted');
         } else if (intval($appointment->status) === Appointment::DECLINED_STATUS) {
             session()->flash('success','Appointment has been declined');
+        } else if (intval($appointment->status) === Appointment::DONE_STATUS) {
+            if ($appointment->patient->has_medical_aid) {
+                Mail::to($appointment->patient->medicalAid[0]->medical_email_address)->send(new MedicalAidInvoince($appointment, $appointment->patient->medicalAid[0]->medical_aid_number));
+            } else {
+                Mail::to($appointment->patient->email_address)->send(new PatientInvoice($appointment));
+            }
         }
 
         return redirect()->back();

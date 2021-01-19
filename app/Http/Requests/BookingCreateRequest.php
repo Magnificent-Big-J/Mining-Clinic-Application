@@ -53,8 +53,15 @@ class BookingCreateRequest extends FormRequest
                 'appointment_time'=> $this->timeSlot,
                 'status' => Appointment::PENDING_STATUS
             ]);
+
+
             $doctor = Doctor::find($this->doctor);
             $patient = Patient::find($this->patient);
+
+            if (!$doctor->patients()->where('patients.id', '=', $patient->id)->first()) {
+                $doctor->patients()->attach([$patient->id]);
+            }
+
             Mail::to($doctor->email)->send(new DoctorBooking($appointment));
             Mail::to($patient->email_address)->send(new PatientBooking($appointment));
 
