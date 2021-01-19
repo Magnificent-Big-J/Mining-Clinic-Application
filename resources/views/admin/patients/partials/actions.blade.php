@@ -14,12 +14,14 @@
 
     </div>
     <div class="col-sm-2">
+        <a class="btn btn-info btn-sm" href="{{route('admin.patient.medical.record', $patient->id)}}" > Medical Records </a>
+    </div>
+    <div class="col-sm-2">
         <form action="{{route('admin.booking')}}" method="post">
             @csrf
             <input type="hidden" name="patient" value="{{$patient->id}}">
             <button type="submit" class="btn btn-secondary btn-sm">Book Appointment</button>
         </form>
-
     </div>
 </div>
 

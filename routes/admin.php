@@ -36,4 +36,8 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::get('dispense/{appointment}/medicine', 'DispenseMedicineController@create')->name('dispense.medicine');
     Route::get('medicine/{appointment}/dispensed', 'DispenseMedicineController@medicineDispensed')->name('medicine.dispensed');
     Route::post('dispense-patient/{appointment}/medicine', 'DispenseMedicineController@dispense')->name('dispense.patient.medicine');
+    Route::get('patient/{patient}/medical-record', 'InternalController@medicalRecords')->name('patient.medical.record');
+    Route::get('upload/{appointment}/xray', 'InternalController@xrayUpload')->name('patient.xray.upload');
+    Route::post('xray-upload', 'InternalController@xrayStore')->name('patient.xray.store');
+    Route::get('patient/{appointment}/xray-view', 'InternalController@xrayShow')->name('patient.xray.show');
 });

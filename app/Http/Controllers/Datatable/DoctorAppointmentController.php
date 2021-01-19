@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Datatable;
 
 use App\Http\Controllers\Controller;
+use App\Models\Doctor;
 use App\Models\Appointment;
-use Illuminate\Http\Request;
 use DataTables;
+
 
 class DoctorAppointmentController extends Controller
 {
@@ -25,6 +26,24 @@ class DoctorAppointmentController extends Controller
                 return view('doctor.historic-appointment.partials.actions', compact('row'));
             })
             ->rawColumns(['appointment_status', 'patient_name','actions'])
+            ->make(true);
+    }
+    public function patients()
+    {
+        $patients = Doctor::find(auth()->user()->doctor->id)->patients;
+
+        return DataTables::of($patients)
+            ->addIndexColumn()
+            ->addColumn('age', function ($patient){
+                return $patient->age;
+            })
+            ->addColumn('medical', function ($patient){
+                return $patient->has_medical;
+            })
+            ->addColumn('actions', function ($patient){
+                return view('doctor.mypatients.partials.actions', compact('patient'));
+            })
+            ->rawColumns(['age','medical', 'actions'])
             ->make(true);
     }
 }

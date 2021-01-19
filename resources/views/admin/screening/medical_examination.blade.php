@@ -38,3 +38,13 @@
         </div>
     </div>
 @endsection
+@section('scripts')
+
+    <script>
+        addRoutes({
+            question_url : "{{route('medical.examination.questions')}}",
+            question_save_url : "{{route('medical.examination.save')}}",
+        })
+
+    </script>
+@endsection

@@ -29,6 +29,7 @@ use Illuminate\Support\Collection;
  * @property CaseManagement[]| Collection $caseManagements
  * @property MedicalAid[]|Collection $medicalAid
  * @property Referral[]|Collection $referrals
+ * @property MedicalRecord[]|Collection $medicalRecords
  */
 class Patient extends Model
 {
@@ -73,5 +74,9 @@ class Patient extends Model
     public function doctors(): BelongsToMany
     {
         return $this->belongsToMany(Doctor::class,'doctor_patient', 'patient_id', 'doctor_id');
+    }
+    public function medicalRecords(): HasMany
+    {
+        return $this->hasMany(MedicalRecord::class);
     }
 }

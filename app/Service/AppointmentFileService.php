@@ -43,7 +43,7 @@ class AppointmentFileService extends FileService
             File::makeDirectory($location, 0755, true, true);
         }
         $document_name =  preg_replace('/\s+/', '_', $file->getClientOriginalName());
-        echo $location .'<br>' . $document_name .'<br>';
+
         $file->move($location, $document_name);
 
         return [

@@ -36,7 +36,7 @@ class PatientCreateRequest extends FormRequest
             'cellphone' => 'required|numeric',
             'date_of_birth' => 'required',
             'have_medical' => 'required',
-            'address_1' => 'required|string|regex:/^[a-zA-Z0-9_]+$/',
+            'address_1' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
             'postal_code' => 'required|numeric',
             'province' => 'required',
 
@@ -79,5 +79,12 @@ class PatientCreateRequest extends FormRequest
         if (!empty($this->address_3) && !empty($this->address_4 && !empty($this->postal_code2) ) ) {
 
         }
+    }
+    public function messages()
+    {
+        return [
+            'address_1.regex' => 'Address can contain letters, numbers or letters with number. e.g 301 Madiba Street',
+            'identity_number.regex' => 'Identity number or passport can contain letters, numbers or letters with number.',
+        ];
     }
 }

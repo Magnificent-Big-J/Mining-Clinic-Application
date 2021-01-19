@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Document;
 use App\Service\AppointmentFileService;
@@ -34,7 +35,7 @@ class XrayCreateRequest extends FormRequest
     }
     public function uploadXray(): void
     {
-        $doctor = auth()->user()->doctor;
+        $doctor = Appointment::find($this->appointment)->doctor;
 
         $xray = $this->file('xray');
         $fileService = new AppointmentFileService();

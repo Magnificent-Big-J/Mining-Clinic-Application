@@ -2011,18 +2011,20 @@ __webpack_require__.r(__webpack_exports__);
       userQuestions: [],
       questionLength: 0,
       questionText: [],
-      loading: false
+      loading: false,
+      question_url: '../../../medical-examination-questions',
+      question_save_url: '../../../medical-examination'
     };
   },
   methods: {
     getMedicalQuestions: function getMedicalQuestions() {
       var _this = this;
 
-      axios.get("http://127.0.0.1:8000/medical-examination-questions").then(function (response) {
+      axios.get(this.question_url).then(function (response) {
         _this.questions = response.data.data;
         _this.questionLength = _this.questions.length;
       })["catch"](function (error) {
-        console.log(error);
+        console.log(error.response.data.errors);
       });
     },
     next: function next() {
@@ -2054,13 +2056,15 @@ __webpack_require__.r(__webpack_exports__);
       form.append('answers', this.userResponses);
       form.append('patient', this.patient);
       form.append('appointment', this.appointment);
-      axios.post("http://127.0.0.1:8000/medical-examination", form).then(function (response) {
+      axios.post(this.question_save_url, form).then(function (response) {
         Swal.fire({
           icon: 'success',
           title: 'OK',
           text: response.data.message
         });
-        window.location = response.data.url;
+        window.setTimeout(function () {
+          window.location = response.data.url;
+        }, 1000);
       })["catch"](function (error) {
         _this2.loading = false;
         Swal.fire({

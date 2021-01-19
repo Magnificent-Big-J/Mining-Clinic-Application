@@ -22,7 +22,13 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="active">
+                <li >
+                    <a href="{{route('doctor.my.patients')}}">
+                        <i class="fas fa-user-injured"></i>
+                        <span>My Patients</span>
+                    </a>
+                </li>
+                <li >
                     <a href="{{route('doctor.new.appointments')}}">
                         <i class="fas fa-calendar-check"></i>
                         <span>Appointments</span>
