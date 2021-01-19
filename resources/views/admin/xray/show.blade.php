@@ -9,7 +9,7 @@
                     <h3 class="page-title">Patient Appointment</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">View Patient Appointment History </li>
+                        <li class="breadcrumb-item active">View Patient XRAY</li>
                     </ul>
                 </div>
             </div>
