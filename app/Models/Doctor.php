@@ -77,4 +77,9 @@ class Doctor extends Model
     {
         return $this->hasMany(Referral::class);
     }
+
+    public function patients(): BelongsToMany
+    {
+        return $this->belongsToMany(Patient::class,'doctor_patient', 'doctor_id', 'patient_id');
+    }
 }

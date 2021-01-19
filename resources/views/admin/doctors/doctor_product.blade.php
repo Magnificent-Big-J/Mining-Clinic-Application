@@ -31,8 +31,28 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="mb-4">
-                                <a class="btn btn-secondary " data-toggle="modal" href="#doctor-product-modal"><i class="fa fa-plus-circle"></i> Add Doctor Product</a>
-                                <a href="{{route('admin.historic.doctor.product.index', $doctor->id)}}" class="btn btn-info">View Stock History</a>
+
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <a class="btn btn-secondary " data-toggle="modal" href="#doctor-product-modal"><i class="fa fa-plus-circle"></i> Add Doctor Product</a>
+                                        <a href="{{route('admin.historic.doctor.product.index', $doctor->id)}}" class="btn btn-info">View Stock History</a>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="mb-4">
+                                            <form name="search_form" action="{{route('export.doctor.download')}}" method="get">
+                                                <div class="row">
+                                                    <input type="hidden" name="doctor" value="{{$doctor->id}}">
+                                                    <input type="hidden" name="from_date" id="from_date" class="form-control">
+                                                    <input type="hidden" name="to_date" id="to_date" class="form-control">
+                                                    <button type="submit" class="btn btn-primary" id="export">Export</button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <table class="table table-hover table-center mb-0" id="product">
                                 <thead>

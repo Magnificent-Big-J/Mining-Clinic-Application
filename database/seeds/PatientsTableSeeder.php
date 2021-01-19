@@ -74,7 +74,8 @@ class PatientsTableSeeder extends Seeder
         ];
 
         foreach ($patients as $patient) {
-            Patient::create($patient);
+           $patient = Patient::create($patient);
+           $patient->doctors()->attach([1]);
         }
         $medicalAids = array(
             array('medical_name' => 'CompCare ','medical_aid_number' => '1616890', 'medical_aid_status' => MedicalAid::ACTIVE_STATUS, 'patient_id'=> 1, 'medical_email_address' => 'correspondence@universal.co.za'),

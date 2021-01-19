@@ -27,16 +27,16 @@ class PatientCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => 'required|string',
+            'first_name' => 'required|alpha',
             'gender' => 'required|string',
-            'last_name' => 'required|string',
+            'last_name' => 'required|alpha',
             'identity_number' => 'required|string|unique:patients',
             'email_address' => 'required|email|unique:patients',
             'is_local' => 'required',
-            'cellphone' => 'required',
+            'cellphone' => 'required|numeric',
             'date_of_birth' => 'required',
             'have_medical' => 'required',
-            'address_1' => 'required|string',
+            'address_1' => 'required|string|regex:/^[a-zA-Z0-9_]+$/',
             'postal_code' => 'required|numeric',
             'province' => 'required',
 
