@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Exports;
 
 use App\Exports\DoctorStockExport;
+use App\Exports\ProductExport;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -23,5 +24,9 @@ class DoctorStockExportController extends Controller
         }
 
       return  Excel::download(new DoctorStockExport($range, $request->doctor), 'Stock Report.xlsx');
+    }
+    public function exportProducts()
+    {
+        return  Excel::download(new ProductExport(), 'products.xlsx');
     }
 }

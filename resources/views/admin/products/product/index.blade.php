@@ -28,6 +28,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <a class="btn btn-secondary mb-4" data-toggle="modal" href="#product_modal"><i class="fa fa-plus-circle"></i> Add Product</a>
+                            <a href="{{route('admin.product.export')}}" class="btn btn-success float-right">Export</a>
                             <table class="table table-hover table-center mb-0" id="product">
                                 <thead>
                                 <tr>

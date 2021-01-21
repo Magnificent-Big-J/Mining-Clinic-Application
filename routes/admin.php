@@ -40,4 +40,5 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::get('upload/{appointment}/xray', 'InternalController@xrayUpload')->name('patient.xray.upload');
     Route::post('xray-upload', 'InternalController@xrayStore')->name('patient.xray.store');
     Route::get('patient/{appointment}/xray-view', 'InternalController@xrayShow')->name('patient.xray.show');
+    Route::get('export-products', 'Exports\DoctorStockExportController@exportProducts')->name('product.export');
 });
