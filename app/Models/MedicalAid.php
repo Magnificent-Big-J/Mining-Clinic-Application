@@ -32,4 +32,8 @@ class MedicalAid extends Model
     {
         return $this->belongsTo(Patient::class, 'patient_id');
     }
+    public function getMedicalStatusAttribute()
+    {
+        return self::$texts[$this->medical_aid_status];
+    }
 }

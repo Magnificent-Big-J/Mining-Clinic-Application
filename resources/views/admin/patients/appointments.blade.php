@@ -70,7 +70,7 @@
                                             <p>{{$patient->addresses[0]->address_2}}</p>
                                             <p>{{$patient->addresses[0]->postal_code}}</p>
                                             <p>{{$patient->addresses[0]->province->province_name}}</p>
-                                            @else
+                                        @else
                                             No Address record
                                         @endif
                                     </div>
@@ -131,6 +131,49 @@
             @endif
         </div>
 
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card ">
+                    <div class="card-header">
+                        <h4 class="card-title">Appointment Assessment Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            @foreach($patient->appointments as $appointment)
+
+
+                                <h4>Appointment: {{$appointment->appointment_date}} {{$appointment->appointment_time}}</h4>
+                                <small class="text-primary">assessments:</small>
+                                <table class="table mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th>Doctor</th>
+                                        <th>Consultation Fee</th>
+                                        <th>Consultation</th>
+                                        <th>Consultation Category</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                    @foreach($appointment->appointmentAssessment as $assessment)
+                                        <tr>
+                                            <td>{{$assessment->appointment->doctor->user->full_names}}</td>
+                                            <td>R {{$assessment->consultationFee->consultation_fee}}</td>
+                                            <td>{{$assessment->consultationFee->consultation->name}}</td>
+                                            <td>{{$assessment->consultationFee->consultation->consultationCategory->name}}</td>
+                                        </tr>
+                                    @endforeach
+
+                                    </tbody>
+                                </table>
+                                <hr>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 

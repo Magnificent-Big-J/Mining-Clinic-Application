@@ -33,7 +33,7 @@
                             <div class="mb-4">
 
                                 <div class="row">
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-6">
                                         <a class="btn btn-secondary " data-toggle="modal" href="#doctor-product-modal"><i class="fa fa-plus-circle"></i> Add Doctor Product</a>
                                         <a href="{{route('admin.historic.doctor.product.index', $doctor->id)}}" class="btn btn-info">View Stock History</a>
                                     </div>
@@ -46,10 +46,11 @@
                                                     <input type="hidden" name="to_date" id="to_date" class="form-control">
                                                     <button type="submit" class="btn btn-primary" id="export">Export</button>
                                                 </div>
-
                                             </form>
-
                                         </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <a href="{{route('admin.doctor.stock.level', $doctor->id)}}" class="btn btn-info">Push Stock Level Notification</a>
                                     </div>
                                 </div>
 

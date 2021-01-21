@@ -77,7 +77,7 @@
         $(function () {
             Swal.fire({
                 icon: 'error',
-                title: 'Oops...',
+                title: 'Sorry!...',
                 text: '{{Session::get("error")}}'
             })
         });

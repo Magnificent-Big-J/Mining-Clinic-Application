@@ -25,7 +25,7 @@ class MedicalAidCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'medical_name' => 'required|string',
+            'medical_name' => 'required|alpha',
             'medical_email_address' => 'required|email',
             'medical_aid_number' => 'required|string',
         ];

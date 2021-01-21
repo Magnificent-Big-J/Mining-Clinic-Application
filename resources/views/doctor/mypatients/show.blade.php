@@ -24,6 +24,39 @@
                 <div class="h4 card-title">Patient {{$patient->full_name}}</div>
             </div>
             <div class="card-body">
+                @if($patient->has_medical_aid)
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h1 class="card-title">Medical Aid Information</h1>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Medical Aid Name</p>
+                                    <p class="col-sm-10">{{$patient->medicalAid[0]->medical_name}}</p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Medical Aid Number</p>
+                                    <p class="col-sm-10">{{$patient->medicalAid[0]->medical_aid_number}}</p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Medical Aid Email Address</p>
+                                    <p class="col-sm-10">{{$patient->medicalAid[0]->medical_email_address}}</p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Medical Aid Status</p>
+                                    <p class="col-sm-10">{{$patient->medicalAid[0]->medical_status}}</p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Medical Aid Plan</p>
+                                    <p class="col-sm-10">{{$patient->medicalAid[0]->plan}}</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                @endif
                 <div class="user-tabs">
                     <ul class="nav nav-tabs nav-tabs-bottom nav-justified flex-wrap">
                         <li class="nav-item">

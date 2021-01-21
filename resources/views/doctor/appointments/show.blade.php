@@ -66,6 +66,41 @@
             </div>
         </div>
         <div class="row">
+            @if($appointment->patient->has_medical_aid)
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="card-title">Medical Aid Information</h1>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row">
+                                <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Medical Aid Name</p>
+                                <p class="col-sm-10">{{$appointment->patient->medicalAid[0]->medical_name}}</p>
+                            </div>
+                            <div class="row">
+                                <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Medical Aid Number</p>
+                                <p class="col-sm-10">{{$appointment->patient->medicalAid[0]->medical_aid_number}}</p>
+                            </div>
+                            <div class="row">
+                                <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Medical Aid Email Address</p>
+                                <p class="col-sm-10">{{$appointment->patient->medicalAid[0]->medical_email_address}}</p>
+                            </div>
+                            <div class="row">
+                                <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Medical Aid Status</p>
+                                <p class="col-sm-10">{{$appointment->patient->medicalAid[0]->medical_status}}</p>
+                            </div>
+                            <div class="row">
+                                <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Medical Aid Plan</p>
+                                <p class="col-sm-10">{{$appointment->patient->medicalAid[0]->plan}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            @endif
+        </div>
+        <div class="row">
             <div class="col-lg-12">
                 <div class="card ">
                     <div class="card-header">

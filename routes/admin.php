@@ -11,6 +11,7 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::get('doctor-product/{doctor}/stock', 'DoctorProductController@index')->name('doctor.product.index');
     Route::get('consultation/{doctor}/fee', 'ConsultationFeeController@index')->name('consultation.fee.index');
     Route::resource('patients','PatientController');
+    Route::get('patient/{patient}/appointments','PatientController@appointmentHistory')->name('patient.appointments');
     Route::resource('medical','MedicalAidController');
     Route::resource('consultation','ConsultationController');
     Route::resource('specialists','SpecialistController');
@@ -38,6 +39,7 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::post('dispense-patient/{appointment}/medicine', 'DispenseMedicineController@dispense')->name('dispense.patient.medicine');
     Route::get('patient/{patient}/medical-record', 'InternalController@medicalRecords')->name('patient.medical.record');
     Route::get('upload/{appointment}/xray', 'InternalController@xrayUpload')->name('patient.xray.upload');
+    Route::get('doctor/{doctor}/stock-level', 'InternalController@stockLevel')->name('doctor.stock.level');
     Route::post('xray-upload', 'InternalController@xrayStore')->name('patient.xray.store');
     Route::get('patient/{appointment}/xray-view', 'InternalController@xrayShow')->name('patient.xray.show');
     Route::get('export-products', 'Exports\DoctorStockExportController@exportProducts')->name('product.export');

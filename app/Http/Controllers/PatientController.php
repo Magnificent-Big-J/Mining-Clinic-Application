@@ -97,12 +97,18 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        if ($patient->medicalAid()->exists()) {
-            $patient->medicalAid->delete();
+        if (!$patient->appointments->count()) {
+            $patient->delete();
+            session()->flash('success','Patient record successfully deleted.');
+        } else {
+            session()->flash('error','Patient record cannot deleted.');
         }
 
-        $patient->delete();
-        session()->flash('success','Patient record successfully deleted.');
         return redirect()->route('admin.patients.index');
+    }
+
+    public function appointmentHistory(Patient $patient)
+    {
+        return view('admin.patients.appointments', compact('patient'));
     }
 }
