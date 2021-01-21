@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <h4 class="card-title">Doctor Personal Information</h4>
+                                <h4 class="card-title">Doctor Admin Personal Information</h4>
                             </div>
                             <div class="card-body">
                                 <form action="{{route('admin.users.create.admins.store')}}" method="post" enctype="multipart/form-data">
