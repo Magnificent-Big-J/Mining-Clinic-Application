@@ -31,6 +31,7 @@ class PatientUpdateRequest extends FormRequest
             'identity_number' => 'required|string|unique:patients,identity_number,' . $this->patient->id,
             'email_address' => 'required|email|unique:patients,email_address,' . $this->patient->id,
             'is_local' => 'required',
+            'second_name' =>'nullable|alpha',
             'cellphone' => 'required',
             'date_of_birth' => 'required',
             'have_medical' => 'required',

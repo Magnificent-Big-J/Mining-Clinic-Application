@@ -93,6 +93,11 @@
                                                 <label class="col-lg-3 col-form-label">Second Name:</label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="second_name"  value="{{ old('second_name') }}"class="form-control">
+                                                    @error('second_name')
+                                                    <span class="text-danger" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="form-group row">

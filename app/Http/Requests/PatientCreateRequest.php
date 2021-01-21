@@ -34,6 +34,7 @@ class PatientCreateRequest extends FormRequest
             'email_address' => 'required|email|unique:patients',
             'is_local' => 'required',
             'cellphone' => 'required|numeric',
+            'second_name' =>'nullable|alpha',
             'date_of_birth' => 'required',
             'have_medical' => 'required',
             'address_1' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',

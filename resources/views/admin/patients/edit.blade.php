@@ -142,7 +142,7 @@
                                             <div class="form-group row">
                                                 <label class="col-lg-3 col-form-label">Email Address:<strong class="text-danger">*</strong></label>
                                                 <div class="col-lg-9">
-                                                    <input type="text" name="email_address" value="{{ $patient->email_address }}" class="form-control">
+                                                    <input type="email" name="email_address" value="{{ $patient->email_address }}" class="form-control">
                                                     @error('email_address')
                                                     <span class="text-danger" role="alert">
                                                          <strong>{{ $message }}</strong>

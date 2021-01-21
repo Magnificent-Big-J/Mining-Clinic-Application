@@ -88,7 +88,7 @@
         <div class="form-group row">
             <label class="col-lg-3 col-form-label">Email Address:<strong class="text-danger">*</strong></label>
             <div class="col-lg-9">
-                <input type="text" name="entity_email" value="{{ old('entity_email') }}" class="form-control">
+                <input type="email" name="entity_email" value="{{ old('entity_email') }}" class="form-control">
                 @error('entity_email')
                 <span class="text-danger" role="alert">
                    <strong>{{ $message }}</strong>
