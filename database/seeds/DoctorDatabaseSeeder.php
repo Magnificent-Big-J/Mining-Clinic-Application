@@ -75,5 +75,36 @@ class DoctorDatabaseSeeder extends Seeder
         ]);
 
         $doctor->specialists()->attach($specialist);
+
+        $user = User::create([
+            'first_name' => 'Samuel',
+            'last_name' => 'Heaven',
+            'title' => 'Dr',
+            'email' => 'samuelheaven@yahoo.com',
+            'password' => bcrypt('p@ssword'),
+        ]);
+
+        $user->assignRole(2);
+
+        $specialist = Specialist::create([
+            'name' => 'General Practitioner',
+            'image_path' =>'specialist/SP-1606811795Orthopedic.png'
+        ]);
+
+        $doctor = Doctor::create([
+            'entity_name' => $user->title . ' ' . $user->first_name . ' ' . $user->last_name,
+            'entity_status' => 'active',
+            'reg_number' => '3698565656',
+            'email' => $user->email,
+            'practice_number' => '25523698',
+            'vat_number' => '1425784587',
+            'tele_number' => '0734587965',
+            'fax_number'  => '0123031041',
+            'address' => '301 Madiba Street Pretoria',
+            'user_id' => $user->id,
+            'stock_scheme' => 'stock_scheme'
+        ]);
+
+        $doctor->specialists()->attach($specialist);
     }
 }

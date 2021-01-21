@@ -23,5 +23,15 @@ class UserSeeder extends Seeder
 
         $role = Role::findById(1);
         $user->assignRole([$role->id]);
+        $user = User::create([
+            'first_name' => 'Lebogang',
+            'last_name' => 'Nkanyane',
+            'title' => 'Mr',
+            'email' => 'nkanyanel@invokesolutions.co.za',
+            'password' => bcrypt('p@ssword'),
+        ]);
+
+        $role = Role::findById(1);
+        $user->assignRole([$role->id]);
     }
 }
