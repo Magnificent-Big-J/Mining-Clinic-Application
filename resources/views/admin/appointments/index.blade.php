@@ -33,7 +33,9 @@
                                     <th scope="col">Appointment Date</th>
                                     <th scope="col">Appointment Time</th>
                                     <th scope="col">Appointment Status</th>
-                                    <th scope="col">Actions</th>
+                                    <th scope="col">Appointment Action</th>
+                                    <th scope="col">Xray Action</th>
+                                    <th scope="col">Delete Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -67,7 +69,9 @@
                     {data: 'appointment_date', name: 'appointment_date'},
                     {data: 'appointment_time', name: 'appointment_time'},
                     {data: 'appointment_status', name: 'appointment_status'},
-                    {data: 'actions', name: 'actions', orderable: true, searchable: true},
+                    {data: 'appointment', name: 'appointment', orderable: true, searchable: true},
+                    {data: 'xray', name: 'xray', orderable: true, searchable: true},
+                    {data: 'delete', name: 'delete', orderable: true, searchable: true},
 
 
 

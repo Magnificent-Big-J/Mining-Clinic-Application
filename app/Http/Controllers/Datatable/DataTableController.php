@@ -84,10 +84,19 @@ class DataTableController extends Controller
             ->addColumn('specialist', function ($row){
                 return view('admin.doctors.partials.specialist', compact('row'));
             })
-            ->addColumn('actions', function ($row){
+            ->addColumn('view', function ($row){
                 return view('admin.doctors.partials.actions', compact('row'));
             })
-            ->rawColumns(['title','first_name', 'last_name','specialist', 'actions'])
+            ->addColumn('edit', function ($row){
+                return view('admin.doctors.partials.edit_action', compact('row'));
+            })
+            ->addColumn('consultation', function ($row){
+                return view('admin.doctors.partials.consultation_action', compact('row'));
+            })
+            ->addColumn('stock', function ($row){
+                return view('admin.doctors.partials.stock_action', compact('row'));
+            })
+            ->rawColumns(['title','first_name', 'last_name','specialist', 'view', 'edit', 'consultation', 'stock'])
             ->make(true);
     }
     public function appointments()
@@ -110,10 +119,16 @@ class DataTableController extends Controller
             ->addColumn('appointment_status', function ($row){
                 return $row->status_text;
             })
-            ->addColumn('actions', function ($row){
+            ->addColumn('appointment', function ($row){
                 return view('admin.appointments.partials.actions', compact('row'));
             })
-            ->rawColumns(['title','patient','specialist', 'appointment_status', 'actions'])
+            ->addColumn('xray', function ($row){
+                return view('admin.appointments.partials.xray_action', compact('row'));
+            })
+            ->addColumn('delete', function ($row){
+                return view('admin.appointments.partials.delete_action', compact('row'));
+            })
+            ->rawColumns(['title','patient','specialist', 'appointment_status', 'appointment', 'xray', 'delete'])
             ->make(true);
     }
     public function questionnaires()

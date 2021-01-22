@@ -33,7 +33,10 @@
                                     <th scope="col">Specialist</th>
                                     <th scope="col">Vat Number</th>
                                     <th scope="col">Practice Number</th>
-                                    <th scope="col">Actions</th>
+                                    <th scope="col">View</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Consultation</th>
+                                    <th scope="col">Product Stock</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -67,7 +70,11 @@
                     {data: 'specialist', name: 'specialist'},
                     {data: 'vat_number', name: 'vat_number'},
                     {data: 'practice_number', name: 'practice_number'},
-                    {data: 'actions', name: 'actions', orderable: true, searchable: true},
+                    {data: 'view', name: 'view', orderable: true, searchable: true},
+                    {data: 'edit', name: 'edit', orderable: true, searchable: true},
+                    {data: 'consultation', name: 'consultation', orderable: true, searchable: true},
+                    {data: 'stock', name: 'stock', orderable: true, searchable: true},
+
                 ]
             });
         });
