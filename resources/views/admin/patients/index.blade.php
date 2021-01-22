@@ -32,7 +32,11 @@
                                     <th scope="col">Age</th>
                                     <th scope="col">CellPhone</th>
                                     <th scope="col">Medical Aid</th>
-                                    <th scope="col">Actions</th>
+                                    <th scope="col">View</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Medical Records</th>
+                                    <th scope="col">Appointments</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -64,7 +68,11 @@
                     {data: 'age', name: 'age'},
                     {data: 'cell_number', name: 'cell_number'},
                     {data: 'medical', name: 'medical'},
-                    {data: 'actions', name: 'actions', orderable: true, searchable: true},
+                    {data: 'view', name: 'view', orderable: true, searchable: true},
+                    {data: 'edit', name: 'edit', orderable: true, searchable: true},
+                    {data: 'medical_record', name: 'medical_record', orderable: true, searchable: true},
+                    {data: 'appointment', name: 'appointment', orderable: true, searchable: true},
+                    {data: 'delete', name: 'delete', orderable: true, searchable: true},
                 ]
             });
         });

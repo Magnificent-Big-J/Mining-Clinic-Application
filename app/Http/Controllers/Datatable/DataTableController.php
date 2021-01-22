@@ -34,8 +34,20 @@ class DataTableController extends Controller
             ->addColumn('medical', function ($patient){
                 return $patient->has_medical;
             })
-            ->addColumn('actions', function ($patient){
+            ->addColumn('view', function ($patient){
                 return view('admin.patients.partials.actions', compact('patient'));
+            })
+            ->addColumn('edit', function ($patient){
+                return view('admin.patients.partials.edit_action', compact('patient'));
+            })
+            ->addColumn('medical_record', function ($patient){
+                return view('admin.patients.partials.medical_record_action', compact('patient'));
+            })
+            ->addColumn('appointment', function ($patient){
+                return view('admin.patients.partials.appointment_action', compact('patient'));
+            })
+            ->addColumn('delete', function ($patient){
+                return view('admin.patients.partials.delete_action', compact('patient'));
             })
             ->rawColumns(['age','medical', 'actions'])
             ->make(true);
