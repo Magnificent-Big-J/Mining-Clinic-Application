@@ -27,7 +27,7 @@ class MedicalAidCreateRequest extends FormRequest
         return [
             'medical_name' => 'required|alpha',
             'medical_email_address' => 'required|email',
-            'medical_aid_number' => 'required|string',
+            'medical_aid_number' => 'required|numeric',
         ];
     }
     public function createMedicalAidRecord()
