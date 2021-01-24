@@ -46,7 +46,7 @@ class PatientController extends Controller
 
             session()->put('patient', $patient);
 
-            return redirect()->route('admin.medical.create');
+            return redirect()->route('admin.medicalAid.create');
         }
 
         return redirect()->route('admin.patients.index');

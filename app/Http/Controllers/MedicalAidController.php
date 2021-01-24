@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MedicalAidCreateRequest;
+use App\Http\Requests\MedicalAidUpdateRequest;
 use App\Models\MedicalAid;
 use Illuminate\Http\Request;
 
@@ -57,12 +58,15 @@ class MedicalAidController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\MedicalAid  $medicalAid
+     * @param MedicalAid $medicalAid
      * @return \Illuminate\Http\Response
      */
     public function edit(MedicalAid $medicalAid)
     {
-        //
+
+        $status = MedicalAid::$texts;
+
+        return view('admin.medical.edit', compact('medicalAid', 'status'));
     }
 
     /**
@@ -72,9 +76,12 @@ class MedicalAidController extends Controller
      * @param  \App\MedicalAid  $medicalAid
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MedicalAid $medicalAid)
+    public function update(MedicalAidUpdateRequest $request, MedicalAid $medicalAid)
     {
-        //
+        session()->flash('success','Patient medical aid information successfully updated.');
+        $request->updateMedicalAid($medicalAid);
+
+        return redirect()->route('admin.patients.index');
     }
 
     /**

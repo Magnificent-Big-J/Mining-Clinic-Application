@@ -32,7 +32,7 @@ class DataTableController extends Controller
                 return $patient->age;
             })
             ->addColumn('medical', function ($patient){
-                return $patient->has_medical;
+                return view('admin.patients.partials.medical_aid', compact('patient'));
             })
             ->addColumn('view', function ($patient){
                 return view('admin.patients.partials.actions', compact('patient'));

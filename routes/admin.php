@@ -12,7 +12,7 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::get('consultation/{doctor}/fee', 'ConsultationFeeController@index')->name('consultation.fee.index');
     Route::resource('patients','PatientController');
     Route::get('patient/{patient}/appointments','PatientController@appointmentHistory')->name('patient.appointments');
-    Route::resource('medical','MedicalAidController');
+    Route::resource('medicalAid','MedicalAidController');
     Route::resource('consultation','ConsultationController');
     Route::resource('specialists','SpecialistController');
     Route::resource('doctors','DoctorController');
