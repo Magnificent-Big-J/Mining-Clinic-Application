@@ -36,6 +36,7 @@
                                     <th scope="col">Edit</th>
                                     <th scope="col">Medical Records</th>
                                     <th scope="col">Appointments</th>
+                                    <th scope="col">Book Appointment</th>
                                     <th scope="col">Delete</th>
                                 </tr>
                                 </thead>
@@ -72,6 +73,7 @@
                     {data: 'edit', name: 'edit', orderable: true, searchable: true},
                     {data: 'medical_record', name: 'medical_record', orderable: true, searchable: true},
                     {data: 'appointment', name: 'appointment', orderable: true, searchable: true},
+                    {data: 'book_appointment', name: 'book_appointment', orderable: true, searchable: true},
                     {data: 'delete', name: 'delete', orderable: true, searchable: true},
                 ]
             });
