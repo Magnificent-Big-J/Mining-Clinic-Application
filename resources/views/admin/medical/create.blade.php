@@ -30,7 +30,7 @@
                                 </h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{route('admin.medical.store')}}" method="post">
+                                <form action="{{route('admin.medicalAid.store')}}" method="post">
                                     @csrf
                                     <input type="hidden" name="patient" value="{{Session::get('patient')->id}}">
                                             <div class="form-group row">
