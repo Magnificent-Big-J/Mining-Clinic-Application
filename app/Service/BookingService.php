@@ -33,6 +33,7 @@ class BookingService
         }
         public static function alreadyBooked(string $appointment, string $time, int $doctor) :bool
         {
+
             $appointment = Appointment::where('doctor_id', '=', $doctor)
                 ->where('appointment_time', '=', $time)
                 ->where('appointment_date', '=', Carbon::parse($appointment))
@@ -52,7 +53,7 @@ class BookingService
             if ($appointments->count()) {
 
                 $times = $appointments->map(function ($time){
-                    return date('G:i', strtotime($time));
+                    return date('h:i', strtotime($time));
                 })->toArray();
 
                return  array_diff(self::timeSlots(), $times);
@@ -60,4 +61,5 @@ class BookingService
 
             return self::timeSlots();
         }
+
 }
