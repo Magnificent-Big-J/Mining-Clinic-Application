@@ -45,7 +45,13 @@ class BookingCreateRequest extends FormRequest
                 'created' => false,
                 'patient' => $this->patient,
             ];
-        } else {
+        } else if(BookingService::patientAlreadyBooked($this->appointment_date,$this->patient )) {
+            return [
+                'appointment' => [],
+                'created' => false,
+                'patient' => $this->patient,
+            ];
+        }  else {
            $appointment = Appointment::create([
                 'patient_id'=> $this->patient,
                 'doctor_id' => $this->doctor,

@@ -33,7 +33,6 @@ class BookingService
         }
         public static function alreadyBooked(string $appointment, string $time, int $doctor) :bool
         {
-
             $appointment = Appointment::where('doctor_id', '=', $doctor)
                 ->where('appointment_time', '=', $time)
                 ->where('appointment_date', '=', Carbon::parse($appointment))
@@ -44,7 +43,18 @@ class BookingService
             }
             return false;
         }
-        public static function unbookedSlots(int $doctor, string $appointment)
+        public static function patientAlreadyBooked(string $appointment, int $patient): bool
+        {
+            $appointment = Appointment::where('patient_id', '=', $patient)
+                ->where('appointment_date', '=', Carbon::parse($appointment))
+                ->first();
+
+            if ($appointment) {
+                return true;
+            }
+            return false;
+        }
+        public static function unbookedSlots(int $doctor, string $appointment): array
         {
             $appointments = collect(Appointment::where('doctor_id', '=', $doctor)
                 ->where('appointment_date', '=', Carbon::parse($appointment))

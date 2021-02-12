@@ -73,7 +73,7 @@ class Patient extends Model
 
     public function doctors(): BelongsToMany
     {
-        return $this->belongsToMany(Doctor::class,'doctor_patient', 'patient_id', 'doctor_id');
+        return $this->belongsToMany(Doctor::class,'doctor_patient', 'patient_id', 'doctor_id')->withTimestamps();
     }
     public function medicalRecords(): HasMany
     {

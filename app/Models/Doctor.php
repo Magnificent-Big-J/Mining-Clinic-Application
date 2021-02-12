@@ -58,7 +58,7 @@ class Doctor extends Model
     }
     public function specialists(): BelongsToMany
     {
-        return $this->belongsToMany(Specialist::class);
+        return $this->belongsToMany(Specialist::class)->withTimestamps();
     }
     public function admins(): BelongsToMany
     {
@@ -80,6 +80,6 @@ class Doctor extends Model
 
     public function patients(): BelongsToMany
     {
-        return $this->belongsToMany(Patient::class,'doctor_patient', 'doctor_id', 'patient_id');
+        return $this->belongsToMany(Patient::class,'doctor_patient', 'doctor_id', 'patient_id')->withTimestamps();
     }
 }
