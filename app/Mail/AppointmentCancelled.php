@@ -17,7 +17,7 @@ class AppointmentCancelled extends Mailable
      * @return void
      */
     public $appointment;
-    public function __construct($appointment)
+    public function  __construct($appointment)
     {
         $this->appointment = $appointment;
     }
