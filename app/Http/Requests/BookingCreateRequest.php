@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 
+use App\Jobs\DoctorAppointmentBooking;
+use App\Jobs\PatientAppointmentBooking;
 use App\Mail\DoctorBooking;
 use App\Mail\PatientBooking;
 use App\Models\Appointment;
@@ -68,8 +70,8 @@ class BookingCreateRequest extends FormRequest
                 $doctor->patients()->attach([$patient->id]);
             }
 
-            Mail::to($doctor->email)->send(new DoctorBooking($appointment));
-            Mail::to($patient->email_address)->send(new PatientBooking($appointment));
+            DoctorAppointmentBooking::dispatch($appointment, $doctor->email);
+            PatientAppointmentBooking::dispatch($appointment, $patient->email_address);
 
             return [
                 'appointment' => $appointment,
