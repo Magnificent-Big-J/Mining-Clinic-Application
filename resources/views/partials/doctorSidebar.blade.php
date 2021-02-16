@@ -48,13 +48,13 @@
                 </li>
                 <li>
                     <a href="{{route('doctor.referrals.index')}}">
-                        <i class="fa fa-book-reader"></i>
+                        <i class="fa fa-fast-backward"></i>
                         <span>Referrals</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('doctor.my.referrals')}}">
-                        <i class="fa fa-book-open"></i>
+                        <i class="fa fa-fast-forward"></i>
                         <span>My Referrals</span>
                     </a>
                 </li>
