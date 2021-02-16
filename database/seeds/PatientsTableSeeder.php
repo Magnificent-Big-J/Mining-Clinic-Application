@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Address;
 use App\Models\MedicalAid;
 use App\Models\Patient;
 use Carbon\Carbon;
@@ -84,6 +85,15 @@ class PatientsTableSeeder extends Seeder
         );
         foreach ($medicalAids as $medicalAid) {
             MedicalAid::create($medicalAid);
+        }
+        $addresses = array(
+            array('address_1' => '348 Grey St','address_2' => 'Laudium Centurion','postal_code' => 0037, 'address_type_id' => 1,'patient_id' => 1, 'province_id' => 3),
+            array('address_1' => '174 Anthesis St','address_2' => 'Lotus Gardens Pretoria','postal_code' => 0025, 'address_type_id' => 1,'patient_id' => 2, 'province_id' => 3),
+            array('address_1' => '240-258 Eridanus St','address_2' => 'Waterkloof Ridge Pretoria','postal_code' => 0350 , 'address_type_id' => 1,'patient_id' => 3, 'province_id' => 3),
+            array('address_1' => '33 Toscana Cl','address_2' => 'Lone Hill Sandton','postal_code' => 2062, 'address_type_id' => 1,'patient_id' => 4, 'province_id' => 3),
+        );
+        foreach ($addresses as $address) {
+            Address::create($address);
         }
     }
 }
