@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\AppointmentDeclined;
+use App\Jobs\DoctorAcceptedPatientAppointment;
+use App\Jobs\SendDeletedAppointment;
+use App\Jobs\SendInvoiceToMedicalAid;
+use App\Jobs\SendInvoiceToPatient;
 use App\Mail\AppointmentCancelled;
 use App\Mail\DoctorBooking;
 use App\Mail\MedicalAidInvoince;
@@ -77,16 +82,18 @@ class AppointmentController extends Controller
     {
         $appointment->status = $request->status;
         $appointment->save();
-        AppointmentService::sendEmail($appointment);
+
         if (intval($appointment->status) === Appointment::ACCEPTED_STATUS) {
             session()->flash('success','Appointment has been accepted');
+            DoctorAcceptedPatientAppointment::dispatch($appointment);
         } else if (intval($appointment->status) === Appointment::DECLINED_STATUS) {
             session()->flash('success','Appointment has been declined');
+            AppointmentDeclined::dispatch($appointment);
         } else if (intval($appointment->status) === Appointment::DONE_STATUS) {
             if ($appointment->patient->has_medical_aid) {
-                Mail::to($appointment->patient->medicalAid[0]->medical_email_address)->send(new MedicalAidInvoince($appointment, $appointment->patient->medicalAid));
+                SendInvoiceToMedicalAid::dispatch($appointment, $appointment->patient->medicalAid, $appointment->patient->medicalAid[0]->medical_email_address);
             } else {
-                Mail::to($appointment->patient->email_address)->send(new PatientInvoice($appointment));
+                SendInvoiceToPatient::dispatch($appointment);
             }
         }
 
@@ -101,7 +108,7 @@ class AppointmentController extends Controller
      */
     public function destroy(Appointment $appointment)
     {
-        Mail::to($appointment->doctor->email)->send(new AppointmentCancelled($appointment));
+        SendDeletedAppointment::dispatch($appointment);
         session()->flash('success','Appointment has been deleted');
 
         $appointment->delete();

@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Jobs\RescheduleDoctorAppointment;
+use App\Jobs\ReschedulePatientAppointment;
 use App\Mail\AppointmentReschedule;
 use App\Service\BookingService;
 use Carbon\Carbon;
@@ -41,8 +43,8 @@ class BookingUpdateRequest extends FormRequest
             $appointment->appointment_time = $this->timeSlot;
             $appointment->save();
 
-            Mail::to($appointment->doctor->email)->send(new AppointmentReschedule($appointment));
-
+            RescheduleDoctorAppointment::dispatch($appointment);
+            ReschedulePatientAppointment::dispatch($appointment);
             return true;
         }
     }
