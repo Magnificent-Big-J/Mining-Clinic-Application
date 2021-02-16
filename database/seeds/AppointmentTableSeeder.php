@@ -31,15 +31,15 @@ class AppointmentTableSeeder extends Seeder
             [
                 'patient_id' => 3,
                 'doctor_id' => 1,
-                'appointment_date' => Carbon::now(),
-                'appointment_time' => Carbon::now()->addHours(3),
+                'appointment_date' => Carbon::now()->addDay(2),
+                'appointment_time' => Carbon::now()->addDay(2)->addHours(3),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
                 'patient_id' => 4,
                 'doctor_id' => 1,
-                'appointment_date' => Carbon::now(),
-                'appointment_time' => Carbon::now()->addHours(4),
+                'appointment_date' => Carbon::now()->addDay(3),
+                'appointment_time' => Carbon::now()->addDay(3)->addHours(4),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
