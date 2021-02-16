@@ -1,4 +1,8 @@
 @extends('layouts.doctor')
+@section('styles')
+    <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+@endsection
 @section('content')
     <div class="content container-fluid">
 
@@ -105,6 +109,9 @@
                 <div class="card ">
                     <div class="card-header">
                         <h4 class="card-title">Appointment Assessment Information</h4>
+                        <a href="#" class="btn btn-sm bg-info-light" data-toggle="modal" data-target="#appointment-consultation">
+                            <i class="far fa-eye"></i> View
+                        </a>
                     </div>
                     <div class="card-body">
                         <h4> <i class="far fa-clock"></i>{{$appointment->appointment_date}} {{$appointment->appointment_time}}</h4>
@@ -208,4 +215,11 @@
         </div>
     </div>
 @endsection
+@section('scripts')
+    <script src="{{asset('js/select2.min.js')}}"></script>
+    <script>
 
+    </script>
+@endsection
+
+@include('doctor.appointments.modals.consultation')

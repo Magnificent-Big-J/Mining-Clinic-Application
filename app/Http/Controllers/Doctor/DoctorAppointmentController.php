@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Doctor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PrescriptionUpload;
 use App\Models\Appointment;
+use App\Models\ConsultationFee;
 use App\Models\DocumentType;
 use App\Service\AppointmentFileService;
 use App\Service\AppointmentService;
@@ -34,7 +35,10 @@ class DoctorAppointmentController extends Controller
         $document_path = $result['document_path'];
         $isPdf = $result['isPdf'];
 
-        return  view('doctor.appointments.show', compact('appointment', 'document_path', 'isPdf'));
+        $consultationFees = ConsultationFee::where('doctor_id', '=', $appointment->doctor_id)->get();
+
+
+        return  view('doctor.appointments.show', compact('appointment', 'document_path', 'isPdf', 'consultationFees'));
     }
     public function doctorAppointments()
     {
