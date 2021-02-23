@@ -91,7 +91,8 @@ class SpecialistController extends Controller
         if ($specialist->doctors->count()) {
             session()->flash('error',"Specialists cannot be deleted.");
         } else {
-            unlink(public_path() . '/' . $specialist->image_path);
+            $specialist->doctors()->detach();
+            $specialist->screeningQuestionnaire()->detach();
             $specialist->delete();
             session()->flash('success',"Specialists successfully deleted.");
         }

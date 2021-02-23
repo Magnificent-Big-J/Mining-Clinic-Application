@@ -17,6 +17,7 @@ class CreateSpecialistsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('image_path');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
