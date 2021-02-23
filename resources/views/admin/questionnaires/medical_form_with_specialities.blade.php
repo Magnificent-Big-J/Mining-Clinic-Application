@@ -1,4 +1,7 @@
 @extends('layouts.admindatatables')
+@section('styles')
+    <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
+@endsection
 @section('content')
     <div class="content container-fluid">
 
@@ -9,7 +12,7 @@
                     <h3 class="page-title">Medical Examination Questionnaires Management</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">General</li>
+                        <li class="breadcrumb-item active">Specialities</li>
                     </ul>
                 </div>
             </div>
@@ -35,20 +38,21 @@
                                 <div id="loader"></div>
                                 <span id="result"></span>
                                 <form form method="post" id="dynamic-form" enctype="multipart/form-data" action="javascript:void(0)">
-                                    @csrf
-                                    <input type="hidden" name="question_type" id="question-type" class="form-control" value="{{\App\Models\ScreeningQuestionnaire::GENERAL_TYPE}}">
+                                    <input type="hidden" name="question_type" id="question-type" class="form-control" value="{{\App\Models\ScreeningQuestionnaire::SPECIALITY_TYPE}}">
+
                                     <input type="hidden" name="question_type" value="2">
                                     <table class="table table-hover table-center">
-                                    <thead>
-                                    <tr>
-                                        <th style="min-width: 200px">Question name</th>
-                                        <th style="min-width: 100px">Question Image</th>
-                                        <th style="min-width: 80px;"></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="dynamic-column">
+                                        <thead>
+                                        <tr>
+                                            <th style="min-width: 200px">Question name</th>
+                                            <th style="min-width: 100px">Question Image</th>
+                                            <th style="min-width: 100px">Question Specialities</th>
+                                            <th style="min-width: 80px;"></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="dynamic-column">
 
-                                    </tbody>
+                                        </tbody>
                                     </table>
                                     <div class="form-group">
                                         <input type="submit" value="Submit" class="btn btn-primary ">
@@ -65,11 +69,12 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="{{asset('js/select2.min.js')}}"></script>
     <script>
 
         $(function (){
             $("#loader").hide();
-
+            let count = 1;
             loadQuestionnaireForm();
             $('#add-column').click(function (){
                 loadQuestionnaireForm();
@@ -81,12 +86,12 @@
                 e.preventDefault();
                 $("#loader").show();
                 let formData = new FormData(this);
-
+                console.log(formData);
                 $.ajax({
-                    url:'/api/store-questions',
+                    url:'/api/store-questions-with-specialities',
                     method:'post',
                     data:formData,
-                   // dataType:'json',
+                    // dataType:'json',
                     cache:false,
                     contentType: false,
                     processData: false,
@@ -117,10 +122,16 @@
             });
 
             function loadQuestionnaireForm(e) {
-                axios.get(`/api/questionnaire`)
+
+                axios.get(`/api/questionnaire/${count}/specialities`)
                     .then((response)=> {
                         $('#dynamic-column').append(response.data);
 
+                            $('#qSpecialities_' + count).select2({
+                                theme: "classic",
+                                width: "resolve"
+                            });
+                        count++;
                     })
             }
         });

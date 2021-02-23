@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\QuestionnaireCreateRequest;
-use App\ScreeningQuestionnaire;
+use App\Models\ScreeningQuestionnaire;
 use Illuminate\Http\Request;
 
 class ScreeningQuestionnaireController extends Controller
@@ -89,4 +89,9 @@ class ScreeningQuestionnaireController extends Controller
     {
         return view('admin.questionnaires.medical_form');
     }
+    public function medicalWithSpecialities()
+    {
+        return view('admin.questionnaires.medical_form_with_specialities');
+    }
+
 }

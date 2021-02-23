@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ScreeningQuestionnaire;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,6 +19,7 @@ class CreateScreeningQuestionnairesTable extends Migration
             $table->string('name');
             $table->string('image_path')->nullable();
             $table->unsignedBigInteger('screening_type_id');
+            $table->unsignedBigInteger('type')->default(ScreeningQuestionnaire::GENERAL_TYPE);
             $table->timestamps();
         });
     }

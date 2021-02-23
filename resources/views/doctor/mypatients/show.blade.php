@@ -139,7 +139,7 @@
                                                 <tr>
                                                     <td>{{$key + 1 }}</td>
                                                     <td>{{$record->record_date}}</td>
-                                                    <td>Dental Filling</td>
+                                                    <td>{{$record->description}}</td>
                                                     <td><a href="{{asset($record->path)}}" target="_blank">{{$record->file_name}}</a></td>
                                                     <td>
                                                         {{$record->user->full_names}}

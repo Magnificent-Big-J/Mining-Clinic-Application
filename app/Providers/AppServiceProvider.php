@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
             $productCategories = ProductCategory::all();
             $view->with(['productCategories'=>$productCategories]);
         });
-        View::composer(['admin.doctors.partials.entity','admin.doctors.partials.edit','doctor.profile.show'],function($view){
+        View::composer(['admin.doctors.partials.entity','admin.doctors.partials.edit','doctor.profile.show', 'admin.questionnaires.partials.screeningWithSpecialities'],function($view){
             $specialists = Specialist::all();
             $view->with(['specialists'=>$specialists]);
         });
