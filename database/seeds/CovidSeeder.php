@@ -20,7 +20,7 @@ class CovidSeeder extends Seeder
             array('name'=>'Do you have symptoms such as fever, cough and difficulty in breathing', 'screening_type_id' => 1, 'image_path' => 'questions/covid-19.jpeg'),
             array('name' => 'Experiencing any pain with your kidney?', 'screening_type_id' => 2, 'image_path' => 'questions/kidney.jpeg'),
             array('name' => 'Having digestion problem?', 'screening_type_id' => 2, 'image_path' => 'questions/digestion.jpg'),
-            array('name' => 'Is your throat sour?', 'screening_type_id' => 2, 'image_path' => 'questions/throat.jpeg'),
+            array('name' => 'Is your throat soar?', 'screening_type_id' => 2, 'image_path' => 'questions/throat.jpeg'),
         );
 
         foreach ($covids as $covid) {

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Address
@@ -21,15 +22,15 @@ class Address extends Model
         'address_1', 'address_2', 'postal_code', 'address_type_id', 'patient_id', 'province_id'
     ];
 
-    public function addressType()
+    public function addressType(): BelongsTo
     {
         return $this->belongsTo(AddressType::class);
     }
-    public function patient()
+    public function patient(): BelongsTo
     {
         return $this->belongsTo(Patient::class);
     }
-    public function province()
+    public function province(): BelongsTo
     {
         return $this->belongsTo(Province::class);
     }

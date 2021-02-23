@@ -5,11 +5,11 @@
 <!-- doccure/appointments.html  30 Nov 2019 04:12:09 GMT -->
 <head>
     <meta charset="utf-8">
-    <title>@yield('title')</title>
+    <title>@yield('title', 'Mining Clinic - Doctor')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
     <!-- Favicons -->
-    <link href="{{asset('doctor/assets/img/favicon.png')}}" rel="icon">
+    <link href="{{asset('logo.png')}}" rel="icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('doctor/assets/css/bootstrap.min.css')}}">

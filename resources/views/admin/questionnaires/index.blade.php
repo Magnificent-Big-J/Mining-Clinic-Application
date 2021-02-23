@@ -16,14 +16,24 @@
         </div>
         <!-- /Page Header -->
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-12">
 
                 <!-- Recent Orders -->
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <a href="{{route('admin.question.create')}}" class="mb-2 btn btn-success">Add Covid-19 Questionnaires</a>
-                            <a href="{{route('admin.medical.question')}}" class="mb-2 btn btn-success">Add Medical Examination Questionnaires</a>
+                                <div class="row">
+                                    <div class="col-lg">
+                                        <a href="{{route('admin.question.create')}}" class="mb-2 btn btn-success">Add Covid-19 Questionnaires</a>
+
+                                    </div>
+                                    <div class="col-lg">
+                                        <a href="{{route('admin.medical.question')}}" class="mb-2 btn btn-success">Add General Medical Examination Questionnaires</a>
+                                    </div>
+                                    <div class="col-lg">
+                                        <a href="{{route('admin.medical.question.with.specialities')}}" class="mb-2 btn btn-success">Add Specialities Medical Examination Questionnaires </a>
+                                    </div>
+                                </div>
                             <table class="table table-hover table-center mb-0" id="specialist">
                                 <thead>
                                 <tr>

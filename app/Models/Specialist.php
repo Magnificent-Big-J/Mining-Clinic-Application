@@ -23,4 +23,8 @@ class Specialist extends Model
     {
         return $this->belongsToMany(Doctor::class);
     }
+    public function screeningQuestionnaire(): BelongsToMany
+    {
+        return $this->belongsToMany(ScreeningQuestionnaire::class, 'specialities_screening_questionnaire',  'specialities_id', 'screening_questionnaire_id')->withTimestamps();
+    }
 }
