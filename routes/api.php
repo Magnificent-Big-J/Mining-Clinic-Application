@@ -23,9 +23,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('consultation-category/{consultationCategory}', 'Api\ConsultationCategoryController@edit');
 Route::get('add-prescription/{doctor}/{count}', 'Api\PrescriptionController@addPrescription');
 Route::get('questionnaire', 'Api\QuestionnaireController@questionnaire');
+Route::get('specialities-form', 'Api\SpecialistController@specialityForm');
 Route::get('questionnaire/{count}/specialities', 'Api\QuestionnaireController@questionnaireWithSpecialities');
 Route::post('store-questions', 'Api\QuestionnaireController@storeGeneral');
 Route::post('store-questions-with-specialities', 'Api\QuestionnaireController@storeWithSpecialities');
+Route::post('store-specialities', 'Api\SpecialistController@store');
 Route::post('store-prescription', 'Api\PrescriptionController@store');
 Route::get('doctor-product/{doctorProduct}/show', 'Api\DoctorProductController@show');
 Route::post('doctor-product-store', 'Api\DoctorProductController@storeDoctorProduct');
