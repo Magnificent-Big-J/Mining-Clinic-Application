@@ -12,7 +12,7 @@
                     <a href="{{route('admin.specialists.index')}}"><i class="fe fe-users"></i> <span>Specialities</span></a>
                 </li>
                 <li>
-                    <a href="{{route('admin.question.index')}}"><i class="fe fe-user"></i> <span>Questionnaires</span></a>
+                    <a href="{{route('admin.screeningQuestionnaire.index')}}"><i class="fe fe-user"></i> <span>Questionnaires</span></a>
                 </li>
                 <li class="submenu">
                     <a href="#" ><i class="fe fe-bookmark"></i> <span> Consultations</span> <span class="menu-arrow"></span></a>

@@ -21,6 +21,7 @@ class CreateCaseManagementTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->dateTime('case_date');
             $table->integer('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

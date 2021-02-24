@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -36,6 +37,7 @@ use Illuminate\Support\Facades\DB;
  */
 class Doctor extends Model
 {
+    use SoftDeletes;
     protected $fillable = ['entity_name', 'entity_status', 'reg_number',
         'email', 'practice_number', 'vat_number', 'tele_number', 'fax_number',
         'address', 'user_id', 'stock_scheme'];

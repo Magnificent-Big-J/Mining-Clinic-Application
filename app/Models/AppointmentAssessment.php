@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class AppointmentAssessment
@@ -17,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class AppointmentAssessment extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'consultation_fee_id', 'appointment_id', 'payment_id', 'assessment_date'
     ];

@@ -24,7 +24,7 @@
                         <div class="table-responsive">
                                 <div class="row">
                                     <div class="col-lg">
-                                        <a href="{{route('admin.question.create')}}" class="mb-2 btn btn-success">Add Covid-19 Questionnaires</a>
+                                        <a href="{{route('admin.screeningQuestionnaire.create')}}" class="mb-2 btn btn-success">Add Covid-19 Questionnaires</a>
 
                                     </div>
                                     <div class="col-lg">
@@ -40,6 +40,7 @@
                                     <th>No</th>
                                     <th>Questionnaire</th>
                                     <th>Questionnaire Type</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -68,6 +69,7 @@
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'question', name: 'question'},
                     {data: 'question_type', name: 'question_type'},
+                    {data: 'action', name: 'action'},
                 ]
             });
         });

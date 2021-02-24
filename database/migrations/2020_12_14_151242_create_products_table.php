@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('product_size')->nullable();
             $table->string('product_unit')->nullable();
             $table->unsignedBigInteger('product_category_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

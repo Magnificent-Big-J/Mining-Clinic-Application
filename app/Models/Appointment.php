@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 
 /**
@@ -25,6 +26,7 @@ use Illuminate\Support\Collection;
  */
 class Appointment extends Model
 {
+    use SoftDeletes;
     const PENDING_STATUS = 1;
     const DECLINED_STATUS = 2;
     const ACCEPTED_STATUS = 3;

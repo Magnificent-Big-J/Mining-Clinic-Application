@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AppointmentAssessment;
+use App\Models\Consultation;
 use App\Models\ConsultationCategory;
 use App\Http\Requests\ConsultationCategoryRequest;
+use App\Models\ConsultationFee;
 use Illuminate\Http\Request;
 
 class ConsultationCategoryController extends Controller
@@ -83,6 +86,13 @@ class ConsultationCategoryController extends Controller
      */
     public function destroy(ConsultationCategory $consultationCategory)
     {
-        //
+        $consultationCategory->delete();
+        $consultationIds = Consultation::where('consultation_category_id', $consultationCategory->id)->pluck('id');
+        Consultation::where('consultation_category_id', $consultationCategory->id)->update(['deleted_at' => now()]);
+        ConsultationFee::whereIn('consultation_id', $consultationIds)->update(['deleted_at' => now()]);
+        $consultationFeeIds = ConsultationFee::whereIn('consultation_id', $consultationIds)->pluck('id');
+        AppointmentAssessment::whereIn('consultation_fee_id',$consultationFeeIds)->update(['deleted_at' => now()]);
+        session()->flash('success', 'Consultation category successfully deleted.');
+        return redirect()->route('admin.consultation-category.index');
     }
 }

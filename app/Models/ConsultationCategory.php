@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\Consultation;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class ConsultationCategory
@@ -15,9 +17,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ConsultationCategory extends Model
 {
+    use SoftDeletes;
     protected $fillable = ['name'];
 
-    public function Consultation()
+    public function consultation(): HasMany
     {
         return $this->hasMany(Consultation::class);
     }

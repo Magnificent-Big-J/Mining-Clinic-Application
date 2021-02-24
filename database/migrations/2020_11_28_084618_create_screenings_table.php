@@ -19,6 +19,7 @@ class CreateScreeningsTable extends Migration
             $table->unsignedBigInteger('screening_questionnaire_id');
             $table->date('screening_date');
             $table->string('screening_answer');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

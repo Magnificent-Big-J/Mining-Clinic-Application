@@ -21,6 +21,7 @@ class CreateMedicalAidsTable extends Migration
             $table->string('plan')->nullable();
             $table->integer('medical_aid_status');
             $table->unsignedBigInteger('patient_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

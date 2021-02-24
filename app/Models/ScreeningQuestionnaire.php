@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 
 /**
@@ -20,6 +21,7 @@ use Illuminate\Support\Collection;
  */
 class ScreeningQuestionnaire extends Model
 {
+    use SoftDeletes;
     protected $fillable = ['name', 'screening_type_id', 'image_path', 'type'];
     const GENERAL_TYPE = 1;
     const SPECIALITY_TYPE = 2;
@@ -42,6 +44,6 @@ class ScreeningQuestionnaire extends Model
     }
     public function specialities(): BelongsToMany
     {
-        return $this->belongsToMany(Specialist::class, 'specialities_screening_questionnaire','specialities_id', 'screening_questionnaire_id')->withTimestamps();
+        return $this->belongsToMany(Specialist::class, 'specialities_screening_questionnaire', 'screening_questionnaire_id','specialities_id')->withTimestamps();
     }
 }

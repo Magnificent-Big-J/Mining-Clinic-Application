@@ -19,6 +19,7 @@ class CreateAppointmentAssessmentsTable extends Migration
             $table->unsignedBigInteger('appointment_id');
             $table->unsignedBigInteger('payment_id')->nullable();
             $table->date('assessment_date');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
