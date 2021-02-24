@@ -86,7 +86,7 @@
                 e.preventDefault();
                 $("#loader").show();
                 let formData = new FormData(this);
-                console.log(formData);
+
                 $.ajax({
                     url:'/api/store-questions-with-specialities',
                     method:'post',

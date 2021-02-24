@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Doctor;
+use App\Models\DoctorEntity;
 use App\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Spatie\Permission\Models\Role;
@@ -31,17 +32,18 @@ class DoctorCreateRequest extends FormRequest
             'last_name' => 'required|string',
             'title' => 'required|string',
             'email' => 'required|string|unique:users',
-            'entity_name' => 'required|string|unique:doctors',
-            'entity_status' => 'required|string',
-            'entity_email' => 'required|string',
+            'entity_name' => 'required_if:has_entity,on|string|unique:doctor_entities',
+            'entity_status' => 'required_if:has_entity,on|string',
             'practice_number' => 'required|string',
-            'vat_number' => 'required',
-            'address' => 'required|string',
+            'complex' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
+            'suburb' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
+            'city' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
             'reg_number' => 'required|string',
             'specialist_name' => 'required',
+            'postal_code' => 'required|numeric',
         ];
     }
-    public function createUser()
+    public function createUser(): void
     {
 
         $path = null;
@@ -65,22 +67,32 @@ class DoctorCreateRequest extends FormRequest
         $role = Role::findById(2);
         $user->assignRole([$role->id]);
     }
-    private function createDoctor(int $id)
+    private function createDoctor(int $id): void
     {
         $doctor = Doctor::create([
-            'entity_name' => $this->entity_name,
-            'entity_status' => $this->entity_status,
             'email' => $this->entity_email,
             'practice_number' => $this->practice_number,
             'vat_number' => $this->vat_number,
             'tele_number' => $this->tele_number,
             'fax_number' => $this->fax_number,
-            'address' => $this->address,
-            'stock_scheme' => $this->stock_scheme,
+            'complex' => $this->complex,
+            'suburb' => $this->suburb,
+            'city' => $this->city,
+            'has_entity' => ($this->has_entity) ? Doctor::No_ENTITY_STATE : Doctor::No_ENTITY_STATE,
+            'code' => $this->postal_code,
             'reg_number' => $this->reg_number,
             'user_id' => $id,
         ]);
 
         $doctor->specialists()->attach([$this->specialist_name]);
+        if ($this->has_entity) {
+            DoctorEntity::create([
+                'complex' => $this->complex,
+                'suburb' => $this->suburb,
+                'city' => $this->city,
+                'code' => $this->postal_code,
+                'doctor_id'=> $doctor->id
+            ]);
+        }
     }
 }

@@ -40,4 +40,5 @@ Route::put('product-category/{productCategory}/update', 'Api\ProductController@u
 Route::get('product-category/{productCategory}', 'Api\ProductController@editCategory');
 Route::post('product-category', 'Api\ProductController@productStore');
 Route::post('specialist', 'Api\SpecialistController@store');
+Route::post('ajax-doctor-form', 'Api\DoctorController@store');
 

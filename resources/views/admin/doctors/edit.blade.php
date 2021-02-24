@@ -1,4 +1,9 @@
 @extends('layouts.admindatatables')
+@section('styles')
+    <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+@endsection
+
 @section('content')
     <div class="content container-fluid">
 
@@ -29,8 +34,15 @@
                                 <form action="{{route('admin.doctors.update', $doctor->id)}}" method="post" >
                                     @csrf
                                     @method('PUT')
-                                    <h4 class="card-title">Entity Information</h4>
                                     @include('admin.doctors.partials.edit')
+                                    @if($doctor->has_entity === \App\Models\Doctor::HAS_ENTITY_STATE)
+                                        <hr>
+                                        <h4 class="card-title">Entity Information</h4>
+                                        @include('admin.doctors.partials.editEntity')
+                                    @endif
+                                    <hr>
+                                    <h4 class="card-title">Address Information</h4>
+                                    @include('admin.doctors.partials.editAddress')
                                     <input type="submit" value="Update" class="btn btn-primary ">
                                 </form>
                             </div>
@@ -43,4 +55,12 @@
         </div>
     </div>
 @endsection
-
+@section('scripts')
+    <script src="{{asset('js/select2.min.js')}}"></script>
+    <script>
+        $('#specialist-name-update').select2({
+            theme: "classic",
+            width: "resolve"
+        });
+    </script>
+@endsection

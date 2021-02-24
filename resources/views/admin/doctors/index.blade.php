@@ -36,7 +36,6 @@
                                     <th scope="col">View</th>
                                     <th scope="col">Edit</th>
                                     <th scope="col">Consultation</th>
-                                    <th scope="col">Product Stock</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -73,7 +72,6 @@
                     {data: 'view', name: 'view', orderable: true, searchable: true},
                     {data: 'edit', name: 'edit', orderable: true, searchable: true},
                     {data: 'consultation', name: 'consultation', orderable: true, searchable: true},
-                    {data: 'stock', name: 'stock', orderable: true, searchable: true},
 
                 ]
             });

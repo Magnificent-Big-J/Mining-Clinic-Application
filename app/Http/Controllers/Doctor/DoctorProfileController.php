@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Doctor;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DoctorProfileUpdateRequest;
+use App\Models\Doctor;
+use App\Service\Doctor\DoctorService;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -15,10 +17,28 @@ class DoctorProfileController extends Controller
 
         return view('doctor.profile.show', compact('doc_specialists'));
     }
-    public function update(DoctorProfileUpdateRequest $request, User $user)
+    public function update(Request $request, User $user, DoctorService $service)
     {
-        $request->updateProfile($user);
+        $validation_data = [
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|email|unique:doctors,email,' .$user->doctor->id,
+            'practice_number' => 'required|string|unique:doctors,practice_number,' . $user->doctor->id,
+            'complex' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
+            'suburb' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
+            'city' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
+            'reg_number' => 'required|string|unique:doctors,reg_number,' . $user->doctor->id,
+            'specialist_name' => 'required',
+            'postal_code' => 'required|numeric',
+        ];
 
+        if ($user->doctor->has_entity === Doctor::HAS_ENTITY_STATE) {
+            $data = ['entity_name' => 'required|string|unique:doctor_entities,entity_name,' . $user->doctor->doctorEntity->id , 'entity_status' => 'required|string'];
+            $validation_data = array_merge($validation_data, $data);
+        }
+        $this->validate($request, $validation_data);
+        $service->updateProfile(auth()->user(), $request);
+        session()->flash('success','Information Successfully Updated');
         return redirect()->route('doctor.profile.settings');
     }
 }

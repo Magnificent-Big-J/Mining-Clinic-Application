@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScreeningTypesTable extends Migration
+class CreateDoctorEntitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateScreeningTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('screening_types', function (Blueprint $table) {
+        Schema::create('doctor_entities', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('entity_name');
+            $table->string('entity_status');
+            $table->string('complex');
+            $table->string('suburb');
+            $table->string('city');
+            $table->integer('code');
+            $table->unsignedBigInteger('doctor_id');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -28,6 +34,6 @@ class CreateScreeningTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('screening_types');
+        Schema::dropIfExists('doctor_entities');
     }
 }
