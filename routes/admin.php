@@ -18,8 +18,9 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::resource('doctors','DoctorController');
     Route::resource('appointments','AppointmentController');
     Route::resource('consultation-category','ConsultationCategoryController');
-    Route::resource('question','ScreeningQuestionnaireController');
+    Route::resource('screeningQuestionnaire','ScreeningQuestionnaireController');
     Route::get('medical-questions','ScreeningQuestionnaireController@medical')->name('medical.question');
+    Route::put('medical-questions-update/{screeningQuestionnaire}','ScreeningQuestionnaireController@updateSpecialities')->name('medical.question.update');
     Route::get('medical-questions-specialities','ScreeningQuestionnaireController@medicalWithSpecialities')->name('medical.question.with.specialities');
     Route::post('booking', 'BookingController@booking')->name('booking');
     Route::get('reschedule-booking/{appointment}', 'BookingController@reschedule')->name('reschedule.booking');

@@ -18,6 +18,7 @@ class CreateConsultationFeesTable extends Migration
             $table->decimal('consultation_fee', 10, 2);
             $table->unsignedBigInteger('consultation_id');
             $table->unsignedBigInteger('doctor_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

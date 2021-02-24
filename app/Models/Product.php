@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 
 /**
@@ -20,6 +21,7 @@ use Illuminate\Support\Collection;
  */
 class Product extends Model
 {
+    use SoftDeletes;
     protected $fillable = ['product_code', 'product_name', 'product_description', 'product_size', 'product_unit', 'product_category_id'];
 
     public function productCategory()

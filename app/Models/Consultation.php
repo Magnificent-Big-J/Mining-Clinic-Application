@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Consultation
@@ -15,12 +18,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Consultation extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'name', 'consultation_category_id'
     ];
 
-    public function consultationCategory()
+    public function consultationCategory(): BelongsTo
     {
         return $this->belongsTo(ConsultationCategory::class);
+    }
+    public function consultationFee(): HasMany
+    {
+        return $this->hasMany(ConsultationFee::class);
     }
 }

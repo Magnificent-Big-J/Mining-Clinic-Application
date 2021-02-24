@@ -89,7 +89,7 @@ class SpecialistController extends Controller
     {
 
         if ($specialist->doctors->count()) {
-            session()->flash('error',"Specialists cannot be deleted.");
+            session()->flash('error',"Specialists cannot be deleted. One or more doctor assigned to specialities name");
         } else {
             $specialist->doctors()->detach();
             $specialist->screeningQuestionnaire()->detach();

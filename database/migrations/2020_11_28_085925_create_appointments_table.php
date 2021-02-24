@@ -20,6 +20,7 @@ class CreateAppointmentsTable extends Migration
             $table->date('appointment_date');
             $table->time('appointment_time');
             $table->integer('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

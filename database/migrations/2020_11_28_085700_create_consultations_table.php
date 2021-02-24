@@ -17,6 +17,7 @@ class CreateConsultationsTable extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('consultation_category_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

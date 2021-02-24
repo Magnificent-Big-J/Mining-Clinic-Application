@@ -154,7 +154,10 @@ class DataTableController extends Controller
                 }
                 return ;
             })
-            ->rawColumns(['question_type'])
+            ->addColumn('action', function ($row){
+                return view('admin.questionnaires.partials.actions', compact('row'));
+            })
+            ->rawColumns(['question_type', 'action'])
             ->make(true);
     }
 

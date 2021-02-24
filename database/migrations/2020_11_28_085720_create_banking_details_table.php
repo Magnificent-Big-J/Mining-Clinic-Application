@@ -19,6 +19,7 @@ class CreateBankingDetailsTable extends Migration
             $table->string('bank_name');
             $table->bigInteger('acc_number');
             $table->integer('branch_code');
+            $table->softDeletes();
             $table->unsignedBigInteger('doctor_id');
         });
     }

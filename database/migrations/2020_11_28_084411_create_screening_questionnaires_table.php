@@ -20,6 +20,7 @@ class CreateScreeningQuestionnairesTable extends Migration
             $table->string('image_path')->nullable();
             $table->unsignedBigInteger('screening_type_id');
             $table->unsignedBigInteger('type')->default(ScreeningQuestionnaire::GENERAL_TYPE);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

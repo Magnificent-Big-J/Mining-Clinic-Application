@@ -87,8 +87,8 @@ class DoctorDatabaseSeeder extends Seeder
         $user->assignRole(2);
 
         $specialist = Specialist::create([
-            'name' => 'General Practitioner',
-            'image_path' =>'specialist/SP-1606811795Orthopedic.png'
+            'name' => 'Pediatrics',
+            'image_path' =>'specialist/Pediatrics.jpeg'
         ]);
 
         $doctor = Doctor::create([

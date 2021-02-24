@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 
 /**
@@ -33,6 +34,7 @@ use Illuminate\Support\Collection;
  */
 class Patient extends Model
 {
+    use SoftDeletes;
     protected $fillable = ['first_name', 'last_name', 'second_name', 'gender',
         'date_of_birth', 'identity_number', 'is_south_african', 'work_number',
         'landline', 'cell_number', 'has_medical_aid', 'email_address'

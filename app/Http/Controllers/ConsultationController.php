@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ConsultationUpdateRequest;
+use App\Models\AppointmentAssessment;
 use App\Models\Consultation;
 use App\Http\Requests\ConsultationCreateRequest;
+use App\Models\ConsultationFee;
 use Illuminate\Http\Request;
 
 class ConsultationController extends Controller
@@ -85,6 +87,11 @@ class ConsultationController extends Controller
      */
     public function destroy(Consultation $consultation)
     {
-        //
+        $consultation->delete();
+        ConsultationFee::where('consultation_id', $consultation->id)->update(['deleted_at' => now()]);
+        $consultationFeeIds = ConsultationFee::where('consultation_id', $consultation->id)->pluck('id');
+        AppointmentAssessment::whereIn('consultation_fee_id',$consultationFeeIds)->update(['deleted_at' => now()]);
+        session()->flash('success', 'Consultation successfully deleted.');
+        return redirect()->route('admin.consultation.index');
     }
 }

@@ -27,6 +27,7 @@ class CreatePatientsTable extends Migration
             $table->string('landline')->nullable();
             $table->string('cell_number');
             $table->boolean('has_medical_aid');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

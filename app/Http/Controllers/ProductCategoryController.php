@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductCategoryCreateRequest;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -83,6 +84,11 @@ class ProductCategoryController extends Controller
      */
     public function destroy(ProductCategory $productCategory)
     {
-        //
+        $productCategory->delete();
+
+        Product::where('product_category_id', $productCategory->id)->update(['deleted_at' => now()]);
+        session()->flash('success', 'Product category is successfully deleted');
+
+        return redirect()->route('admin.product-category.index');
     }
 }

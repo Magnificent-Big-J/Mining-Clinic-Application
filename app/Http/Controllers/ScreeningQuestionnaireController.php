@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\QuestionnaireCreateRequest;
+use App\Http\Requests\QuestionnaireGeneralUpdateRequest;
+use App\Http\Requests\QuestionnaireSpecialitiesUpdateRequest;
 use App\Models\ScreeningQuestionnaire;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ScreeningQuestionnaireController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -21,7 +24,7 @@ class ScreeningQuestionnaireController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -32,20 +35,20 @@ class ScreeningQuestionnaireController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(QuestionnaireCreateRequest $request)
     {
         $request->createQuestionnaires();
         session()->flash('success', 'Questionnaire Successfully created');
-        return redirect()->route('admin.question.index');
+        return redirect()->route('admin.screeningQuestionnaire.index');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\ScreeningQuestionnaire  $screeningQuestionnaire
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(ScreeningQuestionnaire $screeningQuestionnaire)
     {
@@ -56,11 +59,18 @@ class ScreeningQuestionnaireController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\ScreeningQuestionnaire  $screeningQuestionnaire
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(ScreeningQuestionnaire $screeningQuestionnaire)
     {
-        //
+
+        if ($screeningQuestionnaire->type === ScreeningQuestionnaire::GENERAL_TYPE) {
+            return  view('admin.questionnaires.edit.edit', compact('screeningQuestionnaire'));
+        } else {
+            $qSpecialities = $screeningQuestionnaire->specialities()->pluck('specialists.id')->toArray();
+
+            return  view('admin.questionnaires.edit.editWithSpecialities', compact('screeningQuestionnaire', 'qSpecialities'));
+        }
     }
 
     /**
@@ -68,22 +78,30 @@ class ScreeningQuestionnaireController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\ScreeningQuestionnaire  $screeningQuestionnaire
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function update(Request $request, ScreeningQuestionnaire $screeningQuestionnaire)
+    public function update(QuestionnaireGeneralUpdateRequest $request, ScreeningQuestionnaire $screeningQuestionnaire)
     {
-        //
+        $request->updateQuestion($screeningQuestionnaire);
+        session()->flash('success', 'Questionnaire Successfully updated');
+        return redirect()->route('admin.screeningQuestionnaire.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ScreeningQuestionnaire  $screeningQuestionnaire
-     * @return \Illuminate\Http\Response
+     * @param ScreeningQuestionnaire $screeningQuestionnaire
+     * @return Response
+     * @throws \Exception
      */
     public function destroy(ScreeningQuestionnaire $screeningQuestionnaire)
     {
-        //
+
+        $screeningQuestionnaire->delete();
+        $screeningQuestionnaire->specialities()->detach();
+        session()->flash('success', 'question successfully deleted.');
+
+        return redirect()->back();
     }
     public function medical()
     {
@@ -92,6 +110,12 @@ class ScreeningQuestionnaireController extends Controller
     public function medicalWithSpecialities()
     {
         return view('admin.questionnaires.medical_form_with_specialities');
+    }
+    public function updateSpecialities(QuestionnaireSpecialitiesUpdateRequest $request, ScreeningQuestionnaire $screeningQuestionnaire)
+    {
+        $request->updateQuestion($screeningQuestionnaire);
+        session()->flash('success', 'Questionnaire Successfully updated');
+        return redirect()->route('admin.screeningQuestionnaire.index');
     }
 
 }

@@ -79,7 +79,8 @@ class QuestionnaireController extends Controller
            $screening =  ScreeningQuestionnaire::create([
                 'name'=> $request->question_name[$i],
                 'image_path'=> $path,
-                'screening_type_id'=> ScreeningType::MEDICAL_TYPE
+                'screening_type_id'=> ScreeningType::MEDICAL_TYPE,
+                'type' => ScreeningQuestionnaire::SPECIALITY_TYPE,
                 ]
             );
            $screening->specialities()->attach([$request->specialities[$i]]);
