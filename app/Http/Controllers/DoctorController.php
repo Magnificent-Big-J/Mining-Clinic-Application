@@ -61,7 +61,8 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-        return view('admin.doctors.edit', compact('doctor'));
+        $specialitiesIds = $doctor->specialists()->pluck('specialists.id')->toArray();;
+        return view('admin.doctors.edit', compact('doctor', 'specialitiesIds'));
     }
 
     /**
@@ -71,10 +72,44 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function update(DoctorUpdateRequest $request, Doctor $doctor)
+    public function update(Request $request, Doctor $doctor)
     {
-        $request->updateDoctor($doctor);
-        session()->flash('success','Doctor entity record successfully updated.');
+        $validation_data = [
+            'email' => 'required|email|unique:doctors,email,' . $doctor->id,
+            'practice_number' => 'required|string|unique:doctors,practice_number,' . $doctor->id,
+            'complex' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
+            'suburb' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
+            'city' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
+            'reg_number' => 'required|string|unique:doctors,reg_number,' . $doctor->id,
+            'specialist_name' => 'required',
+            'postal_code' => 'required|numeric',
+        ];
+        $updateEntity = false;
+        if ($doctor->has_entity === Doctor::HAS_ENTITY_STATE) {
+            $data = ['entity_name' => 'required|string|unique:doctor_entities,entity_name,' . $doctor->doctorEntity->id , 'entity_status' => 'required|string'];
+            $validation_data = array_merge($validation_data, $data);
+            $updateEntity = true;
+        }
+        $this->validate($request, $validation_data);
+
+        $doctor->specialists()->detach([$request->specialist_name]);
+        $doctor->email = $request->email;
+        $doctor->complex = $request->complex;
+        $doctor->city = $request->city;
+        $doctor->suburb = $request->suburb;
+        $doctor->code = $request->postal_code;
+        $doctor->practice_number = $request->practice_number;
+        $doctor->reg_number = $request->reg_number;
+        $doctor->fax_number = $request->fax_number;
+        $doctor->specialists()->attach([$request->specialist_name]);
+
+        $doctor->save();
+        if ($updateEntity) {
+            $doctor->doctorEntity->entity_name = $request->entity_name;
+            $doctor->doctorEntity->entity_status = $request->entity_status;
+            $doctor->doctorEntity->save();
+        }
+        session()->flash('success','Doctor record successfully updated.');
         return redirect()->route('admin.doctors.index');
     }
 

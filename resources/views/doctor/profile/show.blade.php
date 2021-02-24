@@ -65,33 +65,8 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Entity Information</h4>
+                <h4 class="card-title">Doctor Information</h4>
                 <div class="row form-row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Entity Name <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="entity_name" value="{{$user->doctor->entity_name}}">
-                            @error('entity_name')
-                            <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Entity Status <span class="text-danger">*</span></label>
-                            <select name="entity_status" id="entity_status" class="form-control">
-                                <option @if($user->doctor->entity_status == 'active') selected @endif value="active">Active</option>
-                                <option @if($user->doctor->entity_status == 'suspended') selected @endif value="suspended">suspended</option>
-                            </select>
-                            @error('entity_status')
-                            <span class="text-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Practice Number<span class="text-danger">*</span></label>
@@ -161,23 +136,101 @@
                             <input type="text" class="form-control" name="fax_number" value="{{$user->doctor->fax_number}}">
                         </div>
                     </div>
+                </div>
+
+
+            </div>
+        </div>
+        @if ($user->doctor->has_entity === \App\Models\Doctor::HAS_ENTITY_STATE)
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Entity Information</h4>
+                    <div class="row form-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Entity Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" name="entity_name" value="{{$user->doctor->doctorEntity->entity_name}}">
+                                @error('entity_name')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Entity Status <span class="text-danger">*</span></label>
+                                <select name="entity_status" id="entity_status" class="form-control">
+                                    <option @if($user->doctor->doctorEntity->entity_status == 'active') selected @endif value="active">Active</option>
+                                    <option @if($user->doctor->doctorEntity->entity_status == 'suspended') selected @endif value="suspended">suspended</option>
+                                </select>
+                                @error('entity_status')
+                                <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        @endif
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Address Information</h4>
+                <div class="row form-row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Stock Scheme</label>
-                            <input type="text" class="form-control" name="stock_scheme" value="{{$user->doctor->stock_scheme}}">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Address<span class="text-danger">*</span></label>
-                            <textarea name="address" class="form-control" id="address" cols="10" rows="1">{{$user->doctor->address}}</textarea>
-                            @error('address')
+                            <label>Complex <i class="fa fa-asterisk text-danger"></i></label>
+                            <input type="text" class="form-control" name="complex" value="{{$user->doctor->complex}}">
+                            @error('complex')
                             <span class="text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Suburb <i class="fa fa-asterisk text-danger"></i></label>
+                            <input type="text" class="form-control" name="suburb" value="{{$user->doctor->suburb}}">
+                            @error('suburb')
+                            <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>City <i class="fa fa-asterisk text-danger"></i></label>
+                            <input type="text" class="form-control" name="city" value="{{$user->doctor->city}}">
+                            @error('city')
+                            <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Postal Code <i class="fa fa-asterisk text-danger"></i></label>
+                            <input type="text" class="form-control" name="postal_code" value="{{$user->doctor->code}}">
+                            @error('postal_code')
+                            <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+
+
                 </div>
 
 

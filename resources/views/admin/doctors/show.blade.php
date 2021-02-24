@@ -58,17 +58,19 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title d-flex justify-content-between">
-                                            <span>Entity Details</span>
+                                            <span>Doctor Details</span>
                                             <a class="edit-link" href="{{route('admin.doctors.edit', $doctor->id)}}" ><i class="fa fa-edit mr-1"></i>Edit</a>
                                         </h5>
+                                        @if ($doctor->has_entity === \App\Models\Doctor::HAS_ENTITY_STATE)
                                         <div class="row">
                                             <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Entity Name</p>
-                                            <p class="col-sm-10">{{$doctor->entity_name}}</p>
+                                            <p class="col-sm-10">{{$doctor->doctorEntity->entity_name}}</p>
                                         </div>
                                         <div class="row">
                                             <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Entity Status</p>
-                                            <p class="col-sm-10 text-uppercase">{{$doctor->entity_status}}</p>
+                                            <p class="col-sm-10 text-uppercase">{{$doctor->doctorEntity->entity_status}}</p>
                                         </div>
+                                        @endif
                                         <div class="row">
                                             <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Practice Number</p>
                                             <p class="col-sm-10">{{$doctor->practice_number}}</p>
