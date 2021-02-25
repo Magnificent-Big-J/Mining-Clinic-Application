@@ -48,7 +48,126 @@ class AppointmentTableSeeder extends Seeder
                 'appointment_date' => Carbon::now(),
                 'appointment_time' => Carbon::now()->addHours(5),
                 'status' => Appointment::PENDING_STATUS
-            ]
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now(),
+                'appointment_time' => Carbon::now()->addHours(5),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
+            [
+                'patient_id' => rand(1, 54),
+                'doctor_id' => rand(1,20),
+                'appointment_date' => Carbon::now()->addDay(rand(1,10)),
+                'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
+                'status' => Appointment::PENDING_STATUS
+            ],
         ];
 
         foreach ($appointments as $appointment) {

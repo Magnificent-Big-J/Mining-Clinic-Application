@@ -78,6 +78,10 @@ class PatientsTableSeeder extends Seeder
            $patient = Patient::create($patient);
            $patient->doctors()->attach([1]);
         }
+        $newSeeds = factory(Patient::class, 50)->create()
+            ->each(function ($patient){
+                $patient->addresses()->save(factory(Address::class)->make());
+            });
         $medicalAids = array(
             array('medical_name' => 'CompCare ','medical_aid_number' => '1616890', 'medical_aid_status' => MedicalAid::ACTIVE_STATUS, 'patient_id'=> 1, 'medical_email_address' => 'correspondence@universal.co.za'),
             array('medical_name' => 'Discovery ','medical_aid_number' => '5876890', 'medical_aid_status' => MedicalAid::ACTIVE_STATUS, 'patient_id'=>3, 'medical_email_address' => 'correspondence@discovery.co.za'),

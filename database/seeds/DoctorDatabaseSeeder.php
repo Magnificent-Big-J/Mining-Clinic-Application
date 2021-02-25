@@ -132,5 +132,15 @@ class DoctorDatabaseSeeder extends Seeder
         ]);
 
         $doctor->specialists()->attach($specialist);
+        $users = factory(User::class, 20)->create()
+            ->each(function ($user){
+                $user->doctors()->save(factory(Doctor::class)->make());
+            });
+
+        foreach ($users as $user) {
+            $user->assignRole(2);
+            $doctor =  Doctor::find($user->doctors[0]->id);
+           $doctor->specialists()->attach($specialist);
+        }
     }
 }
