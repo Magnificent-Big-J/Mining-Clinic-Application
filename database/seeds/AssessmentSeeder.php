@@ -15,10 +15,10 @@ class AssessmentSeeder extends Seeder
     public function run()
     {
         $appointments = array(
-            array('patient_id' => 1, 'doctor_id' => 1, 'appointment_date' => Carbon::now()->subMonths(4),'appointment_time' => Carbon::now()->subMonths(4)->addHours(1),'status' => Appointment::ACCEPTED_STATUS),
-            array('patient_id' => 1, 'doctor_id' => 1, 'appointment_date' => Carbon::now()->subMonths(2),'appointment_time' => Carbon::now()->subMonths(2)->addHours(1),'status' => Appointment::ACCEPTED_STATUS),
-            array('patient_id' => 1, 'doctor_id' => 1, 'appointment_date' => Carbon::now()->subDays(6),'appointment_time' => Carbon::now()->subDay(6)->addHours(1),'status' => Appointment::ACCEPTED_STATUS),
-            array('patient_id' => 1, 'doctor_id' => 1, 'appointment_date' => Carbon::now()->subDays(2),'appointment_time' => Carbon::now()->subDay(2)->addHours(1),'status' => Appointment::ACCEPTED_STATUS),
+            array('patient_id' => rand(1,54), 'doctor_id' =>  rand(1,23), 'appointment_date' => Carbon::now()->subMonths(rand(1,4)),'appointment_time' => Carbon::now()->subMonths(rand(1,4))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
+            array('patient_id' => rand(1,54), 'doctor_id' => rand(1,23), 'appointment_date' => Carbon::now()->subMonths(rand(1,4)),'appointment_time' => Carbon::now()->subMonths(rand(1,4))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
+            array('patient_id' =>  rand(1,54), 'doctor_id' => rand(1,23), 'appointment_date' => Carbon::now()->subDays(rand(1,10)),'appointment_time' => Carbon::now()->subDay(rand(1,10))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
+            array('patient_id' =>  rand(1,54), 'doctor_id' => rand(1,23), 'appointment_date' => Carbon::now()->subDays(rand(1,10)),'appointment_time' => Carbon::now()->subDay(rand(1,10))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
         );
 
         foreach ($appointments as $appointment) {
@@ -27,16 +27,16 @@ class AssessmentSeeder extends Seeder
 
 
         $assessments = array(
-            array('consultation_fee_id' => 1, 'appointment_id'=>1, 'assessment_date' => Carbon::now()->subMonths(4)),
-            array('consultation_fee_id' => 2, 'appointment_id'=>1, 'assessment_date' => Carbon::now()->subMonths(4)),
-            array('consultation_fee_id' => 3, 'appointment_id'=>5, 'assessment_date' => Carbon::now()->subMonths(2)),
-            array('consultation_fee_id' => 1, 'appointment_id'=>5, 'assessment_date' => Carbon::now()->subMonths(2)),
-            array('consultation_fee_id' => 3, 'appointment_id'=>6, 'assessment_date' => Carbon::now()->subDays(6)),
-            array('consultation_fee_id' => 4, 'appointment_id'=>6, 'assessment_date' => Carbon::now()->subDays(6)),
-            array('consultation_fee_id' => 1, 'appointment_id'=>7, 'assessment_date' => Carbon::now()->subDays(2)),
-            array('consultation_fee_id' => 2, 'appointment_id'=>7, 'assessment_date' => Carbon::now()->subDays(2)),
-            array('consultation_fee_id' => 6, 'appointment_id'=>8, 'assessment_date' => Carbon::now()->subDays(2)),
-            array('consultation_fee_id' => 7, 'appointment_id'=>8, 'assessment_date' => Carbon::now()->subDays(2)),
+            array('consultation_fee_id' => 1, 'appointment_id'=>1, 'assessment_date' => Carbon::now()->subMonths(rand(1,4))),
+            array('consultation_fee_id' => 2, 'appointment_id'=>1, 'assessment_date' => Carbon::now()->subMonths(rand(1,4))),
+            array('consultation_fee_id' => 3, 'appointment_id'=>5, 'assessment_date' => Carbon::now()->subMonths(rand(1,4))),
+            array('consultation_fee_id' => 1, 'appointment_id'=>5, 'assessment_date' => Carbon::now()->subMonths(rand(1,4))),
+            array('consultation_fee_id' => 3, 'appointment_id'=>6, 'assessment_date' => Carbon::now()->subDays(rand(1,4))),
+            array('consultation_fee_id' => 4, 'appointment_id'=>6, 'assessment_date' => Carbon::now()->subDays(rand(1,4))),
+            array('consultation_fee_id' => 1, 'appointment_id'=>7, 'assessment_date' => Carbon::now()->subDays(rand(1,4))),
+            array('consultation_fee_id' => 2, 'appointment_id'=>7, 'assessment_date' => Carbon::now()->subDays(rand(1,4))),
+            array('consultation_fee_id' => 6, 'appointment_id'=>8, 'assessment_date' => Carbon::now()->subDays(rand(1,4))),
+            array('consultation_fee_id' => 7, 'appointment_id'=>8, 'assessment_date' => Carbon::now()->subDays(rand(1,4))),
         );
 
         foreach ($assessments as $assessment) {
