@@ -50,15 +50,15 @@ class AppointmentTableSeeder extends Seeder
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' => rand(1, 400),
+                'doctor_id' => rand(1, 400),
                 'appointment_date' => Carbon::now(),
                 'appointment_time' => Carbon::now()->addHours(5),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
@@ -71,99 +71,99 @@ class AppointmentTableSeeder extends Seeder
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' => rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' => rand(1, 400),
+                'doctor_id' => rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' => rand(1, 400),
+                'doctor_id' => rand(1,400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
             ],
             [
-                'patient_id' => rand(1, 54),
-                'doctor_id' => rand(1,20),
+                'patient_id' =>  rand(1, 400),
+                'doctor_id' =>  rand(1, 400),
                 'appointment_date' => Carbon::now()->addDay(rand(1,10)),
                 'appointment_time' => Carbon::now()->addDay(rand(1,10))->addHours(rand(1,8)),
                 'status' => Appointment::PENDING_STATUS
@@ -173,5 +173,6 @@ class AppointmentTableSeeder extends Seeder
         foreach ($appointments as $appointment) {
             Appointment::create($appointment);
         }
+        $apps = factory(Appointment::class, 500)->create();
     }
 }

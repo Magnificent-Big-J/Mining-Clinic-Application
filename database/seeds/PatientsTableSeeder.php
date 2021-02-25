@@ -78,7 +78,7 @@ class PatientsTableSeeder extends Seeder
            $patient = Patient::create($patient);
            $patient->doctors()->attach([1]);
         }
-        $newSeeds = factory(Patient::class, 100)->create()
+        $newSeeds = factory(Patient::class, 400)->create()
             ->each(function ($patient){
                 $patient->addresses()->save(factory(Address::class)->make());
             });
