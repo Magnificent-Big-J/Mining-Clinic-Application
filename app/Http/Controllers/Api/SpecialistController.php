@@ -42,7 +42,7 @@ class SpecialistController extends Controller
         Specialist::insert($insert_data);
 
         return [
-            'success' => 'Specialists successfully updated.',
+            'success' => 'Specialists successfully created.',
             'url' => route('admin.specialists.index')
         ];
     }

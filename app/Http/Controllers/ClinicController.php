@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Clinic;
+use App\Models\Clinic;
 use Illuminate\Http\Request;
 
 class ClinicController extends Controller
@@ -14,7 +14,7 @@ class ClinicController extends Controller
      */
     public function index()
     {
-        //
+        return  view('admin.clinic.index');
     }
 
     /**
@@ -80,6 +80,10 @@ class ClinicController extends Controller
      */
     public function destroy(Clinic $clinic)
     {
-        //
+        $clinic->delete();
+
+        session()->flash('success','Mining Clinic has been successfully deleted.');
+
+        return redirect()->back();
     }
 }

@@ -6,6 +6,7 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::resource('product-category', 'ProductCategoryController');
     Route::resource('product', 'ProductController');
     Route::resource('province', 'ProvinceController');
+    Route::resource('clinic', 'ClinicController');
     Route::resource('consultation-fee', 'ConsultationFeeController')->except('index');
     Route::resource('doctor-product', 'DoctorProductController')->except('index');
     Route::get('doctor-product/{doctor}/stock', 'DoctorProductController@index')->name('doctor.product.index');

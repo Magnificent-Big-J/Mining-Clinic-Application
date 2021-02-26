@@ -12,6 +12,9 @@
                     <a href="{{route('admin.specialists.index')}}"><i class="fe fe-users"></i> <span>Specialities</span></a>
                 </li>
                 <li>
+                    <a href="{{route('admin.clinic.index')}}"><i class="fe fe-layout"></i> <span>Clinics</span></a>
+                </li>
+                <li>
                     <a href="{{route('admin.screeningQuestionnaire.index')}}"><i class="fe fe-user"></i> <span>Questionnaires</span></a>
                 </li>
                 <li class="submenu">

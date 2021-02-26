@@ -45,3 +45,7 @@ Route::post('patient-medical-aid-form', 'Api\MedicalAidController@store');
 Route::get('patient-medical-aid/{medicalAid}', 'Api\MedicalAidController@getMedicalAid');
 Route::post('patient-medical-aid/{medicalAid}/update', 'Api\MedicalAidController@update');
 
+//Clinic ClinicController
+Route::post('mining-clinic-form', 'Api\ClinicController@store');
+Route::post('mining-clinic-form/{clinic}/update', 'Api\ClinicController@update');
+Route::get('mining-clinic-form/{clinic}', 'Api\ClinicController@show');
