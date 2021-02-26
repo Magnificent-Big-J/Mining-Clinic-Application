@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        View::composer('admin.patients.create',function($view){
+        View::composer(['admin.patients.create', 'admin.patients.edit'],function($view){
             $provinces = Province::all();
             $view->with(['provinces'=>$provinces]);
         });

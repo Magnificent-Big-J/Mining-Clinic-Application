@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Collection;
 
 /**
@@ -15,8 +16,9 @@ use Illuminate\Support\Collection;
 class AddressType extends Model
 {
     protected $fillable = ['name'];
-
-    public function addresses()
+    const PHYSICAL_TYPE = 1;
+    const POSTAL_TYPE = 2;
+    public function addresses(): HasMany
     {
         return $this->hasMany(Address::class);
     }

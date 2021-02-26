@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Address;
+use App\Models\AddressType;
 use App\Models\Patient;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
@@ -72,7 +73,7 @@ class PatientCreateRequest extends FormRequest
             'address_1' => $this->address_1,
             'address_2' => $this->address_2,
             'postal_code' => $this->postal_code,
-            'address_type_id' => 1,
+            'address_type_id' => AddressType::PHYSICAL_TYPE,
             'patient_id' => $id,
             'province_id' => $this->province
         ]);

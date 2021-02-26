@@ -41,4 +41,7 @@ Route::get('product-category/{productCategory}', 'Api\ProductController@editCate
 Route::post('product-category', 'Api\ProductController@productStore');
 Route::post('specialist', 'Api\SpecialistController@store');
 Route::post('ajax-doctor-form', 'Api\DoctorController@store');
+Route::post('patient-medical-aid-form', 'Api\MedicalAidController@store');
+Route::get('patient-medical-aid/{medicalAid}', 'Api\MedicalAidController@getMedicalAid');
+Route::post('patient-medical-aid/{medicalAid}/update', 'Api\MedicalAidController@update');
 

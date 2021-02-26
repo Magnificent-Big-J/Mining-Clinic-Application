@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PatientCreateRequest;
 use App\Http\Requests\PatientUpdateRequest;
+use App\Models\MedicalAid;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class PatientController extends Controller
      */
     public function index()
     {
-        return view('admin.patients.index');
+        $status = MedicalAid::$texts;
+        return view('admin.patients.index', compact('status'));
     }
 
     /**
@@ -72,7 +74,10 @@ class PatientController extends Controller
      */
     public function edit(Patient $patient)
     {
-        return view('admin.patients.edit', compact('patient'));
+        $physical = $patient->physicalAddress();
+        $postal = $patient->postalAddress();
+
+        return view('admin.patients.edit', compact('patient', 'postal', 'physical'));
     }
 
     /**

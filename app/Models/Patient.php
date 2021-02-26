@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 
+
 /**
  * Class Patient
  * @package App\Models
@@ -80,5 +81,13 @@ class Patient extends Model
     public function medicalRecords(): HasMany
     {
         return $this->hasMany(MedicalRecord::class);
+    }
+    public function physicalAddress()
+    {
+        return $this->addresses()->where('address_type_id', AddressType::PHYSICAL_TYPE)->first();
+    }
+    public function postalAddress()
+    {
+        return $this->addresses()->where('address_type_id', AddressType::POSTAL_TYPE)->first();
     }
 }

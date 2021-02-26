@@ -1,7 +1,9 @@
 @extends('layouts.admindatatables')
 @section('styles')
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="{{asset('admin/assets/css/select2.min.css')}}" rel="stylesheet" />
     <link href="{{asset('css/main.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/timeslot.css')}}" rel="stylesheet" />
+
 @endsection
 @section('content')
     <div class="content container-fluid">
@@ -51,8 +53,10 @@
 
                                             <select class="js-example-basic-single form-control" name="doctor" id="doctor" required>
                                                 <option value="">Select A Doctor</option>
+
                                                 @foreach($doctors as $doctor)
-                                                    <option value="{{$doctor->id}}">{{$doctor->entity_name}}</option>
+
+                                                    <option value="{{$doctor->id}}">{{$doctor->user->full_names}}</option>
                                                 @endforeach
                                             </select>
                                             @error('doctor')
@@ -65,8 +69,6 @@
                                     <div class="form-group row" id="time-slot">
 
                                     </div>
-
-
                                     <input type="submit" value="Book Appointment" class="btn btn-primary booking">
                                 </form>
                             </div>

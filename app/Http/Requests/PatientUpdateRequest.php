@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\AddressType;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -28,13 +29,16 @@ class PatientUpdateRequest extends FormRequest
             'first_name' => 'required|string',
             'gender' => 'required|string',
             'last_name' => 'required|string',
-            'identity_number' => 'required|string|unique:patients,identity_number,' . $this->patient->id,
+            'identity_number' => 'required|string',
             'email_address' => 'required|email|unique:patients,email_address,' . $this->patient->id,
             'is_local' => 'required',
             'second_name' =>'nullable|alpha',
             'cellphone' => 'required',
             'date_of_birth' => 'required',
-            'have_medical' => 'required',
+            'address_1' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
+            'postal_code' => 'required|numeric',
+            'province' => 'required',
+
         ];
     }
     public function updateRecord($patient)
@@ -48,9 +52,23 @@ class PatientUpdateRequest extends FormRequest
         $patient->cell_number = $this->cellphone;
         $patient->second_name = $this->second_name;
         $patient->date_of_birth = Carbon::parse($this->date_of_birth);
-        $patient->has_medical_aid = (int)$this->have_medical;
         $patient->landline = $this->landline;
         $patient->email_address = $this->email_address;
         $patient->save();
+        $patient->addresses()->where('address_type_id', AddressType::PHYSICAL_TYPE)->update([
+            'address_1' => $this->address_1,
+            'address_2' => $this->address_2,
+            'postal_code' => $this->postal_code,
+            'province_id' => $this->province
+        ]);
+        if (!empty($this->address_3) && !empty($this->postal_code2)) {
+            $patient->addresses()->where('address_type_id', AddressType::POSTAL_TYPE)->updateorCreate([
+                'address_1' => $this->address_3,
+                'address_2' => $this->address_4,
+                'address_type_id' => AddressType::POSTAL_TYPE,
+                'province_id' => $this->province2,
+                'postal_code' => $this->postal_code2,
+            ]);
+        }
     }
 }

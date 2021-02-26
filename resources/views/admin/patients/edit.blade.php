@@ -152,6 +152,85 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <h4 class="card-title">Physical Address</h4>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Address 1:<strong class="text-danger">*</strong></label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="address_1" value="{{ $physical->address_1 }}" class="form-control">
+                                                    @error('address_1')
+                                                    <span class="text-danger" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Address 2:<strong class="text-danger">*</strong></label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="address_2" value="{{  $physical->address_2 }}" class="form-control">
+                                                    @error('address_2')
+                                                    <span class="text-danger" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Province:<strong class="text-danger">*</strong></label>
+                                                <div class="col-lg-9">
+                                                    <select name="province" id="province" class="form-control">
+                                                        @foreach($provinces as $province)
+                                                            <option @if ( $physical->province_id == $province->id) selected @endif value="{{$province->id}}">{{$province->province_name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Postal Code:<strong class="text-danger">*</strong></label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="postal_code" value="{{ $physical->postal_code }}" class="form-control">
+                                                    @error('postal_code')
+                                                    <span class="text-danger" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <h4 class="card-title">Postal  Address</h4>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Address 1:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="address_3" value="{{ (!empty($postal)) ?? $postal->address_1  }}" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Address 2:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="address_4" value="{{ (!empty($postal)) ?? $postal->address_2 }}" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Province:</label>
+                                                <div class="col-lg-9">
+                                                    <select name="province2" id="province2" class="form-control">
+                                                        @foreach($provinces as $province)
+                                                            <option  @if (!empty($postal) && $postal->province_id === $province->id) selected @endif value="{{$province->id}}">{{$province->province_name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-3 col-form-label">Postal Code:</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" name="postal_code2" value="{{ (!empty($postal)) ?? $postal->postal_code }}" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <input type="submit" value="Update" class="btn btn-primary ">
                                 </form>
                             </div>

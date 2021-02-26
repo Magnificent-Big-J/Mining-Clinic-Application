@@ -2,6 +2,7 @@
 @section('styles')
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <link href="{{asset('css/main.css')}}" rel="stylesheet" />
+
 @endsection
 @section('content')
     <div class="content container-fluid">
@@ -49,7 +50,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Doctor :</label>
                                         <div class="col-lg-9">
-                                          <p>{{$appointment->doctor->entity_name}}</p>
+                                          <p>{{$appointment->user->full_names}}</p>
                                             <input type="hidden" name="doctor" id="doctor" value="{{$appointment->doctor->id}}">
                                         </div>
                                     </div>

@@ -1,0 +1,70 @@
+.four { width: 32.26%; max-width: 32.26%;}
+
+
+/* COLUMNS */
+
+.col {
+    display: block;
+    float:left;
+    margin: 1% 0 1% 1.6%;
+}
+
+.col:first-of-type { margin-left: 0; }
+
+/* CLEARFIX */
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+/* FORM */
+
+.time-slot .plan input, .time-slot input{
+    display: none;
+
+}
+
+.time-slot label{
+    position: relative;
+    color: #FFFFFF;
+    background-color: #2777a8;
+    font-size: 26px;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+    display: block;
+    cursor: pointer;
+    border: 3px solid transparent;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.time-slot .plan input:checked + label, .time-slot input:checked + label, .time-slot input:checked + label{
+    border: 3px solid #333;
+    background-color: #1F3063;
+}
+
+.time-slot .plan input:checked + label:after, time-slot input:checked + label:after, .time-slot input:checked + label:after{
+    content: "\2713";
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 100%;
+    border: 2px solid #333;
+    background-color: teal;
+    z-index: 999;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
