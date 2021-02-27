@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Service\DoctorProductService;
+use App\Service\ClinicProductService;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
@@ -24,7 +24,7 @@ class DoctorStockExport implements FromCollection, WithHeadings, WithMapping, Wi
     */
     public function collection()
     {
-        return DoctorProductService::getData($this->range, $this->doctor);
+        return ClinicProductService::getData($this->range, $this->doctor);
     }
 
     public function headings(): array

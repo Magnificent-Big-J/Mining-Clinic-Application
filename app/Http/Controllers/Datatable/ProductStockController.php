@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\Datatable;
 
 use App\Http\Controllers\Controller;
+use App\Models\Clinic;
 use App\Models\Doctor;
 use App\Models\ProductStock;
-use App\Service\DoctorProductService;
+use App\Service\ClinicProductService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DataTables;
 
 class ProductStockController extends Controller
 {
-    public function doctorProduct(Doctor $doctor, Request $request)
+    public function clinicProduct(Clinic $clinic)
     {
         if (!empty($request->from_date) && !empty($request->to_date)) {
             $range = [
@@ -24,7 +25,7 @@ class ProductStockController extends Controller
             ];
         }
 
-        $productStocks = DoctorProductService::getData($range, $doctor->id);
+        $productStocks = ClinicProductService::getData($range, $clinic->id);
 
         return DataTables::of($productStocks)
             ->addIndexColumn()

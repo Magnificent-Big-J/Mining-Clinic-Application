@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 
+use App\Models\Clinic;
 use App\Models\Consultation;
 use App\Models\ConsultationCategory;
 use App\Models\Doctor;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Province;
 use App\Models\Specialist;
@@ -24,6 +26,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['admin.patients.create', 'admin.patients.edit'],function($view){
             $provinces = Province::all();
             $view->with(['provinces'=>$provinces]);
+        });
+        View::composer(['admin.clinic-stock.modals.add_clinic_product'],function($view){
+            $products = Product::all();
+            $view->with(['products'=>$products]);
         });
         View::composer(['admin.products.product.modals.product_modal','admin.products.product.modals.product_edit_modal','admin.products.product.edit'],function($view){
             $productCategories = ProductCategory::all();
@@ -44,6 +50,10 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['admin.doctors.modals.consultation_fee','admin.doctors.edit_consultation_fee'],function($view){
             $consultations = Consultation::all();
             $view->with(['consultations'=>$consultations]);
+        });
+        View::composer(['admin.clinic-stock.index'],function($view){
+            $clinics = Clinic::all();
+            $view->with(['clinics'=> $clinics]);
         });
 
         View::composer('*', function ($view) {

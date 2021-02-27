@@ -7,7 +7,7 @@ use App\Http\Requests\DoctorProductUpdateRequest;
 use App\Http\Requests\ProductStockCreateRequest;
 use App\Models\DoctorProduct;
 use App\Models\ProductStock;
-use App\Service\DoctorProductService;
+use App\Service\ClinicProductService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -36,7 +36,7 @@ class DoctorProductController extends Controller
         $doctor = $request->get('doctor');
         foreach ($options as $option) {
 
-            if (!DoctorProductService::recordExists($doctor, $option)) {
+            if (!ClinicProductService::recordExists($doctor, $option)) {
 
              $doctorProduct = DoctorProduct::create([
                     'product_id' => $option,

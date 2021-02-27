@@ -45,7 +45,14 @@ Route::post('patient-medical-aid-form', 'Api\MedicalAidController@store');
 Route::get('patient-medical-aid/{medicalAid}', 'Api\MedicalAidController@getMedicalAid');
 Route::post('patient-medical-aid/{medicalAid}/update', 'Api\MedicalAidController@update');
 
-//Clinic ClinicController
+//Clinic
 Route::post('mining-clinic-form', 'Api\ClinicController@store');
 Route::post('mining-clinic-form/{clinic}/update', 'Api\ClinicController@update');
 Route::get('mining-clinic-form/{clinic}', 'Api\ClinicController@show');
+//Clinic Product
+Route::get('clinic-product/{clinicProduct}/product', 'Api\ClinicProductController@getClinicProduct');
+Route::get('clinic-product/{clinicProduct}/product-name', 'Api\ClinicProductController@productName');
+Route::post('clinic-product/{clinicProduct}/store', 'Api\ClinicProductController@storeStock');
+Route::put('clinic-product/{clinicProduct}/update', 'Api\ClinicProductController@updateclinicProduct');
+Route::get('clinic-product/{clinicProduct}/show', 'Api\ClinicProductController@show');
+Route::post('click-product-store', 'Api\ClinicProductController@storeClinicProduct');

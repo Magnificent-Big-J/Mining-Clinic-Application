@@ -29,6 +29,7 @@ Route::get('all-users','Datatable\UserController@users')->name('users.index');
 Route::get('product-categories','Datatable\ProductDatatableController@productCategories')->name('product.categories.index');
 Route::get('doctor-products/{doctor}','Datatable\DoctorProductController@doctorProduct')->name('doctor.products.index');
 Route::post('doctor-stock/{doctor}/data','Datatable\ProductStockController@doctorProduct')->name('doctor.stock.data.index');
+Route::post('clinic-product/{clinic}/data','Datatable\ClinicProductController@index')->name('clinic.product.data.index');
 Route::get('product-data','Datatable\ProductDatatableController@Product')->name('product.index');
 Route::get('consultation-data','Datatable\ConsultationDatatableController@consultation')->name('consultation.consultation.index');
 Route::get('consultation-fee-data/{doctor}','Datatable\ConsultationDatatableController@consultationFee')->name('consultation.fee.index');
