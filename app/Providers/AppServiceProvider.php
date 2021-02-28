@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 
+use App\Models\Appointment;
 use App\Models\Clinic;
 use App\Models\Consultation;
 use App\Models\ConsultationCategory;
@@ -60,7 +61,8 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['admin.appointments.index'],function($view){
             $clinics = Clinic::all();
             $doctors = Doctor::all();
-            $view->with(['clinics'=> $clinics, 'doctors' => $doctors]);
+            $statuses = Appointment::$texts;
+            $view->with(['clinics'=> $clinics, 'doctors' => $doctors, 'statuses' => $statuses]);
         });
             View::composer(['doctor.modals.consultation'],function($view){
                 if (auth()->user()->isDoctor()) {

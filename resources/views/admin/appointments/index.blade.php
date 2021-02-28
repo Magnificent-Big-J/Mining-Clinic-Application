@@ -43,6 +43,17 @@
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
+                                    <select name="status" id="status" class="form-control">
+                                        @foreach($statuses as $key=> $status)
+                                            <option value="{{$key}}">{{$status}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="date" name="date" id="appointment-date" class="form-control">
+
+                                </div>
+                                <div class="col-lg-3">
                                     <div class="form-group">
                                         <button type="button" class="btn btn-primary" id="filter-appointments">Filter</button>
                                     </div>
@@ -91,6 +102,11 @@
                 theme: "classic",
                 width: "resolve"
             });
+            $('#status').select2({
+                theme: "classic",
+                width: "resolve"
+            });
+            todaysDate();
             fetch_data();
             function fetch_data(){
                 let clinic = $('#clinic').val();
@@ -102,7 +118,9 @@
                         url: `appointments-data/${clinic}/app/${doctor}`,
                         type:"POST",
                         data:{
-                            "_token": "{{ csrf_token() }}"
+                            "_token": "{{ csrf_token() }}",
+                            "status": $('#status').val(),
+                            "appointment_date": $('#appointment-date').val(),
                         }
                     },
 
@@ -129,6 +147,10 @@
                 $('#appointments').DataTable().destroy();
                 fetch_data();
             })
+            function todaysDate()
+            {
+                $('#appointment-date').val(new Date().toISOString().substring(0, 10));
+            }
         });
     </script>
 @endsection

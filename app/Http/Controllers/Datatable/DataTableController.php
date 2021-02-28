@@ -107,6 +107,8 @@ class DataTableController extends Controller
         $appointments = Appointment::whereDate('appointment_date', '>=', Carbon::now())
             ->where('doctor_id', '=',$doctor)
             ->where('clinic_id', '=', $clinic)
+            ->where('status', '=', \request()->status)
+            ->where('appointment_date', '=', \request()->appointment_date)
             ->get();
 
         return DataTables::of($appointments)
