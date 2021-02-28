@@ -13,6 +13,7 @@ $factory->define(Appointment::class, function (Faker $faker) {
         'doctor_id' => rand(1,400),
         'appointment_date' => Carbon::now(),
         'appointment_time' => Carbon::now()->addHours(1),
-        'status' => Appointment::PENDING_STATUS
+        'status' => Appointment::PENDING_STATUS,
+        'clinic_id' => rand(1,4),
     ];
 });

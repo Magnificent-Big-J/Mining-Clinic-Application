@@ -37,6 +37,7 @@ class BookingCreateRequest extends FormRequest
         return [
             'appointment_date' => 'required',
             'doctor' => 'required',
+            'clinic' => 'required',
         ];
     }
     public function createBooking()
@@ -59,7 +60,8 @@ class BookingCreateRequest extends FormRequest
                 'doctor_id' => $this->doctor,
                 'appointment_date' => Carbon::parse($this->appointment_date),
                 'appointment_time'=> $this->timeSlot,
-                'status' => Appointment::PENDING_STATUS
+                'status' => Appointment::PENDING_STATUS,
+               'clinic_id' => $this->clinic,
             ]);
 
 

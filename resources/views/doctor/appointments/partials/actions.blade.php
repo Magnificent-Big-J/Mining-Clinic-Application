@@ -5,6 +5,12 @@
 <a href="{{route('doctor.refer.patient', $appointment->id)}}" class="btn btn-sm bg-warning-light">
     <i class="far fa-eye"></i> Refer
 </a>
+
+@if ($appointment->appointmentAssessment->count() === 0)
+    <a data-toggle="modal" href="#doctor-consultation-modal" id="{{$appointment->id}}" class="btn btn-sm bg-info-light capture-doctor-consultation">
+        <i class="far fa-eye"></i> Select Consultations
+    </a>
+@endif
 @if($appointment->status === \App\Models\Appointment::PENDING_STATUS)
     <form action="{{route('doctor.appointment.update', $appointment->id)}}" method="post">
         <input type="hidden" name="status" value="{{\App\Models\Appointment::ACCEPTED_STATUS}}">

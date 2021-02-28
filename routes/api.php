@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('consultation-category/{consultationCategory}', 'Api\ConsultationCategoryController@edit');
-Route::get('add-prescription/{doctor}/{count}', 'Api\PrescriptionController@addPrescription');
+Route::get('add-prescription/{clinic}/{count}', 'Api\PrescriptionController@addPrescription');
 Route::get('questionnaire', 'Api\QuestionnaireController@questionnaire');
 Route::get('specialities-form', 'Api\SpecialistController@specialityForm');
 Route::get('questionnaire/{count}/specialities', 'Api\QuestionnaireController@questionnaireWithSpecialities');
@@ -56,3 +56,5 @@ Route::post('clinic-product/{clinicProduct}/store', 'Api\ClinicProductController
 Route::put('clinic-product/{clinicProduct}/update', 'Api\ClinicProductController@updateclinicProduct');
 Route::get('clinic-product/{clinicProduct}/show', 'Api\ClinicProductController@show');
 Route::post('click-product-store', 'Api\ClinicProductController@storeClinicProduct');
+//Appointment Consultation
+Route::post('appointment-consultation', 'Api\DoctorController@consultationStore');

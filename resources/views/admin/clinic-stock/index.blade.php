@@ -126,6 +126,7 @@
                     ],
 
                 });
+               $("#clinic").val(clinic);
             }
             $('#search').click(function(){
 

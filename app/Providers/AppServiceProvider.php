@@ -13,6 +13,7 @@ use App\Models\Province;
 use App\Models\Specialist;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use App\Service\Doctor\ConsultationFeeService;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -41,7 +42,8 @@ class AppServiceProvider extends ServiceProvider
         });
         View::composer(['admin.booking.booking', 'admin.booking.reschedule'],function($view){
             $doctors = Doctor::all();
-            $view->with(['doctors'=>$doctors]);
+            $clinics = Clinic::all();
+            $view->with(['doctors'=>$doctors, 'clinics'=> $clinics]);
         });
         View::composer(['admin.consultation.modals.consultation', 'admin.consultation.edit'],function($view){
             $consultationCategories = ConsultationCategory::all();
@@ -55,6 +57,19 @@ class AppServiceProvider extends ServiceProvider
             $clinics = Clinic::all();
             $view->with(['clinics'=> $clinics]);
         });
+        View::composer(['admin.appointments.index'],function($view){
+            $clinics = Clinic::all();
+            $doctors = Doctor::all();
+            $view->with(['clinics'=> $clinics, 'doctors' => $doctors]);
+        });
+            View::composer(['doctor.modals.consultation'],function($view){
+                if (auth()->user()->isDoctor()) {
+                $service = new ConsultationFeeService();
+                $doctor = Doctor::find(auth()->user()->doctor->id);
+                $view->with(['consultationFees'=> $service->consultationFees($doctor)]);
+                }
+            });
+
 
         View::composer('*', function ($view) {
             $view->with(['user' => \auth()->user()]);

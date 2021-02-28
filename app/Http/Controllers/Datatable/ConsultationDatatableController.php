@@ -7,6 +7,7 @@ use App\Models\Consultation;
 use App\Models\ConsultationCategory;
 use App\Models\ConsultationFee;
 use App\Models\Doctor;
+use App\Service\Doctor\ConsultationFeeService;
 use App\Service\NumberFormatService;
 use DataTables;
 
@@ -39,9 +40,9 @@ class ConsultationDatatableController extends Controller
             ->rawColumns(['category_name', 'actions'])
             ->make(true);
     }
-    public function consultationFee(Doctor $doctor)
+    public function consultationFee(Doctor $doctor, ConsultationFeeService $service)
     {
-        $consultationFees = ConsultationFee::where('doctor_id', '=', $doctor->id)->get();
+        $consultationFees = $service->consultationFees($doctor);
 
         return DataTables::of($consultationFees)
             ->addIndexColumn()

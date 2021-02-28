@@ -37,7 +37,7 @@ Route::get('consultation-category-data','Datatable\ConsultationDatatableControll
 Route::get('patient','Datatable\DataTableController@patients')->name('patient.index');
 Route::get('specialist-data','Datatable\DataTableController@specialist')->name('specialist.index');
 Route::get('doctors-data','Datatable\DataTableController@doctors')->name('doctor.index');
-Route::get('appointments-data','Datatable\DataTableController@appointments')->name('appointments.index');
+Route::post('appointments-data/{clinic}/app/{doctor}','Datatable\DataTableController@appointments')->name('appointments.index');
 Route::get('questionnaires-data','Datatable\DataTableController@questionnaires')->name('questionnaires.index');
 Route::get('historic-appointment-data','Datatable\ReportDatatables@historicAppointment')->name('historic.appointment.index');
 Route::get('medical-examination-questions','Api\InternalApiController@getMedicalQuestions')->name('medical.examination.questions');

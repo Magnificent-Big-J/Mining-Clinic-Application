@@ -67,7 +67,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <span id="result"></span>
-                        <input type="hidden" name="doctor" value="{{$user->doctor->id}}" id="doctor">
+                        <input type="hidden" name="clinic" value="{{$appointment->clinic_id}}" id="clinic">
 
                             <input type="hidden" name="appointment" value="{{$appointment->id}}">
                             <table class="table table-hover table-center">
@@ -126,7 +126,7 @@
         $(function () {
             $("#loader").hide();
             let count = 1;
-            let doctor = $('#doctor').val()
+            let clinic = $('#clinic').val()
             loadPrescription();
 
             $('#add-column').click(function (){
@@ -175,12 +175,12 @@
 
 
             function loadPrescription(e) {
-                axios.get(`/api/add-prescription/${doctor}/${count}`)
+                axios.get(`/api/add-prescription/${clinic}/${count}`)
                 .then((response)=> {
 
                     $('#dynamic-column').append(response.data);
 
-                    $('#doctor-product-prescription_' + count).select2({
+                    $('#clinic-product-prescription_' + count).select2({
                         theme: "classic",
                         width: "resolve"
                     });

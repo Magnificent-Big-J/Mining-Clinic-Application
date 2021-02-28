@@ -136,16 +136,16 @@
             function getSlots(doctor, appointment_date)
             {
                 if (doctor.length > 0 && appointment_date.length > 0) {
-                $("#time-slot").html('<img src="{{ asset('Images/805.gif') }}" alt=""/>')
-                axios.get("{{route('admin.doctor.unbooked.slots')}}", {params : {doctor, appointment_date}})
-                    .then((response)=>{
+                    $("#time-slot").html('<img src="{{ asset('Images/805.gif') }}" alt=""/>')
+                    axios.get("{{route('admin.doctor.unbooked.slots')}}", {params : {doctor, appointment_date}})
+                        .then((response)=>{
 
-                        $('#time-slot').html(response.data);
-                    })
-                    .catch((error)=>{
-                        console.log(error);
-                        $("#time-slot").html('');
-                    })
+                            $('#time-slot').html(response.data);
+                        })
+                        .catch((error)=>{
+                            console.log(error);
+                            $("#time-slot").html('');
+                        })
                 }
             }
         });

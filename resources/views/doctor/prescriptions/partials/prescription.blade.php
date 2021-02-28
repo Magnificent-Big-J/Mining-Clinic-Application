@@ -1,8 +1,8 @@
 <tr>
     <td>
-        <select name="doctor_products[]" id="doctor-product-prescription_{{$count}}" style="width: 100%" class="form-control select2-width" required>
-            @foreach($doctorProducts as $doctorProduct)
-                <option  value="{{$doctorProduct->id}}">{{$doctorProduct->product->product_code}} {{$doctorProduct->product->product_name}}</option>
+        <select name="clinic_products[]" id="clinic-product-prescription_{{$count}}" style="width: 100%" class="form-control select2-width" required>
+            @foreach($clinicProducts as $clinicProduct)
+                <option  value="{{$clinicProduct->id}}">{{$clinicProduct->product->product_code}} {{$clinicProduct->product->product_name}}</option>
             @endforeach
         </select>
     </td>

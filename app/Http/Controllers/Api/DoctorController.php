@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DoctorCreateRequest;
+use App\Models\AppointmentAssessment;
 use App\Service\Doctor\DoctorService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -37,6 +39,28 @@ class DoctorController extends Controller
         return response()->json([
             'success'  => 'Doctor record successfully',
             'url' => route('admin.doctors.index')
+        ]);
+    }
+    public function consultationStore(Request $request)
+    {
+        $consultations = $request->consultations;
+
+        for($i = 0, $iMax = count($consultations); $i < $iMax; $i++)
+        {
+            $data = array(
+                'consultation_fee_id' => $consultations[$i],
+                'appointment_id'  => $request->appointment,
+                'assessment_date' => Carbon::now()
+            );
+
+            $insert_data[] = $data;
+        }
+
+        AppointmentAssessment::insert($insert_data);
+
+        return response()->json([
+            'success'  => 'Appointment Consultation successfully recorded',
+            'url' => route('admin.appointments.index')
         ]);
     }
 }

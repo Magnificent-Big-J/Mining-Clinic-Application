@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Clinic;
+use App\Models\ClinicProduct;
 use App\Models\Doctor;
 use App\Models\DoctorProduct;
 use App\Models\Prescription;
@@ -11,16 +13,16 @@ use Validator;
 
 class PrescriptionController extends Controller
 {
-    public function addPrescription(Doctor $doctor, $count)
+    public function addPrescription(Clinic $clinic, $count)
     {
-        $doctorProducts = DoctorProduct::where('doctor_id', '=', $doctor->id)->get();
+        $clinicProducts = ClinicProduct::where('clinic_id', '=', $clinic->id)->get();
 
-        return view('doctor.prescriptions.partials.prescription', compact('doctorProducts', 'count'));
+        return view('doctor.prescriptions.partials.prescription', compact('clinicProducts', 'count'));
     }
     public function store(Request $request)
     {
         $rules = array(
-            'doctor_products.*'  => 'required',
+            'clinic_products.*'  => 'required',
             'quantity.*'  => 'required',
             'days.*'  => 'required',
         );
@@ -33,11 +35,11 @@ class PrescriptionController extends Controller
             ]);
         }
 
-        $doctor_products = $request->doctor_products;
-        for($i = 0, $iMax = count($doctor_products); $i < $iMax; $i++)
+        $clinic_products = $request->clinic_products;
+        for($i = 0, $iMax = count($clinic_products); $i < $iMax; $i++)
         {
             $data = array(
-                'doctor_product_id' => $doctor_products[$i],
+                'clinic_product_id' => $clinic_products[$i],
                 'appointment_id'  => $request->appointment,
                 'days'  => $request->days[$i],
                 'quantity'  => $request->quantity[$i],

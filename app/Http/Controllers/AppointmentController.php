@@ -90,11 +90,18 @@ class AppointmentController extends Controller
             session()->flash('success','Appointment has been declined');
             AppointmentDeclined::dispatch($appointment);
         } else if (intval($appointment->status) === Appointment::DONE_STATUS) {
-            if ($appointment->patient->has_medical_aid) {
-                SendInvoiceToMedicalAid::dispatch($appointment, $appointment->patient->medicalAid, $appointment->patient->medicalAid[0]->medical_email_address);
+            if ($appointment->appointmentAssessment->count() > 0) {
+                if ($appointment->patient->has_medical_aid) {
+                    SendInvoiceToMedicalAid::dispatch($appointment, $appointment->patient->medicalAid, $appointment->patient->medicalAid[0]->medical_email_address);
+                } else {
+                    SendInvoiceToPatient::dispatch($appointment);
+                }
             } else {
-                SendInvoiceToPatient::dispatch($appointment);
+                $appointment->status = Appointment::ACCEPTED_STATUS;
+                $appointment->save();
+                session()->flash('success','Please select all consultation(s) for this appointment');
             }
+
         }
 
         return redirect()->back();

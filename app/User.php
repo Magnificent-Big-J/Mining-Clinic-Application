@@ -72,11 +72,11 @@ class User extends Authenticatable
     {
         return $this->hasRole(self::SUPER_ADMIN_USER);
     }
-    public function isDoctor()
+    public function isDoctor(): bool
     {
         return $this->hasRole(self::DOCTOR_USER);
     }
-    public function isAdminDoctor()
+    public function isAdminDoctor(): bool
     {
         return $this->hasRole(self::ADMIN_DOCTOR_USER);
     }
