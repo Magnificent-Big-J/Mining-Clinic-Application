@@ -14,6 +14,7 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::get('doctor-product/{doctor}/stock', 'DoctorProductController@index')->name('doctor.product.index');
     Route::get('consultation/{doctor}/fee', 'ConsultationFeeController@index')->name('consultation.fee.index');
     Route::resource('patients','PatientController');
+    Route::resource('admin-logins','AdminLoginController');
     Route::get('patient/{patient}/appointments','PatientController@appointmentHistory')->name('patient.appointments');
     Route::resource('medicalAid','MedicalAidController');
     Route::resource('consultation','ConsultationController');

@@ -7,8 +7,6 @@ use App\Models\Doctor;
 use App\Models\Patient;
 use App\Service\AppointmentService;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -35,6 +33,8 @@ class HomeController extends Controller
             $doctors = Doctor::limit(5)->get();
             $patients = Patient::limit(5)->get();
             $appointments = Appointment::whereDate('appointment_date', '>=', Carbon::now())->limit(10)->orderBy('id','desc')->get();
+
+
 
             return  view('admin.dashboard.dashboard', compact('stats', 'doctors', 'patients', 'appointments'));
         } else if (auth()->user()->isDoctor()){

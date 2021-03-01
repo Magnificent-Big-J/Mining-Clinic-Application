@@ -115,10 +115,14 @@ class AppointmentController extends Controller
      */
     public function destroy(Appointment $appointment)
     {
-        SendDeletedAppointment::dispatch($appointment);
-        session()->flash('success','Appointment has been deleted');
+        if ($appointment->status !== Appointment::ACCEPTED_STATUS || $appointment->status !== Appointment::DONE_STATUS) {
+            SendDeletedAppointment::dispatch($appointment);
+            session()->flash('success','Appointment has been deleted');
+            $appointment->delete();
+        } else {
+            session()->flash('error','Appointment cannot be deleted');
+        }
 
-        $appointment->delete();
 
         return redirect()->back();
     }

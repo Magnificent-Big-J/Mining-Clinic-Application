@@ -64,14 +64,18 @@ class AppServiceProvider extends ServiceProvider
             $statuses = Appointment::$texts;
             $view->with(['clinics'=> $clinics, 'doctors' => $doctors, 'statuses' => $statuses]);
         });
-            View::composer(['doctor.modals.consultation'],function($view){
-                if (auth()->user()->isDoctor()) {
+            View::composer(['admin.modals.login'],function($view){
+                $clinics = Clinic::all();
+                $view->with(['clinics'=> $clinics]);
+
+            });
+        View::composer(['doctor.modals.consultation'],function($view){
+            if (auth()->user()->isDoctor()) {
                 $service = new ConsultationFeeService();
                 $doctor = Doctor::find(auth()->user()->doctor->id);
                 $view->with(['consultationFees'=> $service->consultationFees($doctor)]);
-                }
-            });
-
+            }
+        });
 
         View::composer('*', function ($view) {
             $view->with(['user' => \auth()->user()]);
