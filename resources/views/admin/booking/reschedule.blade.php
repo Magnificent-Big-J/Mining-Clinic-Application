@@ -50,7 +50,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">Doctor :</label>
                                         <div class="col-lg-9">
-                                          <p>{{$appointment->user->full_names}}</p>
+                                          <p>{{$appointment->doctor->user->full_names}}</p>
                                             <input type="hidden" name="doctor" id="doctor" value="{{$appointment->doctor->id}}">
                                         </div>
                                     </div>

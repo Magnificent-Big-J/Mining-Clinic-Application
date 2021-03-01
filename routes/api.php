@@ -21,7 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('consultation-category/{consultationCategory}', 'Api\ConsultationCategoryController@edit');
-Route::get('add-prescription/{doctor}/{count}', 'Api\PrescriptionController@addPrescription');
+Route::get('add-prescription/{clinic}/{count}', 'Api\PrescriptionController@addPrescription');
 Route::get('questionnaire', 'Api\QuestionnaireController@questionnaire');
 Route::get('specialities-form', 'Api\SpecialistController@specialityForm');
 Route::get('questionnaire/{count}/specialities', 'Api\QuestionnaireController@questionnaireWithSpecialities');
@@ -45,3 +45,16 @@ Route::post('patient-medical-aid-form', 'Api\MedicalAidController@store');
 Route::get('patient-medical-aid/{medicalAid}', 'Api\MedicalAidController@getMedicalAid');
 Route::post('patient-medical-aid/{medicalAid}/update', 'Api\MedicalAidController@update');
 
+//Clinic
+Route::post('mining-clinic-form', 'Api\ClinicController@store');
+Route::post('mining-clinic-form/{clinic}/update', 'Api\ClinicController@update');
+Route::get('mining-clinic-form/{clinic}', 'Api\ClinicController@show');
+//Clinic Product
+Route::get('clinic-product/{clinicProduct}/product', 'Api\ClinicProductController@getClinicProduct');
+Route::get('clinic-product/{clinicProduct}/product-name', 'Api\ClinicProductController@productName');
+Route::post('clinic-product/{clinicProduct}/store', 'Api\ClinicProductController@storeStock');
+Route::put('clinic-product/{clinicProduct}/update', 'Api\ClinicProductController@updateclinicProduct');
+Route::get('clinic-product/{clinicProduct}/show', 'Api\ClinicProductController@show');
+Route::post('click-product-store', 'Api\ClinicProductController@storeClinicProduct');
+//Appointment Consultation
+Route::post('appointment-consultation', 'Api\DoctorController@consultationStore');

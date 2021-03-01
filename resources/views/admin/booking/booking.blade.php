@@ -66,6 +66,24 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label">Mining Clinic :<strong class="text-danger">*</strong></label>
+                                        <div class="col-lg-9">
+
+                                            <select class="js-example-basic-single form-control" name="clinic" id="clinic" required>
+                                                <option value="">Select A Mining Clinic</option>
+
+                                                @foreach($clinics as $clinic)
+                                                    <option value="{{$clinic->id}}">{{$clinic->mininig_name}} {{$clinic->clinic_name}}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('clinic')
+                                            <span class="text-danger" role="alert">
+                                                         <strong>{{ $message }}</strong>
+                                                        </span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <div class="form-group row" id="time-slot">
 
                                     </div>

@@ -101,10 +101,15 @@ class DataTableController extends Controller
             ->rawColumns(['title','first_name', 'last_name','specialist', 'view', 'edit', 'consultation'])
             ->make(true);
     }
-    public function appointments()
+    public function appointments($clinic, $doctor)
     {
+
         $appointments = Appointment::whereDate('appointment_date', '>=', Carbon::now())
-                ->get();
+            ->where('doctor_id', '=',$doctor)
+            ->where('clinic_id', '=', $clinic)
+            ->where('status', '=', \request()->status)
+            ->where('appointment_date', '=', \request()->appointment_date)
+            ->get();
 
         return DataTables::of($appointments)
             ->addIndexColumn()

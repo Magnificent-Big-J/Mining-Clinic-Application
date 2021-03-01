@@ -25,7 +25,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
-
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <!--[if lt IE 9]>
     <script src="{{asset('admin/assets/js/html5shiv.min.js')}}"></script>
     <script src="{{asset('admin/assets/js/respond.min.js')}}"></script>
@@ -52,7 +52,7 @@
 
 </div>
 <!-- /Main Wrapper -->
-
+@include('admin.modals.login')
 <!-- jQuery -->
 <script src="{{asset('admin/assets/js/jquery-3.2.1.min.js')}}"></script>
 <script src="{{asset('js/app.js')}}"></script>
@@ -69,6 +69,34 @@
 
 <!-- Custom JS -->
 <script  src="{{asset('admin/assets/js/script.js')}}"></script>
+@if (!auth()->user()->userLoggedInToday())
+    <script>
+            $(function (){
+                $('#clinic-login-modal').modal('show')
+            })
+    </script>
+@endif
+<script>
+    $(function (){
+        $('#loader').hide();
+        $(document).on('submit', '#clinic-login-form', function (e) {
+            e.preventDefault();
+            $('#loader').show();
+            axios.post('admin-logins', {'clinic': $('#clinic').val()})
+            .then((response)=>{
+                Swal.fire({
+                    icon: 'success',
+                    title: 'OK',
+                    text: response.data.success
+                }).then(function() {
+                    $('#clinic-login-modal').modal('hide')
+                });
+
+            });
+        });
+
+    });
+</script>
 @yield('scripts')
 </body>
 

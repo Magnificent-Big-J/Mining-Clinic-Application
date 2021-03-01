@@ -20,6 +20,7 @@ Auth::routes(['register' => false]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('getProvince','Datatable\DataTableController@province')->name('get.province');
+Route::get('clinic-data','Datatable\ClinicController@index')->name('clinic.index.data');
 Route::get('doctor-referrals-to-another','Datatable\ReferralController@referrals')->name('doctor.referrals.to.another');
 Route::get('referrals-to-doctor','Datatable\ReferralController@myReferred')->name('doctor.referrals');
 Route::get('doctor-historic-appointments','Datatable\DoctorAppointmentController@appointments')->name('doctor.historic.index');
@@ -28,6 +29,7 @@ Route::get('all-users','Datatable\UserController@users')->name('users.index');
 Route::get('product-categories','Datatable\ProductDatatableController@productCategories')->name('product.categories.index');
 Route::get('doctor-products/{doctor}','Datatable\DoctorProductController@doctorProduct')->name('doctor.products.index');
 Route::post('doctor-stock/{doctor}/data','Datatable\ProductStockController@doctorProduct')->name('doctor.stock.data.index');
+Route::post('clinic-product/{clinic}/data','Datatable\ClinicProductController@index')->name('clinic.product.data.index');
 Route::get('product-data','Datatable\ProductDatatableController@Product')->name('product.index');
 Route::get('consultation-data','Datatable\ConsultationDatatableController@consultation')->name('consultation.consultation.index');
 Route::get('consultation-fee-data/{doctor}','Datatable\ConsultationDatatableController@consultationFee')->name('consultation.fee.index');
@@ -35,7 +37,7 @@ Route::get('consultation-category-data','Datatable\ConsultationDatatableControll
 Route::get('patient','Datatable\DataTableController@patients')->name('patient.index');
 Route::get('specialist-data','Datatable\DataTableController@specialist')->name('specialist.index');
 Route::get('doctors-data','Datatable\DataTableController@doctors')->name('doctor.index');
-Route::get('appointments-data','Datatable\DataTableController@appointments')->name('appointments.index');
+Route::post('appointments-data/{clinic}/app/{doctor}','Datatable\DataTableController@appointments')->name('appointments.index');
 Route::get('questionnaires-data','Datatable\DataTableController@questionnaires')->name('questionnaires.index');
 Route::get('historic-appointment-data','Datatable\ReportDatatables@historicAppointment')->name('historic.appointment.index');
 Route::get('medical-examination-questions','Api\InternalApiController@getMedicalQuestions')->name('medical.examination.questions');

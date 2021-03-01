@@ -109,9 +109,7 @@
                 <div class="card ">
                     <div class="card-header">
                         <h4 class="card-title">Appointment Assessment Information</h4>
-                        <a href="#" class="btn btn-sm bg-info-light" data-toggle="modal" data-target="#appointment-consultation">
-                            <i class="far fa-eye"></i> View
-                        </a>
+
                     </div>
                     <div class="card-body">
                         <h4> <i class="far fa-clock"></i>{{$appointment->appointment_date}} {{$appointment->appointment_time}}</h4>
@@ -191,7 +189,7 @@
                                     <tbody>
                                     @foreach($appointment->prescriptions as $prescription)
                                         <tr>
-                                            <td>{{$prescription->doctorProduct->product->product_name}}</td>
+                                            <td>{{$prescription->clinicProduct->product->product_name}}</td>
                                             <td>{{$prescription->days}}</td>
                                             <td>{{$prescription->quantity}}</td>
                                             <td>{{$prescription->usage}}</td>
@@ -215,11 +213,5 @@
         </div>
     </div>
 @endsection
-@section('scripts')
-    <script src="{{asset('js/select2.min.js')}}"></script>
-    <script>
 
-    </script>
-@endsection
 
-@include('doctor.appointments.modals.consultation')

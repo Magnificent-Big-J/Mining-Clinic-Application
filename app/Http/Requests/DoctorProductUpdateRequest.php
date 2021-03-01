@@ -28,10 +28,10 @@ class DoctorProductUpdateRequest extends FormRequest
             'price' => 'required',
         ];
     }
-    public function updateDoctorProduct($doctorProduct)
+    public function updateDoctorProduct($clinicProduct)
     {
-        $doctorProduct->price = $this->price;
-        $doctorProduct->threshold = $this->threshold;
-        $doctorProduct->save();
+        $clinicProduct->price = $this->price;
+        $clinicProduct->threshold = $this->threshold;
+        $clinicProduct->save();
     }
 }

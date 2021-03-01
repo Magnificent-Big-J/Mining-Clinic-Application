@@ -1,4 +1,9 @@
 @extends('layouts.admindatatables')
+@section('styles')
+    <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+@endsection
 @section('content')
     <div class="content container-fluid">
 
@@ -21,6 +26,40 @@
                 <!-- Recent Orders -->
                 <div class="card">
                     <div class="card-body">
+                        <form >
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <select name="clinic" id="clinic" class="form-control">
+                                        @foreach($clinics as $clinic)
+                                            <option value="{{$clinic->id}}">{{$clinic->mininig_name}} {{$clinic->clinic_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <select name="doctors" id="doctors" class="form-control">
+                                        @foreach($doctors as $doctor)
+                                            <option value="{{$doctor->id}}">{{$doctor->user->full_names}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <select name="status" id="status" class="form-control">
+                                        @foreach($statuses as $key=> $status)
+                                            <option value="{{$key}}">{{$status}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="date" name="date" id="appointment-date" class="form-control">
+
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-primary" id="filter-appointments">Filter</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                         <div class="table-responsive">
 
                             <table class="table table-hover table-center mb-0" id="appointments">
@@ -52,31 +91,66 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="{{asset('js/select2.min.js')}}"></script>
     <script>
         $(function (){
-            $('#appointments').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: {
-                    url: "{{ route('appointments.index') }}",
-                },
-
-                columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'doctor', name: 'doctor'},
-                    {data: 'specialist', name: 'specialist'},
-                    {data: 'patient', name: 'patient'},
-                    {data: 'appointment_date', name: 'appointment_date'},
-                    {data: 'appointment_time', name: 'appointment_time'},
-                    {data: 'appointment_status', name: 'appointment_status'},
-                    {data: 'appointment', name: 'appointment', orderable: true, searchable: true},
-                    {data: 'xray', name: 'xray', orderable: true, searchable: true},
-                    {data: 'delete', name: 'delete', orderable: true, searchable: true},
-
-
-
-                ]
+            $('#clinic').select2({
+                theme: "classic",
+                width: "resolve"
             });
+            $('#doctors').select2({
+                theme: "classic",
+                width: "resolve"
+            });
+            $('#status').select2({
+                theme: "classic",
+                width: "resolve"
+            });
+            todaysDate();
+            fetch_data();
+            function fetch_data(){
+                let clinic = $('#clinic').val();
+                let doctor = $('#doctors').val();
+                $('#appointments').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: {
+                        url: `appointments-data/${clinic}/app/${doctor}`,
+                        type:"POST",
+                        data:{
+                            "_token": "{{ csrf_token() }}",
+                            "status": $('#status').val(),
+                            "appointment_date": $('#appointment-date').val(),
+                        }
+                    },
+
+                    columns: [
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                        {data: 'doctor', name: 'doctor'},
+                        {data: 'specialist', name: 'specialist'},
+                        {data: 'patient', name: 'patient'},
+                        {data: 'appointment_date', name: 'appointment_date'},
+                        {data: 'appointment_time', name: 'appointment_time'},
+                        {data: 'appointment_status', name: 'appointment_status'},
+                        {data: 'appointment', name: 'appointment', orderable: true, searchable: true},
+                        {data: 'xray', name: 'xray', orderable: true, searchable: true},
+                        {data: 'delete', name: 'delete', orderable: true, searchable: true},
+
+                    ]
+
+                });
+                $('#clinic').val(clinic)
+                $('#doctor').val(doctor)
+            }
+            $('#filter-appointments').click(function(){
+
+                $('#appointments').DataTable().destroy();
+                fetch_data();
+            })
+            function todaysDate()
+            {
+                $('#appointment-date').val(new Date().toISOString().substring(0, 10));
+            }
         });
     </script>
 @endsection

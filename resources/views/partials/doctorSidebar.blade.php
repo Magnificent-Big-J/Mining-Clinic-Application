@@ -35,12 +35,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('doctor.profile.settings')}}">
-                        <i class="fas fa-user-cog"></i>
-                        <span>Profile Settings</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{route('doctor.all.appointments')}}">
                         <i class="fas fa-calendar-check"></i>
                         <span>Appointments History</span>
@@ -56,6 +50,12 @@
                     <a href="{{route('doctor.my.referrals')}}">
                         <i class="fa fa-fast-forward"></i>
                         <span>My Referrals</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('doctor.profile.settings')}}">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Profile Settings</span>
                     </a>
                 </li>
                 <li>

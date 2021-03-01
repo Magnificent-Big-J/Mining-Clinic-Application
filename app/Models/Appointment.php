@@ -14,11 +14,13 @@ use Illuminate\Support\Collection;
  * @property int $id
  * @property int $patient_id
  * @property int $doctor_id
+ * @property int $clinic_id
  * @property date $appointment_date
  * @property time $appointment_time
  * @property int $status
  * @property Doctor $doctor
  * @property Patient $patient
+ * @property Clinic $clinic
  * @property Sales[]|Collection $sales
  * @property Prescription[]|Collection $prescriptions
  * @property Document[]|Collection $documents
@@ -41,12 +43,16 @@ class Appointment extends Model
         self::REFERRED_STATUS => 'Referred',
     ];
     protected $fillable = [
-        'patient_id', 'doctor_id', 'appointment_date', 'appointment_time', 'status'
+        'patient_id', 'doctor_id', 'appointment_date', 'appointment_time', 'status', 'clinic_id'
     ];
 
     public function doctor(): BelongsTo
     {
         return $this->belongsTo(Doctor::class);
+    }
+    public function clinic(): BelongsTo
+    {
+        return $this->belongsTo(Clinic::class);
     }
     public function patient(): BelongsTo
     {

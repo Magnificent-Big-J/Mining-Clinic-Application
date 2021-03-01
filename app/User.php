@@ -3,9 +3,11 @@
 namespace App;
 
 use App\Models\Admin;
+use App\Models\AdminLogin;
 use App\Models\CaseManagement;
 use App\Models\CaseSession;
 use App\Models\Doctor;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -72,11 +74,11 @@ class User extends Authenticatable
     {
         return $this->hasRole(self::SUPER_ADMIN_USER);
     }
-    public function isDoctor()
+    public function isDoctor(): bool
     {
         return $this->hasRole(self::DOCTOR_USER);
     }
-    public function isAdminDoctor()
+    public function isAdminDoctor(): bool
     {
         return $this->hasRole(self::ADMIN_DOCTOR_USER);
     }
@@ -91,5 +93,16 @@ class User extends Authenticatable
     public function medicalRecords(): HasMany
     {
         return $this->hasMany(MedicalRecord::class);
+    }
+    public function userLoggedInToday(): bool
+    {
+        $loggedIn = AdminLogin::where('user_id', '=', $this->id)
+            ->whereDate('log_on_date', '=', Carbon::now())
+            ->first();
+        if ($loggedIn) {
+            return true;
+        } else {
+            return  false;
+        }
     }
 }

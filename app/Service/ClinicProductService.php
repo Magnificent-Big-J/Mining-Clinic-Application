@@ -3,16 +3,17 @@
 
 namespace App\Service;
 
-use App\Models\DoctorProduct;
+use App\Models\ClinicProduct;
+
 use App\Models\ProductStock;
 use Carbon\Carbon;
 
-class DoctorProductService
+class ClinicProductService
 {
-    public static function recordExists(int $doctor, int $product) : bool
+    public static function recordExists(int $clinic, int $product) : bool
     {
-        $doctorProduct = DoctorProduct::where('product_id', '=', $product)
-            ->where('doctor_id', '=', $doctor)
+        $doctorProduct = ClinicProduct::where('product_id', '=', $product)
+            ->where('clinic_id', '=', $clinic)
             ->first();
 
         if ($doctorProduct) {
@@ -21,9 +22,9 @@ class DoctorProductService
 
         return  false;
     }
-    public static function stockCaptured(string $date, int $product)
+    public static function stockCaptured(string $date, int $product): bool
     {
-        $productStock = ProductStock::where('doctor_product_id', '=', $product)
+        $productStock = ProductStock::where('clinic_product_id', '=', $product)
             ->where('stock_date', '=', Carbon::parse($date))
             ->first();
 
@@ -35,8 +36,8 @@ class DoctorProductService
     }
     public static function getData(array $range, int $doctor)
     {
-       return  ProductStock::whereHas('doctorProduct', function ($query) use($doctor){
-            $query->where('doctor_id', '=', $doctor);
+       return  ProductStock::whereHas('clinicProduct', function ($query) use($doctor){
+            $query->where('clinic_id', '=', $doctor);
         })
             ->whereBetween('stock_date', $range)
             ->get();

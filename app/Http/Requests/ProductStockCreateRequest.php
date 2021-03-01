@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\ProductStock;
-use App\Service\DoctorProductService;
+use App\Service\ClinicProductService;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -32,11 +32,11 @@ class ProductStockCreateRequest extends FormRequest
         ];
     }
 
-    public function createStock($doctorProduct)
+    public function createStock($clinicProduct)
     {
-        $doctorProduct->quantity += $this->product_quantity;
+        $clinicProduct->quantity += $this->product_quantity;
 
-        if (DoctorProductService::stockCaptured($this->stock_date, $doctorProduct->id)) {
+        if (ClinicProductService::stockCaptured($this->stock_date, $clinicProduct->id)) {
 
            /* $productStock = ProductStock::where('stock_date', '=', $this->stock_date)->get();
             if ($productStock[0]->stock_date->equalTo($doctorProduct->created_at) && $doctorProduct->quantity == $this->product_quantity) {
@@ -49,11 +49,11 @@ class ProductStockCreateRequest extends FormRequest
 
             return 'Stock has been updated.';
         } else {
-            $doctorProduct->save();
+            $clinicProduct->save();
             ProductStock::create([
                 'quantity' => $this->product_quantity,
                 'stock_date' => Carbon::parse($this->stock_date),
-                'doctor_product_id' => $doctorProduct->id
+                'clinic_product_id' => $clinicProduct->id
             ]);
             return 'Stock Successfully created';
         }
