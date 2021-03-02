@@ -33,7 +33,7 @@ class DispenseMedicineController extends Controller
         $insert_data = [];
 
         foreach ($appointment->prescriptions as $prescription) {
-            $result = DispenseMedicineService::calculate($prescription->doctor_product_id, $prescription->quantity);
+            $result = DispenseMedicineService::calculate($prescription->clinic_product_id, $prescription->quantity);
             if ($result['shouldCount']) {
                 $insert_data[] = [
                     'appointment_id' => $prescription->appointment->id,
@@ -41,6 +41,7 @@ class DispenseMedicineController extends Controller
                     'quantity' => $result['quantity'],
                     'sale_date' => Carbon::now()
                 ];
+
             }
         }
 
@@ -51,7 +52,7 @@ class DispenseMedicineController extends Controller
                 Mail::to($medicalAid[0]->medical_email_address)->send(new MedicalAidInvoince($appointment, $medicalAid));
             }
         }
-
+        session()->flash('success', 'Medication,  is successfully dispensed');
        return redirect()->route('admin.medicine.dispensed', $appointment->id);
     }
 

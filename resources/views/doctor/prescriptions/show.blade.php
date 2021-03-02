@@ -75,7 +75,7 @@
                                 <tbody>
                                     @foreach($appointment->prescriptions as $prescription)
                                         <tr>
-                                            <td>{{$prescription->doctorProduct->product->product_name}}</td>
+                                            <td>{{$prescription->clinicProduct->product->product_name}}</td>
                                             <td>{{$prescription->days}}</td>
                                             <td>{{$prescription->quantity}}</td>
                                             <td>{{$prescription->usage}}</td>
