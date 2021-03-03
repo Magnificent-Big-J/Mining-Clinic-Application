@@ -121,6 +121,12 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
+        if ($doctor->appointments->count()){
+            session()->flash('error', 'Doctor cannot be deleted.');
+        } else {
+            session()->flash('success', 'Doctor successfully deleted.');
+        }
 
+        return redirect()->back();
     }
 }

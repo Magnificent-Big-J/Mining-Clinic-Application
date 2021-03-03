@@ -36,6 +36,7 @@
                                     <th scope="col">View</th>
                                     <th scope="col">Edit</th>
                                     <th scope="col">Consultation</th>
+                                    <th scope="col">Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -72,6 +73,7 @@
                     {data: 'view', name: 'view', orderable: true, searchable: true},
                     {data: 'edit', name: 'edit', orderable: true, searchable: true},
                     {data: 'consultation', name: 'consultation', orderable: true, searchable: true},
+                    {data: 'delete', name: 'delete', orderable: true, searchable: true},
 
                 ]
             });

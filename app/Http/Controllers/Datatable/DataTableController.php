@@ -97,8 +97,10 @@ class DataTableController extends Controller
             ->addColumn('consultation', function ($row){
                 return view('admin.doctors.partials.consultation_action', compact('row'));
             })
-
-            ->rawColumns(['title','first_name', 'last_name','specialist', 'view', 'edit', 'consultation'])
+            ->addColumn('delete', function ($row){
+                return view('admin.doctors.partials.delete', compact('row'));
+            })
+            ->rawColumns(['title','first_name', 'last_name','specialist', 'view', 'edit', 'consultation', 'delete'])
             ->make(true);
     }
     public function appointments($clinic, $doctor)
