@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         $request->updateUser($user);
 
-        return redirect()->route('admin.user.profile');
+        return redirect()->back();
     }
     public function index()
     {
@@ -38,5 +38,24 @@ class UserController extends Controller
         $request->createAdmin();
 
         return redirect()->route('admin.users.index');
+    }
+    public function edit(User $editUser)
+    {
+        return view('admin.user.edit', compact('editUser'));
+    }
+    public function destroy(User $deleteUser)
+    {
+        if ($deleteUser->isDoctor()) {
+            if ($deleteUser->doctor->appointments->count()) {
+                session()->flash('error', 'Doctor user cannot be deleted.');
+            } else {
+                session()->flash('success', 'Doctor user is successfully deleted.');
+            }
+        } else {
+            $deleteUser->delete();
+            session()->flash('success', 'Admin user is successfully deleted.');
+        }
+
+        return redirect()->back();
     }
 }

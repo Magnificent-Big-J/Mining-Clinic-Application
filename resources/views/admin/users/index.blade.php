@@ -25,7 +25,7 @@
                         <div class="table-responsive">
                             <div>
                                 <a class="btn btn-secondary mb-4"  href="{{route('admin.users.create.admins')}}"><i class="fa fa-plus-circle"></i> Create Admin User</a>
-                                <a class="btn btn-secondary mb-4"  href="{{route('admin.doctor.users.create.admins')}}"><i class="fa fa-plus-circle"></i> Create Doctor Admin User</a>
+                               {{-- <a class="btn btn-secondary mb-4"  href="{{route('admin.doctor.users.create.admins')}}"><i class="fa fa-plus-circle"></i> Create Doctor Admin User</a>--}}
                             </div>
                             <table class="table table-hover table-center mb-0" id="users">
                                 <thead>
@@ -34,6 +34,7 @@
                                     <th>Title</th>
                                     <th>Full Name</th>
                                     <th>Email</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -65,6 +66,7 @@
                     {data: 'title', name: 'title'},
                     {data: 'full_name', name: 'full_name'},
                     {data: 'email', name: 'email'},
+                    {data: 'actions', name: 'actions'},
 
                 ],
             });

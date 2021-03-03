@@ -36,6 +36,8 @@ Route::name('admin.')->middleware(['auth'])->group(function () {
     Route::post('covid-screening}', 'AppointmentScreening@store')->name('covid.screening.store');
     Route::get('user-profile','UserController@show')->name('user.profile');
     Route::put('user-profile/{user}','UserController@update')->name('user.profile.update');
+    Route::get('user-profile/{editUser}/edit','UserController@edit')->name('user.profile.edit');
+    Route::delete('user-profile/{deleteUser}/delete','UserController@destroy')->name('user.profile.destroy');
     Route::get('users', 'UserController@index')->name('users.index');
     Route::get('admin-users', 'UserController@createAdmins')->name('users.create.admins');
     Route::get('doctor-admin-users', 'UserController@create')->name('doctor.users.create.admins');

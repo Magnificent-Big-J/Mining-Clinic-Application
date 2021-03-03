@@ -17,7 +17,10 @@ class UserController extends Controller
             ->addColumn('full_name', function ($row){
                 return view('admin.users.partials.profile', compact('row'));
             })
-            ->rawColumns(['full_name'])
+            ->addColumn('actions', function ($row){
+                return view('admin.users.partials.actions', compact('row'));
+            })
+            ->rawColumns(['full_name','actions'])
             ->make(true);
     }
 }
