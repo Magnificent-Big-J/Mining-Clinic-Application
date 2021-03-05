@@ -31,7 +31,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <div class="mb-4">
-                                <form name="search_form">
+                                <div name="search_form">
                                     <div class="row">
 
                                         <div class="col-lg-3">
@@ -49,9 +49,15 @@
                                         <div class="col-lg-3">
                                             <button type="button" data-toggle="modal" href="#add-clinic-product-modal" class="btn btn-primary add-clinic-product" >Add Mining Clinic Products</button>
                                         </div>
+                                        <div class="col-lg-3 ">
+                                            <form action="{{route('export.mining.download')}}" method="get">
+                                                <input type="hidden" name="clinic_id" id="clinic-id">
+                                                <button type="submit" class="btn btn-primary" >Export</button>
+                                            </form>
+                                        </div>
                                     </div>
 
-                                </form>
+                                </div>
 
                             </div>
                             <table class="table table-hover table-center mb-0" id="clinic-products">
@@ -88,6 +94,7 @@
     <script src="{{asset('js/select2.min.js')}}"></script>
     <script>
         $(function () {
+            $('#clinic-id').val($("#clinic").val());
             $('#loader').hide();
             fetch_data();
             $('#clinic-product-select').select2({
@@ -128,6 +135,10 @@
                 });
                $("#clinic").val(clinic);
             }
+            $('#clinic').change(function (){
+                let clinic = $("#clinic").val();
+                $('#clinic-id').val(clinic);
+            });
             $('#search').click(function(){
 
                 $('#clinic-products').DataTable().destroy();

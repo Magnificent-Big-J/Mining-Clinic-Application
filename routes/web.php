@@ -43,6 +43,7 @@ Route::get('historic-appointment-data','Datatable\ReportDatatables@historicAppoi
 Route::get('medical-examination-questions','Api\InternalApiController@getMedicalQuestions')->name('medical.examination.questions');
 Route::post('medical-examination','Api\InternalApiController@save')->name('medical.examination.save');
 Route::get('doctor-export-data', 'Exports\DoctorStockExportController@exportStocks')->name('export.doctor.download');
+Route::get('clinic-download-stock', 'ClinicProductController@exportMiningProducts')->name('export.mining.download');
 Route::get('medical-record/{patient}/upload', 'Doctor\MyPatientController@create')->name('medical.record.upload');
 Route::get('medical-record/{medicalRecord}/edit', 'MedicalRecordController@edit')->name('medical.record.edit');
 Route::post('medical-record-upload', 'MedicalRecordController@store')->name('medical.record.store');

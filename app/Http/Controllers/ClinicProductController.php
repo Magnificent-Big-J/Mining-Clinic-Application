@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\ClinicProduct;
+use App\Exports\ClinicProductStockExport;
+use App\Models\Clinic;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClinicProductController extends Controller
 {
@@ -81,5 +84,10 @@ class ClinicProductController extends Controller
     public function destroy(ClinicProduct $clinicProduct)
     {
         //
+    }
+    public function exportMiningProducts(Request $request)
+    {
+        $clinic = Clinic::find($request->clinic_id);
+        return  Excel::download(new ClinicProductStockExport($clinic), "{$clinic->clinic_name}.xlsx");
     }
 }

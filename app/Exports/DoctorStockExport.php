@@ -35,7 +35,7 @@ class DoctorStockExport implements FromCollection, WithHeadings, WithMapping, Wi
             'Product Name',
             'Product Quantity',
             'Product Price',
-            'Stock Date',
+
         ];
     }
 
@@ -47,7 +47,6 @@ class DoctorStockExport implements FromCollection, WithHeadings, WithMapping, Wi
             $row->doctorProduct->product->product_name,
             $row->doctorProduct->quantity,
             'R ' . $row->doctorProduct->price,
-            $row->stock_date,
         ];
     }
 

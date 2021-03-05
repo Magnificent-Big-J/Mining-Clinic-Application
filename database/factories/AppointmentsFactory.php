@@ -9,8 +9,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Appointment::class, function (Faker $faker) {
     return [
-        'patient_id' => rand(1,400),
-        'doctor_id' => rand(1,400),
+        'patient_id' => rand(1, 10),
+        'doctor_id' => rand(1, 10),
         'appointment_date' => Carbon::now(),
         'appointment_time' => Carbon::now()->addHours(1),
         'status' => Appointment::PENDING_STATUS,
