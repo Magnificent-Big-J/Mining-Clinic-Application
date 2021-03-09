@@ -64,6 +64,11 @@ class AppServiceProvider extends ServiceProvider
             $statuses = Appointment::$texts;
             $view->with(['clinics'=> $clinics, 'doctors' => $doctors, 'statuses' => $statuses]);
         });
+        View::composer(['doctor.appointments.index'],function($view){
+            $clinics = Clinic::all();
+            $statuses = Appointment::$texts;
+            $view->with(['clinics'=> $clinics,  'statuses' => $statuses]);
+        });
             View::composer(['admin.modals.login'],function($view){
                 $clinics = Clinic::all();
                 $view->with(['clinics'=> $clinics]);

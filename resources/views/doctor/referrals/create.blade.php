@@ -73,7 +73,7 @@
                             <div class="col-lg-9">
                                 <select name="refer_to" id="doctor" style="width: 100%" class="form-control select2-width" required>
                                     @foreach($doctors as $doctor)
-                                        <option  value="{{$doctor->id}}">{{$doctor->entity_name}} </option>
+                                        <option  value="{{$doctor->id}}">{{$doctor->user->full_names}} </option>
                                     @endforeach
                                 </select>
                                 @error('refer_to')

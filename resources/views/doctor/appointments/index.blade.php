@@ -1,5 +1,9 @@
 @extends('layouts.doctor')
 @section('title')Mining Clinic - Doctor Appointments @endsection
+@section('styles')
+
+    <link rel="stylesheet" href="{{asset('css/main.css')}}">
+@endsection
 @section('breadcrumb')
     <div class="breadcrumb-bar">
         <div class="container-fluid">
@@ -25,44 +29,95 @@
                 <h4 class="card-title">Appointments</h4>
             </div>
             <div class="card-body">
-            @forelse($appointments as $appointment)
-                <!-- Appointment List -->
-                    <div class="appointment-list">
-                        <div class="profile-info-widget">
-                            <a href="patient-profile.html" class="booking-doc-img">
-                                <img src="{{asset('/avatar/generic-avatar.png')}}" alt="User Image">
-                            </a>
-                            <div class="profile-det-info">
-                                <h3><a href="#">{{ $appointment->patient->full_name }} </a></h3>
-                                <div class="patient-details">
-                                    <h5><i class="far fa-clock"></i>{{ $appointment->appointment_date }} {{ $appointment->appointment_time }}</h5>
-                                    <h5><i class="fas fa-{{strtolower($appointment->patient->gender)}}"></i> {{ $appointment->patient->gender }}</h5>
-                                    @if($appointment->patient->landline)
-                                        <h5><i class="fas fa-phone"></i>{{ $appointment->patient->landline }}</h5>
-                                    @elseif($appointment->patient->work_number)
-                                        <h5><i class="fas fa-phone"></i>{{ $appointment->patient->work_number }}</h5>
-                                    @endif
-                                    <h5><i class="fas fa-phone"></i>{{ $appointment->patient->cell_number }}</h5>
-                                    <h5 class="mb-0">
-                                        @if((boolean)$appointment->patient->has_medical_aid)
-                                            <i class="fas fa-credit-card"></i>Medical Aid
-                                        @else
-                                            <i class="fas fa-money-bill-alt"></i>Cash Payment
-                                        @endif
-                                    </h5>
-                                </div>
+                <form>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <input type="hidden" name="doctor" id="doctor" value="{{$user->doctor->id}}">
+                            <select name="clinic" id="clinic" class="form-control">
+                                @foreach($clinics as $clinic)
+                                    <option value="{{$clinic->id}}">{{$clinic->mininig_name}} {{$clinic->clinic_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3">
+
+                            <select name="status" id="status" class="form-control">
+                                @foreach($statuses as $key=> $status)
+                                    <option value="{{$key}}">{{$status}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+
+                            <input type="date" name="date" id="appointment-date" class="form-control">
+
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" id="filter">Filter</button>
                             </div>
                         </div>
-                        <div class="appointment-action">
-                            @include('doctor.appointments.partials.actions')
-                        </div>
                     </div>
-                    <!-- /Appointment List -->
-                @empty
-                        <h1>No appointments record(s)</h1>
-                @endforelse
+                </form>
+                <div class="filter-appointments">
+                    <div id="loader"></div>
+                </div>
             </div>
         </div>
     </div>
 @endsection
-
+@section('scripts')
+    <script>
+        $(function (){
+            todayDate();
+            getAppointments();
+            $('#filter').click(function (){
+                $('#loader').show();
+                getAppointments();
+            })
+            $(document).on('click', '.accept-appointment', function (){
+                let appointment = $(this).attr('id');
+                let status = "{{\App\Models\Appointment::ACCEPTED_STATUS}}";
+                sendStatus(appointment, status);
+            });
+            $(document).on('click', '.decline-appointment', function (){
+                let appointment = $(this).attr('id');
+                let status = "{{\App\Models\Appointment::DECLINED_STATUS}}";
+                sendStatus(appointment, status);
+            });
+            $(document).on('click', '.complete-appointment', function (){
+                let appointment = $(this).attr('id');
+                let status = "{{\App\Models\Appointment::DONE_STATUS}}";
+                sendStatus(appointment, status);
+            });
+            function getAppointments()
+            {
+                let doctor = $('#doctor').val();
+                axios.post(`api/filtered-appointments/${doctor}`,{'date': $('#appointment-date').val(), 'clinic': $('#clinic').val(), 'status': $('#status').val()})
+                .then((response)=>{
+                    $('.filter-appointments').html(response.data)
+                })
+            }
+            function todayDate()
+            {
+                $('#appointment-date').val(new Date().toISOString().substring(0, 10));
+            }
+            function sendStatus(appointment, status)
+            {
+                axios.post(`api/appointment/${appointment}/update`, {status})
+                    .then((response)=> {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'OK',
+                            text: response.data.success
+                        }).then(function () {
+                            if (response.data.shouldReload) {
+                                location.reload();
+                            }
+                        });
+                    });
+            }
+        });
+    </script>
+@endsection

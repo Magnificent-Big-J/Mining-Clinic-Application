@@ -9,7 +9,8 @@ use App\Models\ConsultationFee;
 use App\Models\DocumentType;
 use App\Service\AppointmentFileService;
 use App\Service\AppointmentService;
-use Carbon\Carbon;
+use Illuminate\Http\Request;
+
 
 class DoctorAppointmentController extends Controller
 {
@@ -22,12 +23,7 @@ class DoctorAppointmentController extends Controller
 
     public function index()
     {
-        $appointments = Appointment::whereDate(
-            'appointment_date', '>=', Carbon::now())
-            ->whereNotIn('status', [Appointment::DECLINED_STATUS, Appointment::DONE_STATUS])
-            ->where('doctor_id', '=', auth()->user()->doctor->id)->get();
-
-        return view('doctor.appointments.index', compact('appointments'));
+        return view('doctor.appointments.index');
     }
     public function show(Appointment $appointment)
     {
@@ -76,6 +72,15 @@ class DoctorAppointmentController extends Controller
         session()->flash('success', 'Patient prescription successfully uploaded');
 
         return redirect()->route('doctor.appointment.details', $request->appointment);
+    }
+    public function filteredAppointments(Request $request, $doctor)
+    {
+        $appointments = Appointment::whereDate(
+            'appointment_date', '=', $request->date)
+            ->where('status', '=', $request->status)
+            ->where('clinic_id', '=', $request->clinic)
+            ->where('doctor_id', '=', $doctor)->get();
+        return view('doctor.appointments.filtered_appointments', compact('appointments'));
     }
 
 }

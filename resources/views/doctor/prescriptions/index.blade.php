@@ -110,8 +110,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="submit-section">
-                        <button type="submit" id="save" class="btn btn-primary submit-btn">Save</button>
-                        <button type="reset" class="btn btn-secondary clear-btn">Clear</button>
+                       <div class="row">
+                           <div class="col-lg-6">
+                               <button type="submit" id="save" class="btn btn-primary submit-btn">Save</button>
+                           </div>
+                           <div class="col-lg-6">
+                               <button type="reset" class="btn btn-secondary clear-btn">Clear</button>
+                           </div>
+                       </div>
+
                     </div>
                 </div>
             </div>

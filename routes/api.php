@@ -58,3 +58,6 @@ Route::get('clinic-product/{clinicProduct}/show', 'Api\ClinicProductController@s
 Route::post('click-product-store', 'Api\ClinicProductController@storeClinicProduct');
 //Appointment Consultation
 Route::post('appointment-consultation', 'Api\DoctorController@consultationStore');
+//Filtered Appointments
+Route::post('filtered-appointments/{doctor}', 'Doctor\DoctorAppointmentController@filteredAppointments');
+Route::post('appointment/{appointment}/update','Api\AppointmentController@update');
