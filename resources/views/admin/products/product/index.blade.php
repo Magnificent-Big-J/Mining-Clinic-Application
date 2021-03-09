@@ -89,6 +89,18 @@
                     {data: 'actions', name: 'actions'},
                 ],
             });
+            $(document).on('click', '.product-edit-category', function (){
+               let product = $(this).attr('id');
+
+               axios.get(`api/product/${product}`)
+                .then((response)=>{
+                   $('#loader').hide();
+
+                   $('.product-result').html(response.data)
+
+
+                });
+            });
             $(document).on('click', '.submit-btn', function (e){
                 e.preventDefault();
 
@@ -127,7 +139,50 @@
                         }
                     })
             });
+            $(document).on('submit', '#product-edit-form', function (e){
+                e.preventDefault();
+                if ($("#product-code2").val() == '' && $("#product-name2").val() == '' && $("#product-code2").val() == '') {
+                    $('#loader').hide();
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Product name, Product code and product category cannot be empty'
+                    });
+                    return  false;
+                }
 
+               let product = document.getElementById('productDD').value;
+
+                axios.put(`../../api/product/${product}/update`, {'product_name': $('#product-name2').val(),
+                        'product_code': $('#product-code2').val(), 'product_category': $('#product-category').val(),
+                        'product_size': $('#product-size2').val(), 'product_unit': $('#product-unit2').val(),
+                        'product_description': $('#product-description2').val()
+                    })
+                    .then((response)=>{
+                        $("#loader").hide();
+                        Swal.fire({
+                            icon: 'success',
+                            text: response.data.success
+                        }).then(function () {
+                                location.reload();
+                        });
+                    })
+                    .catch((error)=> {
+                        $("#loader").hide();
+                        let errors = error.response.data.errors;
+                        //
+                        if (errors.product_name) {
+                            $('#product-name-error').html(errors.product_name[0]);
+                        }
+                        if (errors.product_code) {
+                            $('#product-code-error').html(errors.product_code[0]);
+                        }
+                        if (errors.product_category) {
+                            $('#product-category-error').html(errors.product_category[0]);
+                        }
+                    });
+
+            });
 
 
         });

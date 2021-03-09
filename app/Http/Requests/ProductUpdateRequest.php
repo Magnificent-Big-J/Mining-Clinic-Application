@@ -39,6 +39,6 @@ class ProductUpdateRequest extends FormRequest
         $product->product_unit = $this->product_unit;
         $product->save();
 
-        session()->flash('success', 'Product Successfully Updated');
+
     }
 }

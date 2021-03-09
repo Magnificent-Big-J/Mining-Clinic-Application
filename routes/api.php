@@ -39,6 +39,7 @@ Route::put('consultation-category/{consultationCategory}/update', 'Api\Consultat
 Route::put('product-category/{productCategory}/update', 'Api\ProductController@updateCategory');
 Route::get('product-category/{productCategory}', 'Api\ProductController@editCategory');
 Route::post('product-category', 'Api\ProductController@productStore');
+
 Route::post('specialist', 'Api\SpecialistController@store');
 Route::post('ajax-doctor-form', 'Api\DoctorController@store');
 Route::post('patient-medical-aid-form', 'Api\MedicalAidController@store');
@@ -61,3 +62,6 @@ Route::post('appointment-consultation', 'Api\DoctorController@consultationStore'
 //Filtered Appointments
 Route::post('filtered-appointments/{doctor}', 'Doctor\DoctorAppointmentController@filteredAppointments');
 Route::post('appointment/{appointment}/update','Api\AppointmentController@update');
+//Product
+Route::get('product/{product}', 'Api\ProductController@edit');
+Route::put('product/{product}/update', 'Api\ProductController@update');

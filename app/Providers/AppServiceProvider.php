@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
             $products = Product::all();
             $view->with(['products'=>$products]);
         });
-        View::composer(['admin.products.product.modals.product_modal','admin.products.product.modals.product_edit_modal','admin.products.product.edit'],function($view){
+        View::composer(['admin.products.product.modals.product_modal','admin.products.product.product','admin.products.product.edit'],function($view){
             $productCategories = ProductCategory::all();
             $view->with(['productCategories'=>$productCategories]);
         });
