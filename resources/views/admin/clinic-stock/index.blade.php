@@ -63,14 +63,15 @@
                             <table class="table table-hover table-center mb-0" id="clinic-products">
                                 <thead>
                                 <tr>
-                                    <th>No</th>
                                     <th>Product Code</th>
                                     <th>Product Name</th>
                                     <th>Product Category</th>
                                     <th>Product Quantity</th>
                                     <th>Product Price</th>
                                     <th>Product Threshold(Level)</th>
-                                    <th>Actions</th>
+                                    <th>Edit</th>
+                                    <th>View</th>
+                                    <th>Add Stock</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -122,16 +123,21 @@
                         }
                     },
                     columns: [
-                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                         {data: 'product_code', name: 'product_code'},
                         {data: 'product_name', name: 'product_name'},
                         {data: 'product_category', name: 'product_category'},
                         {data: 'quantity', name: 'quantity'},
                         {data: 'product_price', name: 'product_price'},
                         {data: 'threshold', name: 'threshold'},
-                        {data: 'actions', name: 'actions'},
+                        {data: 'edit', name: 'edit'},
+                        {data: 'view', name: 'view'},
+                        {data: 'add_stock', name: 'add_stock'},
                     ],
-
+                    'order':[],
+                    'columnDefs': [{
+                    "targets": [6,7,8],
+                    "orderable": false
+                    }]
                 });
                $("#clinic").val(clinic);
             }

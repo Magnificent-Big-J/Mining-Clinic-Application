@@ -25,7 +25,7 @@ class MedicalAidCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'medical_name' => 'required|alpha',
+            'medical_name' => 'required|regex:/^[a-zA-Z,;\s]+$/',
             'medical_email_address' => 'required|email',
             'medical_aid_number' => 'required|numeric',
         ];
@@ -40,5 +40,11 @@ class MedicalAidCreateRequest extends FormRequest
             'patient_id' => $this->patient,
             'medical_email_address' => $this->medical_email_address
         ]);
+    }
+    public function messages()
+    {
+        return [
+            'medical_name.regex' => 'Medical Aid name contains letters only',
+        ];
     }
 }

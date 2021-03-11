@@ -78,7 +78,7 @@ class Doctor extends Model
         return $this->belongsToMany(Admin::class);
     }
 
-    public function getSpecialization(): ?string {
+    public function getSpecializationAttribute(): ?string {
         $result = DB::table('doctor_specialist')
             ->join('specialists', 'doctor_specialist.specialist_id', '=', 'specialists.id')
             ->where('doctor_id', $this->id)
@@ -98,5 +98,10 @@ class Doctor extends Model
     public function doctorEntity(): HasOne
     {
         return $this->hasOne(DoctorEntity::class);
+    }
+    public function  getDocSpecialitiesAttribute()
+    {
+        $specialities = $this->specialists()->pluck('name')->toArray();
+        return implode('&', $specialities);
     }
 }

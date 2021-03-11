@@ -65,9 +65,8 @@
                             <table class="table table-hover table-center mb-0" id="appointments">
                                 <thead>
                                 <tr>
-                                    <th scope="col">No</th>
                                     <th scope="col">Doctor</th>
-                                    <th scope="col">Specialist</th>
+                                    <th scope="col">Specialities</th>
                                     <th scope="col">Patient Name</th>
                                     <th scope="col">Appointment Date</th>
                                     <th scope="col">Appointment Time</th>
@@ -125,18 +124,22 @@
                     },
 
                     columns: [
-                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                         {data: 'doctor', name: 'doctor'},
-                        {data: 'specialist', name: 'specialist'},
+                        {data: 'specialities', name: 'specialities'},
                         {data: 'patient', name: 'patient'},
                         {data: 'appointment_date', name: 'appointment_date'},
                         {data: 'appointment_time', name: 'appointment_time'},
                         {data: 'appointment_status', name: 'appointment_status'},
-                        {data: 'appointment', name: 'appointment', orderable: true, searchable: true},
-                        {data: 'xray', name: 'xray', orderable: true, searchable: true},
-                        {data: 'delete', name: 'delete', orderable: true, searchable: true},
+                        {data: 'appointment', name: 'appointment'},
+                        {data: 'xray', name: 'xray'},
+                        {data: 'delete', name: 'delete'},
 
-                    ]
+                    ],
+                    'order':[],
+                    'columnDefs': [{
+                        "targets": [5,6,7,8],
+                        "orderable": false
+                    }]
 
                 });
                 $('#clinic').val(clinic)

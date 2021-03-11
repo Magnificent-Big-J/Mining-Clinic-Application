@@ -26,11 +26,8 @@
                             <table class="table table-hover table-center mb-0" id="doctors">
                                 <thead>
                                 <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Title</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Specialist</th>
+                                    <th scope="col">Doctor</th>
+                                    <th scope="col">Specialities</th>
                                     <th scope="col">Vat Number</th>
                                     <th scope="col">Practice Number</th>
                                     <th scope="col">View</th>
@@ -61,21 +58,22 @@
                 ajax: {
                     url: "{{ route('doctor.index') }}",
                 },
-
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'title', name: 'title'},
-                    {data: 'first_name', name: 'first_name'},
-                    {data: 'last_name', name: 'last_name'},
-                    {data: 'specialist', name: 'specialist'},
+                    {data: 'doctor', name: 'doctor'},
+                    {data: 'specialities', name: 'specialities'},
                     {data: 'vat_number', name: 'vat_number'},
                     {data: 'practice_number', name: 'practice_number'},
-                    {data: 'view', name: 'view', orderable: true, searchable: true},
-                    {data: 'edit', name: 'edit', orderable: true, searchable: true},
-                    {data: 'consultation', name: 'consultation', orderable: true, searchable: true},
-                    {data: 'delete', name: 'delete', orderable: true, searchable: true},
+                    {data: 'view', name: 'view'},
+                    {data: 'edit', name: 'edit'},
+                    {data: 'consultation', name: 'consultation'},
+                    {data: 'delete', name: 'delete'},
 
-                ]
+                ],
+                'order':[],
+                'columnDefs': [{
+                    "targets": [4,5,6,7],
+                    "orderable": false
+                }]
             });
         });
     </script>

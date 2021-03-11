@@ -32,7 +32,6 @@
                     <table class="table table-hover table-center mb-0" id="patients">
                         <thead>
                         <tr>
-                            <th scope="col">No</th>
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Age</th>
@@ -65,14 +64,18 @@
                     url: "{{ route('doctor.patients.index') }}",
                 },
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'first_name', name: 'first_name'},
                     {data: 'last_name', name: 'last_name'},
                     {data: 'age', name: 'age'},
                     {data: 'cell_number', name: 'cell_number'},
                     {data: 'medical', name: 'medical'},
-                    {data: 'actions', name: 'actions', orderable: true, searchable: true},
-                ]
+                    {data: 'actions', name: 'actions'},
+                ],
+                'order':[],
+                'columnDefs': [{
+                    "targets": [5],
+                    "orderable": false
+                }]
             });
         });
     </script>

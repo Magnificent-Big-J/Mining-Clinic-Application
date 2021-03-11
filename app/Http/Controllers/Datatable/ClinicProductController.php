@@ -15,7 +15,6 @@ class ClinicProductController extends Controller
         $clinics = ClinicProduct::where('clinic_id', '=', $clinic->id)->get();
 
         return DataTables::of($clinics)
-            ->addIndexColumn()
             ->addColumn('product_code', function ($clinic){
                 return $clinic->product->product_code;
             })
@@ -28,10 +27,15 @@ class ClinicProductController extends Controller
             ->addColumn('product_price', function ($clinic){
                 return 'R ' . $clinic->price;
             })
-            ->addColumn('actions', function ($clinic){
+            ->addColumn('edit', function ($clinic){
                 return view('admin.clinic-stock.partials.actions', compact('clinic'));
             })
-            ->rawColumns(['product_code','product_category','product_name','product_price','actions'])
+            ->addColumn('add_stock', function ($clinic){
+                return view('admin.clinic-stock.partials.stock', compact('clinic'));
+            })
+            ->addColumn('view', function ($clinic){
+                return view('admin.clinic-stock.partials.view', compact('clinic'));
+            })
             ->make(true);
     }
 }

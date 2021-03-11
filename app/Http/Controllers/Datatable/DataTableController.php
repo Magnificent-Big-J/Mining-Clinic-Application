@@ -27,7 +27,9 @@ class DataTableController extends Controller
         $patients = Patient::all();
 
         return DataTables::of($patients)
-            ->addIndexColumn()
+            ->addColumn('patient', function ($patient){
+                return $patient->full_name;
+            })
             ->addColumn('age', function ($patient){
                 return $patient->age;
             })
@@ -52,7 +54,7 @@ class DataTableController extends Controller
             ->addColumn('delete', function ($patient){
                 return view('admin.patients.partials.delete_action', compact('patient'));
             })
-            ->rawColumns(['age','medical', 'view', 'edit', 'medical_record', 'appointment', 'delete', 'book_appointment'])
+            ->rawColumns(['patient', 'age','medical', 'view', 'edit', 'medical_record', 'appointment', 'delete', 'book_appointment'])
             ->make(true);
         //Book Appointment
     }
@@ -61,32 +63,26 @@ class DataTableController extends Controller
         $specialist = Specialist::all();
 
         return DataTables::of($specialist)
-            ->addIndexColumn()
             ->addColumn('specialist', function ($row){
                 return view('admin.specialist.partials.specialist', compact('row'));
             })
-            ->addColumn('actions', function ($row){
+            ->addColumn('edit', function ($row){
                 return view('admin.specialist.partials.actions', compact('row'));
             })
-            ->rawColumns(['specialist', 'actions'])
+            ->addColumn('delete', function ($row){
+                return view('admin.specialist.partials.delete', compact('row'));
+            })
             ->make(true);
     }
     public function doctors()
     {
         $doctors = Doctor::all();
         return DataTables::of($doctors)
-            ->addIndexColumn()
-            ->addColumn('title', function ($row){
-                return $row->user->title;
+            ->addColumn('doctor', function ($row){
+                return $row->user->full_names;
             })
-            ->addColumn('first_name', function ($row){
-                return $row->user->first_name;
-            })
-            ->addColumn('last_name', function ($row){
-                return $row->user->last_name;
-            })
-            ->addColumn('specialist', function ($row){
-                return view('admin.doctors.partials.specialist', compact('row'));
+            ->addColumn('specialities', function ($row){
+                return $row->specialization;
             })
             ->addColumn('view', function ($row){
                 return view('admin.doctors.partials.actions', compact('row'));
@@ -100,7 +96,7 @@ class DataTableController extends Controller
             ->addColumn('delete', function ($row){
                 return view('admin.doctors.partials.delete', compact('row'));
             })
-            ->rawColumns(['title','first_name', 'last_name','specialist', 'view', 'edit', 'consultation', 'delete'])
+            ->rawColumns(['doctor','specialities', 'view', 'edit', 'consultation', 'delete'])
             ->make(true);
     }
     public function appointments($clinic, $doctor)
@@ -114,16 +110,15 @@ class DataTableController extends Controller
             ->get();
 
         return DataTables::of($appointments)
-            ->addIndexColumn()
+
+            ->addColumn('specialities', function ($row){
+                return $row->doctor->specialization;
+            })
             ->addColumn('doctor', function ($row){
                 return $row->doctor->user->full_names;
             })
             ->addColumn('patient', function ($row){
                 return $row->patient->full_name;
-            })
-            ->addColumn('specialist', function ($row){
-                $row = $row->doctor;
-                return view('admin.doctors.partials.specialist', compact('row'));
             })
             ->addColumn('appointment_status', function ($row){
                 return $row->status_text;
@@ -137,7 +132,7 @@ class DataTableController extends Controller
             ->addColumn('delete', function ($row){
                 return view('admin.appointments.partials.delete_action', compact('row'));
             })
-            ->rawColumns(['title','patient','specialist', 'appointment_status', 'appointment', 'xray', 'delete'])
+            ->rawColumns(['patient','specialities', 'appointment_status', 'appointment', 'xray', 'delete'])
             ->make(true);
     }
     public function questionnaires()
@@ -145,24 +140,22 @@ class DataTableController extends Controller
         $specialist = ScreeningQuestionnaire::all();
 
         return DataTables::of($specialist)
-            ->addIndexColumn()
             ->addColumn('question', function ($row){
                 return view('admin.questionnaires.partials.question', compact('row'));
             })
             ->addColumn('question_type', function ($row){
-                switch ($row->screening_type_id){
-                    case 1:
-                        return 'Covid-19';
-                    case 2:
-                        return 'Medical Examination';
-
-                }
-                return ;
+                return $row->question_type;
             })
-            ->addColumn('action', function ($row){
+            ->addColumn('question_group', function ($row){
+
+                return $row->question_group;
+            })
+            ->addColumn('edit', function ($row){
                 return view('admin.questionnaires.partials.actions', compact('row'));
             })
-            ->rawColumns(['question_type', 'action'])
+            ->addColumn('delete', function ($row){
+                return view('admin.questionnaires.partials.delete', compact('row'));
+            })
             ->make(true);
     }
 

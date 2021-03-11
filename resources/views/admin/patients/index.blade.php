@@ -29,9 +29,7 @@
                             <table class="table table-hover table-center mb-0" id="patients">
                                 <thead>
                                 <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Patient</th>
                                     <th scope="col">Age</th>
                                     <th scope="col">CellPhone</th>
                                     <th scope="col">Medical Aid</th>
@@ -69,19 +67,22 @@
                     url: "{{ route('patient.index') }}",
                 },
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'first_name', name: 'first_name'},
-                    {data: 'last_name', name: 'last_name'},
+                    {data: 'patient', name: 'patient'},
                     {data: 'age', name: 'age'},
                     {data: 'cell_number', name: 'cell_number'},
                     {data: 'medical', name: 'medical'},
-                    {data: 'view', name: 'view', orderable: true, searchable: true},
-                    {data: 'edit', name: 'edit', orderable: true, searchable: true},
-                    {data: 'medical_record', name: 'medical_record', orderable: true, searchable: true},
-                    {data: 'appointment', name: 'appointment', orderable: true, searchable: true},
-                    {data: 'book_appointment', name: 'book_appointment', orderable: true, searchable: true},
-                    {data: 'delete', name: 'delete', orderable: true, searchable: true},
-                ]
+                    {data: 'view', name: 'view'},
+                    {data: 'edit', name: 'edit'},
+                    {data: 'medical_record', name: 'medical_record', },
+                    {data: 'appointment', name: 'appointment'},
+                    {data: 'book_appointment', name: 'book_appointment'},
+                    {data: 'delete', name: 'delete'},
+                ],
+                'order':[],
+                'columnDefs': [{
+                    "targets": [5,6,7,8,9],
+                    "orderable": false
+                }]
             });
             $(document).on('click', '.add-medical-aid', function (){
                 $('#patient').val($(this).attr('id'))

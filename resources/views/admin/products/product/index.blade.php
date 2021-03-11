@@ -32,13 +32,13 @@
                             <table class="table table-hover table-center mb-0" id="product">
                                 <thead>
                                 <tr>
-                                    <th>No</th>
                                     <th>Product Code</th>
                                     <th>Product Name</th>
                                     <th>Product Category</th>
                                     <th>Product Size</th>
                                     <th>Product Unit</th>
-                                    <th>Actions</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -80,14 +80,19 @@
                     url: "{{ route('product.index') }}",
                 },
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'product_code', name: 'product_code'},
                     {data: 'product_name', name: 'product_name'},
                     {data: 'category', name: 'category'},
                     {data: 'product_size', name: 'product_size'},
                     {data: 'product_unit', name: 'product_unit'},
-                    {data: 'actions', name: 'actions'},
+                    {data: 'edit', name: 'edit'},
+                    {data: 'delete', name: 'delete'},
                 ],
+                'order':[],
+                'columnDefs': [{
+                    "targets": [5,6],
+                    "orderable": false
+                }]
             });
             $(document).on('click', '.product-edit-category', function (){
                let product = $(this).attr('id');

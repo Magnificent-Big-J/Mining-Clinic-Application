@@ -30,7 +30,6 @@
                             <table class="table table-hover table-center mb-0" id="users">
                                 <thead>
                                 <tr>
-                                    <th>No</th>
                                     <th>Title</th>
                                     <th>Full Name</th>
                                     <th>Email</th>
@@ -62,13 +61,17 @@
                     url: "{{ route('users.index') }}",
                 },
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'title', name: 'title'},
                     {data: 'full_name', name: 'full_name'},
                     {data: 'email', name: 'email'},
                     {data: 'actions', name: 'actions'},
 
                 ],
+                'order':[],
+                'columnDefs': [{
+                    "targets": [3],
+                    "orderable": false
+                }]
             });
         });
     </script>

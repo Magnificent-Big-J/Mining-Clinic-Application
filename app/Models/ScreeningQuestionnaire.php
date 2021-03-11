@@ -46,4 +46,14 @@ class ScreeningQuestionnaire extends Model
     {
         return $this->belongsToMany(Specialist::class, 'specialities_screening_questionnaire', 'screening_questionnaire_id','specialities_id')->withTimestamps();
     }
+    public function getQuestionTypeAttribute(): string
+    {
+        $texts = ScreeningType::$screeningTypeTexts;
+
+        return $texts[$this->screening_type_id];
+    }
+    public function getQuestionGroupAttribute(): string
+    {
+        return self::$texts[$this->type];
+    }
 }

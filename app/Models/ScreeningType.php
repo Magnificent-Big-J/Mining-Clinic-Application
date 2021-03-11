@@ -22,6 +22,10 @@ class ScreeningType extends Model
 
     const COVID_TYPE = 1;
     const MEDICAL_TYPE = 2;
+    public static $screeningTypeTexts = [
+        self::COVID_TYPE => 'Covid-19',
+        self::MEDICAL_TYPE => 'Medical Examination',
+    ];
     public function screeningQuestionnaire(): HasMany
     {
         return $this->hasMany(ScreeningQuestionnaire::class);

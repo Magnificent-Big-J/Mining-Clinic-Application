@@ -18,11 +18,12 @@ class ConsultationDatatableController extends Controller
         $categories = ConsultationCategory::all();
 
         return DataTables::of($categories)
-            ->addIndexColumn()
-            ->addColumn('actions', function ($row){
+            ->addColumn('edit', function ($row){
                 return view('admin.consultation.partials.actions', compact('row'));
             })
-            ->rawColumns(['actions'])
+            ->addColumn('delete', function ($row){
+                return view('admin.consultation.partials.delete_category', compact('row'));
+            })
             ->make(true);
     }
     public function consultation()
@@ -30,14 +31,15 @@ class ConsultationDatatableController extends Controller
         $consultations = Consultation::all();
 
         return DataTables::of($consultations)
-            ->addIndexColumn()
             ->addColumn('category_name', function ($row){
                 return $row->consultationCategory->name;
             })
-            ->addColumn('actions', function ($row){
+            ->addColumn('edit', function ($row){
                 return view('admin.consultation.partials.consultation_actions', compact('row'));
             })
-            ->rawColumns(['category_name', 'actions'])
+            ->addColumn('delete', function ($row){
+                return view('admin.consultation.partials.delete_consultation', compact('row'));
+            })
             ->make(true);
     }
     public function consultationFee(Doctor $doctor, ConsultationFeeService $service)

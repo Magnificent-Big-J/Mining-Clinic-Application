@@ -15,10 +15,10 @@ class AssessmentSeeder extends Seeder
     public function run()
     {
         $appointments = array(
-            array('clinic_id' => rand(1,4), 'patient_id' => rand(1,10), 'doctor_id' =>  rand(1,23), 'appointment_date' => Carbon::now()->subMonths(rand(1,4)),'appointment_time' => Carbon::now()->subMonths(rand(1,4))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
-            array('clinic_id' => rand(1,4),'patient_id' => rand(1,10), 'doctor_id' => rand(1,23), 'appointment_date' => Carbon::now()->subMonths(rand(1,4)),'appointment_time' => Carbon::now()->subMonths(rand(1,4))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
-            array('clinic_id' => rand(1,4),'patient_id' =>  rand(1,10), 'doctor_id' => rand(1,23), 'appointment_date' => Carbon::now()->subDays(rand(1,10)),'appointment_time' => Carbon::now()->subDay(rand(1,10))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
-            array('clinic_id' => rand(1,4),'patient_id' =>  rand(1,10), 'doctor_id' => rand(1,23), 'appointment_date' => Carbon::now()->subDays(rand(1,10)),'appointment_time' => Carbon::now()->subDay(rand(1,10))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
+            array('clinic_id' => rand(1,4), 'patient_id' => rand(1,10), 'doctor_id' =>  rand(1, 10), 'appointment_date' => Carbon::now()->subMonths(rand(1,4)),'appointment_time' => Carbon::now()->subMonths(rand(1,4))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
+            array('clinic_id' => rand(1,4),'patient_id' => rand(1,10), 'doctor_id' => rand(1, 10), 'appointment_date' => Carbon::now()->subMonths(rand(1,4)),'appointment_time' => Carbon::now()->subMonths(rand(1,4))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
+            array('clinic_id' => rand(1,4),'patient_id' =>  rand(1,10), 'doctor_id' => rand(1, 10), 'appointment_date' => Carbon::now()->subDays(rand(1,10)),'appointment_time' => Carbon::now()->subDay(rand(1,10))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
+            array('clinic_id' => rand(1,4),'patient_id' =>  rand(1,10), 'doctor_id' => rand(1, 10), 'appointment_date' => Carbon::now()->subDays(rand(1,10)),'appointment_time' => Carbon::now()->subDay(rand(1,10))->addHours(rand(1,10)),'status' => Appointment::ACCEPTED_STATUS),
         );
 
         foreach ($appointments as $appointment) {

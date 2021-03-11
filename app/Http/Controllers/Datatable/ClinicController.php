@@ -14,11 +14,12 @@ class ClinicController extends Controller
         $clinics = Clinic::all();
 
         return DataTables::of($clinics)
-            ->addIndexColumn()
-            ->addColumn('actions', function ($clinic){
+            ->addColumn('edit', function ($clinic){
                 return view('admin.clinic.partials.actions', compact('clinic'));
             })
-            ->rawColumns(['actions'])
+            ->addColumn('delete', function ($clinic){
+                return view('admin.clinic.partials.delete', compact('clinic'));
+            })
             ->make(true);
     }
 }

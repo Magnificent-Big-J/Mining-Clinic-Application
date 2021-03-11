@@ -52,7 +52,7 @@ class DoctorService
             'user_id' => $id,
         ]);
 
-        $doctor->specialists()->attach([$request->specialist_name]);
+        $doctor->specialists()->attach($request->specialist_name);
 
         if ($request->has_entity) {
             DoctorEntity::create([

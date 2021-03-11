@@ -124,6 +124,8 @@ class DoctorController extends Controller
         if ($doctor->appointments->count()){
             session()->flash('error', 'Doctor cannot be deleted.');
         } else {
+            $doctor->delete();
+            $doctor->user->delete();
             session()->flash('success', 'Doctor successfully deleted.');
         }
 

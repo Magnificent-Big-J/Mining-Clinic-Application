@@ -13,16 +13,14 @@ class ReportDatatables extends Controller
         $appointments = Appointment::all();
 
         return DataTables::of($appointments)
-            ->addIndexColumn()
             ->addColumn('doctor', function ($row){
                 return $row->doctor->user->full_names;
             })
+            ->addColumn('specialities', function ($row){
+                return $row->doctor->specialization;
+            })
             ->addColumn('patient', function ($row){
                 return $row->patient->full_name;
-            })
-            ->addColumn('specialist', function ($row){
-                $row = $row->doctor;
-                return view('admin.doctors.partials.specialist', compact('row'));
             })
             ->addColumn('appointment_status', function ($row){
                 return $row->status_text;
@@ -30,7 +28,7 @@ class ReportDatatables extends Controller
             ->addColumn('actions', function ($row){
                 return view('admin.historic-appointment.partials.actions', compact('row'));
             })
-            ->rawColumns(['title','patient','specialist', 'appointment_status', 'actions'])
+            ->rawColumns(['patient','specialities', 'appointment_status', 'actions'])
             ->make(true);
     }
 }

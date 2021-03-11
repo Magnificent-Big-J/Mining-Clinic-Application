@@ -33,7 +33,6 @@
                     <table class="table table-hover table-center mb-0" id="appointments">
                         <thead>
                         <tr>
-                            <th scope="col">No</th>
                             <th scope="col">Patient Name</th>
                             <th scope="col">Appointment Date</th>
                             <th scope="col">Appointment Time</th>
@@ -65,13 +64,17 @@
                 },
 
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'patient_name', name: 'patient_name'},
                     {data: 'appointment_date', name: 'appointment_date'},
                     {data: 'appointment_time', name: 'appointment_time'},
                     {data: 'appointment_status', name: 'appointment_status'},
-                    {data: 'actions', name: 'actions', orderable: true, searchable: true},
-                ]
+                    {data: 'actions', name: 'actions'},
+                ],
+                'order':[],
+                'columnDefs': [{
+                    "targets": [4],
+                    "orderable": false
+                }]
             });
         });
     </script>

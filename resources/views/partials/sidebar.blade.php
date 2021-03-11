@@ -28,8 +28,8 @@
                 <li class="submenu">
                     <a href="#" ><i class="fe fe-bookmark"></i> <span> Consultations</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="{{route('admin.consultation.index')}}">Consultation</a></li>
                         <li><a href="{{route('admin.consultation-category.index')}}">Consultation Categories</a></li>
+                        <li><a href="{{route('admin.consultation.index')}}">Consultation</a></li>
                     </ul>
                 </li>
 

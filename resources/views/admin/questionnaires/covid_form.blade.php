@@ -28,7 +28,7 @@
                                 </h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{route('admin.question.store')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('admin.screeningQuestionnaire.store')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     @include('admin.questionnaires.create')
                                     <input type="hidden" name="question_type" value="1">

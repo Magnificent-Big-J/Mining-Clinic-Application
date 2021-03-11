@@ -89,4 +89,5 @@ class PatientCreateRequest extends FormRequest
             'identity_number.regex' => 'Identity number or passport can contain letters, numbers or letters with number.',
         ];
     }
+
 }

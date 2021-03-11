@@ -23,24 +23,25 @@
                     <div class="card-body">
                         <div class="table-responsive">
                                 <div class="row">
-                                    <div class="col-lg">
+                                    <div class="col-lg-4">
                                         <a href="{{route('admin.screeningQuestionnaire.create')}}" class="mb-2 btn btn-success">Add Covid-19 Questionnaires</a>
 
                                     </div>
-                                    <div class="col-lg">
+                                    <div class="col-lg-4">
                                         <a href="{{route('admin.medical.question')}}" class="mb-2 btn btn-success">Add General Medical Examination Questionnaires</a>
                                     </div>
-                                    <div class="col-lg">
+                                    <div class="col-lg-4">
                                         <a href="{{route('admin.medical.question.with.specialities')}}" class="mb-2 btn btn-success">Add Specialities Medical Examination Questionnaires </a>
                                     </div>
                                 </div>
                             <table class="table table-hover table-center mb-0" id="specialist">
                                 <thead>
                                 <tr>
-                                    <th>No</th>
                                     <th>Questionnaire</th>
                                     <th>Questionnaire Type</th>
-                                    <th>Action</th>
+                                    <th>Questionnaire Group</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -66,11 +67,17 @@
                     url: "{{ route('questionnaires.index') }}",
                 },
                 columns: [
-                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'question', name: 'question'},
                     {data: 'question_type', name: 'question_type'},
-                    {data: 'action', name: 'action'},
-                ]
+                    {data: 'question_group', name: 'question_group'},
+                    {data: 'edit', name: 'edit'},
+                    {data: 'delete', name: 'delete'},
+                ],
+                'order':[],
+                'columnDefs': [{
+                    "targets": [3,4],
+                    "orderable": false
+                }]
             });
         });
     </script>

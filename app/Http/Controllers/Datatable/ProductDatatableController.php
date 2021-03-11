@@ -15,11 +15,12 @@ class ProductDatatableController extends Controller
         $categories = ProductCategory::all();
 
         return DataTables::of($categories)
-            ->addIndexColumn()
-            ->addColumn('actions', function ($row){
+            ->addColumn('edit', function ($row){
                 return view('admin.products.category.partials.actions', compact('row'));
             })
-            ->rawColumns(['actions'])
+            ->addColumn('delete', function ($row){
+                return view('admin.products.category.partials.delete', compact('row'));
+            })
             ->make(true);
     }
     public function product()
@@ -27,14 +28,15 @@ class ProductDatatableController extends Controller
         $products = Product::all();
 
         return DataTables::of($products)
-            ->addIndexColumn()
             ->addColumn('category', function ($row){
                 return $row->productCategory->name;
             })
-            ->addColumn('actions', function ($row){
+            ->addColumn('edit', function ($row){
                 return view('admin.products.product.partials.actions', compact('row'));
             })
-            ->rawColumns(['category', 'actions'])
+            ->addColumn('delete', function ($row){
+                return view('admin.products.product.partials.delete', compact('row'));
+            })
             ->make(true);
     }
 }
