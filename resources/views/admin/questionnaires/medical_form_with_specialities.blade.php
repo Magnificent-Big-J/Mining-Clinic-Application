@@ -44,7 +44,7 @@
                                     <table class="table table-hover table-center">
                                         <thead>
                                         <tr>
-                                            <th style="min-width: 200px">Question name</th>
+                                            <th style="min-width: 200px">Question Name</th>
                                             <th style="min-width: 100px">Question Image</th>
                                             <th style="min-width: 100px">Question Specialities</th>
                                             <th style="min-width: 80px;"></th>
