@@ -1,11 +1,11 @@
 <div class="header">
 
     <!-- Logo -->
-    <div class="header-left">
-        <a href="/" class="logo">
+    <div class="header-left mr-5">
+        <a href="{{route('home')}}" class="logo">
             <img src="/invoke.png" alt="Logo">
         </a>
-        <a href="index.html" class="logo logo-small">
+        <a href="{{route('home')}}" class="logo logo-small">
             <img src="/invoke.png" alt="Logo" width="30" height="30">
         </a>
     </div>
@@ -15,15 +15,9 @@
         <i class="fe fe-text-align-left"></i>
     </a>
 
-    <div class="top-nav-search">
-        <form>
-            <input type="text" class="form-control" placeholder="Search here">
-            <button class="btn" type="submit"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
 
     <!-- Mobile Menu Toggle -->
-    <a class="mobile_btn" id="mobile_btn">
+    <a class="mobile_btn" id="ml-4 mobile_btn">
         <i class="fa fa-bars"></i>
     </a>
     <!-- /Mobile Menu Toggle -->
