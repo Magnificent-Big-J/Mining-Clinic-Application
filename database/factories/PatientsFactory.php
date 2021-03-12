@@ -19,7 +19,7 @@ $factory->define(\App\Models\Patient::class, function (Faker $faker) {
         'is_south_african' => true,
         'work_number' => '',
         'landline' => '',
-        'cell_number' => $faker->phoneNumber,
+        'cell_number' => '0' . rand(6,8) . rand(0,8) . rand(1000,9999) . rand(100,999),
         'has_medical_aid' => false,
         'email_address' => $faker->unique()->safeEmail,
     ];
