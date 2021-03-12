@@ -33,7 +33,7 @@
                     <table class="table table-hover table-center mb-0" id="appointments">
                         <thead>
                         <tr>
-                            <th scope="col">Patient Name</th>
+                            <th scope="col">Patient</th>
                             <th scope="col">Appointment Date</th>
                             <th scope="col">Appointment Time</th>
                             <th scope="col">Appointment Status</th>

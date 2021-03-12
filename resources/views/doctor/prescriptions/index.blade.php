@@ -39,11 +39,7 @@
                         <span class="d-block text-sm text-muted"><i class="fas fa-{{strtolower($appointment->patient->gender)}} mr-1"></i>{{$appointment->patient->gender}}</span>
                         <span class="d-block text-sm text-muted">
                             <h5 class="mb-0">
-                            @if((boolean)$appointment->patient->has_medical_aid)
-                                    <i class="fas fa-credit-card"></i>Medical Aid
-                                @else
-                                    <i class="fas fa-money-bill-alt"></i>Cash Payment
-                                @endif
+                           
                         </h5>
                         </span>
                     </div>

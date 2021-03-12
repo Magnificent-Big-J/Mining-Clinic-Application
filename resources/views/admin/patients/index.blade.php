@@ -31,7 +31,7 @@
                                 <tr>
                                     <th scope="col">Patient</th>
                                     <th scope="col">Age</th>
-                                    <th scope="col">CellPhone</th>
+                                    <th scope="col">Cell Phone</th>
                                     <th scope="col">Medical Aid</th>
                                     <th scope="col">View</th>
                                     <th scope="col">Edit</th>

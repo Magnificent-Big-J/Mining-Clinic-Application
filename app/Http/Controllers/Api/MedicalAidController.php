@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MedicalAidCreateRequest;
 use App\Http\Requests\MedicalAidUpdateRequest;
 use App\Models\MedicalAid;
+use App\Models\MedicalRecord;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 
@@ -34,5 +35,9 @@ class MedicalAidController extends Controller
     public function getMedicalAid(MedicalAid $medicalAid): MedicalAid
     {
         return $medicalAid;
+    }
+    public function show(MedicalRecord $medicalRecord)
+    {
+        return view('doctor.mypatients.partials.iframe', compact('medicalRecord'));
     }
 }

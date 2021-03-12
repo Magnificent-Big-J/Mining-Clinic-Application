@@ -78,7 +78,7 @@
 
                 <!-- Appointment Tab -->
                 <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded">
-                    <li class="nav-item">
+                    <li class="nav-item mr-4">
                         <a class="nav-link active" href="#today-appointments" data-toggle="tab">Today</a>
                     </li>
                     <li class="nav-item">

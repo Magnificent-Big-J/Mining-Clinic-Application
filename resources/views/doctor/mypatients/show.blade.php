@@ -140,7 +140,7 @@
                                                     <td>{{$key + 1 }}</td>
                                                     <td>{{$record->record_date}}</td>
                                                     <td>{{$record->description}}</td>
-                                                    <td><a href="{{asset($record->path)}}" target="_blank">{{$record->file_name}}</a></td>
+                                                    <td><a href="#patient-medical-record" data-toggle="modal" data-target="#patient-medical-record" class="medical-record"  id="{{$record->id}}" >{{$record->file_name}}</a></td>
                                                     <td>
                                                         {{$record->user->full_names}}
                                                     </td>
@@ -167,4 +167,18 @@
     </div>
 
 @endsection
+@section('scripts')
+    <script>
+        $(function (){
+            $('.medical-record').click(function (){
+                let medicalRecord = $(this).attr('id');
+                axios.get(`../../api/medical/${medicalRecord}/record`)
+                .then((response)=>{
+                    $('#result').html(response.data)
+                })
+            });
+        });
+    </script>
+@endsection
+@include('doctor.mypatients.modals.medical_record')
 

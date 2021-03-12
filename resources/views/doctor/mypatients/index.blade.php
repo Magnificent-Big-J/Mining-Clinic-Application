@@ -35,7 +35,7 @@
                             <th scope="col">First Name</th>
                             <th scope="col">Last Name</th>
                             <th scope="col">Age</th>
-                            <th scope="col">CellPhone</th>
+                            <th scope="col">Cell Phone</th>
                             <th scope="col">Medical Aid</th>
                             <th scope="col">Actions</th>
                         </tr>

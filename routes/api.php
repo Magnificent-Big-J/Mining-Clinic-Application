@@ -45,6 +45,7 @@ Route::post('ajax-doctor-form', 'Api\DoctorController@store');
 Route::post('patient-medical-aid-form', 'Api\MedicalAidController@store');
 Route::get('patient-medical-aid/{medicalAid}', 'Api\MedicalAidController@getMedicalAid');
 Route::post('patient-medical-aid/{medicalAid}/update', 'Api\MedicalAidController@update');
+Route::get('medical/{medicalRecord}/record', 'Api\MedicalAidController@show');
 
 //Clinic
 Route::post('mining-clinic-form', 'Api\ClinicController@store');

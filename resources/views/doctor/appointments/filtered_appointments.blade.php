@@ -16,13 +16,7 @@
                         <h5><i class="fas fa-phone"></i>{{ $appointment->patient->work_number }}</h5>
                     @endif
                     <h5><i class="fas fa-phone"></i>{{ $appointment->patient->cell_number }}</h5>
-                    <h5 class="mb-0">
-                        @if((boolean)$appointment->patient->has_medical_aid)
-                            <i class="fas fa-credit-card"></i>Medical Aid
-                        @else
-                            <i class="fas fa-money-bill-alt"></i>Cash Payment
-                        @endif
-                    </h5>
+
                 </div>
             </div>
         </div>
