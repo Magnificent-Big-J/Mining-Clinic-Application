@@ -96,10 +96,9 @@
                         Swal.fire({
                             icon: 'success',
                             text: response.data.success
-                        })
-                        window.setTimeout(function () {
+                        }).then(function() {
                             window.location = response.data.url;
-                        }, 1000);
+                        });
                     })
                     .catch((error)=>{
                         $("#loader").hide();
@@ -129,10 +128,10 @@
                         Swal.fire({
                             icon: 'success',
                             text: response.data.success
-                        })
-                        window.setTimeout(function () {
+                        }).then(function() {
                             window.location = response.data.url;
-                        }, 1000);
+                        });
+
                     })
                     .catch((error)=>{
                         $("#loader").hide();

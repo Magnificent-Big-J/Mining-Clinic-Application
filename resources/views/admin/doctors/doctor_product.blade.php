@@ -148,7 +148,6 @@
                 .then((response)=>{
                     $('#loader').hide();
                     responseAlert(response.data.message)
-                    location.reload();
                 })
                 .catch((error)=> {
                     $('#loader').hide();
@@ -191,7 +190,6 @@
                     .then((response)=>{
                         $('#loader').hide();
                         responseAlert(response.data.message)
-                        location.reload();
                     })
                     .catch((error)=> {
                         $('#loader').hide();
@@ -230,7 +228,6 @@
                     .then((response)=>{
                         $('#loader').hide();
                         responseAlert(response.data.message)
-                        location.reload();
                     })
                     .catch((error)=> {
                         $('#loader').hide();
@@ -240,11 +237,13 @@
 
             function responseAlert(message)
             {
-                setTimeout(function(){ Swal.fire({
+                Swal.fire({
                     icon: 'success',
                     title: 'OK',
                     text: message
-                }); }, 3000);
+                }).then(function() {
+                    location.reload();
+                });
 
             }
 

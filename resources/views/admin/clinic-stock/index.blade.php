@@ -276,13 +276,13 @@
             });
             function responseAlert(message)
             {
-                setTimeout(function(){ Swal.fire({
+                Swal.fire({
                     icon: 'success',
                     title: 'OK',
                     text: message
-                });
+                }).then(function() {
                     location.reload();
-                }, 3000);
+                });
 
             }
         });

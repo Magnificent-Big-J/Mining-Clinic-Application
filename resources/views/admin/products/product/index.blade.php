@@ -130,8 +130,9 @@
                             icon: 'success',
                             title: 'OK',
                             text: response.data.message
-                        })
-                        location.reload();
+                        }).then(function() {
+                            location.reload();
+                        });
                     })
                     .catch((error)=>{
                         $('#loader').hide();
