@@ -73,6 +73,11 @@
 <!-- Custom JS -->
 <script  src="{{asset('admin/assets/js/script.js')}}"></script>
 <script src="{{mix('/js/preload.js')}}"></script>
+<script>
+    $(function (){
+        appointment_date.min = new Date().toISOString().split("T")[0];
+    })
+</script>
 @yield('scripts')
 @if (Session::has('error'))
     <script>
