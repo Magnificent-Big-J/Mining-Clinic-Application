@@ -14,14 +14,14 @@ class BookingController extends Controller
         $isCreated = $results['created'];
         $appointment = $results['appointment'];
         $patient = $results['patient'];
+        $success = $results['success'];
 
         $shouldContinue = false;
         $url = null;
-        $success = 'Please select another timeslot, Doctor already been booked.';
+
         if ($isCreated) {
             $shouldContinue = true;
             $url = route('admin.covid.screening',['appointment'=> $appointment->id, 'patient'=> $patient]);
-            $success = 'Appointment booking is successfully created.';
         }
 
         return response()->json([

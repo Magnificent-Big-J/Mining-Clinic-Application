@@ -35,7 +35,7 @@ class BookingService
         {
             $appointment = Appointment::where('doctor_id', '=', $doctor)
                 ->where('appointment_time', '=', $time)
-                ->where('appointment_date', '=', Carbon::parse($appointment))
+                ->whereDate('appointment_date', '=', Carbon::parse($appointment))
                 ->first();
 
             if ($appointment) {
@@ -46,7 +46,7 @@ class BookingService
         public static function patientAlreadyBooked(string $appointment, int $patient): bool
         {
             $appointment = Appointment::where('patient_id', '=', $patient)
-                ->where('appointment_date', '=', Carbon::parse($appointment))
+                ->whereDate('appointment_date', '=', Carbon::parse($appointment))
                 ->first();
 
             if ($appointment) {

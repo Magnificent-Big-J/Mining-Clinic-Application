@@ -43,17 +43,19 @@ class BookingCreateRequest extends FormRequest
     }
     public function createBooking(): ?array
     {
-        if (BookingService::alreadyBooked($this->appointment_date, $this->timeSlot, $this->doctor)) {
+        if (BookingService::alreadyBooked($this->appointment_date, $this->timeSlot.":00", $this->doctor)) {
             return [
                 'appointment' => [],
                 'created' => false,
                 'patient' => $this->patient,
+                'success' => "Doctor is already been booked for {$this->appointment_date} ",
             ];
         } else if(BookingService::patientAlreadyBooked($this->appointment_date, $this->patient )) {
             return [
                 'appointment' => [],
                 'created' => false,
                 'patient' => $this->patient,
+                'success' => "Booking appointment for the patient for {$this->appointment_date}  already exists"
             ];
         }  else {
            $appointment = Appointment::create([
@@ -80,6 +82,7 @@ class BookingCreateRequest extends FormRequest
                 'appointment' => $appointment,
                 'created' => true,
                 'patient' => $this->patient,
+                'success' => 'Appointment booking is successfully created.'
             ];
         }
 
