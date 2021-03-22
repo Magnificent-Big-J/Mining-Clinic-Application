@@ -16,13 +16,14 @@ class StockLevelMailNotification extends Mailable
      *
      * @return void
      */
-    public $doctor;
-    public $doctorProducts;
-
-    public function __construct($doctor, $doctorProducts)
+    public $full_names;
+    public $clinicProducts;
+    public $clinic;
+    public function __construct($clinicProducts, $full_names, $clinic)
     {
-        $this->doctor = $doctor;
-        $this->doctorProducts = $doctorProducts;
+        $this->clinicProducts = $clinicProducts;
+        $this->full_names = $full_names;
+        $this->clinic = $clinic;
     }
 
     /**

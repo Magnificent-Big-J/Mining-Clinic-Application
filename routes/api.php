@@ -68,3 +68,6 @@ Route::get('product/{product}', 'Api\ProductController@edit');
 Route::put('product/{product}/update', 'Api\ProductController@update');
 //Booking
 Route::post('patient-booking-form', 'Api\BookingController@store');
+
+//Stock Level
+Route::get('stock/{clinic}/level-form/{user}', 'Api\InternalApiController@stockLevel');

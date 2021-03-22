@@ -3,8 +3,10 @@
 namespace App\Console\Commands;
 
 use App\Mail\StockLevelMailNotification;
+use App\Models\ClinicProduct;
 use App\Models\Doctor;
 use App\Models\DoctorProduct;
+use App\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
@@ -42,13 +44,14 @@ class StockLevelNotification extends Command
      */
     public function handle()
     {
-        $doctors = Doctor::all();
+        $clinics = clinic::all();
 
-        foreach ($doctors as $doctor) {
-              $doctorProducts = DoctorProduct::where('doctor_id', '=', $doctor->id)
+        foreach ($clinics as $clinic) {
+              $clinicProducts = ClinicProduct::where('clinic_id', '=', $clinic->id)
                 ->where('threshold', '>', DB::raw('quantity'))->get();
-              if ($doctorProducts->count()) {
-                    Mail::to($doctor->email)->send(new StockLevelMailNotification($doctor, $doctorProducts));
+              if ($clinicProducts->count()) {
+
+                    //Mail::to($doctor->email)->send(new StockLevelMailNotification($doctor, $clinicProducts));
               }
 
         }

@@ -33,7 +33,7 @@
                             <div class="mb-4">
                                 <div name="search_form">
                                     <div class="row">
-
+                                        <input type="hidden" id="user" value="{{$user->id}}">
                                         <div class="col-lg-3">
                                             <select name="clinic" id="clinic" class="form-control">
                                                 @foreach($clinics as $clinic)
@@ -43,17 +43,20 @@
 
                                         </div>
 
-                                        <div class="col-lg-3 ">
+                                        <div class="col-lg-2 ">
                                             <button type="button" class="btn btn-primary" id="search">Filter</button>
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-2">
                                             <button type="button" data-toggle="modal" href="#add-clinic-product-modal" class="btn btn-primary add-clinic-product" >Add Mining Clinic Products</button>
                                         </div>
-                                        <div class="col-lg-3 ">
+                                        <div class="col-lg-2">
                                             <form action="{{route('export.mining.download')}}" method="get">
                                                 <input type="hidden" name="clinic_id" id="clinic-id">
                                                 <button type="submit" class="btn btn-primary" >Export</button>
                                             </form>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <button class="btn btn-info" id="push-level-primary">Push Stock Level Notification </button>
                                         </div>
                                     </div>
 
@@ -94,6 +97,9 @@
 @section('scripts')
     <script src="{{asset('js/select2.min.js')}}"></script>
     <script>
+        let clinic;
+        let user = $('#user').val();
+
         $(function () {
             $('#clinic-id').val($("#clinic").val());
             $('#loader').hide();
@@ -103,14 +109,26 @@
                 width: "resolve"
             });
             $('.add-clinic-product').click(function (){
-                let clinic = $("#clinic").val();
+                clinic = $("#clinic").val();
 
                 $('#clinic-product').val(clinic);
 
             });
+            $('#push-level-primary').click(function (){
+                clinic = $("#clinic").val();
 
+                axios.get(`../../api/stock/${clinic}/level-form/${user}`)
+                .then((response)=>{
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'OK',
+                        text: response.data.success
+                    })
+                })
+
+            });
             function fetch_data(){
-                let clinic = $("#clinic").val();
+                clinic = $("#clinic").val();
 
                 $('#clinic-products').DataTable({
                     processing: true,
@@ -142,7 +160,7 @@
                $("#clinic").val(clinic);
             }
             $('#clinic').change(function (){
-                let clinic = $("#clinic").val();
+                clinic = $("#clinic").val();
                 $('#clinic-id').val(clinic);
             });
             $('#search').click(function(){

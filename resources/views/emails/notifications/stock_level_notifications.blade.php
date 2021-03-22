@@ -1,7 +1,7 @@
 
-<h1>Dear {{$doctor->user->full_names}}</h1>,<br>
+<h1>Dear {{$full_names}}</h1>,<br>
 
-    Stock Level Notification, please see the below table<br>
+    Stock Level Notification for {{$clinic->mining_name}} {{$clinic->clinic_name}}, please see the below table<br>
     <table class="table">
         <thead>
             <tr>
@@ -12,9 +12,9 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($doctorProducts as $doctorProduct)
+            @foreach($clinicProducts as $clinicProduct)
             <tr>
-                <td>{{$doctorProduct->product->product_code}}</td><td>{{$doctorProduct->product->productCategory->name}}</td><td>{{$doctorProduct->quantity}}</td><td>{{$doctorProduct->threshold}}</td>
+                <td>{{$clinicProduct->product->product_code}}</td><td>{{$clinicProduct->product->productCategory->name}}</td><td>{{$clinicProduct->quantity}}</td><td>{{$clinicProduct->threshold}}</td>
             </tr>
             @endforeach
         </tbody>
