@@ -73,8 +73,8 @@ class BookingCreateRequest extends FormRequest
                 $doctor->patients()->attach([$patient->id]);
             }
 
-            //DoctorAppointmentBooking::dispatch($appointment, $doctor->email);
-            //PatientAppointmentBooking::dispatch($appointment, $patient->email_address);
+            DoctorAppointmentBooking::dispatch($appointment, $doctor->email);
+            PatientAppointmentBooking::dispatch($appointment, $patient->email_address);
 
             return [
                 'appointment' => $appointment,
