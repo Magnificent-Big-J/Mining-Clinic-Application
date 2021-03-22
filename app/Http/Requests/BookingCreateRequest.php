@@ -38,9 +38,10 @@ class BookingCreateRequest extends FormRequest
             'appointment_date' => 'required',
             'doctor' => 'required',
             'clinic' => 'required',
+            'timeSlot' => 'required',
         ];
     }
-    public function createBooking()
+    public function createBooking(): ?array
     {
         if (BookingService::alreadyBooked($this->appointment_date, $this->timeSlot, $this->doctor)) {
             return [
@@ -48,7 +49,7 @@ class BookingCreateRequest extends FormRequest
                 'created' => false,
                 'patient' => $this->patient,
             ];
-        } else if(BookingService::patientAlreadyBooked($this->appointment_date,$this->patient )) {
+        } else if(BookingService::patientAlreadyBooked($this->appointment_date, $this->patient )) {
             return [
                 'appointment' => [],
                 'created' => false,
@@ -72,8 +73,8 @@ class BookingCreateRequest extends FormRequest
                 $doctor->patients()->attach([$patient->id]);
             }
 
-            DoctorAppointmentBooking::dispatch($appointment, $doctor->email);
-            PatientAppointmentBooking::dispatch($appointment, $patient->email_address);
+            //DoctorAppointmentBooking::dispatch($appointment, $doctor->email);
+            //PatientAppointmentBooking::dispatch($appointment, $patient->email_address);
 
             return [
                 'appointment' => $appointment,

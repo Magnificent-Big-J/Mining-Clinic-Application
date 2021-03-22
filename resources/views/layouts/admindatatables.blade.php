@@ -75,7 +75,8 @@
 <script src="{{mix('/js/preload.js')}}"></script>
 <script>
     $(function (){
-        appointment_date.min = new Date().toISOString().split("T")[0];
+        let appointment = document.getElementById('appointment_date');
+        appointment.min = new Date().toISOString().split("T")[0];
     })
 </script>
 @yield('scripts')

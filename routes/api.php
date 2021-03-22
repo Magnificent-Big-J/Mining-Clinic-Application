@@ -66,3 +66,5 @@ Route::post('appointment/{appointment}/update','Api\AppointmentController@update
 //Product
 Route::get('product/{product}', 'Api\ProductController@edit');
 Route::put('product/{product}/update', 'Api\ProductController@update');
+//Booking
+Route::post('patient-booking-form', 'Api\BookingController@store');
