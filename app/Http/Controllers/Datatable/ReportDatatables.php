@@ -13,6 +13,7 @@ class ReportDatatables extends Controller
         $appointments = Appointment::all();
 
         return DataTables::of($appointments)
+            ->addIndexColumn()
             ->addColumn('doctor', function ($row){
                 return $row->doctor->user->full_names;
             })

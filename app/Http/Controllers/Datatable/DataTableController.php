@@ -27,6 +27,7 @@ class DataTableController extends Controller
         $patients = Patient::all();
 
         return DataTables::of($patients)
+            ->addIndexColumn()
             ->addColumn('patient', function ($patient){
                 return $patient->full_name;
             })
@@ -63,6 +64,7 @@ class DataTableController extends Controller
         $specialist = Specialist::all();
 
         return DataTables::of($specialist)
+            ->addIndexColumn()
             ->addColumn('specialist', function ($row){
                 return view('admin.specialist.partials.specialist', compact('row'));
             })
@@ -78,6 +80,7 @@ class DataTableController extends Controller
     {
         $doctors = Doctor::all();
         return DataTables::of($doctors)
+            ->addIndexColumn()
             ->addColumn('doctor', function ($row){
                 return $row->user->full_names;
             })
@@ -110,7 +113,7 @@ class DataTableController extends Controller
             ->get();
 
         return DataTables::of($appointments)
-
+            ->addIndexColumn()
             ->addColumn('specialities', function ($row){
                 return $row->doctor->specialization;
             })
@@ -140,6 +143,7 @@ class DataTableController extends Controller
         $specialist = ScreeningQuestionnaire::all();
 
         return DataTables::of($specialist)
+            ->addIndexColumn()
             ->addColumn('question', function ($row){
                 return view('admin.questionnaires.partials.question', compact('row'));
             })

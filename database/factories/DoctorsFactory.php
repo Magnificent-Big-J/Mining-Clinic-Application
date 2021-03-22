@@ -18,6 +18,7 @@ $factory->define(Doctor::class, function (Faker $faker) {
         'complex' => $faker->address,
         'suburb' => $faker->address,
         'city' => $faker->address,
+        'street' => $faker->streetAddress,
         'has_entity' => Doctor::No_ENTITY_STATE,
         'code' => rand(10000, 50000),
 

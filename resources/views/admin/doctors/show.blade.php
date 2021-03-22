@@ -63,7 +63,12 @@
                                                 </h5>
                                                 <div class="row">
                                                     <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Specialities</p>
-                                                    <p class="col-sm-10 text-uppercase">{{$doctor->doc_specialities}}</p>
+                                                    <ul class="list-group list-group-flush">
+                                                        @foreach($doctor->specialists as $specialist)
+                                                            <li class="list-group-item">{{$specialist->name}}</li>
+                                                        @endforeach
+                                                    </ul>
+
                                                 </div>
                                                 @if ($doctor->has_entity === \App\Models\Doctor::HAS_ENTITY_STATE)
                                                     <div class="row">
@@ -188,6 +193,10 @@
                                                 <h5 class="card-title d-flex justify-content-between">
                                                     <span>Address Information</span>
                                                 </h5>
+                                                <div class="row">
+                                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Street</p>
+                                                    <p class="col-sm-10 text-uppercase">{{$doctor->street}}</p>
+                                                </div>
                                                 <div class="row">
                                                     <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Complex</p>
                                                     <p class="col-sm-10 text-uppercase">{{$doctor->complex}}</p>

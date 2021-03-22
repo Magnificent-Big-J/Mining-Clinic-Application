@@ -15,6 +15,7 @@ class DoctorAppointmentController extends Controller
         $appointments = Appointment::where('doctor_id', '=', auth()->user()->doctor->id)->get();
 
         return DataTables::of($appointments)
+            ->addIndexColumn()
             ->addColumn('patient_name', function ($row){
                 return $row->patient->full_name;
             })
@@ -35,6 +36,7 @@ class DoctorAppointmentController extends Controller
         $patients = Doctor::find(auth()->user()->doctor->id)->patients;
 
         return DataTables::of($patients)
+            ->addIndexColumn()
             ->addColumn('age', function ($patient){
                 return $patient->age;
             })

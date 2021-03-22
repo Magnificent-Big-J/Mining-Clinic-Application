@@ -27,6 +27,7 @@ class DoctorController extends Controller
             'reg_number' => 'required|string|unique:doctors',
             'specialist_name' => 'required',
             'postal_code' => 'required|numeric',
+            'street' => 'required',
         ];
         if ($request->has('has_entity') && $request->has_entity == 'on') {
             $data = ['entity_name' => 'required|string|unique:doctor_entities', 'entity_status' => 'required|string'];

@@ -41,6 +41,7 @@ class DoctorCreateRequest extends FormRequest
             'reg_number' => 'required|string',
             'specialist_name' => 'required',
             'postal_code' => 'required|numeric',
+            'street' => 'required',
         ];
     }
     public function createUser(): void
@@ -77,6 +78,7 @@ class DoctorCreateRequest extends FormRequest
             'fax_number' => $this->fax_number,
             'complex' => $this->complex,
             'suburb' => $this->suburb,
+            'street' => $this->street,
             'city' => $this->city,
             'has_entity' => ($this->has_entity) ? Doctor::No_ENTITY_STATE : Doctor::No_ENTITY_STATE,
             'code' => $this->postal_code,
@@ -87,10 +89,8 @@ class DoctorCreateRequest extends FormRequest
         $doctor->specialists()->attach([$this->specialist_name]);
         if ($this->has_entity) {
             DoctorEntity::create([
-                'complex' => $this->complex,
-                'suburb' => $this->suburb,
-                'city' => $this->city,
-                'code' => $this->postal_code,
+               'entity_name' => $this->entity_name,
+               'entity_status' => $this->entity_status,
                 'doctor_id'=> $doctor->id
             ]);
         }

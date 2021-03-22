@@ -131,6 +131,9 @@
                     if (errors.postal_code) {
                         $('#postal-code-error').html(errors.postal_code[0]);
                     }
+                    if (errors.street) {
+                        $('#street-error').html(errors.street[0]);
+                    }
                 })
             });
         });

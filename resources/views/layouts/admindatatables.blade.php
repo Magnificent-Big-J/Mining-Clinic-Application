@@ -91,6 +91,8 @@
         });
 
     </script>
+    {{ Session::forget('error') }}
+    {{ Session::save() }}
 @endif
 @if (Session::has('success'))
     <script>
@@ -98,6 +100,8 @@
             Swal.fire('{{Session::get("success")}}')
         });
     </script>
+    {{ Session::forget('success') }}
+    {{ Session::save() }}
 @endif
 </body>
 

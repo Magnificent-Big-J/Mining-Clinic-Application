@@ -26,7 +26,7 @@ class DoctorUpdateRequest extends FormRequest
         return [
             'entity_name' => 'required|string|unique:doctors,entity_name,' . $this->doctor->id,
             'entity_status' => 'required|string',
-            'entity_email' => 'required|string',
+            'street' => 'required|string',
             'practice_number' => 'required|string',
             'vat_number' => 'required',
             'address' => 'required|string',
@@ -38,8 +38,8 @@ class DoctorUpdateRequest extends FormRequest
     {
         $doctor->specialists()->detach([$this->specialist_name]);
         $doctor->entity_name = $this->entity_name;
-        $doctor->entity_status = $this->entity_status;
         $doctor->email = $this->entity_email;
+        $doctor->street = $this->street;
         $doctor->address = $this->address;
         $doctor->stock_scheme = $this->reg_number;
         $doctor->practice_number = $this->practice_number;

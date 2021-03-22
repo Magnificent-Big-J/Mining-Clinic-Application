@@ -45,7 +45,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Doctor :<strong class="text-danger">*</strong></label>
+                                        <label class="col-lg-3 col-form-label">Doctor:<strong class="text-danger">*</strong></label>
                                         <div class="col-lg-9">
 
                                             <select class="js-example-basic-single form-control" name="doctor" id="doctor" required>
@@ -60,7 +60,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Mining Clinic :<strong class="text-danger">*</strong></label>
+                                        <label class="col-lg-3 col-form-label">Mining Clinic:<strong class="text-danger">*</strong></label>
                                         <div class="col-lg-9">
                                             <select class="js-example-basic-single form-control" name="clinic" id="clinic" required>
                                                 <option value="">Select A Mining Clinic</option>
@@ -75,7 +75,7 @@
                                     <div class="form-group row" id="time-slot">
 
                                     </div>
-                                    <strong class="text-danger" id="time-slot-error"></strong>
+                                    <strong class="text-danger mt-4" id="time-slot-error"></strong>
                                     <input type="button" value="Book Appointment" class="btn btn-primary booking">
                                 </form>
                             </div>

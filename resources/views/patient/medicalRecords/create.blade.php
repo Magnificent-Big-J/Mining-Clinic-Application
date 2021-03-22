@@ -31,15 +31,7 @@
                     <div class="biller-info">
                         <h4 class="d-block">{{$patient->full_name}}</h4>
                         <span class="d-block text-sm text-muted"><i class="fas fa-{{strtolower($patient->gender)}} mr-1"></i>{{$patient->gender}}</span>
-                        <span class="d-block text-sm text-muted">
-                            <h5 class="mb-0">
-                            @if((boolean)$patient->has_medical_aid)
-                                    <i class="fas fa-credit-card"></i>Medical Aid
-                                @else
-                                    <i class="fas fa-money-bill-alt"></i>Cash Payment
-                                @endif
-                        </h5>
-                        </span>
+
                     </div>
                 </div>
 
@@ -52,7 +44,7 @@
 
                         <input type="hidden" name="patient" value="{{$patient->id}}">
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label">Medical Record Date<strong class="text-danger">*</strong>:</label>
+                            <label class="col-lg-3 col-form-label">Medical Record Date:<strong class="text-danger">*</strong></label>
                             <div class="col-lg-9">
                                 <input type="date"  name="record_date"  class="form-control" >
                                 @error('record_date')
@@ -64,7 +56,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label">Description<strong class="text-danger">*</strong>:</label>
+                            <label class="col-lg-3 col-form-label">Description:<strong class="text-danger">*</strong></label>
                             <div class="col-lg-9">
                                 <textarea name="description" id="description" cols="30" rows="2" class="form-control"></textarea>
                                 @error('description')
@@ -76,7 +68,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label">Medical Record File :</label>
+                            <label class="col-lg-3 col-form-label">Medical Record File:</label>
                             <div class="col-lg-9">
                                 <input type="file" accept="image/gif, image/jpeg, image/png, application/pdf" name="medical_record"  class="form-control" >
                             </div>

@@ -18,6 +18,7 @@ class ConsultationDatatableController extends Controller
         $categories = ConsultationCategory::all();
 
         return DataTables::of($categories)
+            ->addIndexColumn()
             ->addColumn('edit', function ($row){
                 return view('admin.consultation.partials.actions', compact('row'));
             })
@@ -31,6 +32,7 @@ class ConsultationDatatableController extends Controller
         $consultations = Consultation::all();
 
         return DataTables::of($consultations)
+            ->addIndexColumn()
             ->addColumn('category_name', function ($row){
                 return $row->consultationCategory->name;
             })

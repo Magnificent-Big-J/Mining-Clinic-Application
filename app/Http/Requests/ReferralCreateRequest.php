@@ -35,7 +35,7 @@ class ReferralCreateRequest extends FormRequest
         ];
     }
 
-    public function referPatient(): void
+    public function referPatient()
     {
         $doctor = auth()->user()->doctor;
 
@@ -45,7 +45,7 @@ class ReferralCreateRequest extends FormRequest
             $this->uploadReferralDocument($referral, $doctor->practice_number);
         }
 
-        Referral::create([
+        $referral = Referral::create([
             'patient_id' => $this->patient,
             'doctor_id' => $this->refer_to,
             'appointment_id' => $this->appointment,
@@ -55,6 +55,8 @@ class ReferralCreateRequest extends FormRequest
         ]);
 
         $this->updateAppointment($this->appointment);
+
+        return $referral;
     }
 
     private function updateAppointment(int $appointmentId): void

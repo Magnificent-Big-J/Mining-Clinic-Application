@@ -56,7 +56,7 @@
                                             </form>
                                         </div>
                                         <div class="col-lg-3">
-                                            <button class="btn btn-info" id="push-level-primary">Push Stock Level Notification </button>
+                                            <button class="btn btn-primary" id="push-level-primary">Push Stock Level Notification </button>
                                         </div>
                                     </div>
 
@@ -66,6 +66,7 @@
                             <table class="table table-hover table-center mb-0" id="clinic-products">
                                 <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Product Code</th>
                                     <th>Product Name</th>
                                     <th>Product Category</th>
@@ -141,6 +142,7 @@
                         }
                     },
                     columns: [
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                         {data: 'product_code', name: 'product_code'},
                         {data: 'product_name', name: 'product_name'},
                         {data: 'product_category', name: 'product_category'},
@@ -153,7 +155,7 @@
                     ],
                     'order':[],
                     'columnDefs': [{
-                    "targets": [6,7,8],
+                    "targets": [0,7,8, 9],
                     "orderable": false
                     }]
                 });
@@ -190,7 +192,7 @@
                 axios.get(`../../api/clinic-product/${clinic_product}/product`)
                     .then((response)=>{
                         $('#loader').hide();
-                        $('.modal-title').html('Now updating :' + response.data.product_name)
+                        $('.edit-heading').html('Now updating :' + response.data.product_name)
                         $('#price').val(response.data.price)
                         $('#threshold').val(response.data.threshold)
                         $('#clinic-product-value').val(clinic_product);

@@ -39,7 +39,7 @@
                         <span class="d-block text-sm text-muted"><i class="fas fa-{{strtolower($appointment->patient->gender)}} mr-1"></i>{{$appointment->patient->gender}}</span>
                         <span class="d-block text-sm text-muted">
                             <h5 class="mb-0">
-                           
+
                         </h5>
                         </span>
                     </div>
@@ -108,7 +108,7 @@
                     <div class="submit-section">
                        <div class="row">
                            <div class="col-lg-6">
-                               <button type="submit" id="save" class="btn btn-primary submit-btn">Save</button>
+                               <button type="submit" id="save" class="btn btn-primary ">Save</button>
                            </div>
                            <div class="col-lg-6">
                                <button type="reset" class="btn btn-secondary clear-btn">Clear</button>

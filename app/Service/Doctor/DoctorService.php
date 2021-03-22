@@ -50,6 +50,7 @@ class DoctorService
             'code' => $request->postal_code,
             'reg_number' => $request->reg_number,
             'user_id' => $id,
+            'street' => $request->street,
         ]);
 
         $doctor->specialists()->attach($request->specialist_name);

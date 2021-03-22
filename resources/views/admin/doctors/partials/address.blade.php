@@ -1,6 +1,13 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group row">
+            <label class="col-lg-3 col-form-label">Street:<i class="fa fa-asterisk text-danger"></i></label>
+            <div class="col-lg-9">
+                <input type="text" name="street"  class="form-control">
+                <small id="street-error" class="text-danger"></small>
+            </div>
+        </div>
+        <div class="form-group row">
             <label class="col-lg-3 col-form-label">Complex:<i class="fa fa-asterisk text-danger"></i></label>
             <div class="col-lg-9">
                 <input type="text" name="complex"  class="form-control">

@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\DB;
  * @property string $tele_number
  * @property string $fax_number
  * @property string $address
+ * @property string $street
  * @property int $user_id
  * @property int $specialist_id
  * @property string $stock_scheme
@@ -43,7 +44,7 @@ class Doctor extends Model
     use SoftDeletes;
     protected $fillable = [
         'email', 'practice_number', 'vat_number', 'tele_number', 'fax_number', 'complex', 'suburb',
-        'city', 'user_id', 'stock_scheme', 'has_entity', 'code', 'status', 'reg_number'];
+        'city', 'user_id', 'stock_scheme', 'has_entity', 'code', 'status', 'reg_number','street'];
     const HAS_ENTITY_STATE = 1;
     const No_ENTITY_STATE = 2;
     const ACTIVE_STATUS = 1;

@@ -14,6 +14,7 @@ class ClinicController extends Controller
         $clinics = Clinic::all();
 
         return DataTables::of($clinics)
+            ->addIndexColumn()
             ->addColumn('edit', function ($clinic){
                 return view('admin.clinic.partials.actions', compact('clinic'));
             })

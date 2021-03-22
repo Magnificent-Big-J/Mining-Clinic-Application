@@ -32,6 +32,7 @@
                             <table class="table table-hover table-center mb-0" id="product">
                                 <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Product Code</th>
                                     <th>Product Name</th>
                                     <th>Product Category</th>
@@ -80,6 +81,7 @@
                     url: "{{ route('product.index') }}",
                 },
                 columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'product_code', name: 'product_code'},
                     {data: 'product_name', name: 'product_name'},
                     {data: 'category', name: 'category'},
@@ -90,7 +92,7 @@
                 ],
                 'order':[],
                 'columnDefs': [{
-                    "targets": [5,6],
+                    "targets": [0, 6, 7],
                     "orderable": false
                 }]
             });

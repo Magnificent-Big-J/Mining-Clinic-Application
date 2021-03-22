@@ -17,10 +17,6 @@ class CreateDoctorEntitiesTable extends Migration
             $table->id();
             $table->string('entity_name');
             $table->string('entity_status');
-            $table->string('complex');
-            $table->string('suburb');
-            $table->string('city');
-            $table->integer('code');
             $table->unsignedBigInteger('doctor_id');
             $table->softDeletes();
             $table->timestamps();

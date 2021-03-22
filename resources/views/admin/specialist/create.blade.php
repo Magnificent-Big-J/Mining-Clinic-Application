@@ -40,7 +40,7 @@
                                     <table class="table table-hover table-center">
                                         <thead>
                                         <tr>
-                                            <th style="min-width: 200px">Specialities name</th>
+                                            <th style="min-width: 200px">Specialities Name</th>
                                             <th style="min-width: 100px">Specialities Image</th>
                                             <th style="min-width: 80px;"></th>
                                         </tr>

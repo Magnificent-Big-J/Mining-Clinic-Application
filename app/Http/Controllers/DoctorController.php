@@ -83,6 +83,7 @@ class DoctorController extends Controller
             'reg_number' => 'required|string|unique:doctors,reg_number,' . $doctor->id,
             'specialist_name' => 'required',
             'postal_code' => 'required|numeric',
+            'street' => 'required',
         ];
         $updateEntity = false;
         if ($doctor->has_entity === Doctor::HAS_ENTITY_STATE) {
@@ -101,6 +102,7 @@ class DoctorController extends Controller
         $doctor->practice_number = $request->practice_number;
         $doctor->reg_number = $request->reg_number;
         $doctor->fax_number = $request->fax_number;
+        $doctor->street = $request->street;
         $doctor->specialists()->attach([$request->specialist_name]);
 
         $doctor->save();

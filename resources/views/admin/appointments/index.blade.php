@@ -65,6 +65,7 @@
                             <table class="table table-hover table-center mb-0" id="appointments">
                                 <thead>
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">Doctor</th>
                                     <th scope="col">Specialities</th>
                                     <th scope="col">Patient Name</th>
@@ -124,6 +125,7 @@
                     },
 
                     columns: [
+                        {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                         {data: 'doctor', name: 'doctor'},
                         {data: 'specialities', name: 'specialities'},
                         {data: 'patient', name: 'patient'},
@@ -137,7 +139,7 @@
                     ],
                     'order':[],
                     'columnDefs': [{
-                        "targets": [5,6,7,8],
+                        "targets": [0,6,7,8, 9],
                         "orderable": false
                     }]
 

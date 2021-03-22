@@ -28,15 +28,7 @@
                     <div class="biller-info">
                         <h4 class="d-block">{{$appointment->patient->full_name}}</h4>
                         <span class="d-block text-sm text-muted"><i class="fas fa-{{strtolower($appointment->patient->gender)}} mr-1"></i>{{$appointment->patient->gender}}</span>
-                        <span class="d-block text-sm text-muted">
-                            <h5 class="mb-0">
-                            @if((boolean)$appointment->patient->has_medical_aid)
-                                    <i class="fas fa-credit-card"></i>Medical Aid
-                                @else
-                                    <i class="fas fa-money-bill-alt"></i>Cash Payment
-                                @endif
-                        </h5>
-                        </span>
+
                     </div>
                 </div>
                 <div class="col-sm-6 text-sm-right">
@@ -53,7 +45,7 @@
                         <input type="hidden" name="appointment" value="{{$appointment->id}}">
                         <input type="hidden" name="document" value="{{$document_type[0]->id}}">
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label">Patient Prescription <strong class="text-danger">*</strong>:</label>
+                            <label class="col-lg-3 col-form-label">Patient Prescription:<strong class="text-danger">*</strong></label>
                             <div class="col-lg-9">
                                 <input type="file" accept="image/gif, image/jpeg, image/png, application/pdf" name="prescription"  class="form-control" required>
                                 @error('prescription')

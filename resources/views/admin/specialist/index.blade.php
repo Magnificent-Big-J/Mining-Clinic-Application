@@ -29,6 +29,7 @@
                             <table class="table table-hover table-center mb-0" id="specialist">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>Specialists</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
@@ -59,14 +60,14 @@
                     url: "{{ route('specialist.index') }}",
                 },
                 columns: [
-
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'specialist', name: 'specialist'},
                     {data: 'edit', name: 'edit'},
                     {data: 'delete', name: 'delete'},
                     ],
                 'order':[],
                 'columnDefs': [{
-                    "targets": [1,2],
+                    "targets": [0,2, 3],
                     "orderable": false
                 }]
             });

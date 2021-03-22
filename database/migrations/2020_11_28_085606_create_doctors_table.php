@@ -22,6 +22,7 @@ class CreateDoctorsTable extends Migration
             $table->bigInteger('vat_number')->nullable();
             $table->string('tele_number')->nullable();
             $table->string('fax_number')->nullable();
+            $table->string('street');
             $table->string('complex');
             $table->string('suburb');
             $table->string('city');

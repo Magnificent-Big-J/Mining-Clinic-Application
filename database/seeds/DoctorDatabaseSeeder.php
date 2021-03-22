@@ -42,6 +42,7 @@ class DoctorDatabaseSeeder extends Seeder
             'suburb' => 'Midrand 1682',
             'city' => 'Johannesburg',
             'has_entity' => Doctor::HAS_ENTITY_STATE,
+            'street' => '1682 Midrand',
             'code' => 1682,
             'user_id' => $user->id,
         ]);
@@ -49,10 +50,6 @@ class DoctorDatabaseSeeder extends Seeder
         DoctorEntity::create([
             'entity_name' => $user->title . ' ' . $user->first_name . ' ' . $user->last_name,
             'entity_status' => 'active',
-            'complex' => 'The Heights Estate',
-            'suburb' => 'Midrand 1682',
-            'city' => 'Johannesburg',
-            'code' => 1682,
             'doctor_id'=> $doctor->id
         ]);
         $doctor->specialists()->attach($specialist);
@@ -81,6 +78,7 @@ class DoctorDatabaseSeeder extends Seeder
             'tele_number' => '0837734919',
             'fax_number'  => '0123031041',
             'complex' => 'Thatchfield Estate',
+            'street' => '6874 Nokukwane',
             'suburb' => 'Centurion',
             'city' => 'Pretoria',
             'has_entity' => Doctor::HAS_ENTITY_STATE,
@@ -91,10 +89,6 @@ class DoctorDatabaseSeeder extends Seeder
         DoctorEntity::create([
             'entity_name' => $user->title . ' ' . $user->first_name . ' ' . $user->last_name,
             'entity_status' => 'active',
-            'complex' => 'Thatchfield Estate',
-            'suburb' => 'Centurion',
-            'city' => 'Pretoria',
-            'code' => 0152,
             'doctor_id'=> $doctor->id
         ]);
 
@@ -125,6 +119,7 @@ class DoctorDatabaseSeeder extends Seeder
             'fax_number'  => '0123031041',
             'complex' => '414 Jacqueline Dr',
             'suburb' => 'Garsfontein',
+            'street' => '414 Jacqueline Dr',
             'city' => 'Pretoria',
             'has_entity' => Doctor::No_ENTITY_STATE,
             'code' => 0042,

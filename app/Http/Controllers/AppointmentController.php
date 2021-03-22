@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\AppointmentDeclined;
 use App\Jobs\DoctorAcceptedPatientAppointment;
+use App\Jobs\PatientAppointmentAccepted;
 use App\Jobs\SendDeletedAppointment;
 use App\Jobs\SendInvoiceToMedicalAid;
 use App\Jobs\SendInvoiceToPatient;
@@ -86,6 +87,7 @@ class AppointmentController extends Controller
         if (intval($appointment->status) === Appointment::ACCEPTED_STATUS) {
             session()->flash('success','Appointment has been accepted');
             DoctorAcceptedPatientAppointment::dispatch($appointment);
+            PatientAppointmentAccepted::dispatch($appointment);
         } else if (intval($appointment->status) === Appointment::DECLINED_STATUS) {
             session()->flash('success','Appointment has been declined');
             AppointmentDeclined::dispatch($appointment);

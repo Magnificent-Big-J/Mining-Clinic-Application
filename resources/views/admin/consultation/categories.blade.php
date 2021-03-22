@@ -29,6 +29,7 @@
                             <table class="table table-hover table-center mb-0" id="consultation_category">
                                 <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Consultation Category</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -61,13 +62,14 @@
                     url: "{{ route('consultation.category.index') }}",
                 },
                 columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'name', name: 'name'},
                     {data: 'edit', name: 'edit'},
                     {data: 'delete', name: 'delete'},
                 ],
                 'order':[],
                 'columnDefs': [{
-                    "targets": [1,2],
+                    "targets": [0,2,3],
                     "orderable": false
                 }]
             });

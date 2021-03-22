@@ -26,6 +26,7 @@
                             <table class="table table-hover table-center mb-0" id="doctors">
                                 <thead>
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">Doctor</th>
                                     <th scope="col">Specialities</th>
                                     <th scope="col">Vat Number</th>
@@ -59,6 +60,7 @@
                     url: "{{ route('doctor.index') }}",
                 },
                 columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'doctor', name: 'doctor'},
                     {data: 'specialities', name: 'specialities'},
                     {data: 'vat_number', name: 'vat_number'},
@@ -71,7 +73,7 @@
                 ],
                 'order':[],
                 'columnDefs': [{
-                    "targets": [4,5,6,7],
+                    "targets": [0, 5,6,7, 8],
                     "orderable": false
                 }]
             });

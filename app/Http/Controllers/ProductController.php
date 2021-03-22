@@ -84,8 +84,14 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product->delete();
-        session()->flash('success','Product successfully deleted');
+        if ($product->clinicProducts->count()) {
+            session()->flash('error','Product cannot be deleted');
+        } else {
+            $product->delete();
+            session()->flash('success','Product successfully deleted');
+        }
+
+
         return redirect()->route('admin.product.index');
     }
 }

@@ -29,6 +29,8 @@
                             <table class="table table-hover table-center mb-0" id="clinics">
                                 <thead>
                                 <tr>
+
+                                    <th scope="col">No</th>
                                     <th scope="col">Mining Name</th>
                                     <th scope="col">Clinic Name</th>
                                     <th scope="col">Edit</th>
@@ -61,6 +63,7 @@
                     url: "{{ route('clinic.index.data') }}",
                 },
                 columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'mining_name', name: 'mining_name'},
                     {data: 'clinic_name', name: 'clinic_name'},
                     {data: 'edit', name: 'edit'},
@@ -68,7 +71,7 @@
                 ],
                 'order':[],
                 'columnDefs': [{
-                    "targets": [2,3],
+                    "targets": [0, 3, 4],
                     "orderable": false
                 }]
             });

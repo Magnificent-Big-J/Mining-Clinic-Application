@@ -74,7 +74,12 @@
                     {data: 'category_name', name: 'category_name'},
                     {data: 'consultation_fee_price', name: 'consultation_fee_price'},
                     {data: 'actions', name: 'actions'},
-                ]
+                ],
+                'order':[],
+                'columnDefs': [{
+                    "targets": [0, 4],
+                    "orderable": false
+                }]
             });
 
         });

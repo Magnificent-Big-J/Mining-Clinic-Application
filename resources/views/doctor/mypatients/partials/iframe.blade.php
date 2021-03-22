@@ -4,5 +4,5 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    <a href="{{asset($medicalRecord->path)}}" class="btn btn-primary" download>Download</a>
+    <a href="{{asset($medicalRecord->path)}}" target="_blank" class="btn btn-primary" download>Download</a>
 </div>

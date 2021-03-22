@@ -16,7 +16,7 @@ class MiningClinicSeeder extends Seeder
             array('mining_name' => 'Moroaswi Mining', 'clinic_name'=> 'Khumalo Clinic'),
             array('mining_name' => 'Moroaswi Mining', 'clinic_name'=> 'Gebuza Clinic'),
             array('mining_name' => 'Moroaswi Mining', 'clinic_name'=> 'Nkanyane Clinic'),
-            array('mining_name' => 'Moroaswi Mining', 'clinic_name'=> 'Invoke Clinic'),
+            array('mining_name' => 'Moroaswi Mining', 'clinic_name'=> 'Gazankulu Clinic'),
         );
 
         foreach ($clinics as $clinic) {

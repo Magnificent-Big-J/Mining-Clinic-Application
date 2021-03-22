@@ -15,6 +15,7 @@ class ClinicProductController extends Controller
         $clinics = ClinicProduct::where('clinic_id', '=', $clinic->id)->get();
 
         return DataTables::of($clinics)
+            ->addIndexColumn()
             ->addColumn('product_code', function ($clinic){
                 return $clinic->product->product_code;
             })

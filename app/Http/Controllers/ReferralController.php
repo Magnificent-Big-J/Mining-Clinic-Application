@@ -43,10 +43,10 @@ class ReferralController extends Controller
      */
     public function store(ReferralCreateRequest $request)
     {
-        $request->referPatient();
+        $referral = $request->referPatient();
         session()->flash('success', 'Patient successfully referred');
 
-        return redirect()->route('doctor.referrals.show', $request->appointment);
+        return redirect()->route('doctor.referrals.show', $referral->id);
     }
 
     /**
