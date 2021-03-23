@@ -37,6 +37,6 @@ class SendInvoiceToMedicalAid implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->appointment->patient->medicalAid[0]->medical_email_address)->send(new MedicalAidInvoince($this->appointment, $this->appointment->patient->medicalAid));
+        Mail::to($this->medical_email_address)->send(new MedicalAidInvoince($this->appointment, $this->appointment->patient->medicalAid));
     }
 }

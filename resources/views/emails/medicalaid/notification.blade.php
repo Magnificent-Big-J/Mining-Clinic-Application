@@ -81,13 +81,13 @@
                 </div>
                 @foreach($appointment->prescriptions as $prescription)
                     <tr>
-                        <td>{{$prescription->doctorProduct->product->product_name}}</td>
+                        <td>{{$prescription->clinicProduct->product->product_name}}</td>
                         <td>{{$prescription->days}}</td>
                         <td class="text-right">{{$prescription->quantity}}</td>
                         <td>{{$prescription->usage}}</td>
-                        <td class="text-right">R {{$prescription->doctorProduct->price}}</td>
+                        <td class="text-right">R {{$prescription->clinicProduct->price}}</td>
 
-                        <div style="display: none">{{$total += $prescription->doctorProduct->price}}</div>
+                        <div style="display: none">{{$total += $prescription->clinicProduct->price}}</div>
                     </tr>
                 @endforeach
                 <tr>
