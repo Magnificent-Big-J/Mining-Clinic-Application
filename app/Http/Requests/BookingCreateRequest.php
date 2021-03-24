@@ -13,6 +13,7 @@ use App\Models\Patient;
 use App\Service\BookingService;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class BookingCreateRequest extends FormRequest

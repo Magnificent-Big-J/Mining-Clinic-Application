@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class DoctorAppointmentBooking implements ShouldQueue
@@ -19,12 +20,12 @@ class DoctorAppointmentBooking implements ShouldQueue
      *
      * @return void
      */
-    public $appointment;
     public $email;
+    public $appointment;
     public function __construct($appointment, $email)
     {
-        $this->appointment = $appointment;
         $this->email = $email;
+        $this->appointment = $appointment;
     }
 
     /**

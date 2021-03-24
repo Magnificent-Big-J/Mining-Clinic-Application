@@ -2,15 +2,14 @@
 
 namespace App\Jobs;
 
-use App\Mail\PatientBooking;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
-class PatientAppointmentBooking implements ShouldQueue
+class PatientBookingNotification implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -21,7 +20,7 @@ class PatientAppointmentBooking implements ShouldQueue
      */
     public $email;
     public $appointment;
-    public function __construct($appointment, $email)
+    public function __construct($email, $appointment)
     {
         $this->email = $email;
         $this->appointment = $appointment;
@@ -34,6 +33,6 @@ class PatientAppointmentBooking implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->email)->send(new PatientBooking($this->appointment));
+        Log::debug('Fuck');
     }
 }

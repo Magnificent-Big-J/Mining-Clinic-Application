@@ -1,12 +1,12 @@
 @component('mail::message')
-    # Dear {{$appointment->doctor->user->full_names}},
+    # Dear {{$appointment->patient->full_name}},
 
-    Appointment have been rescheduled, details below.<br>
-    Patient Name: {{$appointment->patient->full_name}}<br>
+    Booking request has been  successfully created.<br>
+    Appointment detail:
+
+    Doctor Name: {{$appointment->doctor->full_names}}<br>
     Date: {{$appointment->appointment_date}}<br>
     Time: {{$appointment->appointment_time}}<br>
-
-    Please login into the system to approve the appointment<br>
 
     Thanks,<br>
     {{ config('app.name') }}
