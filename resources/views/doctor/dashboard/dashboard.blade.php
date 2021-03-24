@@ -98,6 +98,7 @@
                                         <tr>
                                             <th>Patient Name</th>
                                             <th>Appointment Date</th>
+                                            <th>Clinic</th>
                                             <th>Status</th>
 
                                         </tr>
@@ -109,6 +110,7 @@
                                                     {{$appointment->patient->full_name}}
                                                 </td>
                                                 <td>{{$appointment->appointment_date}} <span class="d-block text-info">{{$appointment->appointment_time}}</span></td>
+                                                <td>{{$appointment->clinic->clinic_name}}</td>
                                                 <td>{{$appointment->status_text}}</td>
                                             </tr>
                                         @endforeach
@@ -130,6 +132,7 @@
                                         <tr>
                                             <th>Patient Name</th>
                                             <th>Appointment Date</th>
+                                            <th>Clinic</th>
                                             <th>Status</th>
 
                                         </tr>
@@ -141,6 +144,7 @@
                                                     {{$appointment->patient->full_name}}
                                                 </td>
                                                 <td>{{$appointment->appointment_date}} <span class="d-block text-info">{{$appointment->appointment_time}}</span></td>
+                                                <td>{{$appointment->clinic->clinic_name}}</td>
                                                 <td>{{$appointment->status_text}}</td>
 
                                             </tr>

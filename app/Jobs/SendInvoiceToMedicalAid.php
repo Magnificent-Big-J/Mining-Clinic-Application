@@ -23,10 +23,11 @@ class SendInvoiceToMedicalAid implements ShouldQueue
     public $appointment;
     public $medical_email_address;
 
-    public function __construct($appointment, $medicalAid)
+    public function __construct($appointment, $medicalAid, $medical_email_address)
     {
         $this->appointment = $appointment;
         $this->medicalAid = $medicalAid;
+        $this->medical_email_address = $medical_email_address;
 
     }
 
