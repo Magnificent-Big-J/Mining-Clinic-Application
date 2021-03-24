@@ -45,7 +45,7 @@ class ReferralController extends Controller
             })
             ->addColumn('referred_to', function ($row){
 
-                return $row->doctor->entity_name;
+                return $row->referred_to;
             })
             ->addColumn('actions', function ($row){
                 return view('doctor.referrals.partials.actions', compact('row'));

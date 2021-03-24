@@ -17,6 +17,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property Patient $patient
  * @property Doctor $doctor
  * @property int $referred_by
+ * @property string $referred_to
+ * @property string $refer_by_who
  */
 class Referral extends Model
 {
@@ -38,6 +40,12 @@ class Referral extends Model
     {
         $doctor = Doctor::find($this->referred_by);
 
-        return $doctor->entity_name;
+        return $doctor->user->full_names;
+    }
+    public function getReferredToAttribute()
+    {
+        $doctor = Doctor::find($this->doctor_id);
+
+        return $doctor->user->full_names;
     }
 }

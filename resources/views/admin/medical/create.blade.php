@@ -34,7 +34,7 @@
                                     @csrf
                                     <input type="hidden" name="patient" value="{{Session::get('patient')->id}}">
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Medical Aid Name:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Medical Aid Name:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="medical_name" value="{{ old('medical_name') }}" class="form-control">
                                                     @error('medical_name')
@@ -45,7 +45,7 @@
                                                  </div>
                                             </div>
                                         <div class="form-group row">
-                                            <label class="col-lg-3 col-form-label">Medical Aid Number:<strong class="text-danger">*</strong></label>
+                                            <label class="col-lg-3 col-form-label">Medical Aid Number:<span class="text-danger">*</span></label>
                                             <div class="col-lg-9">
                                                 <input type="text" name="medical_aid_number" value="{{ old('medical_aid_number') }}" class="form-control">
                                                 @error('medical_aid_number')
@@ -58,7 +58,7 @@
 
 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Medical Email Address:<strong class="text-danger">*</strong></label>
+                                        <label class="col-lg-3 col-form-label">Medical Email Address:<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
                                             <input type="email" name="medical_email_address" value="{{ old('medical_email_address') }}" class="form-control">
                                             @error('medical_email_address')

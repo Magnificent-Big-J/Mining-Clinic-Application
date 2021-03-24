@@ -192,7 +192,7 @@
                 axios.get(`../../api/clinic-product/${clinic_product}/product`)
                     .then((response)=>{
                         $('#loader').hide();
-                        $('.edit-heading').html('Now updating :' + response.data.product_name)
+                        $('.edit-heading').html('Now updating: ' + response.data.product_name)
                         $('#price').val(response.data.price)
                         $('#threshold').val(response.data.threshold)
                         $('#clinic-product-value').val(clinic_product);

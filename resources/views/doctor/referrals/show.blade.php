@@ -92,6 +92,12 @@
                             <div class="col-lg-8">
                                 <p> {{$referral->refer_by_who}}</p>
                             </div>
+                            <div class="col-lg-4">
+                                <strong>Referral To:</strong>
+                            </div>
+                            <div class="col-lg-8">
+                                <p> {{$referral->referred_to}}</p>
+                            </div>
 
                         </div>
 

@@ -37,7 +37,7 @@
                                     @csrf
 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Appointment Date:<strong class="text-danger">*</strong></label>
+                                        <label class="col-lg-3 col-form-label">Appointment Date:<span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
                                             <input type="date" name="appointment_date" id="appointment_date" value="{{ $appointment->appointment_date }}" class="form-control" required>
                                             @error('appointment_date')
@@ -48,7 +48,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Doctor :</label>
+                                        <label class="col-lg-3 col-form-label">Doctor:</label>
                                         <div class="col-lg-9">
                                           <p>{{$appointment->doctor->user->full_names}}</p>
                                             <input type="hidden" name="doctor" id="doctor" value="{{$appointment->doctor->id}}">

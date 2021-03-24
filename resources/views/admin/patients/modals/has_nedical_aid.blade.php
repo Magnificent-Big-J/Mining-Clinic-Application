@@ -12,14 +12,14 @@
                     <div id="loader"></div>
                     <input type="hidden" name="patient" id="patient">
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Medical Aid Name:<i class="fa fa-asterisk text-danger"></i></label>
+                        <label class="col-lg-3 col-form-label">Medical Aid Name:<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input type="text" name="medical_name" class="form-control" required>
                             <small class="text-danger" id="medical-aid-error"></small>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Medical Aid Number:<i class="fa fa-asterisk text-danger"></i></label>
+                        <label class="col-lg-3 col-form-label">Medical Aid Number:<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input type="text" name="medical_aid_number" class="form-control" required>
                             <small class="text-danger" id="medical-aid-number-error"></small>
@@ -28,7 +28,7 @@
 
 
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Medical Email Address:<i class="fa fa-asterisk text-danger"></i></label>
+                        <label class="col-lg-3 col-form-label">Medical Email Address:<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input type="email" name="medical_email_address" class="form-control" required>
                             <small class="text-danger" id="medical-aid-email-error"></small>

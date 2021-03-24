@@ -44,6 +44,9 @@ class BookingCreateRequest extends FormRequest
     }
     public function createBooking(): ?array
     {
+        $doctor = Doctor::find($this->doctor);
+        $patient = Patient::find($this->patient);
+
         if (BookingService::alreadyBooked($this->appointment_date, $this->timeSlot.":00", $this->doctor)) {
             return [
                 'appointment' => [],
@@ -51,14 +54,15 @@ class BookingCreateRequest extends FormRequest
                 'patient' => $this->patient,
                 'success' => "Doctor is already been booked for {$this->appointment_date} ",
             ];
-        } else if(BookingService::patientAlreadyBooked($this->appointment_date, $this->patient )) {
+        } /*else if(BookingService::patientAlreadyBooked($this->appointment_date, $this->patient )) {
             return [
                 'appointment' => [],
                 'created' => false,
                 'patient' => $this->patient,
                 'success' => "Booking appointment for the patient for {$this->appointment_date}  already exists"
             ];
-        }  else {
+        }*/  else {
+
            $appointment = Appointment::create([
                 'patient_id'=> $this->patient,
                 'doctor_id' => $this->doctor,
@@ -67,10 +71,6 @@ class BookingCreateRequest extends FormRequest
                 'status' => Appointment::PENDING_STATUS,
                'clinic_id' => $this->clinic,
             ]);
-
-
-            $doctor = Doctor::find($this->doctor);
-            $patient = Patient::find($this->patient);
 
             if (!$doctor->patients()->where('patients.id', '=', $patient->id)->first()) {
                 $doctor->patients()->attach([$patient->id]);

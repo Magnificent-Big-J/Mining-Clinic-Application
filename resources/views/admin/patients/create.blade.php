@@ -31,7 +31,7 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">First Name:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">First Name:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="first_name" value="{{ old('first_name') }}" class="form-control">
                                                     @error('first_name')
@@ -42,7 +42,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Gender:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Gender:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <select name="gender" id="gender" class="form-control">
                                                         <option value="Male" @if (old('gender') == 'Male') selected @endif>Male</option>
@@ -51,7 +51,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">ID Number/Passport Number:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">ID Number/Passport Number:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="identity_number" value="{{ old('identity_number') }}" class="form-control">
                                                     @error('identity_number')
@@ -62,7 +62,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">South African:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">South African:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <select name="is_local" id="is_local"  class="form-control">
                                                         <option value="1" @if (old('is_local') == 1) selected @endif>Yes</option>
@@ -101,7 +101,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Last Name:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Last Name:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="last_name" value="{{ old('last_name') }}" class="form-control">
                                                     @error('last_name')
@@ -112,7 +112,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Date of Birth:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Date of Birth:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="date" name="date_of_birth" value="{{ old('date_of_birth') }}" class="form-control">
                                                     @error('date_of_birth')
@@ -123,7 +123,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Have Medical Aid:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Have Medical Aid:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <select name="have_medical" id="have_medical" class="form-control">
                                                         <option @if (old('have_medical') == 1) selected @endif value="1">Yes</option>
@@ -139,7 +139,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Email Address:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Email Address:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="email" name="email_address" value="{{ old('email_address') }}" class="form-control">
                                                     @error('email_address')
@@ -156,7 +156,7 @@
                                         <div class="col-lg-6">
                                             <h4 class="card-title">Physical Address</h4>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Address 1:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Address 1:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="address_1" value="{{ old('address_1') }}" class="form-control">
                                                     @error('address_1')
@@ -167,7 +167,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Address 2:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Address 2:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="address_2" value="{{ old('address_2') }}" class="form-control">
                                                     @error('address_2')
@@ -178,7 +178,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Province:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Province:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <select name="province" id="province" class="form-control">
                                                         @foreach($provinces as $province)
@@ -188,7 +188,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Postal Code:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Postal Code:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="postal_code" value="{{ old('postal_code') }}" class="form-control">
                                                     @error('postal_code')

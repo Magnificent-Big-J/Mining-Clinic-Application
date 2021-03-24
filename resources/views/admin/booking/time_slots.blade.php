@@ -1,4 +1,4 @@
-<label class="col-lg-3 col-form-label">Slots:<strong class="text-danger">*</strong></label>
+<label class="col-lg-3 col-form-label">Slots:<span class="text-danger">*</span></label>
 <div class="col-lg-9">
     <div class="row">
         @foreach($timeSlots as $slot)

@@ -2,7 +2,7 @@
     <div class="col-lg-6">
 
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Specialist:<i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">Specialist:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <select name="specialist_name" id="specialist-name-update" class="form-control" style="width: 100%" class="form-control select2-width" required multiple="multiple">
                     @foreach($specialists as $specialist)
@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Practice Number:<i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">Practice Number:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <input type="text" name="practice_number" value="{{ $doctor->practice_number }}" class="form-control">
                 @error('practice_number')
@@ -47,7 +47,7 @@
     <div class="col-lg-6">
 
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Registration Number:<i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">Registration Number:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <input type="text" name="reg_number" value="{{ $doctor->reg_number }}" class="form-control">
                 @error('reg_number')
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Email Address:<i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">Email Address:<span class="text-danger">*</span></i></label>
             <div class="col-lg-9">
                 <input type="email" name="email" value="{{ $doctor->email }}" class="form-control">
                 @error('email')

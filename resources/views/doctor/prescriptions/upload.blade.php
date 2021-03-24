@@ -28,7 +28,7 @@
                     <div class="biller-info">
                         <h4 class="d-block">{{$appointment->patient->full_name}}</h4>
                         <span class="d-block text-sm text-muted"><i class="fas fa-{{strtolower($appointment->patient->gender)}} mr-1"></i>{{$appointment->patient->gender}}</span>
-
+                        <span><i class="fas fa-phone"></i>{{ $appointment->patient->cell_number }}</span>
                     </div>
                 </div>
                 <div class="col-sm-6 text-sm-right">

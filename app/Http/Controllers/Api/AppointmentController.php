@@ -21,7 +21,6 @@ class AppointmentController extends Controller
         if (intval($appointment->status) === Appointment::ACCEPTED_STATUS) {
             $message = "Appointment has been accepted";
             DoctorAcceptedPatientAppointment::dispatch($appointment);
-            PatientAppointmentAccepted::dispatch($appointment);
         } else if (intval($appointment->status) === Appointment::DECLINED_STATUS) {
             $message = "Appointment has been declined";
             AppointmentDeclined::dispatch($appointment);

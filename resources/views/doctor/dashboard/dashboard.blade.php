@@ -99,7 +99,7 @@
                                             <th>Patient Name</th>
                                             <th>Appointment Date</th>
                                             <th>Status</th>
-                                            <th></th>
+
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -110,10 +110,6 @@
                                                 </td>
                                                 <td>{{$appointment->appointment_date}} <span class="d-block text-info">{{$appointment->appointment_time}}</span></td>
                                                 <td>{{$appointment->status_text}}</td>
-
-                                                <td class="text-right">
-                                                    @include('doctor.dashboard.partials.actions')
-                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -135,7 +131,7 @@
                                             <th>Patient Name</th>
                                             <th>Appointment Date</th>
                                             <th>Status</th>
-                                            <th></th>
+
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -147,9 +143,6 @@
                                                 <td>{{$appointment->appointment_date}} <span class="d-block text-info">{{$appointment->appointment_time}}</span></td>
                                                 <td>{{$appointment->status_text}}</td>
 
-                                                <td class="text-right">
-                                                    @include('doctor.dashboard.partials.actions')
-                                                </td>
                                             </tr>
                                         @endforeach
                                         </tbody>

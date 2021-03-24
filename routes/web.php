@@ -46,6 +46,7 @@ Route::get('doctor-export-data', 'Exports\DoctorStockExportController@exportStoc
 Route::get('clinic-download-stock', 'ClinicProductController@exportMiningProducts')->name('export.mining.download');
 Route::get('medical-record/{patient}/upload', 'Doctor\MyPatientController@create')->name('medical.record.upload');
 Route::get('medical-record/{medicalRecord}/edit', 'MedicalRecordController@edit')->name('medical.record.edit');
+Route::get('medical-record/{medicalRecord}/show', 'MedicalRecordController@show')->name('medical.record.show');
 Route::post('medical-record-upload', 'MedicalRecordController@store')->name('medical.record.store');
 Route::put('medical-record/{medicalRecord}update', 'MedicalRecordController@update')->name('medical.record.update');
 

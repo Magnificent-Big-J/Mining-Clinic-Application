@@ -12,7 +12,7 @@
                    @csrf
 
                     <div class="form-group">
-                        <label for="">Name:<strong class="text-danger">*</strong></label>
+                        <label for="">Name:<span class="text-danger">*</span></label>
                         <input type="text" name="name" class="form-control" value="{{old('name')}}" required>
                         @error('name')
                             <span class="text-danger" role="alert">

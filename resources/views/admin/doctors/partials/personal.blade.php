@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">First Name: <i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">First Name:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <input type="text" name="first_name"  class="form-control" required>
                 <small id="first-name-error" class="text-danger"></small>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Title:<i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">Title:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <select name="title" id="title" class="form-control" required>
                     <option value="Dr">Dr</option>
@@ -22,14 +22,14 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Practice Number:<i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">Practice Number:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <input type="text" name="practice_number" class="form-control" required>
                 <small id="practice-number-error" class="text-danger"></small>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Registration Number:<i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">Registration Number:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <input type="text" name="reg_number" class="form-control">
                 <small id="reg-number-error" class="text-danger"></small>
@@ -53,21 +53,21 @@
     <div class="col-lg-6">
 
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Last Name:<i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">Last Name:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <input type="text" name="last_name"  class="form-control" required>
                 <small id="last-name-error" class="text-danger"></small>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Email Address:<i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">Email Address:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <input type="email" name="email" value="{{ old('email') }}" class="form-control" required>
                 <small id="email-error" class="text-danger"></small>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Specialist:<i class="fa fa-asterisk text-danger"></i></label>
+            <label class="col-lg-3 col-form-label">Specialist:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <select name="specialist_name[]" id="specialist_name" class="form-control" style="width: 100%" class="form-control select2-width" required multiple="multiple">
                     @foreach($specialists as $specialist)

@@ -12,14 +12,14 @@
                     <div id="loader" style="display: none;"></div>
                     <input type="hidden" name="clinic" id="clinic">
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Mining Name:<i class="fa fa-asterisk text-danger"></i></label>
+                        <label class="col-lg-3 col-form-label">Mining Name:<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input type="text" name="mining_name" id="mining-name" class="form-control" required>
                             <small class="text-danger" id="error-mining-name"></small>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Clinic Name:<i class="fa fa-asterisk text-danger"></i></label>
+                        <label class="col-lg-3 col-form-label">Clinic Name:<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input type="text" name="clinic_name" id="clinic-name" class="form-control" required>
                             <small class="text-danger" id="error-clinic-name"></small>

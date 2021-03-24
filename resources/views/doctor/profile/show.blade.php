@@ -32,7 +32,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>First Name <span class="text-danger">*</span></label>
+                            <label>First Name:<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="first_name" value="{{$user->first_name}}">
                             @error('first_name')
                                 <span class="text-danger" role="alert">
@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Last Name <span class="text-danger">*</span></label>
+                            <label>Last Name:<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="last_name" value="{{$user->last_name}}">
                             @error('last_name')
                             <span class="text-danger" role="alert">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Password</label>
+                            <label>Password:</label>
                             <input type="password" class="form-control" name="password" autocomplete="new-password">
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                 <div class="row form-row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Practice Number<span class="text-danger">*</span></label>
+                            <label>Practice Number:<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="practice_number" value="{{$user->doctor->practice_number}}">
                             @error('practice_number')
                             <span class="text-danger" role="alert">
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                           <label>Specialist<span class="text-danger">*</span></label>
+                           <label>Specialist:<span class="text-danger">*</span></label>
                             <select name="specialist_name[]" id="specialist_name" style="width: 100%" class="form-control select2-width" required multiple="multiple">
                                 @foreach($specialists as $specialist)
                                     <option  @if (in_array($specialist->id, $doc_specialists)) selected @endif value="{{$specialist->id}}">{{$specialist->name}}</option>
@@ -93,7 +93,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Registration Number<span class="text-danger">*</span></label>
+                            <label>Registration Number:<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="reg_number" value="{{$user->doctor->reg_number}}">
                             @error('reg_number')
                             <span class="text-danger" role="alert">
@@ -104,7 +104,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>VAT Number<span class="text-danger">*</span></label>
+                            <label>VAT Number:<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="vat_number" value="{{$user->doctor->vat_number}}">
                             @error('vat_number')
                             <span class="text-danger" role="alert">
@@ -115,7 +115,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Entity Email Address<span class="text-danger">*</span></label>
+                            <label>Entity Email Address:<span class="text-danger">*</span></label>
                             <input type="email" class="form-control" name="email" value="{{$user->doctor->email}}">
                             @error('email')
                             <span class="text-danger" role="alert">
@@ -126,13 +126,13 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Telephone Number</label>
+                            <label>Telephone Number:</label>
                             <input type="text" class="form-control" name="tele_number" value="{{$user->doctor->tele_number}}">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>FAX Number</label>
+                            <label>FAX Number:</label>
                             <input type="text" class="form-control" name="fax_number" value="{{$user->doctor->fax_number}}">
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                     <div class="row form-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Entity Name <span class="text-danger">*</span></label>
+                                <label>Entity Name:<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="entity_name" value="{{$user->doctor->doctorEntity->entity_name}}">
                                 @error('entity_name')
                                 <span class="text-danger" role="alert">
@@ -159,7 +159,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Entity Status <span class="text-danger">*</span></label>
+                                <label>Entity Status:<span class="text-danger">*</span></label>
                                 <select name="entity_status" id="entity_status" class="form-control">
                                     <option @if($user->doctor->doctorEntity->entity_status == 'active') selected @endif value="active">Active</option>
                                     <option @if($user->doctor->doctorEntity->entity_status == 'suspended') selected @endif value="suspended">suspended</option>
@@ -187,7 +187,18 @@
                 <div class="row form-row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Complex <i class="fa fa-asterisk text-danger"></i></label>
+                            <label>Street:<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="street" value="{{$user->doctor->street}}">
+                            @error('street')
+                            <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Complex:<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="complex" value="{{$user->doctor->complex}}">
                             @error('complex')
                             <span class="text-danger" role="alert">
@@ -198,7 +209,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Suburb <i class="fa fa-asterisk text-danger"></i></label>
+                            <label>Suburb:<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="suburb" value="{{$user->doctor->suburb}}">
                             @error('suburb')
                             <span class="text-danger" role="alert">
@@ -209,7 +220,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>City <i class="fa fa-asterisk text-danger"></i></label>
+                            <label>City:<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="city" value="{{$user->doctor->city}}">
                             @error('city')
                             <span class="text-danger" role="alert">
@@ -220,7 +231,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Postal Code <i class="fa fa-asterisk text-danger"></i></label>
+                            <label>Postal Code:<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="postal_code" value="{{$user->doctor->code}}">
                             @error('postal_code')
                             <span class="text-danger" role="alert">

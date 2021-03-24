@@ -1,5 +1,5 @@
 
-<table class="table">
+<table >
     <tr>
         <td>
             <a href="{{route('doctor.appointment.details', $appointment->id)}}" class="btn btn-sm bg-info-light">
@@ -32,7 +32,7 @@
         @elseif ($appointment->status === \App\Models\Appointment::ACCEPTED_STATUS)
             <td>
                <button type="button" class="btn btn-sm bg-success-light mx-1 complete-appointment" id="{{$appointment->id}}">
-                 <i class="fa fa-check"></i> Mark as Done
+                 <i class="fa fa-check"></i> Mark As Done
                </button>
             </td>
             @if ($appointment->prescriptions->count())

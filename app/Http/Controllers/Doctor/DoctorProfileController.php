@@ -30,6 +30,7 @@ class DoctorProfileController extends Controller
             'reg_number' => 'required|string|unique:doctors,reg_number,' . $user->doctor->id,
             'specialist_name' => 'required',
             'postal_code' => 'required|numeric',
+            'street' => 'required',
         ];
 
         if ($user->doctor->has_entity === Doctor::HAS_ENTITY_STATE) {

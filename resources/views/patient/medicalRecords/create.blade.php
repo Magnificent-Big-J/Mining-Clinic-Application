@@ -31,7 +31,7 @@
                     <div class="biller-info">
                         <h4 class="d-block">{{$patient->full_name}}</h4>
                         <span class="d-block text-sm text-muted"><i class="fas fa-{{strtolower($patient->gender)}} mr-1"></i>{{$patient->gender}}</span>
-
+                        <span><i class="fas fa-phone text-muted"></i>{{ $patient->cell_number }}</span>
                     </div>
                 </div>
 
@@ -44,24 +44,24 @@
 
                         <input type="hidden" name="patient" value="{{$patient->id}}">
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label">Medical Record Date:<strong class="text-danger">*</strong></label>
+                            <label class="col-lg-3 col-form-label">Medical Record Date:<span class="text-danger">*</span></label>
                             <div class="col-lg-9">
                                 <input type="date"  name="record_date"  class="form-control" >
                                 @error('record_date')
-                                <span class="text-danger" role="alert">
-                                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                  <span class="text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                  </span>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label">Description:<strong class="text-danger">*</strong></label>
+                            <label class="col-lg-3 col-form-label">Description:<span class="text-danger">*</span></label>
                             <div class="col-lg-9">
                                 <textarea name="description" id="description" cols="30" rows="2" class="form-control"></textarea>
                                 @error('description')
-                                <span class="text-danger" role="alert">
-                                                         <strong>{{ $message }}</strong>
+                                     <span class="text-danger" role="alert">
+                                          <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>

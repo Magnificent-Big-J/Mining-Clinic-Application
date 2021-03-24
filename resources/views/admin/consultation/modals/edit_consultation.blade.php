@@ -13,13 +13,13 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group ">
-                                <label  for="">Name: <strong class="text-danger">*</strong></label>
+                                <label  for="">Name:<span class="text-danger">*</span></label>
                                 <input type="text" name="name" class="form-control" value="{{old('name')}}" required>
 
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group ">
-                                <label for="">Consultation Type: <strong class="text-danger">*</strong></label>
+                                <label for="">Consultation Type:<span class="text-danger">*</span></label>
                                 <br>
                                 <select name="consultation_type" id="consultation-type" style="width: 100%" class="form-control select2-width" required>
                                     @foreach($consultationCategories as $consultationCategory)

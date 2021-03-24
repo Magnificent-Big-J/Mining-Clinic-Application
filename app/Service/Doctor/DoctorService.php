@@ -99,6 +99,7 @@ class DoctorService
         $user->doctor->complex = $request->complex;
         $user->doctor->city = $request->city;
         $user->doctor->suburb = $request->suburb;
+        $user->doctor->street = $request->street;
         $user->doctor->code = $request->postal_code;
         $user->doctor->practice_number = $request->practice_number;
         $user->doctor->reg_number = $request->reg_number;

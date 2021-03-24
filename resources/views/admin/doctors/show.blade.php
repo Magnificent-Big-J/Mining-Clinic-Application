@@ -63,9 +63,9 @@
                                                 </h5>
                                                 <div class="row">
                                                     <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Specialities</p>
-                                                    <ul class="list-group list-group-flush">
+                                                    <ul >
                                                         @foreach($doctor->specialists as $specialist)
-                                                            <li class="list-group-item">{{$specialist->name}}</li>
+                                                            <li >{{$specialist->name}}</li>
                                                         @endforeach
                                                     </ul>
 

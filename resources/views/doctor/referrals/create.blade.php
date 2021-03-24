@@ -31,7 +31,7 @@
                     <div class="biller-info">
                         <h4 class="d-block">{{$appointment->patient->full_name}}</h4>
                         <span class="d-block text-sm text-muted"><i class="fas fa-{{strtolower($appointment->patient->gender)}} mr-1"></i>{{$appointment->patient->gender}}</span>
-
+                        <span><i class="fas fa-phone"></i>{{ $appointment->patient->cell_number }}</span>
                     </div>
                 </div>
                 <div class="col-sm-6 text-sm-right">
@@ -50,7 +50,7 @@
                         <input type="hidden" name="doctor" value="{{$appointment->doctor->id}}">
                         <input type="hidden" name="document" value="{{$document_type[0]->id}}">
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label">Referral Reason:<strong class="text-danger">*</strong></label>
+                            <label class="col-lg-3 col-form-label">Referral Reason:<span class="text-danger">*</span></label>
                             <div class="col-lg-9">
                                 <textarea name="referral_reason" id="referral_reason" cols="30" rows="2" class="form-control"></textarea>
                                 @error('referral_reason')
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label">Referral To:<strong class="text-danger">*</strong></label>
+                            <label class="col-lg-3 col-form-label">Referral To:<span class="text-danger">*</span></label>
                             <div class="col-lg-9">
                                 <select name="refer_to" id="doctor" style="width: 100%" class="form-control select2-width" required>
                                     @foreach($doctors as $doctor)
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label">Referral Letter:</label>
+                            <label class="col-lg-3 col-form-label">Referral File:</label>
                             <div class="col-lg-9">
                                 <input type="file" accept="image/gif, image/jpeg, image/png, application/pdf" name="referral"  class="form-control" >
                             </div>

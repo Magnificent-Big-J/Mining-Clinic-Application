@@ -97,9 +97,13 @@ class ScreeningQuestionnaireController extends Controller
     public function destroy(ScreeningQuestionnaire $screeningQuestionnaire)
     {
 
-        $screeningQuestionnaire->delete();
-        $screeningQuestionnaire->specialities()->detach();
-        session()->flash('success', 'question successfully deleted.');
+        if ($screeningQuestionnaire->screening->count() > 0) {
+           session()->flash('error', 'Question cannot be deleted.');
+       } else {
+           $screeningQuestionnaire->delete();
+           $screeningQuestionnaire->specialities()->detach();
+           session()->flash('success', 'Question successfully deleted.');
+       }
 
         return redirect()->back();
     }

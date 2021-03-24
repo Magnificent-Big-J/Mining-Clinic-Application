@@ -37,11 +37,8 @@
                     <div class="biller-info">
                         <h4 class="d-block">{{$appointment->patient->full_name}}</h4>
                         <span class="d-block text-sm text-muted"><i class="fas fa-{{strtolower($appointment->patient->gender)}} mr-1"></i>{{$appointment->patient->gender}}</span>
-                        <span class="d-block text-sm text-muted">
-                            <h5 class="mb-0">
+                        <span><i class="fas fa-phone"></i>{{ $appointment->patient->cell_number }}</span>
 
-                        </h5>
-                        </span>
                     </div>
                 </div>
                 <div class="col-sm-6 text-sm-right">
@@ -54,6 +51,7 @@
             <!-- Add Item -->
             <div class="add-more-item text-right">
                 <a  id="add-column"><i class="fas fa-plus-circle"></i> Add Item</a>
+                <a href="{{route('doctor.new.appointments')}}" class="btn btn-primary text-white">Back</a>
             </div>
             <!-- /Add Item -->
             <div id="loader"></div>

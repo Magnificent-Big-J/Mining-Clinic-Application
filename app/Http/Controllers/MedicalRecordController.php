@@ -28,4 +28,8 @@ class MedicalRecordController extends Controller
         session()->flash('success','Patient medical record information successfully created.');
         return redirect()->route('doctor.my.patient.show', $medicalRecord->patient_id);
     }
+    public function show(MedicalRecord $medicalRecord)
+    {
+        return view('patient.medicalRecords.show', compact('medicalRecord'));
+    }
 }

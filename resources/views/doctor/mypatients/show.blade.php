@@ -132,6 +132,7 @@
                                             <th>Attachment</th>
                                             <th>Created</th>
                                             <th></th>
+                                            <th></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -139,7 +140,7 @@
                                                 <tr>
                                                     <td>{{$key + 1 }}</td>
                                                     <td>{{$record->record_date}}</td>
-                                                    <td>{{$record->description}}</td>
+                                                    <td class="text-wrap">{{$record->description}}</td>
                                                     <td><a href="#patient-medical-record" data-toggle="modal" data-target="#patient-medical-record" class="medical-record"  id="{{$record->id}}" >{{$record->file_name}}</a></td>
                                                     <td>
                                                         {{$record->user->full_names}}
@@ -148,6 +149,13 @@
                                                         <div class="table-action">
                                                             <a href="{{route('medical.record.edit', $record->id)}}" class="btn btn-sm bg-info-light">
                                                                 <i class="far fa-pencil"></i> Edit
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        <div class="table-action">
+                                                            <a href="{{route('medical.record.show', $record->id)}}" class="btn btn-sm bg-info-light">
+                                                                <i class="far fa-pencil"></i> View
                                                             </a>
                                                         </div>
                                                     </td>

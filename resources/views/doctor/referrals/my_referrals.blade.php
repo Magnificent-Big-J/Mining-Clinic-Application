@@ -33,6 +33,7 @@
                     <table class="table table-hover table-center mb-0" id="referrals">
                         <thead>
                         <tr>
+                            <th scope="col">No</th>
                             <th scope="col">Patient Name</th>
                             <th scope="col">Referred To</th>
                             <th scope="col">Referred Date</th>
@@ -63,6 +64,7 @@
                 },
 
                 columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'patient_name', name: 'patient_name'},
                     {data: 'referred_to', name: 'referred_to'},
                     {data: 'referral_date', name: 'referral_date'},
@@ -70,7 +72,7 @@
                 ],
                 'order':[],
                 'columnDefs': [{
-                    "targets": [3],
+                    "targets": [0, 4],
                     "orderable": false
                 }]
             });
