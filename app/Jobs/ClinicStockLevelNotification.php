@@ -37,6 +37,6 @@ class ClinicStockLevelNotification implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->user)->send(new StockLevelMailNotification($this->clinicProducts, $this->user, $this->clinic));
+        Mail::to($this->user)->send(new StockLevelMailNotification($this->clinicProducts, $this->user->full_names, $this->clinic));
     }
 }

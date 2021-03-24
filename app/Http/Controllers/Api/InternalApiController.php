@@ -52,7 +52,7 @@ class InternalApiController extends Controller
             ->where('threshold', '>', DB::raw('quantity'))->get();
         if ($clinicProducts->count()) {
             $success = "Processing stock level, email will be sent after";
-            ClinicStockLevelNotification::dispatch($clinicProducts, $user->full_names, $clinic);
+            ClinicStockLevelNotification::dispatch($clinicProducts, $user, $clinic);
 
         } else {
             $success = "All stock is fine";
