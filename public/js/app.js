@@ -2000,6 +2000,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MedicalExamination",
   props: ['patient', 'appointment'],
@@ -41272,32 +41274,34 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm.questionIndex > 0
-          ? _c(
-              "button",
-              { staticClass: "btn btn-secondary", on: { click: _vm.prev } },
-              [_vm._v("\n            prev\n        ")]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _vm.questionLength === _vm.questionIndex
-          ? _c(
-              "button",
-              {
-                staticClass: "btn btn-success",
-                on: {
-                  click: function($event) {
-                    return _vm.submitAnswers()
+        _c("div", { staticClass: "mt-4" }, [
+          _vm.questionIndex > 0
+            ? _c(
+                "button",
+                { staticClass: "btn btn-secondary", on: { click: _vm.prev } },
+                [_vm._v("\n               Prev\n           ")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.questionLength === _vm.questionIndex
+            ? _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  on: {
+                    click: function($event) {
+                      return _vm.submitAnswers()
+                    }
                   }
-                }
-              },
-              [_vm._v("\n            Submit\n        ")]
-            )
-          : _c(
-              "button",
-              { staticClass: "btn btn-success", on: { click: _vm.next } },
-              [_vm._v("\n            Next\n        ")]
-            ),
+                },
+                [_vm._v("\n               Submit\n           ")]
+              )
+            : _c(
+                "button",
+                { staticClass: "btn btn-success", on: { click: _vm.next } },
+                [_vm._v("\n               Next\n           ")]
+              )
+        ]),
         _vm._v(" "),
         _c("div", {
           directives: [

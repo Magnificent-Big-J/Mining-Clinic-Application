@@ -62,7 +62,7 @@ class PrescriptionController extends Controller
 
         Prescription::insert($insert_data);
         return response()->json([
-            'success'  => 'Prescriptions successfully Added.'
+            'success'  => 'Prescriptions successfully added.'
         ]);
 
     }

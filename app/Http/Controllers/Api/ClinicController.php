@@ -14,7 +14,7 @@ class ClinicController extends Controller
     {
         $request->createClinic();
         return [
-            'success' => 'Mining Clinic successfully created.',
+            'success' => 'Mining Clinic Successfully Created.',
             'url' => route('admin.clinic.index')
         ];
     }
@@ -22,7 +22,7 @@ class ClinicController extends Controller
     {
         $request->updateClinic($clinic);
         return [
-            'success' => 'Mining Clinic successfully updated.',
+            'success' => 'Mining Clinic Successfully Updated.',
             'url' => route('admin.clinic.index')
         ];
     }

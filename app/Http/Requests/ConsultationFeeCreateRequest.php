@@ -35,7 +35,7 @@ class ConsultationFeeCreateRequest extends FormRequest
         //check if already have existing record
 
         if (ConsultationService::recordExists($this->doctor, $this->consultation)) {
-            session()->flash('error', 'Consultation Fee already Exists.');
+            session()->flash('error', 'Consultation Fee Already Exists.');
         } else {
 
             ConsultationFee::create([
@@ -44,7 +44,7 @@ class ConsultationFeeCreateRequest extends FormRequest
                'doctor_id'=> $this->doctor,
             ]);
 
-            session()->flash('success', 'Consultation Fee successfully created.');
+            session()->flash('success', 'Consultation Fee Successfully Created.');
         }
 
     }

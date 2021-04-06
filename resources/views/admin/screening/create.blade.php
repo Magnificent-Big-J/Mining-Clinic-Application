@@ -24,7 +24,7 @@
                     <div class="card-body">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <h4 class="card-title">Now Screening {{$patient->full_name}} for {{$type}}</h4>
+                                <h4 class="card-title">Now Screening {{$patient->full_name}} For {{$type}}</h4>
                             </div>
                             <div class="card-body">
 

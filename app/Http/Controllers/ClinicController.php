@@ -82,7 +82,7 @@ class ClinicController extends Controller
     {
         $clinic->delete();
 
-        session()->flash('success','Mining Clinic has been successfully deleted.');
+        session()->flash('success','Mining clinic has been successfully deleted.');
 
         return redirect()->back();
     }

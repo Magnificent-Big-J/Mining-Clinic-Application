@@ -33,6 +33,6 @@ class ConsultationFeeUpdateRequest extends FormRequest
         $consultationFee->consultation_fee = $this->consultation_fee;
         $consultationFee->consultation_id = $this->consultation;
         $consultationFee->save();
-        session()->flash('success', 'Consultation Fee successfully updated.');
+        session()->flash('success', 'Consultation Fee Successfully Updated.');
     }
 }

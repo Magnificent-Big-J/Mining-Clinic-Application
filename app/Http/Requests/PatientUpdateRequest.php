@@ -28,7 +28,7 @@ class PatientUpdateRequest extends FormRequest
         return [
             'first_name' => 'required|regex:/^[a-zA-Z,;\s]+$/',
             'gender' => 'required|string',
-            'last_name' => 'required|string',
+            'last_name' => 'required|regex:/^[a-zA-Z,;\s]+$',
             'identity_number' => 'required|string',
             'email_address' => 'required|email|unique:patients,email_address,' . $this->patient->id,
             'is_local' => 'required',
@@ -77,6 +77,7 @@ class PatientUpdateRequest extends FormRequest
             'address_1.regex' => 'Address can contain letters, numbers or letters with number. e.g 301 Madiba Street',
             'identity_number.regex' => 'Identity number or passport can contain letters, numbers or letters with number.',
             'first_name.regex' => 'First name contains letters only.',
+            'last_name.regex' => 'Last name contains letters only.',
         ];
     }
 }

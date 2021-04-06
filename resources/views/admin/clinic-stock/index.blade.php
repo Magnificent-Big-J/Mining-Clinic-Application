@@ -29,40 +29,41 @@
                         <h4 class="card-title">Mining Clinic Products</h4>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <div class="mb-4">
-                                <div name="search_form">
-                                    <div class="row">
-                                        <input type="hidden" id="user" value="{{$user->id}}">
-                                        <div class="col-lg-3">
-                                            <select name="clinic" id="clinic" class="form-control">
-                                                @foreach($clinics as $clinic)
-                                                    <option value="{{$clinic->id}}">{{$clinic->mininig_name}} {{$clinic->clinic_name}}</option>
-                                                @endforeach
-                                            </select>
+                        <div class="mb-4">
+                            <div name="search_form">
+                                <div class="row">
+                                    <input type="hidden" id="user" value="{{$user->id}}">
+                                    <div class="col-lg-3 mb-4">
+                                        <select name="clinic" id="clinic" class="form-control">
+                                            @foreach($clinics as $clinic)
+                                                <option value="{{$clinic->id}}">{{$clinic->mininig_name}} {{$clinic->clinic_name}}</option>
+                                            @endforeach
+                                        </select>
 
-                                        </div>
-
-                                        <div class="col-lg-2 ">
-                                            <button type="button" class="btn btn-primary" id="search">Filter</button>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <button type="button" data-toggle="modal" href="#add-clinic-product-modal" class="btn btn-primary add-clinic-product" >Add Mining Clinic Products</button>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <form action="{{route('export.mining.download')}}" method="get">
-                                                <input type="hidden" name="clinic_id" id="clinic-id">
-                                                <button type="submit" class="btn btn-primary" >Export</button>
-                                            </form>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <button class="btn btn-primary" id="push-level-primary">Push Stock Level Notification </button>
-                                        </div>
                                     </div>
 
+                                    <div class="col-lg-2 mb-4">
+                                        <button type="button" class="btn btn-primary" id="search">Filter</button>
+                                    </div>
+                                    <div class="col-lg-2 mb-4">
+                                        <button type="button" data-toggle="modal" href="#add-clinic-product-modal" class="btn btn-primary add-clinic-product" >Add Mining Clinic Products</button>
+                                    </div>
+                                    <div class="col-lg-2 mb-4">
+                                        <form action="{{route('export.mining.download')}}" method="get">
+                                            <input type="hidden" name="clinic_id" id="clinic-id">
+                                            <button type="submit" class="btn btn-primary" >Export</button>
+                                        </form>
+                                    </div>
+                                    <div class="col-lg-3 mb-4">
+                                        <button class="btn btn-primary" id="push-level-primary">Push Stock Level Notification </button>
+                                    </div>
                                 </div>
 
                             </div>
+
+                        </div>
+                        <div class="table-responsive">
+
                             <table class="table table-hover table-center mb-0" id="clinic-products">
                                 <thead>
                                 <tr>
@@ -208,7 +209,7 @@
                 axios.get(`../../api/clinic-product/${clinic_product}/product-name`)
                     .then((response)=>{
                         $('#loader').hide();
-                        $('.clinic-add-heading').html('Add Stock For A Product :' + response.data.product_name)
+                        $('.clinic-add-heading').html('Add Stock For A Product: ' + response.data.product_name)
                         $('#stock').val(clinic_product);
 
                     })

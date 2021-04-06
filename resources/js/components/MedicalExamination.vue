@@ -43,15 +43,17 @@
                     </tr>
                 </table>
             </div>
-            <button v-if="questionIndex > 0" @click="prev" class="btn btn-secondary">
-                prev
-            </button>
-            <button v-if="questionLength === questionIndex" @click="submitAnswers()" class="btn btn-success">
-                Submit
-            </button>
-            <button v-else @click="next" class="btn btn-success">
-                Next
-            </button>
+           <div class="mt-4">
+               <button v-if="questionIndex > 0" @click="prev" class="btn btn-secondary">
+                   Prev
+               </button>
+               <button v-if="questionLength === questionIndex" @click="submitAnswers()" class="btn btn-success">
+                   Submit
+               </button>
+               <button v-else @click="next" class="btn btn-success">
+                   Next
+               </button>
+           </div>
             <div v-show="loading" id="loader"></div>
         </div>
     </div>

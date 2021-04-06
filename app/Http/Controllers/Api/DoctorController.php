@@ -38,7 +38,7 @@ class DoctorController extends Controller
         $service->createUser($request);
 
         return response()->json([
-            'success'  => 'Doctor record successfully',
+            'success'  => 'Doctor Record Successfully Created',
             'url' => route('admin.doctors.index')
         ]);
     }
@@ -60,7 +60,7 @@ class DoctorController extends Controller
         AppointmentAssessment::insert($insert_data);
 
         return response()->json([
-            'success'  => 'Appointment Consultation successfully recorded',
+            'success'  => 'Appointment Consultation Successfully Recorded',
             'url' => route('admin.appointments.index')
         ]);
     }

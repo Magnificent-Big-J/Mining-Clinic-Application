@@ -50,7 +50,7 @@ class QuestionnaireController extends Controller
         }
         ScreeningQuestionnaire::insert($insert_data);
         return response()->json([
-            'success'  => 'Screening questionnaire successfully Added.'
+            'success'  => 'Screening Questionnaire Successfully Added.'
         ]);
     }
     public function storeWithSpecialities(Request $request)
@@ -88,7 +88,7 @@ class QuestionnaireController extends Controller
         }
 
         return response()->json([
-            'success'  => 'Screening questionnaire successfully Added.'
+            'success'  => 'Screening Questionnaire Successfully Added.'
         ]);
     }
 

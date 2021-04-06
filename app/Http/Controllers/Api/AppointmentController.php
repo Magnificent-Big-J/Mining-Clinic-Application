@@ -31,7 +31,7 @@ class AppointmentController extends Controller
                 } else {
                     SendInvoiceToPatient::dispatch($appointment);
                 }
-                $message = "Appointment Marked as completed.";
+                $message = "Appointment Marked As Completed.";
             } else {
                 $appointment->status = Appointment::ACCEPTED_STATUS;
                 $appointment->save();

@@ -70,7 +70,7 @@ class ClinicProductController extends Controller
         $request->updateDoctorProduct($clinicProduct);
 
         return [
-            'message' => 'Successfully updated'
+            'message' => 'Successfully Updated'
         ];
     }
     public function productName(ClinicProduct $clinicProduct)

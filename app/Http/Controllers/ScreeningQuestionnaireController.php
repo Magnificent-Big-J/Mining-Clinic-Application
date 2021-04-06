@@ -83,7 +83,7 @@ class ScreeningQuestionnaireController extends Controller
     public function update(QuestionnaireGeneralUpdateRequest $request, ScreeningQuestionnaire $screeningQuestionnaire)
     {
         $request->updateQuestion($screeningQuestionnaire);
-        session()->flash('success', 'Questionnaire Successfully updated');
+        session()->flash('success', 'Questionnaire Successfully Updated');
         return redirect()->route('admin.screeningQuestionnaire.index');
     }
 
@@ -118,7 +118,7 @@ class ScreeningQuestionnaireController extends Controller
     public function updateSpecialities(QuestionnaireSpecialitiesUpdateRequest $request, ScreeningQuestionnaire $screeningQuestionnaire)
     {
         $request->updateQuestion($screeningQuestionnaire);
-        session()->flash('success', 'Questionnaire Successfully updated');
+        session()->flash('success', 'Questionnaire Successfully Updated');
         return redirect()->route('admin.screeningQuestionnaire.index');
     }
 

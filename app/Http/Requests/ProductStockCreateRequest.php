@@ -55,7 +55,7 @@ class ProductStockCreateRequest extends FormRequest
                 'stock_date' => Carbon::parse($this->stock_date),
                 'clinic_product_id' => $clinicProduct->id
             ]);
-            return 'Stock Successfully created';
+            return 'Stock Successfully Created';
         }
     }
 }
