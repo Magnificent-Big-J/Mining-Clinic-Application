@@ -87,11 +87,15 @@ class ConsultationController extends Controller
      */
     public function destroy(Consultation $consultation)
     {
-        $consultation->delete();
-        ConsultationFee::where('consultation_id', $consultation->id)->update(['deleted_at' => now()]);
-        $consultationFeeIds = ConsultationFee::where('consultation_id', $consultation->id)->pluck('id');
-        AppointmentAssessment::whereIn('consultation_fee_id',$consultationFeeIds)->update(['deleted_at' => now()]);
-        session()->flash('success', 'Consultation successfully deleted.');
+        if ($consultation->consultationFee->count()) {
+            session()->flash('error', 'Consultation cannot be deleted as it is linked to other active record.');
+        } else {
+            $consultation->delete();
+            ConsultationFee::where('consultation_id', $consultation->id)->update(['deleted_at' => now()]);
+            $consultationFeeIds = ConsultationFee::where('consultation_id', $consultation->id)->pluck('id');
+            AppointmentAssessment::whereIn('consultation_fee_id',$consultationFeeIds)->update(['deleted_at' => now()]);
+            session()->flash('success', 'Consultation successfully deleted.');
+        }
         return redirect()->route('admin.consultation.index');
     }
 }

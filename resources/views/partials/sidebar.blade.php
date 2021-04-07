@@ -17,7 +17,7 @@
                 <li class="submenu">
                     <a href="#" ><i class="fe fe-layout"></i> <span> Mining Clinics</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="{{route('admin.clinic.index')}}">Clinics</a></li>
+                        <li><a href="{{route('admin.clinic.index')}}">List of Clinics</a></li>
                         <li><a href="{{route('admin.specific.clinic.product')}}">Clinic Product</a></li>
                     </ul>
                 </li>

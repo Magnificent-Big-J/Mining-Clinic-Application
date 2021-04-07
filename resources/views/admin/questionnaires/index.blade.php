@@ -22,9 +22,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <a href="{{route('admin.medical.question')}}" class="mb-4 mr-4 btn btn-success">Add General Medical Examination Questionnaires</a>
-                            <a href="{{route('admin.screeningQuestionnaire.create')}}" class="mb-4 mr-4 btn btn-success">Add Covid-19 Questionnaires</a>
-                            <a href="{{route('admin.medical.question.with.specialities')}}" class="mb-4 btn btn-success">Add Specialities Medical Examination Questionnaires </a>
+                            <a href="{{route('admin.medical.question')}}" class="mb-4 mr-4 btn btn-success">Add General Medical Examination Questions</a>
+                            <a href="{{route('admin.screeningQuestionnaire.create')}}" class="mb-4 mr-4 btn btn-success">Add Covid-19 Questions</a>
+                            <a href="{{route('admin.medical.question.with.specialities')}}" class="mb-4 btn btn-success">Add Specialities Medical Examination Questions </a>
 
                             <table class="table table-hover table-center mb-0" id="specialist">
                                 <thead>

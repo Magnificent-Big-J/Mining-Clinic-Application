@@ -11,7 +11,7 @@
                 <form method="post" id="mining-clinic-form"  action="javascript:void(0)">
                     <div id="loader"></div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Mining Name:<span class="text-danger">*</span></label>
+                        <label class="col-lg-3 col-form-label">Mine Name:<span class="text-danger">*</span></label>
                         <div class="col-lg-9">
                             <input type="text" name="mining_name" class="form-control" required>
                             <small class="text-danger" id="mining-name-error"></small>

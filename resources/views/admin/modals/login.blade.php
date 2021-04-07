@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Select the clinic mining you're working at today</h5>
+                <h5 class="modal-title">Select the mining clinic you're working at today</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -13,7 +13,7 @@
                     @csrf
 
                     <div class="form-group">
-                        <label for="">Select Consultation:<strong class="text-danger">*</strong></label>
+                        <label for="">Select Consultation:<span class="text-danger">*</span></label>
                         <select name="clinic" id="clinic"  required>
                             @foreach($clinics as $clinic)
                             <option  value="{{$clinic->id}}">{{$clinic->mining_name}} {{$clinic->clinic_name}}</option>

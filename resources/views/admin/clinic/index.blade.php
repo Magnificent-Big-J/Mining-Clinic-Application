@@ -31,7 +31,7 @@
                                 <tr>
 
                                     <th scope="col">No</th>
-                                    <th scope="col">Mining Name</th>
+                                    <th scope="col">Mine Name</th>
                                     <th scope="col">Clinic Name</th>
                                     <th scope="col">Edit</th>
                                     <th scope="col">Delete</th>

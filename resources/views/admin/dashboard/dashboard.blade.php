@@ -105,7 +105,7 @@
                 <!-- Recent Orders -->
                 <div class="card card-table flex-fill">
                     <div class="card-header">
-                        <h4 class="card-title">Doctors List</h4>
+                        <h4 class="card-title">List of Doctors</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -151,7 +151,7 @@
                 <!-- Feed Activity -->
                 <div class="card  card-table flex-fill">
                     <div class="card-header">
-                        <h4 class="card-title">Patients List</h4>
+                        <h4 class="card-title">List of Patients</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

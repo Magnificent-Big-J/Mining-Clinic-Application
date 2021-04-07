@@ -25,7 +25,7 @@
     <div class="appointments">
         <div class="card">
             <div class="card-header">
-                <div class="h4 card-title">Historic Appointments</div>
+                <div class="h4 card-title">Appointments Reports</div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

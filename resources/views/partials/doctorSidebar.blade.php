@@ -37,7 +37,7 @@
                 <li>
                     <a href="{{route('doctor.all.appointments')}}">
                         <i class="fas fa-calendar-check"></i>
-                        <span>Appointments History</span>
+                        <span>Appointments Reports</span>
                     </a>
                 </li>
                 <li>

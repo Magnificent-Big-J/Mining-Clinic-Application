@@ -6,7 +6,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="page-title"> Historic Appointments</h3>
+                    <h3 class="page-title">Appointments Reports</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
                         <li class="breadcrumb-item active">Appointments</li>

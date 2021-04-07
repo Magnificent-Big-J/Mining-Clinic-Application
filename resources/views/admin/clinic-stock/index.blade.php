@@ -11,10 +11,10 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="page-title">Mining Clinic Products</h3>
+                    <h3 class="page-title">Medication Inventory</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Mining Clinic Products</li>
+                        <li class="breadcrumb-item active">Medication Inventory</li>
                     </ul>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                 <!-- Recent Orders -->
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Mining Clinic Products</h4>
+                        <h4 class="card-title">Medication Inventory</h4>
                     </div>
                     <div class="card-body">
                         <div class="mb-4">
@@ -46,7 +46,7 @@
                                         <button type="button" class="btn btn-primary" id="search">Filter</button>
                                     </div>
                                     <div class="col-lg-2 mb-4">
-                                        <button type="button" data-toggle="modal" href="#add-clinic-product-modal" class="btn btn-primary add-clinic-product" >Add Mining Clinic Products</button>
+                                        <button type="button" data-toggle="modal" href="#add-clinic-product-modal" class="btn btn-primary add-clinic-product" >Add Inventory Item</button>
                                     </div>
                                     <div class="col-lg-2 mb-4">
                                         <form action="{{route('export.mining.download')}}" method="get">

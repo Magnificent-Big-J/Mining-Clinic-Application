@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $consultation_category_id
  * @property string $name
  * @property ConsultationCategory $consultationCategory
+ * @property  ConsultationFee $ConsultationFee
  */
 
 class Consultation extends Model
