@@ -14,7 +14,7 @@
                         <input type="hidden" name="doctor" value="{{$doctor->id}}">
                         <div class="col-lg-12">
                             <div class="form-group ">
-                                <label  for="">Consultation Fee <strong class="text-danger">*</strong></label>
+                                <label  for="">Consultation Fee:<span class="text-danger">*</span></label>
                                 <input type="text" name="consultation_fee" class="form-control" value="{{old('consultation_fee')}}" required autocomplete="off">
                                 @error('consultation_fee')
                                 <span class="text-danger" role="alert">
@@ -25,7 +25,7 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group ">
-                                <label for="">Consultation <strong class="text-danger">*</strong></label>
+                                <label for="">Consultation:<span class="text-danger">*</span></label>
                                 <br>
                                 <select name="consultation" id="consultation-fee" style="width: 100%" class="form-control select2-width" required>
                                     @foreach($consultations as $consultation)

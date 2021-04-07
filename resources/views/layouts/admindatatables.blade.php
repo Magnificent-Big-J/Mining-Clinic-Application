@@ -27,6 +27,11 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/datatable.css')}}">
+    <style>
+        .dataTables_length{
+            text-transform:capitalize;
+        }
+    </style>
     @yield('styles')
     <!--[if lt IE 9]>
     <script src="{{asset('admin/assets/js/html5shiv.min.js')}}"></script>

@@ -13,6 +13,6 @@
         </select>
     </td>
     <td>
-        <button type="button" class="btn bg-danger-light btn trash remove"><i class="far fa-trash-alt">X</i></button>
+        <button type="button" class="btn bg-danger-light btn trash remove"><i class="fe fe-trash"></i></button>
     </td>
 </tr>

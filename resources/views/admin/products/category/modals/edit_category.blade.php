@@ -12,7 +12,7 @@
                     <div id="loader"></div>
                     <input type="hidden" name="category_id" id="category_id">
                     <div class="form-group">
-                        <label for="">Name:<strong class="text-danger">*</strong></label>
+                        <label for="">Name:<span class="text-danger">*</span></label>
                         <input type="text" name="name" class="form-control" id="name" required>
 
                     </div>

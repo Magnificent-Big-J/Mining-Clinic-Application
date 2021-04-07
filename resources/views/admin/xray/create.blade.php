@@ -33,7 +33,7 @@
                                     <input type="hidden" name="appointment" value="{{$appointment->id}}">
                                     <input type="hidden" name="document" value="{{$document_type[0]->id}}">
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Patient X-ray(s) <strong class="text-danger">*</strong>:</label>
+                                        <label class="col-lg-3 col-form-label">Patient X-ray(s): <span class="text-danger">*</span></label>
                                         <div class="col-lg-9">
                                             <input type="file" accept="image/gif, image/jpeg, image/png, application/pdf" name="xray"  class="form-control" required>
                                             @error('xray')

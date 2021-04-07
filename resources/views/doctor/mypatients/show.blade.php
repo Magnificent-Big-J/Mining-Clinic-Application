@@ -129,7 +129,6 @@
                                             <th>ID</th>
                                             <th>Date </th>
                                             <th>Description</th>
-                                            <th>Attachment</th>
                                             <th>Created</th>
                                             <th></th>
                                             <th></th>
@@ -141,7 +140,6 @@
                                                     <td>{{$key + 1 }}</td>
                                                     <td>{{$record->record_date}}</td>
                                                     <td class="text-wrap">{{$record->description}}</td>
-                                                    <td><a href="#patient-medical-record" data-toggle="modal" data-target="#patient-medical-record" class="medical-record"  id="{{$record->id}}" >{{$record->file_name}}</a></td>
                                                     <td>
                                                         {{$record->user->full_names}}
                                                     </td>

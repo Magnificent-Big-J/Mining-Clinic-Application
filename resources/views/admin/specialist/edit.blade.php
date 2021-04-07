@@ -34,7 +34,7 @@
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Specialist Name: <strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Specialist:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="specialist_name" value="{{ $specialist->name}}" class="form-control">
                                                     @error('specialist_name')

@@ -14,14 +14,14 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group ">
-                                <label  for="">Specialist Name: <strong class="text-danger">*</strong></label>
+                                <label  for="">Specialist:<span class="text-danger">*</span></label>
                                 <input type="text" id="specialist_name" name="specialist_name" class="form-control" required>
                                 <small class="text-danger" id="specialist-name-error"></small>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group ">
-                                <label for="">Specialist Image:<strong class="text-danger">*</strong></label>
+                                <label for="">Specialist Image:<span class="text-danger">*</span></label>
                                 <br>
                                 <input type="file" name="specialist_image" accept="image/gif, image/jpeg, image/png" class="form-control" required>
 

@@ -34,7 +34,7 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">First Name:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">First Name:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="first_name" value="{{ old('first_name') }}" class="form-control">
                                                     @error('first_name')
@@ -45,7 +45,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Title:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Title:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <select name="title" id="title" class="form-control">
                                                         <option value="Mr">Mr</option>
@@ -69,7 +69,7 @@
                                         <div class="col-lg-6">
 
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Last Name:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Last Name:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="last_name" value="{{ old('last_name') }}" class="form-control">
                                                     @error('last_name')
@@ -80,7 +80,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Email Address:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Email Address:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="email" value="{{ old('email') }}" class="form-control">
                                                     @error('email')
@@ -91,7 +91,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label" for="">Doctors:<strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label" for="">Doctors:<span class="text-danger">*</span></label>
                                                 <div class="col-lg-9">
                                                     <select name="doctor" id="doctors"  style="width: 100%" class="form-control select2-width" required>
                                                         @foreach($doctors as $doctor)

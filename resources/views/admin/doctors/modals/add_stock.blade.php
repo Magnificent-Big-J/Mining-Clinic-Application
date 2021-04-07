@@ -11,11 +11,11 @@
                 <form name="product-form">
                     <div class="form-group">
                         <input type="hidden" name="stock"  id="stock">
-                        <label for="">Product Quantity:<strong class="text-danger">*</strong></label>
+                        <label for="">Product Quantity:<span class="text-danger">*</span></label>
                         <input type="number" name="product_quantity" id="product_quantity" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">Stock Date:<strong class="text-danger">*</strong></label>
+                        <label for="">Stock Date:<span class="text-danger">*</span></label>
                         <input type="date" name="stock_date" id="stock_date" class="form-control">
                     </div>
 

@@ -17,7 +17,7 @@ class CreateMedicalRecordsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('user_id');
-            $table->string('description');
+            $table->text('description');
             $table->date('record_date');
             $table->string('path');
             $table->string('file_name');

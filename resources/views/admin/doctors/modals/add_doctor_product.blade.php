@@ -11,7 +11,7 @@
                 <form name="product-form">
                     <div class="form-group">
                         <input type="hidden" name="doctor" value="{{$doctor->id}}" id="doctor">
-                        <label for="">Product Name:<strong class="text-danger">*</strong></label>
+                        <label for="">Product Name:<span class="text-danger">*</span></label>
                         <select name="doctor_product" id="doctor-product" multiple style="width: 100%" class="form-control select2-width" required>
                             @foreach($products as $product)
                                 <option  value="{{$product->id}}">{{$product->product_code}} {{$product->product_name}}</option>

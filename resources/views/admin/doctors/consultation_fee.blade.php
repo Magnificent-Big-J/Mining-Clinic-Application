@@ -25,7 +25,7 @@
                 <!-- Recent Orders -->
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Consultations and consultation fees for {{$doctor->entity_name}}</h4>
+                        <h4 class="card-title">Consultations and consultation fees for {{$doctor->user->full_names}}</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

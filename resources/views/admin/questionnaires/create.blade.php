@@ -1,5 +1,5 @@
 <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Question Name: <strong class="text-danger">*</strong></label>
+    <label class="col-lg-3 col-form-label">Questionnaire:<span class="text-danger">*</span></label>
     <div class="col-lg-9">
         <input type="text" name="question_name" value="{{ old('question_name') }}" class="form-control">
         @error('question_name')
@@ -10,7 +10,7 @@
     </div>
 </div>
 <div class="form-group row">
-    <label class="col-lg-3 col-form-label">Question Image:</label>
+    <label class="col-lg-3 col-form-label">Questionnaire Image:</label>
     <div class="col-lg-9">
         <input type="file" accept="image/gif, image/jpeg, image/png" name="question_image"  class="form-control">
     </div>

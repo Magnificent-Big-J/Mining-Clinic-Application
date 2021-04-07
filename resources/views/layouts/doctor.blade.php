@@ -26,6 +26,11 @@
     <script src="{{asset('doctor/assets/js/html5shiv.min.js')}}"></script>
     <script src="{{asset('doctor/assets/js/respond.min.js')}}"></script>
     <![endif]-->
+    <style>
+        .dataTables_length{
+            text-transform:capitalize;
+        }
+    </style>
     @yield('styles')
 
         <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
