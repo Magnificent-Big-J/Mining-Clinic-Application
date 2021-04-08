@@ -129,7 +129,7 @@
                         {data: 'doctor', name: 'doctor'},
                         {data: 'specialities', name: 'specialities'},
                         {data: 'patient', name: 'patient'},
-                        {data: 'appointment_date', name: 'appointment_date'},
+                        {data: 'appointment_date_new', name: 'appointment_date_new'},
                         {data: 'appointment_time', name: 'appointment_time'},
                         {data: 'appointment_status', name: 'appointment_status'},
                         {data: 'appointment', name: 'appointment'},

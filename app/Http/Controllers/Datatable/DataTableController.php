@@ -122,9 +122,12 @@ class DataTableController extends Controller
             })
             ->addColumn('patient', function ($row){
                 return $row->patient->full_name;
-            })
+            })//appointment_date_new
             ->addColumn('appointment_status', function ($row){
                 return $row->status_text;
+            })
+            ->addColumn('appointment_date_new', function ($row){
+                return $row->appointment_date_new;
             })
             ->addColumn('appointment', function ($row){
                 return view('admin.appointments.partials.actions', compact('row'));

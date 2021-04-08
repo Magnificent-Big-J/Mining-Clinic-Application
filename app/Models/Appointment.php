@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -25,6 +26,8 @@ use Illuminate\Support\Collection;
  * @property Prescription[]|Collection $prescriptions
  * @property Document[]|Collection $documents
  * @property Referral[]|Collection $referrals
+ * @property string $appointment_new_date
+ * @property string $appointment_date_new
  */
 class Appointment extends Model
 {
@@ -107,5 +110,13 @@ class Appointment extends Model
     public function referrals(): HasMany
     {
         return $this->hasMany(Referral::class);
+    }
+    public function getAppointmentNewDateAttribute()
+    {
+        return Carbon::parse($this->appointment_date)->isoFormat('ddd, D MMM  Y');
+    }
+    public function getAppointmentDateNewAttribute()
+    {
+        return Carbon::parse($this->appointment_date)->format('l, jS  F Y');
     }
 }

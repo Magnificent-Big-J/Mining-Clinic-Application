@@ -40,7 +40,7 @@ class ScreeningQuestionnaireController extends Controller
     public function store(QuestionnaireCreateRequest $request)
     {
         $request->createQuestionnaires();
-        session()->flash('success', 'Questionnaire Successfully created');
+        session()->flash('success', 'Questionnaire Successfully Created');
         return redirect()->route('admin.screeningQuestionnaire.index');
     }
 

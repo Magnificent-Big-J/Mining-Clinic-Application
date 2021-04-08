@@ -142,8 +142,10 @@
                             @foreach($patient->appointments as $appointment)
 
 
-                                <h4>Appointment: {{$appointment->appointment_date}} {{$appointment->appointment_time}}</h4>
-                                <small class="text-primary">assessments:</small>
+                                <h4>Appointment <Information></Information></h4>
+                                <p>Date: {{$appointment->appointment_new_date}}</p>
+                                <p>Time: {{$appointment->appointment_time}}</p>
+                                <small class="text-primary">Assessments:</small>
                                 <table class="table mb-0">
                                     <thead>
                                     <tr>

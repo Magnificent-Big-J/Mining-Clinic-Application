@@ -163,7 +163,7 @@
                 axios.get(`../../api/doctor-product/${doctor_product}/product`)
                     .then((response)=>{
                         $('#loader').hide();
-                        $('.modal-title').html('Now updating :' + response.data.product_name)
+                        $('.modal-title').html('Now Updating :' + response.data.product_name)
                         $('#price').val(response.data.price)
                         $('#threshold').val(response.data.threshold)
                         $('#doctor-product-value').val(doctor_product)

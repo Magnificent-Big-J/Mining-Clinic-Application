@@ -26,10 +26,13 @@ class ReportDatatables extends Controller
             ->addColumn('appointment_status', function ($row){
                 return $row->status_text;
             })
+            ->addColumn('appointment_date_new', function ($row){
+                return $row->appointment_new_date;
+            })
             ->addColumn('actions', function ($row){
                 return view('admin.historic-appointment.partials.actions', compact('row'));
             })
-            ->rawColumns(['patient','specialities', 'appointment_status', 'actions'])
+
             ->make(true);
     }
 }

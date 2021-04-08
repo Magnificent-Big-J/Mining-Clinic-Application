@@ -148,7 +148,7 @@
                                 <tbody>
                                     @foreach($appointment->appointmentAssessment as $assessment)
                                         <tr>
-                                            <td>{{$assessment->appointment->appointment_date}}</td>
+                                            <td>{{$assessment->appointment->appointment_date_new}}</td>
                                             <td>{{$assessment->appointment->appointment_time}}</td>
                                             <td>R {{$assessment->consultationFee->consultation_fee}}</td>
                                             <td>{{$assessment->consultationFee->consultation->name}}</td>
