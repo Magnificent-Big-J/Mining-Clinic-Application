@@ -9,7 +9,7 @@
                     <h3 class="page-title">Patients Management</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">View Patient Medical Records</li>
+                        <li class="breadcrumb-item active">View Patient Medical Record</li>
                     </ul>
                 </div>
             </div>
@@ -62,37 +62,30 @@
             <div class="col-lg-12">
                 <div class="card ">
                     <div class="card-header">
-                        <h4 class="card-title">Medical Records</h4>
+                        <h4 class="card-title">Medical Record Information</h4>
                     </div>
                     <div class="card-body">
-                        <table class="table table-hover table-center mb-0">
-                            <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Date </th>
-                                <th>Description</th>
-                                <th>Created By</th>
-                                <th>Action</th>
 
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($patient->medicalRecords as $key=>$record)
-                                <tr>
-                                    <td>{{$key + 1 }}</td>
-                                    <td>{{$record->record_date}}</td>
-                                    <td class="text-wrap">{{$record->description}}</td>
-                                    <td>
-                                        {{$record->user->full_names}}
-                                    </td>
-                                    <td>
-                                        <a href="{{route('admin.patient.medical.record.show',['patient'=> $patient->id, 'medicalRecord'=>$record->id])}}" class="btn btn-info">View</a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <strong>Description:</strong>
+                            </div>
+                            <div class="col-lg-8">
+                                <p> {{$medicalRecord->description}}</p>
+                            </div>
+                            <div class="col-lg-4">
+                                <strong>Medical Record Date:</strong>
+                            </div>
+                            <div class="col-lg-8">
+                                <p> {{$medicalRecord->record_date}}</p>
+                            </div>
 
-                            </tbody>
-                        </table>
+                        </div>
+                        @if ($medicalRecord->path)
+                            <h4>Medical Record File</h4>
+                            <iframe src="{{asset($medicalRecord->path)}}" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>
+                            <a href="{{asset($medicalRecord->path)}}" target="_blank" class="btn btn-primary" download>Download</a>
+                        @endif
                     </div>
                 </div>
             </div>

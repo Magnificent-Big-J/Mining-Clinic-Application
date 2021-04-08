@@ -27,9 +27,10 @@
     <script src="{{asset('doctor/assets/js/respond.min.js')}}"></script>
     <![endif]-->
     <style>
-        .dataTables_length{
+        .dataTables_length, .swal2-title, #swal2-title{
             text-transform:capitalize;
         }
+
     </style>
     @yield('styles')
 

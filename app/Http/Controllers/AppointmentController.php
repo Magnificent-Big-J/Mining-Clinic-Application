@@ -119,10 +119,10 @@ class AppointmentController extends Controller
     {
         if ($appointment->status !== Appointment::ACCEPTED_STATUS || $appointment->status !== Appointment::DONE_STATUS) {
             SendDeletedAppointment::dispatch($appointment);
-            session()->flash('success','Appointment has been deleted');
+            session()->flash('success','Appointment has been deleted.');
             $appointment->delete();
         } else {
-            session()->flash('error','Appointment cannot be deleted');
+            session()->flash('error','Appointment cannot be deleted. It is already  linked to active records');
         }
 
 

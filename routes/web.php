@@ -50,3 +50,9 @@ Route::get('medical-record/{medicalRecord}/show', 'MedicalRecordController@show'
 Route::post('medical-record-upload', 'MedicalRecordController@store')->name('medical.record.store');
 Route::put('medical-record/{medicalRecord}update', 'MedicalRecordController@update')->name('medical.record.update');
 
+Route::get('test', function (){
+    return view('test');
+});
+Route::get('test-child', function (){
+    return view('test_child');
+});

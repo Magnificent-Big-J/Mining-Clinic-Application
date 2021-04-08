@@ -129,7 +129,7 @@
                                             <th>ID</th>
                                             <th>Date </th>
                                             <th>Description</th>
-                                            <th>Created</th>
+                                            <th>Created By</th>
                                             <th></th>
                                             <th></th>
                                         </tr>

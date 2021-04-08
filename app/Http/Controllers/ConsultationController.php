@@ -40,7 +40,7 @@ class ConsultationController extends Controller
     public function store(ConsultationCreateRequest $request)
     {
         $request->createConsultation();
-        session()->flash('success', 'Consultation successfully created.');
+        session()->flash('success', 'Consultation Successfully Created.');
         return redirect()->route('admin.consultation.index');
     }
 
@@ -94,7 +94,7 @@ class ConsultationController extends Controller
             ConsultationFee::where('consultation_id', $consultation->id)->update(['deleted_at' => now()]);
             $consultationFeeIds = ConsultationFee::where('consultation_id', $consultation->id)->pluck('id');
             AppointmentAssessment::whereIn('consultation_fee_id',$consultationFeeIds)->update(['deleted_at' => now()]);
-            session()->flash('success', 'Consultation successfully deleted.');
+            session()->flash('success', 'Consultation Successfully Deleted.');
         }
         return redirect()->route('admin.consultation.index');
     }

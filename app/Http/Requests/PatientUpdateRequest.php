@@ -25,14 +25,15 @@ class PatientUpdateRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
             'first_name' => 'required|regex:/^[a-zA-Z,;\s]+$/',
             'gender' => 'required|string',
-            'last_name' => 'required|regex:/^[a-zA-Z,;\s]+$',
+            'last_name' => 'required|regex:/^[a-zA-Z,;\s]+$/',
             'identity_number' => 'required|string',
             'email_address' => 'required|email|unique:patients,email_address,' . $this->patient->id,
             'is_local' => 'required',
-            'second_name' =>'nullable|alpha',
+            'second_name' =>'nullable',
             'cellphone' => 'required',
             'date_of_birth' => 'required',
             'address_1' => 'required|regex:/^[a-zA-Z0-9,;\s]+$/',
@@ -43,6 +44,7 @@ class PatientUpdateRequest extends FormRequest
     }
     public function updateRecord($patient)
     {
+
         $patient->first_name = $this->first_name;
         $patient->last_name = $this->last_name;
         $patient->gender = $this->gender;

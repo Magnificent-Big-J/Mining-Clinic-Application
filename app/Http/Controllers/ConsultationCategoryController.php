@@ -40,7 +40,7 @@ class ConsultationCategoryController extends Controller
     public function store(ConsultationCategoryRequest $request)
     {
         $request->createCategory();
-        session()->flash('success', 'Consultation category successfully created.');
+        session()->flash('success', 'Consultation Category Successfully Created.');
         return redirect()->route('admin.consultation-category.index');
     }
 
@@ -95,7 +95,7 @@ class ConsultationCategoryController extends Controller
             ConsultationFee::whereIn('consultation_id', $consultationIds)->update(['deleted_at' => now()]);
             $consultationFeeIds = ConsultationFee::whereIn('consultation_id', $consultationIds)->pluck('id');
             AppointmentAssessment::whereIn('consultation_fee_id',$consultationFeeIds)->update(['deleted_at' => now()]);
-            session()->flash('success', 'Consultation category successfully deleted.');
+            session()->flash('success', 'Consultation Category Successfully Deleted.');
         }
 
         return redirect()->route('admin.consultation-category.index');
