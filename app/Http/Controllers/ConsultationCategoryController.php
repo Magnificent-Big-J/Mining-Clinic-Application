@@ -86,13 +86,18 @@ class ConsultationCategoryController extends Controller
      */
     public function destroy(ConsultationCategory $consultationCategory)
     {
-        $consultationCategory->delete();
-        $consultationIds = Consultation::where('consultation_category_id', $consultationCategory->id)->pluck('id');
-        Consultation::where('consultation_category_id', $consultationCategory->id)->update(['deleted_at' => now()]);
-        ConsultationFee::whereIn('consultation_id', $consultationIds)->update(['deleted_at' => now()]);
-        $consultationFeeIds = ConsultationFee::whereIn('consultation_id', $consultationIds)->pluck('id');
-        AppointmentAssessment::whereIn('consultation_fee_id',$consultationFeeIds)->update(['deleted_at' => now()]);
-        session()->flash('success', 'Consultation category successfully deleted.');
+        if ($consultationCategory->consultation->count()) {
+            session()->flash('error', 'Consultation category cannot be deleted as it is linked to active record.');
+        } else {
+            $consultationCategory->delete();
+            $consultationIds = Consultation::where('consultation_category_id', $consultationCategory->id)->pluck('id');
+            Consultation::where('consultation_category_id', $consultationCategory->id)->update(['deleted_at' => now()]);
+            ConsultationFee::whereIn('consultation_id', $consultationIds)->update(['deleted_at' => now()]);
+            $consultationFeeIds = ConsultationFee::whereIn('consultation_id', $consultationIds)->pluck('id');
+            AppointmentAssessment::whereIn('consultation_fee_id',$consultationFeeIds)->update(['deleted_at' => now()]);
+            session()->flash('success', 'Consultation category successfully deleted.');
+        }
+
         return redirect()->route('admin.consultation-category.index');
     }
 }
