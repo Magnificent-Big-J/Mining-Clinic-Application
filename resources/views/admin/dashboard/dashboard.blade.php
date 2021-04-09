@@ -69,7 +69,7 @@
                         </div>
                         <div class="dash-widget-info">
 
-                            <h6 class="text-muted">Upcoming Appointment</h6>
+                            <h6 class="text-muted">Upcoming Appointments</h6>
                             <div class="progress progress-sm">
                                 <div class="progress-bar bg-danger w-50"></div>
                             </div>
@@ -90,7 +90,7 @@
                         </div>
                         <div class="dash-widget-info">
 
-                            <h6 class="text-muted">Today Appointment</h6>
+                            <h6 class="text-muted">Today Appointments</h6>
                             <div class="progress progress-sm">
                                 <div class="progress-bar bg-warning w-50"></div>
                             </div>
