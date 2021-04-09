@@ -61,7 +61,6 @@ class BookingService
                 ->where('appointment_date', '=', Carbon::parse($appointment))
                 ->pluck('appointment_time')->toArray());
 
-
             if ($appointments->count()) {
                 $times = $appointments->map(function ($time){
                     return date('h:i', strtotime($time));
@@ -69,10 +68,10 @@ class BookingService
 
                 foreach ($times as $time) {
 
-                    $pos = array_search($time, self::timeSlots(), true);
+                    $pos = array_search($time, $temp, true);
                     unset($temp[$pos]);
                 }
-                dd($temp);
+
                //return  array_diff(self::timeSlots(), $times);
             }
 
