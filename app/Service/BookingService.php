@@ -63,7 +63,6 @@ class BookingService
 
 
             if ($appointments->count()) {
-
                 $times = $appointments->map(function ($time){
                     return date('h:i', strtotime($time));
                 })->toArray();
@@ -71,9 +70,9 @@ class BookingService
                 foreach ($times as $time) {
 
                     $pos = array_search($time, self::timeSlots(), true);
-                    unset(self::timeSlots()[$pos]);
+                    unset($temp[$pos]);
                 }
-                unset($temp[$pos]);
+
                //return  array_diff(self::timeSlots(), $times);
             }
 
