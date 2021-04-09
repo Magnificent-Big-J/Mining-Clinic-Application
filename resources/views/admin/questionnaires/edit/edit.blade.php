@@ -34,7 +34,7 @@
                                             @csrf
                                             @method('PUT')
                                             <div class="form-group row">
-                                                <label class="col-lg-3 col-form-label">Question name: <strong class="text-danger">*</strong></label>
+                                                <label class="col-lg-3 col-form-label">Question: <strong class="text-danger">*</strong></label>
                                                 <div class="col-lg-9">
                                                     <input type="text" name="question_name" value="{{ $screeningQuestionnaire->name  }}" class="form-control">
                                                     @error('question_name')
