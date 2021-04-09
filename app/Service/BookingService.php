@@ -67,8 +67,8 @@ class BookingService
                 })->toArray();
 
                 foreach ($times as $time) {
-
                     $pos = array_search($time, $temp, true);
+                    echo $time;
                     unset($temp[$pos]);
                 }
 
