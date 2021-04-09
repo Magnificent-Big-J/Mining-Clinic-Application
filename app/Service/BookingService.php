@@ -63,7 +63,7 @@ class BookingService
 
             if ($appointments->count()) {
                 $times = $appointments->map(function ($time){
-                    return date('h:i', strtotime($time));
+                    return date('H:i', strtotime($time));
                 })->toArray();
                 dd($times);
                 foreach ($times as $time) {
