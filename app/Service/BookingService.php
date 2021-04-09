@@ -56,7 +56,6 @@ class BookingService
         }
         public static function unbookedSlots(int $doctor, string $appointment): array
         {
-            $temp = self::timeSlots();
             $appointments = collect(Appointment::where('doctor_id', '=', $doctor)
                 ->where('appointment_date', '=', Carbon::parse($appointment))
                 ->pluck('appointment_time')->toArray());
@@ -65,17 +64,11 @@ class BookingService
                 $times = $appointments->map(function ($time){
                     return date('H:i', strtotime($time));
                 })->toArray();
-                dd($times);
-                foreach ($times as $time) {
-                    $pos = array_search($time, $temp, true);
-                    echo $time;
-                    unset($temp[$pos]);
-                }
 
-               //return  array_diff(self::timeSlots(), $times);
+               return  array_diff(self::timeSlots(), $times);
             }
 
-            return $temp;
+            return self::timeSlots();
         }
 
 }
