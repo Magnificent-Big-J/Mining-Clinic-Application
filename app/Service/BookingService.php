@@ -65,7 +65,7 @@ class BookingService
                 $times = $appointments->map(function ($time){
                     return date('h:i', strtotime($time));
                 })->toArray();
-
+                dd($times);
                 foreach ($times as $time) {
                     $pos = array_search($time, $temp, true);
                     echo $time;
