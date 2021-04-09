@@ -60,7 +60,7 @@ class BookingService
                 ->where('appointment_date', '=', Carbon::parse($appointment))
                 ->pluck('appointment_time')->toArray());
 
-            dd($appointments);
+            //dd($appointments);
             if ($appointments->count()) {
 
                 $times = $appointments->map(function ($time){
