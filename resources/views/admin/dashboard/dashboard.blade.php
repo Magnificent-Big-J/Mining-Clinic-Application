@@ -188,7 +188,7 @@
                 <!-- Recent Orders -->
                 <div class="card card-table">
                     <div class="card-header">
-                        <h4 class="card-title">List of Appointment</h4>
+                        <h4 class="card-title">List of Appointments</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
