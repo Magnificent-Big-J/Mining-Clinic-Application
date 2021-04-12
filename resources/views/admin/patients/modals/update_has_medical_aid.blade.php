@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">Medical Aid Plan:</label>
+                        <label class="col-lg-3 col-form-label">Medical Aid Status:</label>
                         <div class="col-lg-9">
                             <select name="status" id="medical-aid-status" class="form-control">
                                 @foreach($status as $key=> $stat)
