@@ -90,7 +90,7 @@
                         </div>
                         <div class="dash-widget-info">
 
-                            <h6 class="text-muted">Today Appointments</h6>
+                            <h6 class="text-muted">Today's Appointments</h6>
                             <div class="progress progress-sm">
                                 <div class="progress-bar bg-warning w-50"></div>
                             </div>
@@ -188,7 +188,7 @@
                 <!-- Recent Orders -->
                 <div class="card card-table">
                     <div class="card-header">
-                        <h4 class="card-title">Appointment List</h4>
+                        <h4 class="card-title">List of Appointment</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
