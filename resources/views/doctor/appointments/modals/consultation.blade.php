@@ -1,10 +1,10 @@
 <!-- Appointment Details Modal -->
-<form action="">
+
 <div class="modal fade custom-modal" id="appointment-consultation">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Select Appointment Consultation</h5>
+                <p >Select Appointment Consultation</p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -30,5 +30,5 @@
         </div>
     </div>
 </div>
-</form>
+
 <!-- /Appointment Details Modal -->

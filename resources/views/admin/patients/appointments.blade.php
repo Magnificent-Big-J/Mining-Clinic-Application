@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <div class="card ">
                             <div class="card-header">
-                                <h4 class="card-title">Patient Personal Information Information</h4>
+                                <h4 class="card-title">Patient Personal Information</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -47,7 +47,7 @@
                                     <p class="col-sm-10">{{$patient->identity_number}}</p>
                                 </div>
                                 <div class="row">
-                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Ages</p>
+                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Age</p>
                                     <p class="col-sm-10">{{$patient->age}}</p>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                     <div class="card-body">
                         <div class="card ">
                             <div class="card-header">
-                                <h4 class="card-title">Patient AddressesInformation</h4>
+                                <h4 class="card-title">Patient Address Information</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -100,7 +100,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h1 class="card-title">Medical Aid Information</h1>
+                            <h4 class="card-title">Medical Aid Information</h4>
                         </div>
                         <div class="card-body">
 
@@ -142,7 +142,7 @@
                             @foreach($patient->appointments as $appointment)
 
 
-                                <h4>Appointment <Information></Information></h4>
+                                <h4>Appointment Information</h4>
                                 <p>Date: {{$appointment->appointment_new_date}}</p>
                                 <p>Time: {{$appointment->appointment_time}}</p>
                                 <small class="text-primary">Assessments:</small>
@@ -156,8 +156,6 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-
-
                                     @foreach($appointment->appointmentAssessment as $assessment)
                                         <tr>
                                             <td>{{$assessment->appointment->doctor->user->full_names}}</td>
@@ -166,7 +164,6 @@
                                             <td>{{$assessment->consultationFee->consultation->consultationCategory->name}}</td>
                                         </tr>
                                     @endforeach
-
                                     </tbody>
                                 </table>
                                 <hr>

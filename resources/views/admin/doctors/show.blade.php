@@ -62,7 +62,7 @@
 
                                                 </h5>
                                                 <div class="row">
-                                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Specialities</p>
+                                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Speciality</p>
                                                     <ul >
                                                         @foreach($doctor->specialists as $specialist)
                                                             <li >{{$specialist->name}}</li>

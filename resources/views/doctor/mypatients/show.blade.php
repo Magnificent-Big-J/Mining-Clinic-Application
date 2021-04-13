@@ -28,7 +28,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h1 class="card-title">Medical Aid Information</h1>
+                                <h4 class="card-title">Medical Aid Information</h4>
                             </div>
                             <div class="card-body">
 
@@ -118,7 +118,7 @@
                     <!-- Medical Records Tab -->
                     <div class="tab-pane fade" id="medical">
                         <div class="text-right">
-                            <a href="{{route('medical.record.upload', $patient->id)}}" class="add-new-btn" >Add Medical Records</a>
+                            <a href="{{route('medical.record.upload', $patient->id)}}" class="add-new-btn" >Add Medical Record</a>
                         </div>
                         <div class="card card-table mb-0">
                             <div class="card-body">
@@ -128,7 +128,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Date </th>
-                                            <th>Description</th>
+                                            <th>Record Description</th>
                                             <th>Created By</th>
                                             <th></th>
                                             <th></th>

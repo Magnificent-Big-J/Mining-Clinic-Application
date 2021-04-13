@@ -1,8 +1,8 @@
 <div class="modal fade custom-modal" id="doctor-consultation-modal">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title mr-1">Select All Consultation For This Appointment</h5>
+                <h5 class="modal-title mr-2">Select All Consultation For This Appointment</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -14,7 +14,7 @@
                     <input type="hidden" name="appointment" id="appointment">
 
                     <div class="form-group">
-                        <label for="">Select Consultation:<strong class="text-danger">*</strong></label>
+                        <label for="">Select Consultation:<span class="text-danger">*</span></label>
                         <select name="consultations[]" id="doctor-consultation" multiple style="width: 100%" class="form-control select2-width" required>
                             @foreach($consultationFees as $consultation)
                                 <option  value="{{$consultation->id}}">{{$consultation->consultation->name}}</option>

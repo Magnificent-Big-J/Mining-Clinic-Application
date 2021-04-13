@@ -31,7 +31,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Questionnaire</th>
-                                    <th>Questionnaire Type</th>
+                                    <th>Questionnaire Category</th>
                                     <th>Questionnaire Group</th>
                                     <th>Edit</th>
                                     <th>Delete</th>

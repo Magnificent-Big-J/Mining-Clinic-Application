@@ -56,7 +56,7 @@
                                     <p class="col-sm-10">{{$referral->appointment->patient->identity_number}}</p>
                                 </div>
                                 <div class="row">
-                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Ages</p>
+                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Age</p>
                                     <p class="col-sm-10">{{$referral->appointment->patient->age}}</p>
                                 </div>
                             </div>
@@ -98,18 +98,23 @@
                             <div class="col-lg-8">
                                 <p> {{$referral->referred_to}}</p>
                             </div>
+                            @if (!empty($document_path))
+                                <div class="col-lg-4">
+                                    <strong>Referral File</strong>
+                                </div>
+                                <div class="col-lg-8">
+                                    @if ($isPdf)
+                                        <embed src="{{ asset($document_path)}}" width="100%" height="800" alt="pdf" />
+                                    @else
+                                        <img src="{{ asset($document_path)}}" class="img-fluid img-thumbnail">
+
+                                    @endif
+                                </div>
+                            @endif
 
                         </div>
 
-                       @if (!empty($document_path))
-                           <h4>Referral Document</h4>
-                            @if ($isPdf)
-                                <embed src="{{ asset($document_path)}}" width="100%" height="800" alt="pdf" />
-                            @else
-                                <img src="{{ asset($document_path)}}" class="img-fluid img-thumbnail">
 
-                            @endif
-                       @endif
                     </div>
                 </div>
             </div>

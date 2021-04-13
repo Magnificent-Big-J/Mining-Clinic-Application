@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-lg-3 col-form-label">Specialist:<span class="text-danger">*</span></label>
+            <label class="col-lg-3 col-form-label">Speciality:<span class="text-danger">*</span></label>
             <div class="col-lg-9">
                 <select name="specialist_name[]" id="specialist_name" class="form-control" style="width: 100%" class="form-control select2-width" required multiple="multiple">
                     @foreach($specialists as $specialist)

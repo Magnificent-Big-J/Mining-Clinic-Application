@@ -6,7 +6,7 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="page-title">Medical Examination Questionnaires Management</h3>
+                    <h3 class="page-title">{{$heading}}</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Dashboard</a></li>
                         <li class="breadcrumb-item active">Edit</li>
@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <h4 class="card-title">Edit Questionnaires
+                                <h4 class="card-title">Edit Question
 
                                 </h4>
                             </div>

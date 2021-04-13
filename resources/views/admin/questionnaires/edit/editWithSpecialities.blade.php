@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <h4 class="card-title">Edit Specialities Questionnaires
+                                <h4 class="card-title">Edit Specialities Question
 
                                 </h4>
                             </div>

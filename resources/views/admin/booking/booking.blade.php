@@ -29,10 +29,9 @@
                     <div class="card-body">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <h4 class="card-title">Doctor Personal Information</h4>
+                                <h4 class="card-title">Booking for patient <span class="text-primary">{{$patient->first_name}} {{$patient->last_name}}</span></h4>
                             </div>
                             <div class="card-body">
-                                <h4>Booking for patient <span class="text-primary">{{$patient->first_name}} {{$patient->last_name}}</span></h4>
                                 <form id="booking-form" method="post" >
                                     <div id="loader"></div>
                                     @csrf

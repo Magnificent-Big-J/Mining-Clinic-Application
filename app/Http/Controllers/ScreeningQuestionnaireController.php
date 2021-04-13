@@ -40,7 +40,7 @@ class ScreeningQuestionnaireController extends Controller
     public function store(QuestionnaireCreateRequest $request)
     {
         $request->createQuestionnaires();
-        session()->flash('success', 'Questionnaire Successfully Created');
+        session()->flash('success', 'Question Successfully Created');
         return redirect()->route('admin.screeningQuestionnaire.index');
     }
 
@@ -65,7 +65,18 @@ class ScreeningQuestionnaireController extends Controller
     {
 
         if ($screeningQuestionnaire->type === ScreeningQuestionnaire::GENERAL_TYPE) {
-            return  view('admin.questionnaires.edit.edit', compact('screeningQuestionnaire'));
+
+            if (($screeningQuestionnaire->screening_type_id === 1)) {
+                $heading =  'Covid-19 Question Management';
+                $subHeading = 'Covid-19';
+            } else {
+                $heading = 'Medical Examination Question Management';
+                $subHeading = 'General';
+            }
+
+
+
+            return  view('admin.questionnaires.edit.edit', compact('screeningQuestionnaire', 'heading', 'subHeading'));
         } else {
             $qSpecialities = $screeningQuestionnaire->specialities()->pluck('specialists.id')->toArray();
 

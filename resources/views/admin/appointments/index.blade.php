@@ -68,13 +68,13 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Doctor</th>
                                     <th scope="col">Specialities</th>
-                                    <th scope="col">Patient Name</th>
+                                    <th scope="col">Patient</th>
                                     <th scope="col">Appointment Date</th>
                                     <th scope="col">Appointment Time</th>
                                     <th scope="col">Appointment Status</th>
-                                    <th scope="col">Appointment Action</th>
-                                    <th scope="col">Xray Action</th>
-                                    <th scope="col">Delete Action</th>
+                                    <th scope="col">Appointment</th>
+                                    <th scope="col">X-ray</th>
+                                    <th scope="col">Delete </th>
                                 </tr>
                                 </thead>
                                 <tbody>

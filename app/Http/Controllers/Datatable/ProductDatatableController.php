@@ -33,6 +33,12 @@ class ProductDatatableController extends Controller
             ->addColumn('category', function ($row){
                 return $row->productCategory->name;
             })
+            ->addColumn('newProductSize', function ($row){
+                return $row->new_product_size;
+            })
+            ->addColumn('newProductUnit', function ($row){
+                return $row->new_product_unit;
+            })
             ->addColumn('edit', function ($row){
                 return view('admin.products.product.partials.actions', compact('row'));
             })

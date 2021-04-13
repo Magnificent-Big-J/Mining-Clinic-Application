@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <div class="card flex-fill">
                             <div class="card-header">
-                                <h4 class="card-title"> Questionnaires
+                                <h4 class="card-title"> Question
 
                                 </h4>
                             </div>

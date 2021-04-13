@@ -34,7 +34,7 @@
                                 <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Consultation</th>
+                                    <th>Consultation Description</th>
                                     <th>Consultation Category</th>
                                     <th>Consultation Fee</th>
                                     <th>Actions</th>

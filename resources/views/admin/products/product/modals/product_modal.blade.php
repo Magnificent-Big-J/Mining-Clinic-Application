@@ -11,17 +11,17 @@
                 <form name="product-form">
                     <div id="loader"></div>
                     <div class="form-group">
-                        <label for="">Product Name:<strong class="text-danger">*</strong></label>
+                        <label for="" class="font-weight-bold">Product Name:<span class="text-danger">*</span></label>
                         <input type="text" name="product_name" class="form-control" id="product_name" required>
                         <small id="product_name_error" class="text-danger"></small>
                     </div>
                     <div class="form-group">
-                        <label for="">Product Code:<strong class="text-danger">*</strong></label>
+                        <label for="" class="font-weight-bold">Product Code:<span class="text-danger">*</span></label>
                         <input type="text" name="product_code" class="form-control" id="product_code" required>
                         <small id="product_code_error" class="text-danger"></small>
                     </div>
                     <div class="form-group">
-                        <label for="">Product Category:<strong class="text-danger">*</strong></label>
+                        <label for="" class="font-weight-bold">Product Category:<span class="text-danger">*</span></label>
                         <select name="product_category" id="product-categories" id="product_category" style="width: 100%" class="form-control select2-width" required>
                             @foreach($productCategories as $productCategory)
                                 <option  value="{{$productCategory->id}}">{{$productCategory->name}}</option>
@@ -30,15 +30,15 @@
                         <small id="product_category_error" class="text-danger"></small>
                     </div>
                     <div class="form-group">
-                        <label for="">Product Size:</label>
+                        <label for="" class="font-weight-bold">Product Size:</label>
                         <input type="text" name="product_size" placeholder="200 ml" class="form-control" id="product_size" >
                     </div>
                     <div class="form-group">
-                        <label for="">Product Unit:</label>
+                        <label for="" class="font-weight-bold">Product Unit:</label>
                         <input type="text" name="product_unit" placeholder="Bottle" class="form-control" id="product_unit" >
                     </div>
                     <div class="form-group">
-                        <label for="">Product Description:</label>
+                        <label for="" class="font-weight-bold">Product Description:</label>
                         <textarea name="product_description" id="product_description" cols="10" rows="2" class="form-control"></textarea>
                     </div>
                     <div class="submit-section text-center">

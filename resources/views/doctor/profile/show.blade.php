@@ -10,7 +10,7 @@
         @method('PUT')
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Basic Information</h4>
+                <h4 class="card-title">Profile Details</h4>
                 <div class="row form-row">
                     <div class="col-md-12">
                         <div class="form-group">

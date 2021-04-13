@@ -38,5 +38,14 @@ class Product extends Model
     {
         return $this->belongsTo(Clinic::class);
     }
+    public function getNewProductSizeAttribute(): string
+    {
+        return ($this->product_size ==null ) ? 'N/A': $this->product_size;
+    }
+    public function getNewProductUnitAttribute(): string
+    {
+        return ($this->product_unit == null)  ? 'N/A': $this->product_unit;
+    }
+
 
 }

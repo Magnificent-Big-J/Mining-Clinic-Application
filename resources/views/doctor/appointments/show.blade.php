@@ -60,7 +60,7 @@
                                     <p class="col-sm-10">{{$appointment->patient->identity_number}}</p>
                                 </div>
                                 <div class="row">
-                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Ages</p>
+                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Age</p>
                                     <p class="col-sm-10">{{$appointment->patient->age}}</p>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h1 class="card-title">Medical Aid Information</h1>
+                            <h4 class="card-title">Medical Aid Information</h4>
                         </div>
                         <div class="card-body">
 
@@ -112,7 +112,9 @@
 
                     </div>
                     <div class="card-body">
-                        <h4> <i class="far fa-clock"></i>{{$appointment->appointment_date}} {{$appointment->appointment_time}}</h4>
+
+                        <p>Date: {{$appointment->appointment_new_date}}</p>
+                        <p>Time: {{$appointment->appointment_time}}</p>
                         <div class="table-responsive">
                             <table class="table mb-0">
                                 <thead>
