@@ -47,7 +47,7 @@
                                     <p class="col-sm-10">{{$patient->identity_number}}</p>
                                 </div>
                                 <div class="row">
-                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Ages</p>
+                                    <p class="col-sm-2 text-muted text-sm-right mb-0 mb-sm-3">Age</p>
                                     <p class="col-sm-10">{{$patient->age}}</p>
                                 </div>
                             </div>

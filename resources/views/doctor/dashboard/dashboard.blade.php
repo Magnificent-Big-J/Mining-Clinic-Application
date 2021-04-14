@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                                 <div class="dash-widget-info">
-                                    <h6>Upcoming Appoinments</h6>
+                                    <h6>Upcoming Appointments</h6>
                                     <h3>{{$stats['upcoming_appointments']}}</h3>
                                 </div>
                             </div>
